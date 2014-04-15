@@ -26,4 +26,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) newMethod
+{
+    NSLog(@"This is a method which only exists in the dev branch");
+}
+
 @end
