@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PCAViewController : UIViewController
+#import <Parse/Parse.h>
+
+@interface PCAViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @end
