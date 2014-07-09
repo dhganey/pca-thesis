@@ -12,6 +12,9 @@
 
 @interface PCAViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
-- (IBAction)logOutButton:(id)sender;
+- (IBAction)logOutPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *painField;
+- (IBAction)submitPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *previousValueLabel;
 
 @end
