@@ -12,4 +12,6 @@
 
 @interface PCAViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
+- (IBAction)logOutButton:(id)sender;
+
 @end
