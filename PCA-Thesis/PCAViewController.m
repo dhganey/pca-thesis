@@ -45,7 +45,7 @@
     }
     else
     {
-        //todo: someone logged in
+        //allow the view to load
     }
 
 }
@@ -53,6 +53,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,7 +153,6 @@
 {
     //[self performSegueWithIdentifier:@"loggedInSegue" sender:self];
     [self dismissViewControllerAnimated:YES completion:NULL];
-
 }
 
 //Optional login method
@@ -209,8 +209,17 @@
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
 {
-    [self dismissViewControllerAnimated:YES completion:nil]; // Dismiss the PFSignUpViewController
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^
+    {
+        if ([PFUser currentUser][@"symptomBitmask"] == NULL) //if the patient has not supplied additional information yet
+        {
+            [self performSegueWithIdentifier:@"additionalInfoSegue" sender:self];
+        }
+        else
+        {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+    }]; // Dismiss the PFSignUpViewController
 }
 
 //Optional signup method

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630F1ED2196E3D9D009D271B /* PCAAdditionalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630F1ED1196E3D9D009D271B /* PCAAdditionalInfoViewController.m */; };
 		637A825C196CBF830014310D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637A825B196CBF830014310D /* Parse.framework */; };
 		637A825E196CC02D0014310D /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637A825D196CC02D0014310D /* Accounts.framework */; };
 		637A8260196CC0310014310D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637A825F196CC0310014310D /* Social.framework */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		630F1ED0196E3D9D009D271B /* PCAAdditionalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAAdditionalInfoViewController.h; sourceTree = "<group>"; };
+		630F1ED1196E3D9D009D271B /* PCAAdditionalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAAdditionalInfoViewController.m; sourceTree = "<group>"; };
 		637A825B196CBF830014310D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		637A825D196CC02D0014310D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		637A825F196CC0310014310D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -169,6 +172,8 @@
 				63B503CB18FB43C20017F906 /* PCAAppDelegate.h */,
 				63B503CC18FB43C20017F906 /* PCAAppDelegate.m */,
 				63B503CE18FB43C20017F906 /* Main.storyboard */,
+				630F1ED0196E3D9D009D271B /* PCAAdditionalInfoViewController.h */,
+				630F1ED1196E3D9D009D271B /* PCAAdditionalInfoViewController.m */,
 				63B503D118FB43C20017F906 /* PCAViewController.h */,
 				63B503D218FB43C20017F906 /* PCAViewController.m */,
 				637A8261196CDA2B0014310D /* PCALoginViewController.h */,
@@ -308,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				630F1ED2196E3D9D009D271B /* PCAAdditionalInfoViewController.m in Sources */,
 				63B503D318FB43C20017F906 /* PCAViewController.m in Sources */,
 				63B503C918FB43C20017F906 /* main.m in Sources */,
 				63B503CD18FB43C20017F906 /* PCAAppDelegate.m in Sources */,
