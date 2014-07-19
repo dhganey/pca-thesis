@@ -41,7 +41,7 @@
         [logInViewController setSignUpController:signUpViewController];
         
         // Present the log in view controller
-        [self presentViewController:logInViewController animated:YES completion:nil];
+        [self presentViewController:logInViewController animated:NO completion:nil];
     }
     else
     {
@@ -61,67 +61,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
-    [self.view setNeedsDisplay];
-    
-    if ([PFUser currentUser]) //if logged in
-    {
-        [self runMostRecentQuery];
-    }
-}
-
--(void) viewDidAppear:(BOOL)animated
-{
-    if ([PFUser currentUser]) //if logged in
-    {
-        [self runMostRecentQuery];
-    }
-}
-
--(void) runMostRecentQuery
-{
-    //Query the database to find all pain scores for current user
-    PFQuery *query = [PFQuery queryWithClassName:@"ESASEntry"];
-    [query whereKey:@"user" equalTo:[PFUser currentUser]];
-    
-    //[query whereKey:@"symptom" equalTo:@"pain"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
-     {
-         if (!error)
-         {
-             NSString* labelText = @"No Entry"; //default value
-             PFObject *mostRecent; //most recent pain score
-             if ( [objects count] == 0)
-             {
-                 //do nothing
-             }
-             else //loop through to find the most recent entry
-             {
-                 mostRecent = [objects objectAtIndex:0]; //grab first object
-                 for (PFObject *object in objects)
-                 {
-                     if ( [object.createdAt timeIntervalSinceReferenceDate] > [mostRecent.createdAt timeIntervalSinceReferenceDate]) //if the current object is more recent than mostRecent, reset
-                     {
-                         mostRecent = object;
-                     }
-                 }
-                 NSNumber* recentNum = mostRecent[@"value"];
-                 labelText = [recentNum stringValue];
-             }
-             
-             [self.previousValueLabel setText:labelText];
-             [self.view setNeedsDisplay];
-         }
-         else
-         {
-             //TODO error case
-         }
-     }];
-
-}
-
-- (IBAction)logOutPressed:(id)sender
+- (IBAction)logOutButton:(id)sender
 {
     [PFUser logOut];
     [self viewWillLayoutSubviews];
@@ -227,19 +167,4 @@
     NSLog(@"User dismissed the signUpViewController");
 }
 
-- (IBAction)submitPressed:(id)sender
-{
-    NSNumber *painEntered = [[NSNumber alloc] initWithDouble:[self.painField.text doubleValue]]; //grab the entered value
-    
-    PFObject *painObject = [PFObject objectWithClassName:@"ESASEntry"];
-    painObject[@"symptom"] = @"pain";
-    painObject[@"value"] = painEntered;
-    painObject[@"user"] = [PFUser currentUser];
-    
-    [painObject saveInBackground];
-    
-    [self.view endEditing:YES];
-    
-    [self runMostRecentQuery];
-}
 @end

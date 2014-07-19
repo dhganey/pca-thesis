@@ -32,22 +32,22 @@
     [super viewDidLoad];
 
     [self.signUpView setLogo:nil]; //remove Parse logo for now
-    //[self.signUpView setBackgroundColor:[UIColor whiteColor]]; //background color
+    [self.signUpView setBackgroundColor:[UIColor whiteColor]]; //background color
         
-//    // Remove text shadow
-//    CALayer *layer = self.signUpView.usernameField.layer;
-//    layer.shadowOpacity = 0.0;
-//    layer = self.signUpView.passwordField.layer;
-//    layer.shadowOpacity = 0.0;
+    // Remove text shadow
+    CALayer *layer = self.signUpView.usernameField.layer;
+    layer.shadowOpacity = 0.0;
+    layer = self.signUpView.passwordField.layer;
+    layer.shadowOpacity = 0.0;
     
-//    // Add signup field background
-//    fieldsBackground = [[UIImageView alloc] initWithImage:[self imageWithColor:[UIColor blackColor]]];
-//    [self.signUpView addSubview:self.fieldsBackground];
-//    [self.signUpView sendSubviewToBack:self.fieldsBackground];
-//    
-//    // Set field text color
-//    [self.signUpView.usernameField setTextColor:[UIColor colorWithRed:135.0f/255.0f green:118.0f/255.0f blue:92.0f/255.0f alpha:1.0]];
-//    [self.signUpView.passwordField setTextColor:[UIColor colorWithRed:135.0f/255.0f green:118.0f/255.0f blue:92.0f/255.0f alpha:1.0]];
+    // Add signup field background
+    fieldsBackground = [[UIImageView alloc] initWithImage:[self imageWithColor:[UIColor blackColor]]];
+    [self.signUpView addSubview:self.fieldsBackground];
+    [self.signUpView sendSubviewToBack:self.fieldsBackground];
+    
+    // Set field text color
+    [self.signUpView.usernameField setTextColor:[UIColor colorWithRed:135.0f/255.0f green:118.0f/255.0f blue:92.0f/255.0f alpha:1.0]];
+    [self.signUpView.passwordField setTextColor:[UIColor colorWithRed:135.0f/255.0f green:118.0f/255.0f blue:92.0f/255.0f alpha:1.0]];
     
     //Add additional fields
     [self.signUpView.additionalField setPlaceholder:@"Phone number"];
