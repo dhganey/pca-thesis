@@ -64,20 +64,32 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [self.view setNeedsDisplay];
-    
-    if ([PFUser currentUser]) //if logged in
+    if ([self needsEntry])
     {
-        [self runMostRecentQuery];
+        //TODO: cycle
     }
+    else
+    {
+        //TODO: show no need, come back in 2500 seconds...
+    }
+}
+
+-(BOOL) needsEntry
+{
+    NSArray* bitmask = [PFUser currentUser][@"symptomBitmask"];
+    bool needsEntry = true;
+    
+    for (int i; i < [bitmask count]; ++i)
+    {
+        //find an entry and test date
+    }
+    
+    return needsEntry;
 }
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    if ([PFUser currentUser]) //if logged in
-    {
-        [self runMostRecentQuery];
-    }
+    
 }
 
 -(void) runMostRecentQuery
@@ -164,7 +176,7 @@
     [[[UIAlertView alloc] initWithTitle:@"Error"
                                 message:@"There was an error signing in. Please try again."
                                delegate:nil
-                      cancelButtonTitle:@"ok"
+                      cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
 }
 
