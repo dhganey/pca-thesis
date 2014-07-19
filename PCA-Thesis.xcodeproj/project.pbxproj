@@ -10,8 +10,6 @@
 		637A825C196CBF830014310D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637A825B196CBF830014310D /* Parse.framework */; };
 		637A825E196CC02D0014310D /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637A825D196CC02D0014310D /* Accounts.framework */; };
 		637A8260196CC0310014310D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637A825F196CC0310014310D /* Social.framework */; };
-		637A8263196CDA2B0014310D /* PCALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 637A8262196CDA2B0014310D /* PCALoginViewController.m */; };
-		637A8266196CDA3D0014310D /* PCASignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 637A8265196CDA3D0014310D /* PCASignupViewController.m */; };
 		63B503BD18FB43C20017F906 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BC18FB43C20017F906 /* Foundation.framework */; };
 		63B503BF18FB43C20017F906 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BE18FB43C20017F906 /* CoreGraphics.framework */; };
 		63B503C118FB43C20017F906 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503C018FB43C20017F906 /* UIKit.framework */; };
@@ -51,10 +49,6 @@
 		637A825B196CBF830014310D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		637A825D196CC02D0014310D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		637A825F196CC0310014310D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		637A8261196CDA2B0014310D /* PCALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCALoginViewController.h; sourceTree = "<group>"; };
-		637A8262196CDA2B0014310D /* PCALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCALoginViewController.m; sourceTree = "<group>"; };
-		637A8264196CDA3D0014310D /* PCASignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCASignupViewController.h; sourceTree = "<group>"; };
-		637A8265196CDA3D0014310D /* PCASignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCASignupViewController.m; sourceTree = "<group>"; };
 		63B503B918FB43C20017F906 /* PCA-Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PCA-Thesis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B503BC18FB43C20017F906 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		63B503BE18FB43C20017F906 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -171,10 +165,6 @@
 				63B503CE18FB43C20017F906 /* Main.storyboard */,
 				63B503D118FB43C20017F906 /* PCAViewController.h */,
 				63B503D218FB43C20017F906 /* PCAViewController.m */,
-				637A8261196CDA2B0014310D /* PCALoginViewController.h */,
-				637A8262196CDA2B0014310D /* PCALoginViewController.m */,
-				637A8264196CDA3D0014310D /* PCASignupViewController.h */,
-				637A8265196CDA3D0014310D /* PCASignupViewController.m */,
 				63B503D418FB43C20017F906 /* Images.xcassets */,
 				63B503C318FB43C20017F906 /* Supporting Files */,
 			);
@@ -311,8 +301,6 @@
 				63B503D318FB43C20017F906 /* PCAViewController.m in Sources */,
 				63B503C918FB43C20017F906 /* main.m in Sources */,
 				63B503CD18FB43C20017F906 /* PCAAppDelegate.m in Sources */,
-				637A8263196CDA2B0014310D /* PCALoginViewController.m in Sources */,
-				637A8266196CDA3D0014310D /* PCASignupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

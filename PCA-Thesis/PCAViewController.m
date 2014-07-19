@@ -8,18 +8,11 @@
 
 #import "PCAViewController.h"
 
-#import "PCALoginViewController.h"
-#import "PCASignupViewController.h"
-
 @interface PCAViewController ()
-
-@property PCALoginViewController *logInViewController;
 
 @end
 
 @implementation PCAViewController
-
-@synthesize logInViewController;
 
 //Called before viewDidLoad, used to present login/signup VC
 -(void)viewWillLayoutSubviews
@@ -28,14 +21,14 @@
     if (![PFUser currentUser]) //nobody logged in
     {
         // Create the log in view controller
-        logInViewController = [[PCALoginViewController alloc] init];
+        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
         [logInViewController setFields:PFLogInFieldsDefault];
         
         // Create the sign up view controller
-        PCASignupViewController *signUpViewController = [[PCASignupViewController alloc] init];
+        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
         [signUpViewController setDelegate:self]; // Set ourselves as the delegate
-        [signUpViewController setFields:PFSignUpFieldsDefault | PFSignUpFieldsAdditional];
+        [signUpViewController setFields:PFSignUpFieldsDefault];
         
         // Assign our sign up controller to be displayed from the login controller
         [logInViewController setSignUpController:signUpViewController];
@@ -61,13 +54,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)logOutButton:(id)sender
-{
-    [PFUser logOut];
-    [self viewWillLayoutSubviews];
-}
-
-
 //Optional Login method
 // Sent to the delegate to determine whether the log in request should be submitted to the server.
 - (BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password
@@ -90,9 +76,7 @@
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
 {
-    //[self performSegueWithIdentifier:@"loggedInSegue" sender:self];
     [self dismissViewControllerAnimated:YES completion:NULL];
-
 }
 
 //Optional login method
@@ -100,12 +84,6 @@
 - (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error
 {
     NSLog(@"Failed to log in...");
-    
-    [[[UIAlertView alloc] initWithTitle:@"Error"
-                                message:@"There was an error signing in. Please try again."
-                               delegate:nil
-                      cancelButtonTitle:@"ok"
-                      otherButtonTitles:nil] show];
 }
 
 //Optional login method
@@ -114,7 +92,6 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
 
 //Optional signup method
 // Sent to the delegate to determine whether the sign up request should be submitted to the server.
@@ -150,17 +127,14 @@
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
 {
     [self dismissViewControllerAnimated:YES completion:nil]; // Dismiss the PFSignUpViewController
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-//Optional signup method
 // Sent to the delegate when the sign up attempt fails.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error
 {
     NSLog(@"Failed to sign up...");
 }
 
-//Optional signup method
 // Sent to the delegate when the sign up screen is dismissed.
 - (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController
 {
