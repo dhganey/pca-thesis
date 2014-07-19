@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		637A825C196CBF830014310D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637A825B196CBF830014310D /* Parse.framework */; };
-		637A825E196CC02D0014310D /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637A825D196CC02D0014310D /* Accounts.framework */; };
-		637A8260196CC0310014310D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637A825F196CC0310014310D /* Social.framework */; };
+		63905458196BA59900A6848F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63905457196BA59900A6848F /* Parse.framework */; };
 		63B503BD18FB43C20017F906 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BC18FB43C20017F906 /* Foundation.framework */; };
 		63B503BF18FB43C20017F906 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BE18FB43C20017F906 /* CoreGraphics.framework */; };
 		63B503C118FB43C20017F906 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503C018FB43C20017F906 /* UIKit.framework */; };
@@ -46,9 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		637A825B196CBF830014310D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		637A825D196CC02D0014310D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		637A825F196CC0310014310D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		63905457196BA59900A6848F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		63B503B918FB43C20017F906 /* PCA-Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PCA-Thesis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B503BC18FB43C20017F906 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		63B503BE18FB43C20017F906 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,15 +80,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				637A8260196CC0310014310D /* Social.framework in Frameworks */,
-				637A825E196CC02D0014310D /* Accounts.framework in Frameworks */,
 				63BE8D56196BA3FC00B20BD9 /* SystemConfiguration.framework in Frameworks */,
 				63BE8D54196BA3F500B20BD9 /* StoreKit.framework in Frameworks */,
 				63BE8D52196BA3F000B20BD9 /* Security.framework in Frameworks */,
 				63BE8D50196BA3EB00B20BD9 /* QuartzCore.framework in Frameworks */,
 				63BE8D4E196BA3E500B20BD9 /* MobileCoreServices.framework in Frameworks */,
 				63BE8D4C196BA3DF00B20BD9 /* libz.dylib in Frameworks */,
-				637A825C196CBF830014310D /* Parse.framework in Frameworks */,
+				63905458196BA59900A6848F /* Parse.framework in Frameworks */,
 				63BE8D4A196BA3D700B20BD9 /* CoreLocation.framework in Frameworks */,
 				63B503BF18FB43C20017F906 /* CoreGraphics.framework in Frameworks */,
 				63BE8D48196BA3CB00B20BD9 /* CFNetwork.framework in Frameworks */,
@@ -137,9 +131,7 @@
 		63B503BB18FB43C20017F906 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				637A825F196CC0310014310D /* Social.framework */,
-				637A825D196CC02D0014310D /* Accounts.framework */,
-				637A825B196CBF830014310D /* Parse.framework */,
+				63905457196BA59900A6848F /* Parse.framework */,
 				63BE8D55196BA3FC00B20BD9 /* SystemConfiguration.framework */,
 				63BE8D53196BA3F500B20BD9 /* StoreKit.framework */,
 				63BE8D51196BA3F000B20BD9 /* Security.framework */,
