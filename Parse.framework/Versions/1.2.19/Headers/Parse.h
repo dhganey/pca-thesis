@@ -23,7 +23,7 @@
 
 #if PARSE_IOS_ONLY
 #import "PFImageView.h"
-#import "PFInstallation.h"
+//#import "PFInstallation.h"
 #import "PFLogInViewController.h"
 #import "PFProduct.h"
 #import "PFProductTableViewController.h"

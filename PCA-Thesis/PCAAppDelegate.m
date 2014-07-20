@@ -9,14 +9,20 @@
 #import "PCAAppDelegate.h"
 
 #import <Parse/Parse.h>
+#import "Catalyze.h"
 
 @implementation PCAAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Parse setApplicationId:@"2aL0TJfXa5hZihCMG18LG7lqINJP6HMpoNc1mZAm"
-                  clientKey:@"bSuKFhNwuIM0CPzybJI4sjTyioVfWcAXHfCVzBDf"];
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+//    //Setup Parse
+//    [Parse setApplicationId:@"2aL0TJfXa5hZihCMG18LG7lqINJP6HMpoNc1mZAm"
+//                  clientKey:@"bSuKFhNwuIM0CPzybJI4sjTyioVfWcAXHfCVzBDf"];
+//    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    //Setup Catalyze
+    [Catalyze setApiKey:@"a908af7b-b816-42f3-8958-ee1ec3857403" applicationId:@"9eff1826-f0bf-4c9a-9d3b-4c954fdb4642"];
+    
     return YES;
 }
 							

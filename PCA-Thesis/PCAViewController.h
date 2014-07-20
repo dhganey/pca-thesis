@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface PCAViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *usernameField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordField;
 
+
+- (IBAction)loginPressed:(id)sender;
+- (IBAction)signupPressed:(id)sender;
 @end
