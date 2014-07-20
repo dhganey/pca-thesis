@@ -79,14 +79,18 @@
         [userEmail setPrimary:self.emailField.text];
         
         Name* fullName = [[Name alloc] init];
-        [fullName setFirstName:self.firstNameField.text];
-        [fullName setLastName:self.lastNameField.text];
+        [fullName setFirstName:[self.firstNameField.text capitalizedString]];
+        [fullName setLastName:[self.lastNameField.text capitalizedString]];
         
         [CatalyzeUser signUpWithUsernameInBackground:self.usernameField.text email:userEmail name:fullName password:self.passwordField.text block:^(int status, NSString *response, NSError *error)
         {
             if (error)
             {
                 [self showAlert:1];
+            }
+            else if (status == 400) //username already registered
+            {
+                [self showAlert:2];
             }
             else
             {
@@ -121,7 +125,7 @@
 
 -(void) showAlert:(int) code
 {
-    NSString *errorMessage;
+    NSString *errorMessage = @"There was a problem. Please try again";
     
     switch(code)
     {
@@ -130,6 +134,11 @@
             break;
         case 1:
             errorMessage = @"There was a problem signing up. Please try again";
+            break;
+        case 2:
+            errorMessage = @"Sorry, that username is already taken. Please try another";
+            break;
+        default:
             break;
     }
     

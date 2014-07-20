@@ -69,15 +69,16 @@
 //Shows an alert with different text depending on passed error code
 -(void) showAlert: (int) code
 {
-    NSString *errorMessage;
+    NSString *errorMessage = @"There was a problem. Please try again";
     switch (code)
     {
         case 0: //invalid input
             errorMessage = @"Invalid input. Please try again";
             break;
-        
         case 1: //login error
             errorMessage = @"Something went wrong while logging in. Please try again";
+            break;
+        default:
             break;
     }
     
