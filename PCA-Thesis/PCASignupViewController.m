@@ -95,6 +95,12 @@
             else
             {
                 NSLog(@"signed up successfully");
+                
+                NSNumber *genderNum = [[NSNumber alloc] initWithInteger:self.genderControl.selectedSegmentIndex];
+                
+                [[CatalyzeUser currentUser] setExtra:genderNum forKey:@"gender"];
+                [[CatalyzeUser currentUser] saveInBackground];
+                
                 //TODO: perform some sort of segue
             }
         }];
