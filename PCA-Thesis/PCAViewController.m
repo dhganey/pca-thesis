@@ -41,8 +41,6 @@
 
 - (IBAction)loginPressed:(id)sender
 {
-    [self.usernameField resignFirstResponder];
-    [self.passwordField resignFirstResponder];
     [self.view endEditing:YES];
     
     if ([self validateInput]) //if the user has entered appropriate information
@@ -105,6 +103,6 @@
 
 - (IBAction)signupPressed:(id)sender
 {
-    
+    [self performSegueWithIdentifier:@"signupSegue" sender:self];
 }
 @end
