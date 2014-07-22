@@ -21,7 +21,7 @@
 //    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     //Setup Catalyze
-    [Catalyze setApiKey:@"a908af7b-b816-42f3-8958-ee1ec3857403" applicationId:@"9eff1826-f0bf-4c9a-9d3b-4c954fdb4642"];
+    [Catalyze setApiKey:@"ios catalyze a908af7b-b816-42f3-8958-ee1ec3857403" applicationId:@"9eff1826-f0bf-4c9a-9d3b-4c954fdb4642"];
     
     return YES;
 }

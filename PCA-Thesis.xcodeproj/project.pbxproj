@@ -45,6 +45,7 @@
 		63166E07197C722B006D78D2 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166E02197C722B006D78D2 /* TPKeyboardAvoidingCollectionView.m */; };
 		63166E08197C722B006D78D2 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166E04197C722B006D78D2 /* TPKeyboardAvoidingTableView.m */; };
 		63166E09197C722B006D78D2 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166E06197C722B006D78D2 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		632E4E62197E1A2A00326376 /* PCAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 632E4E61197E1A2A00326376 /* PCAMainViewController.m */; };
 		63905458196BA59900A6848F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63905457196BA59900A6848F /* Parse.framework */; };
 		63B503BD18FB43C20017F906 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BC18FB43C20017F906 /* Foundation.framework */; };
 		63B503BF18FB43C20017F906 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BE18FB43C20017F906 /* CoreGraphics.framework */; };
@@ -173,6 +174,8 @@
 		63166E04197C722B006D78D2 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingTableView.m; path = TPKeyboardAvoiding/TPKeyboardAvoiding/TPKeyboardAvoiding/TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		63166E05197C722B006D78D2 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+TPKeyboardAvoidingAdditions.h"; path = "TPKeyboardAvoiding/TPKeyboardAvoiding/TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		63166E06197C722B006D78D2 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+TPKeyboardAvoidingAdditions.m"; path = "TPKeyboardAvoiding/TPKeyboardAvoiding/TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		632E4E60197E1A2A00326376 /* PCAMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAMainViewController.h; sourceTree = "<group>"; };
+		632E4E61197E1A2A00326376 /* PCAMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAMainViewController.m; sourceTree = "<group>"; };
 		63905457196BA59900A6848F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		63B503B918FB43C20017F906 /* PCA-Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PCA-Thesis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B503BC18FB43C20017F906 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -417,6 +420,8 @@
 				63B503CB18FB43C20017F906 /* PCAAppDelegate.h */,
 				63B503CC18FB43C20017F906 /* PCAAppDelegate.m */,
 				63B503CE18FB43C20017F906 /* Main.storyboard */,
+				632E4E60197E1A2A00326376 /* PCAMainViewController.h */,
+				632E4E61197E1A2A00326376 /* PCAMainViewController.m */,
 				63166DFA197C56FB006D78D2 /* PCASignupViewController.h */,
 				63166DFB197C56FB006D78D2 /* PCASignupViewController.m */,
 				63B503D118FB43C20017F906 /* PCAViewController.h */,
@@ -603,6 +608,7 @@
 				63166DE5197B3D1A006D78D2 /* AFHTTPSessionManager.m in Sources */,
 				63166E07197C722B006D78D2 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				63166E08197C722B006D78D2 /* TPKeyboardAvoidingTableView.m in Sources */,
+				632E4E62197E1A2A00326376 /* PCAMainViewController.m in Sources */,
 				63166DDE197B3D1A006D78D2 /* HealthLookaheadUITextFieldDelegate.m in Sources */,
 				63166DE1197B3D1A006D78D2 /* Language.m in Sources */,
 				63166DE8197B3D1A006D78D2 /* AFURLConnectionOperation.m in Sources */,

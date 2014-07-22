@@ -20,16 +20,20 @@
 {
     [super viewDidLoad];
     
-    
     if ([CatalyzeUser currentUser]) //if someone is logged in
     {
-        //TODO: perform a segue to the main screen
+        [self performSegueWithIdentifier:@"doneLoggingSegue" sender:self];
     }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    self.passwordField.text = @""; //empty the password field
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -57,6 +61,7 @@
              {
                  //TODO: user logged in, perform some sort of segue
                  NSLog(@"Logged in successfully");
+                 [self performSegueWithIdentifier:@"doneLoggingSegue" sender:self];
              }
          }];
     }

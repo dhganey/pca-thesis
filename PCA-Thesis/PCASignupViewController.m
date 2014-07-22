@@ -98,7 +98,11 @@
                 
                 NSNumber *genderNum = [[NSNumber alloc] initWithInteger:self.genderControl.selectedSegmentIndex];
                 
+                PhoneNumber *phoneNum = [[PhoneNumber alloc] init];
+                [phoneNum setPreferred:self.phoneField.text];
+                
                 [[CatalyzeUser currentUser] setExtra:genderNum forKey:@"gender"];
+                [[CatalyzeUser currentUser] setPhoneNumber:phoneNum];
                 [[CatalyzeUser currentUser] saveInBackground];
                 
                 //TODO: perform some sort of segue

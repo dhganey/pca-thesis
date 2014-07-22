@@ -56,6 +56,7 @@
                         <outlet property="passwordField" destination="w1D-c1-CMK" id="b0d-C1-0H2"/>
                         <outlet property="usernameField" destination="MHX-2i-itI" id="8EK-I4-tRd"/>
                         <segue destination="hCg-qX-k6s" kind="modal" identifier="signupSegue" id="hJn-NL-4L6"/>
+                        <segue destination="aFR-wQ-zaV" kind="modal" identifier="doneLoggingSegue" id="tU4-tv-TKV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -161,6 +162,7 @@
                         <outlet property="phoneField" destination="TSt-ox-9PQ" id="DNr-Ed-0OF"/>
                         <outlet property="scrollView" destination="U5j-aT-VFG" id="zkK-no-Tbu"/>
                         <outlet property="usernameField" destination="fVg-cp-Y0N" id="eq6-OI-cRM"/>
+                        <segue destination="aFR-wQ-zaV" kind="modal" identifier="doneSigningSegue" id="XOk-Hz-NLX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzi-eF-VEr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -185,6 +187,31 @@
             </objects>
             <point key="canvasLocation" x="1764" y="-550"/>
         </scene>
+        <!--Main View Controller - Main Page-->
+        <scene sceneID="yeo-ki-Xm1">
+            <objects>
+                <viewController id="QhG-qx-KbK" customClass="PCAMainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hqS-Bp-hjP"/>
+                        <viewControllerLayoutGuide type="bottom" id="M8O-cW-HMg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aZf-3c-5K3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Main Page" id="PhF-rA-Rfp">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="ByD-ps-Pqj">
+                            <connections>
+                                <action selector="logoutPressed:" destination="QhG-qx-KbK" id="mDU-F1-Dbt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vW9-wu-j1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2113" y="276"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yku-tW-1fp">
             <objects>
@@ -203,10 +230,31 @@
             </objects>
             <point key="canvasLocation" x="911" y="-550"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PXj-lI-EXf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aFR-wQ-zaV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PXf-lV-JzX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QhG-qx-KbK" kind="relationship" relationship="rootViewController" id="Sjs-mY-P6b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UqM-9g-GSz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1587" y="276"/>
+        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="XOk-Hz-NLX"/>
+    </inferredMetricsTieBreakers>
 </document>
