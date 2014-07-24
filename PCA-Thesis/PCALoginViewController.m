@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 dhganey. All rights reserved.
 //
 
-#import "PCAViewController.h"
+#import "PCALoginViewController.h"
 
 #import "Catalyze.h"
 
-@interface PCAViewController ()
+@interface PCALoginViewController ()
 
 @end
 
-@implementation PCAViewController
+@implementation PCALoginViewController
 
 - (void)viewDidLoad
 {

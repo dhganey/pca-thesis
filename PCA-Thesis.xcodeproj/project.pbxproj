@@ -54,7 +54,7 @@
 		63B503C918FB43C20017F906 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B503C818FB43C20017F906 /* main.m */; };
 		63B503CD18FB43C20017F906 /* PCAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B503CC18FB43C20017F906 /* PCAAppDelegate.m */; };
 		63B503D018FB43C20017F906 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63B503CE18FB43C20017F906 /* Main.storyboard */; };
-		63B503D318FB43C20017F906 /* PCAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B503D218FB43C20017F906 /* PCAViewController.m */; };
+		63B503D318FB43C20017F906 /* PCALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B503D218FB43C20017F906 /* PCALoginViewController.m */; };
 		63B503D518FB43C20017F906 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63B503D418FB43C20017F906 /* Images.xcassets */; };
 		63B503DC18FB43C20017F906 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503DB18FB43C20017F906 /* XCTest.framework */; };
 		63B503DD18FB43C20017F906 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BC18FB43C20017F906 /* Foundation.framework */; };
@@ -188,8 +188,8 @@
 		63B503CB18FB43C20017F906 /* PCAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCAAppDelegate.h; sourceTree = "<group>"; };
 		63B503CC18FB43C20017F906 /* PCAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCAAppDelegate.m; sourceTree = "<group>"; };
 		63B503CF18FB43C20017F906 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		63B503D118FB43C20017F906 /* PCAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCAViewController.h; sourceTree = "<group>"; };
-		63B503D218FB43C20017F906 /* PCAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCAViewController.m; sourceTree = "<group>"; };
+		63B503D118FB43C20017F906 /* PCALoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCALoginViewController.h; sourceTree = "<group>"; };
+		63B503D218FB43C20017F906 /* PCALoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCALoginViewController.m; sourceTree = "<group>"; };
 		63B503D418FB43C20017F906 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		63B503DA18FB43C20017F906 /* PCA-ThesisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PCA-ThesisTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B503DB18FB43C20017F906 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -424,8 +424,8 @@
 				632E4E61197E1A2A00326376 /* PCAMainViewController.m */,
 				63166DFA197C56FB006D78D2 /* PCASignupViewController.h */,
 				63166DFB197C56FB006D78D2 /* PCASignupViewController.m */,
-				63B503D118FB43C20017F906 /* PCAViewController.h */,
-				63B503D218FB43C20017F906 /* PCAViewController.m */,
+				63B503D118FB43C20017F906 /* PCALoginViewController.h */,
+				63B503D218FB43C20017F906 /* PCALoginViewController.m */,
 				63B503D418FB43C20017F906 /* Images.xcassets */,
 				63B503C318FB43C20017F906 /* Supporting Files */,
 			);
@@ -600,7 +600,7 @@
 				63166DEC197B3D1A006D78D2 /* Mrn.m in Sources */,
 				63166DEF197B3D1A006D78D2 /* PhoneNumber.m in Sources */,
 				63166DFF197C719B006D78D2 /* TPKeyboardAvoidingScrollView.m in Sources */,
-				63B503D318FB43C20017F906 /* PCAViewController.m in Sources */,
+				63B503D318FB43C20017F906 /* PCALoginViewController.m in Sources */,
 				63166DF0197B3D1A006D78D2 /* SocialId.m in Sources */,
 				63166DD9197B3D1A006D78D2 /* CatalyzeReference.m in Sources */,
 				63B503C918FB43C20017F906 /* main.m in Sources */,
