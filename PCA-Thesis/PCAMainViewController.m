@@ -214,13 +214,8 @@ int currentSymptom; //global int which reflects currently showing symptom
 {
     NSLog(@"submit pressed");
     
-    //TODO: NSAlert to confirm the users entered score is right
-    //TODO: store the data somewhere
+    [self showConfirmAlert:[labelRef.text doubleValue]]; //confirm that the user meant to enter the num currently in the label
     
-    
-    //move on
-    currentSymptom++; //all done with this one!
-    [self showNextSymptom:currentSymptom];
 }
 
 //Called before each symptom screen is shown. Clears all UI subviews in the view
@@ -230,6 +225,38 @@ int currentSymptom; //global int which reflects currently showing symptom
     for (UIView* v in subViews)
     {
         [v removeFromSuperview];
+    }
+}
+
+-(void)showConfirmAlert:(double) value
+{
+    NSString* confirmMessage = [NSString stringWithFormat:@"You entered %.0f, is that correct?", value];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm"
+                                                    message:confirmMessage
+                                                   delegate:self
+                                          cancelButtonTitle:@"No"
+                                          otherButtonTitles:@"Yes", nil];
+    [alert show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch(buttonIndex)
+    {
+        case 0: //cancel
+            //do nothing
+            break;
+        case 1: //save
+            //TODO save the data somewhere
+            NSLog(@"save data %.0f", [labelRef.text doubleValue]);
+            //move on
+            currentSymptom++; //all done with this one!
+            [self showNextSymptom:currentSymptom];
+            break;
+        default:
+            NSLog(@"error");
+            break;
     }
 }
 

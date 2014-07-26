@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PCAMainViewController : UIViewController
+@interface PCAMainViewController : UIViewController <UIAlertViewDelegate>
 
 - (IBAction)logoutPressed:(id)sender;
 
