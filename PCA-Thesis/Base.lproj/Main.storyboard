@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nZl-uN-Pyh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A299l" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nZl-uN-Pyh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1341" y="-550"/>
+            <point key="canvasLocation" x="285" y="-426"/>
         </scene>
         <!--Signup View Controller - Sign Up-->
         <scene sceneID="L9F-yI-a9P">
@@ -167,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzi-eF-VEr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2170" y="-550"/>
+            <point key="canvasLocation" x="1114" y="-426"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RNX-e1-w8V">
@@ -185,7 +185,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="suU-d3-9KM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="-550"/>
+            <point key="canvasLocation" x="708" y="-426"/>
         </scene>
         <!--Main View Controller - Main Page-->
         <scene sceneID="yeo-ki-Xm1">
@@ -207,10 +207,32 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="JxX-r8-vdc" kind="modal" identifier="doneSymptomsSegue" modalTransitionStyle="crossDissolve" id="Xf9-ua-kT0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vW9-wu-j1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2113" y="276"/>
+            <point key="canvasLocation" x="1057" y="400"/>
+        </scene>
+        <!--View Controller - All Done!-->
+        <scene sceneID="Dbw-ko-vlw">
+            <objects>
+                <viewController id="xDt-oR-7dz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SZL-g0-RrU"/>
+                        <viewControllerLayoutGuide type="bottom" id="z3a-As-c6M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oMC-Pg-3op">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="All Done!" id="Elq-F6-laL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rfz-jW-eyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2037" y="400"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yku-tW-1fp">
@@ -228,7 +250,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KuW-f0-H2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911" y="-550"/>
+            <point key="canvasLocation" x="-145" y="-426"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PXj-lI-EXf">
@@ -246,7 +268,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UqM-9g-GSz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1587" y="276"/>
+            <point key="canvasLocation" x="531" y="400"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nBq-Nj-SWP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JxX-r8-vdc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PfK-3U-NXZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xDt-oR-7dz" kind="relationship" relationship="rootViewController" id="6LA-IY-Ex6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tfy-Op-iLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1511" y="400"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -255,6 +295,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tU4-tv-TKV"/>
+        <segue reference="XOk-Hz-NLX"/>
     </inferredMetricsTieBreakers>
 </document>

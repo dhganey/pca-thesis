@@ -112,7 +112,7 @@ int currentSymptom; //global int which reflects currently showing symptom
     else //if we have
     {
         NSLog(@"all done, go to new VC");
-        //TODO
+        [self performSegueWithIdentifier:@"doneSymptomsSegue" sender:self];
     }
 }
 
