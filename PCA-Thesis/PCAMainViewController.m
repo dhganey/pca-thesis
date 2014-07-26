@@ -16,10 +16,12 @@
 
 @implementation PCAMainViewController
 
-int userSymptoms[10];
-int symptomNum = 10;
+int userSymptoms[10]; //global reference to bitmask of user symptoms
+int symptomNum = 10; //global reference to num symptoms. should never change, but avoids magic 10
 
-UILabel* labelRef;
+UILabel* labelRef; //global reference to a label to pass to target selectors when UI elements change
+
+int currentSymptom; //global int which reflects currently showing symptom
 
 /* Symptoms go in the following order:
  Pain
@@ -46,12 +48,13 @@ UILabel* labelRef;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self initSymptomArray];
-    
+ 
+    [self initSymptomArray]; //TODO this should init from backend
+
     if (true) //TODO: this should check if it's time to cycle symptoms, and show something else if not
     {
-        [self cycleSymptoms];
+        currentSymptom = 0; //start at beginning
+        [self showNextSymptom:currentSymptom];
     }
 }
 
@@ -61,6 +64,7 @@ UILabel* labelRef;
     // Dispose of any resources that can be recreated.
 }
 
+//Called when the user presses the logout button. Sends the user back to the login screen and disengages Catalyze
 - (IBAction)logoutPressed:(id)sender
 {
     [[CatalyzeUser currentUser] logoutWithBlock:^(int status, NSString *response, NSError *error)
@@ -92,78 +96,53 @@ UILabel* labelRef;
     }
 }
 
-//This is the primary method called when the user enters the main screen
-//This method is only called if it's time for the user to enter symptoms
--(void)cycleSymptoms
+//This method is called to show the UI elements for the next symptom
+//It moves the currentSymptom global var
+-(void)showNextSymptom:(int) start
 {
-    for (int i = 0; i < symptomNum; i++) //main loop through all symptoms
+    while (userSymptoms[currentSymptom] == 0 && currentSymptom < symptomNum) //until we find an active symptom
     {
-        if (userSymptoms[i] == 0) //if the symptom is not active,
-        {
-            continue; //move on
-        }
-        
-        //Otherwise, enter a symptom screen method
-        switch(i)
-        {
-            case 0: //pain
-                [self showPainScreen];
-                break;
-            
-            case 1: //tiredness
-                
-                break;
-            
-            case 2: //drowsiness
-                
-                break;
-            
-            case 3: //nausea
-                
-                break;
-            
-            case 4: //appetite
-                
-                break;
-            
-            case 5: //shortness of breath
-                
-                break;
-            
-            case 6: //depression
-                
-                break;
-            
-            case 7: //anxiety
-                
-                break;
-            
-            case 8: //wellbeing
-                
-                break;
-            
-            case 9: //other
-                
-                break;
-            
-            default: //never called
-                break;
-        }
+        currentSymptom++; //move up, check next symptom
+    }
+    
+    if (currentSymptom < symptomNum) //if we haven't moved past the array
+    {
+        [self showSymptomScreen:currentSymptom];
+    }
+    else //if we have
+    {
+        NSLog(@"all done, go to new VC");
+        //TODO
     }
 }
 
-//Creates and adjusts the UI elements for the user to enter their pain score
--(void)showPainScreen
+//Creates and operates the UI elements for the user to enter their pain score
+-(void)showSymptomScreen:(int) symptom
 {
-    self.title = @"Pain"; //change the VC title
+    [self removeSubviews]; //first, remove any subviews
+    
+    NSString* symptomName = [self determineSymptomName:symptom]; //determine which symptom we're on
+    
+    self.title = [symptomName capitalizedString]; //change the VC title
     
     //prepare the instructions label
     UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(10, 75, 280, 40)];
-    [instructions setText:@"Please drag the slider to record your pain. 0 is the lowest pain and 10 the highest"];
+    instructions.lineBreakMode = NSLineBreakByCharWrapping;
+    [instructions setNumberOfLines:2];
+    NSString* instructionString = @"Please drag the slider to record your ";
+    instructionString = [instructionString stringByAppendingString:symptomName]; //clarify symptom
+    [instructions setText:instructionString];
     [self.view addSubview:instructions];
     
+    //prepare the previous value label
+    UILabel* preVal = [[UILabel alloc] initWithFrame:CGRectMake(10, 110, 290, 40)];
+    NSString* preValString = @"Your previous pain score was: ";
+    preValString = [preValString stringByAppendingString:@"3"]; //TODO: adjust this to use backend data
+    preVal.text = preValString;
+    [self.view addSubview:preVal];
+    
     //prepare the slider
-    UISlider *painSlider = [[UISlider alloc] initWithFrame:CGRectMake(10, 100, 280, 40)];
+    UISlider *painSlider = [[UISlider alloc] initWithFrame:CGRectMake(10, 150, 280, 40)];
     [painSlider setMinimumValue:0];
     [painSlider setMaximumValue:10];
     [self.view addSubview:painSlider];
@@ -171,7 +150,7 @@ UILabel* labelRef;
     painSlider.continuous = YES;
     
     //prepare the feedback label
-    UILabel *sliderLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x, 150, 280, 40)];
+    UILabel *sliderLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x, 200, 280, 40)];
     [sliderLabel setText:[NSString stringWithFormat:@"%.0f", painSlider.value]];
     [self.view addSubview:sliderLabel];
     
@@ -192,16 +171,66 @@ UILabel* labelRef;
     [submitButton addTarget:self action:buttonSel forControlEvents:UIControlEventTouchUpInside]; //call when pressed
 }
 
+-(NSString*)determineSymptomName:(int)symptom
+{
+    switch(symptom)
+    {
+        case 0:
+            return @"pain";
+        case 1:
+            return @"tiredness";
+        case 2:
+            return @"drowsiness";
+        case 3:
+            return @"nausea";
+        case 4:
+            return @"appetite";
+        case 5:
+            return @"shortness of breath";
+        case 6:
+            return @"depression";
+        case 7:
+            return @"anxiety";
+        case 8:
+            return @"wellbeing";
+        case 9:
+            return @"other";
+        default:
+            return @"ERROR in determinesymptomname";
+    }
+}
 
+//Target selector method to adjust a label when a slider changes.
+//Uses labelRef, the global reference at the top. Make sure to set that to the appropriate UI element before adding this
+//method as a target to the slider
 -(void)sliderChanged:(UISlider*) sender
 {
     [labelRef setText:[NSString stringWithFormat:@"%.0f", sender.value]];
 }
 
+//Target selector method to submit user data.
+//TODO: decide on the design here. Could have a unique submit method for each symptom screen, or could set a global var and do a switch statement?
 -(void)submitPressed:(UIButton*) sender
 {
     NSLog(@"submit pressed");
-    //TODO take some action
+    
+    //TODO: NSAlert to confirm the users entered score is right
+    //TODO: store the data somewhere
+    
+    
+    //move on
+    currentSymptom++; //all done with this one!
+    [self showNextSymptom:currentSymptom];
+}
+
+//Called before each symptom screen is shown. Clears all UI subviews in the view
+-(void)removeSubviews
+{
+    NSArray* subViews = [self.view subviews];
+    for (UIView* v in subViews)
+    {
+        [v removeFromSuperview];
+    }
 }
 
 @end
