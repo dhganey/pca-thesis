@@ -116,7 +116,8 @@ int currentSymptom; //global int which reflects currently showing symptom
     }
 }
 
-//Creates and operates the UI elements for the user to enter their pain score
+//Creates and operates the UI elements for the user to enter symptom measurements
+//Is called for all symptoms, parameter determines which symptom to show
 -(void)showSymptomScreen:(int) symptom
 {
     [self removeSubviews]; //first, remove any subviews
@@ -143,21 +144,21 @@ int currentSymptom; //global int which reflects currently showing symptom
     [self.view addSubview:preVal];
     
     //prepare the slider
-    UISlider *painSlider = [[UISlider alloc] initWithFrame:CGRectMake(10, 150, 280, 40)];
-    [painSlider setMinimumValue:0];
-    [painSlider setMaximumValue:10];
-    [self.view addSubview:painSlider];
-    [painSlider setValue:5 animated:YES];
-    painSlider.continuous = YES;
+    UISlider *inputSlider = [[UISlider alloc] initWithFrame:CGRectMake(10, 150, 280, 40)];
+    [inputSlider setMinimumValue:0];
+    [inputSlider setMaximumValue:10];
+    [self.view addSubview:inputSlider];
+    [inputSlider setValue:5 animated:YES];
+    inputSlider.continuous = YES;
     
     //prepare the feedback label
     UILabel *sliderLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x, 200, 280, 40)];
-    [sliderLabel setText:[NSString stringWithFormat:@"%.0f", painSlider.value]];
+    [sliderLabel setText:[NSString stringWithFormat:@"%.0f", inputSlider.value]];
     [self.view addSubview:sliderLabel];
     
     //set up a selector for when the slider changes
     SEL sliderSel = @selector(sliderChanged:); //selector takes slider as parameter
-    [painSlider addTarget:self action:sliderSel forControlEvents:UIControlEventValueChanged]; //call when changed
+    [inputSlider addTarget:self action:sliderSel forControlEvents:UIControlEventValueChanged]; //call when changed
     //we MUST set the class var labelRef so sliderChanged knows which label to modify
     labelRef = sliderLabel;
     
@@ -172,6 +173,7 @@ int currentSymptom; //global int which reflects currently showing symptom
     [submitButton addTarget:self action:buttonSel forControlEvents:UIControlEventTouchUpInside]; //call when pressed
 }
 
+//Returns a string which contains the symptom name for a given integer
 -(NSString*)determineSymptomName:(int)symptom
 {
     switch(symptom)
@@ -210,13 +212,11 @@ int currentSymptom; //global int which reflects currently showing symptom
 }
 
 //Target selector method to submit user data.
-//TODO: decide on the design here. Could have a unique submit method for each symptom screen, or could set a global var and do a switch statement?
 -(void)submitPressed:(UIButton*) sender
 {
     NSLog(@"submit pressed");
     
     [self showConfirmAlert:[labelRef.text doubleValue]]; //confirm that the user meant to enter the num currently in the label
-    
 }
 
 //Called before each symptom screen is shown. Clears all UI subviews in the view
@@ -229,6 +229,8 @@ int currentSymptom; //global int which reflects currently showing symptom
     }
 }
 
+//Shows the user a popup alert when they try to submit a score (any score)
+//User can continue with submission or go back to fix a mistake
 -(void)showConfirmAlert:(double) value
 {
     NSString* confirmMessage = [NSString stringWithFormat:@"You entered %.0f, is that correct?", value];
@@ -241,6 +243,7 @@ int currentSymptom; //global int which reflects currently showing symptom
     [alert show];
 }
 
+//Called when the user selects a button in the confirmation popup
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     switch(buttonIndex)
@@ -250,7 +253,7 @@ int currentSymptom; //global int which reflects currently showing symptom
             break;
         case 1: //save
             //TODO save the data somewhere
-            NSLog(@"save data %.0f", [labelRef.text doubleValue]);
+            NSLog(@"save data %.0f for symptom: %@", [labelRef.text doubleValue], [self determineSymptomName:currentSymptom]);
             //move on
             currentSymptom++; //all done with this one!
             [self showNextSymptom:currentSymptom];
