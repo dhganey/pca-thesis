@@ -129,6 +129,7 @@ int currentSymptom; //global int which reflects currently showing symptom
     UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(10, 75, 280, 40)];
     instructions.lineBreakMode = NSLineBreakByCharWrapping;
     [instructions setNumberOfLines:2];
+    instructions.font = [instructions.font fontWithSize:10];
     NSString* instructionString = @"Please drag the slider to record your ";
     instructionString = [instructionString stringByAppendingString:symptomName]; //clarify symptom
     [instructions setText:instructionString];
