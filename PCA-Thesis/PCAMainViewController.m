@@ -16,7 +16,8 @@
 
 @implementation PCAMainViewController
 
-int userSymptoms[10]; //global reference to bitmask of user symptoms
+NSArray* userSymptoms; //global reference to bitmask of user symptoms
+
 int symptomNum = 10; //global reference to num symptoms. should never change, but avoids magic 10
 
 UILabel* labelRef; //global reference to a label to pass to target selectors when UI elements change
@@ -45,12 +46,22 @@ int currentSymptom; //global int which reflects currently showing symptom
     return self;
 }
 
+//Called after the view loads
+//Does basic checks to grab symptom bitmask and begin cycling through symptom screens
 - (void)viewDidLoad
 {
     [super viewDidLoad];
  
-    [self initSymptomArray]; //TODO this should init from backend
-
+    if ([CatalyzeUser currentUser]) //make sure someone is logged in
+    {
+        userSymptoms = [[NSArray alloc] init];
+        userSymptoms = [[CatalyzeUser currentUser] extraForKey:@"symptomArray"]; //grab the symptom bitmask from the user data
+    }
+    else
+    {
+        //TODO error, nobody logged in
+    }
+    
     if (true) //TODO: this should check if it's time to cycle symptoms, and show something else if not
     {
         currentSymptom = 0; //start at beginning
@@ -61,7 +72,6 @@ int currentSymptom; //global int which reflects currently showing symptom
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 //Called when the user presses the logout button. Sends the user back to the login screen and disengages Catalyze
@@ -71,6 +81,7 @@ int currentSymptom; //global int which reflects currently showing symptom
     {
         if (error)
         {
+            NSLog(@"Error while logging out");
             //TODO handle the error
         }
         else
@@ -80,27 +91,11 @@ int currentSymptom; //global int which reflects currently showing symptom
     }];
 }
 
-//Arbitrarily populates the user symptoms array to give us the first 4 symptoms active
--(void)initSymptomArray
-{
-    for (int i = 0; i < symptomNum; i++)
-    {
-        if (i < 4) //get first 4 symptoms, arbitrary
-        {
-            userSymptoms[i] = 1;
-        }
-        else
-        {
-            userSymptoms[i] = 0;
-        }
-    }
-}
-
 //This method is called to show the UI elements for the next symptom
 //It moves the currentSymptom global var
 -(void)showNextSymptom:(int) start
 {
-    while (userSymptoms[currentSymptom] == 0 && currentSymptom < symptomNum) //until we find an active symptom
+    while ([[userSymptoms objectAtIndex:currentSymptom] intValue] == 0 && currentSymptom < symptomNum) //until we find an active symptom
     {
         currentSymptom++; //move up, check next symptom
     }
@@ -109,7 +104,7 @@ int currentSymptom; //global int which reflects currently showing symptom
     {
         [self showSymptomScreen:currentSymptom];
     }
-    else //if we have
+    else //if we have moved completely through the array
     {
         NSLog(@"all done, go to new VC");
         [self performSegueWithIdentifier:@"doneSymptomsSegue" sender:self];

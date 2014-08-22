@@ -59,8 +59,18 @@
              }
              else
              {
-                 //TODO: user logged in, perform some sort of segue
                  NSLog(@"Logged in successfully");
+                 
+                 //TODO: this sets a symptom array with arbitrary values, but should function differently
+                 if ([[CatalyzeUser currentUser] extraForKey:@"symptomArray"] == nil) //if we don't have this stored for the user
+                 {
+                     NSArray* userSymptoms = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
+                     //TODO: the above populates the first four symptoms. Determine a better way to know which symptoms to show
+                     [[CatalyzeUser currentUser] setExtra:userSymptoms forKey:@"symptomArray"];
+                     [[CatalyzeUser currentUser] saveInBackground];
+                 }
+                 //else nothing, array already set
+                 
                  [self performSegueWithIdentifier:@"doneLoggingSegue" sender:self];
              }
          }];
