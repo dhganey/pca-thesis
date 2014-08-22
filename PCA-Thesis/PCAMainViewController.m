@@ -138,7 +138,9 @@ int currentSymptom; //global int which reflects currently showing symptom
     
     //prepare the previous value label
     UILabel* preVal = [[UILabel alloc] initWithFrame:CGRectMake(10, 110, 290, 40)];
-    NSString* preValString = @"Your previous pain score was: ";
+    NSString* preValString = @"Your previous ";
+    preValString = [preValString stringByAppendingString:[self determineSymptomName:currentSymptom]];
+    preValString = [preValString stringByAppendingString:@" score was "];
     preValString = [preValString stringByAppendingString:@"3"]; //TODO: adjust this to use backend data
     preVal.text = preValString;
     [self.view addSubview:preVal];
@@ -252,8 +254,8 @@ int currentSymptom; //global int which reflects currently showing symptom
             //do nothing
             break;
         case 1: //save
-            //TODO save the data somewhere
-            NSLog(@"save data %.0f for symptom: %@", [labelRef.text doubleValue], [self determineSymptomName:currentSymptom]);
+            [self saveEntry];
+            
             //move on
             currentSymptom++; //all done with this one!
             [self showNextSymptom:currentSymptom];
@@ -262,6 +264,23 @@ int currentSymptom; //global int which reflects currently showing symptom
             NSLog(@"error");
             break;
     }
+}
+
+//Called when the user continues through the submit popup alert
+//Saves the user entry online
+-(void) saveEntry
+{
+    CatalyzeObject* newEntry = [CatalyzeObject objectWithClassName:@"esasEntry"]; //uses test class on Catalyze dashboard
+    NSNumber* painScore = [NSNumber numberWithDouble:[labelRef.text doubleValue]];
+    NSNumber* symptomNum = [NSNumber numberWithDouble:currentSymptom];
+    
+    [newEntry setObject:painScore forKey:@"score"];
+    [newEntry setObject:symptomNum forKey:@"symptom"];
+    //[newEntry setObject:[CatalyzeUser currentUser] forKey:@"user"]; //TODO figure out how to unify this
+    
+    [newEntry createInBackground];
+    
+    NSLog(@"Saved score: %f for symptom %d", [labelRef.text doubleValue], currentSymptom);
 }
 
 @end
