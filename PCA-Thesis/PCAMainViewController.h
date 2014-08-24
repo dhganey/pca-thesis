@@ -12,4 +12,6 @@
 
 - (IBAction)logoutPressed:(id)sender;
 
+@property int currentSymptom;
+
 @end

@@ -10,6 +10,8 @@
 
 #import "Catalyze.h"
 
+#include "PCADefinitions.h"
+
 @interface PCAMainViewController ()
 
 @end
@@ -18,24 +20,7 @@
 
 NSArray* userSymptoms; //global reference to bitmask of user symptoms
 
-int symptomNum = 10; //global reference to num symptoms. should never change, but avoids magic 10
-
 UILabel* labelRef; //global reference to a label to pass to target selectors when UI elements change
-
-int currentSymptom; //global int which reflects currently showing symptom
-
-/* Symptoms go in the following order:
- Pain
- Tiredness
- Drowsiness
- Nausea
- Appetite
- Shortness of breath
- Depression
- Anxiety
- Wellbeing
- Other?
- */
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,6 +36,8 @@ int currentSymptom; //global int which reflects currently showing symptom
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.currentSymptom = 0; //start at beginning
  
     if ([CatalyzeUser currentUser]) //make sure someone is logged in
     {
@@ -64,8 +51,7 @@ int currentSymptom; //global int which reflects currently showing symptom
     
     if (true) //TODO: this should check if it's time to cycle symptoms, and show something else if not
     {
-        currentSymptom = 0; //start at beginning
-        [self showNextSymptom:currentSymptom];
+        [self showNextSymptom:self.currentSymptom];
     }
 }
 
@@ -95,14 +81,14 @@ int currentSymptom; //global int which reflects currently showing symptom
 //It moves the currentSymptom global var
 -(void)showNextSymptom:(int) start
 {
-    while ([[userSymptoms objectAtIndex:currentSymptom] intValue] == 0 && currentSymptom < symptomNum) //until we find an active symptom
+    while ([[userSymptoms objectAtIndex:self.currentSymptom] intValue] == 0 && self.currentSymptom < MAX_SYMPTOMS) //until we find an active symptom
     {
-        currentSymptom++; //move up, check next symptom
+        self.currentSymptom++; //move up, check next symptom
     }
     
-    if (currentSymptom < symptomNum) //if we haven't moved past the array
+    if (self.currentSymptom < MAX_SYMPTOMS) //if we haven't moved past the array
     {
-        [self showSymptomScreen:currentSymptom];
+        [self showSymptomScreen];
     }
     else //if we have moved completely through the array
     {
@@ -111,34 +97,126 @@ int currentSymptom; //global int which reflects currently showing symptom
     }
 }
 
-//Creates and operates the UI elements for the user to enter symptom measurements
+//Entry method for UI element creation and operation for symptom screen
 //Is called for all symptoms, parameter determines which symptom to show
--(void)showSymptomScreen:(int) symptom
+-(void)showSymptomScreen
 {
     [self removeSubviews]; //first, remove any subviews
     
-    NSString* symptomName = [self determineSymptomName:symptom]; //determine which symptom we're on
+    NSString* symptomName = [self determineSymptomName:self.currentSymptom]; //determine which symptom we're on
     
     self.title = [symptomName capitalizedString]; //change the VC title
+
+    //Uses the enumerated type in PCADefinitions.h to determine whether to show a generic slider screen or specific "radio" buttons
+    if (self.currentSymptom == PAIN || self.currentSymptom == NAUSEA || self.currentSymptom == DEPRESSION || self.currentSymptom == DROWSINESS || self.currentSymptom == WEAKNESS || self.currentSymptom == SHORTNESS_OF_BREATH) //analog scale
+    {
+        [self showSliderScreen];
+    }
+    else if (self.currentSymptom == ACTIVITY || self.currentSymptom == ANXIETY || self.currentSymptom == APPETITE)
+    {
+        [self showRadioButtonScreen];
+    }
+    else
+    {
+        NSLog(@"Error in showSymptomScreen");
+    }
+}
+
+//Prepares the UI elements which instruct the user on what to do
+//Changes the text depending on whether the input screen uses "radio" buttons or a slider
+-(void) prepareInstructionLabel:(INPUT_TYPE) inputType
+{
+    NSString* instructionString = @"Please ";
+    if (inputType == SLIDER)
+    {
+        instructionString = [instructionString stringByAppendingString:@"drag the slider to enter your "];
+    }
+    else if (inputType == RADIO)
+    {
+        instructionString = [instructionString stringByAppendingString:@"click the button which reflects your "];
+    }
+    else
+    {
+        NSLog(@"error in prepareInstructionLabel");
+    }
     
-    //prepare the instructions label
     UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(10, 75, 280, 40)];
     instructions.lineBreakMode = NSLineBreakByCharWrapping;
     [instructions setNumberOfLines:2];
     instructions.font = [instructions.font fontWithSize:10];
-    NSString* instructionString = @"Please drag the slider to record your ";
-    instructionString = [instructionString stringByAppendingString:symptomName]; //clarify symptom
+    instructionString = [instructionString stringByAppendingString:[self determineSymptomName:self.currentSymptom]]; //clarify symptom
     [instructions setText:instructionString];
     [self.view addSubview:instructions];
-    
-    //prepare the previous value label
+}
+
+//Prepares the UI elements to tell the user what their previously entered value was
+-(void) preparePreviousInstructionLabel
+{
     UILabel* preVal = [[UILabel alloc] initWithFrame:CGRectMake(10, 110, 290, 40)];
     NSString* preValString = @"Your previous ";
-    preValString = [preValString stringByAppendingString:[self determineSymptomName:currentSymptom]];
+    preValString = [preValString stringByAppendingString:[self determineSymptomName:self.currentSymptom]];
     preValString = [preValString stringByAppendingString:@" score was "];
-    preValString = [preValString stringByAppendingString:@"3"]; //TODO: adjust this to use backend data
+    preValString = [preValString stringByAppendingString:@"todo"]; //TODO: adjust this to use backend data
     preVal.text = preValString;
     [self.view addSubview:preVal];
+}
+
+//Prepares the submit button for the symptom screen
+//Changes the selector based on whether the user is inputting data on a slider or on "radio" buttons
+-(void) prepareSubmitButton
+{
+    UIButton *submitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    submitButton.frame = CGRectMake(self.view.center.x, self.view.center.y, 160, 40);
+    [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
+    [self.view addSubview:submitButton];
+    
+    //set up a selector for when button pressed
+    SEL buttonSel = @selector(submitPressed:); //takes button as param
+    [submitButton addTarget:self action:buttonSel forControlEvents:UIControlEventTouchUpInside]; //call when pressed
+
+}
+
+//Main method called from showNextSymptom for symptoms requiring radio buttons
+-(void) showRadioButtonScreen
+{
+    [self prepareInstructionLabel:RADIO];
+    
+    [self preparePreviousInstructionLabel];
+    
+    NSArray* buttonTexts;
+    UISegmentedControl* segControl;
+    
+    //prepare the buttons
+    if (self.currentSymptom == ACTIVITY)
+    {
+        buttonTexts = [NSArray arrayWithObjects:@"Full", @"Reduced", @"Assistance required", nil];
+    }
+    else if (self.currentSymptom == ANXIETY)
+    {
+        buttonTexts = [NSArray arrayWithObjects:@"No anxiety", @"Typical anxiety", @"Greater than usual", nil];
+    }
+    else if (self.currentSymptom == APPETITE)
+    {
+        buttonTexts = [NSArray arrayWithObjects:@"Good/fair eating", @"Reduced intake", @"Fluids only", @"Nothing by mouth", nil];
+    }
+    else
+    {
+        NSLog(@"error in showRadioButtonScreen");
+    }
+    
+    segControl = [[UISegmentedControl alloc] initWithItems:buttonTexts];
+    segControl.frame = CGRectMake(10, 150, 200, 40);
+    [self.view addSubview:segControl];
+    
+    [self prepareSubmitButton];
+}
+
+//Main method called from showNextSymptom for symptoms requiring a slider
+-(void)showSliderScreen
+{
+    [self prepareInstructionLabel:SLIDER];
+    
+    [self preparePreviousInstructionLabel];
     
     //prepare the slider
     UISlider *inputSlider = [[UISlider alloc] initWithFrame:CGRectMake(10, 150, 280, 40)];
@@ -158,16 +236,8 @@ int currentSymptom; //global int which reflects currently showing symptom
     [inputSlider addTarget:self action:sliderSel forControlEvents:UIControlEventValueChanged]; //call when changed
     //we MUST set the class var labelRef so sliderChanged knows which label to modify
     labelRef = sliderLabel;
-    
-    //set up a submit button
-    UIButton *submitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    submitButton.frame = CGRectMake(self.view.center.x, self.view.center.y, 160, 40);
-    [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
-    [self.view addSubview:submitButton];
-    
-    //set up a selector for when button pressed
-    SEL buttonSel = @selector(submitPressed:); //takes button as param
-    [submitButton addTarget:self action:buttonSel forControlEvents:UIControlEventTouchUpInside]; //call when pressed
+
+    [self prepareSubmitButton];
 }
 
 //Returns a string which contains the symptom name for a given integer
@@ -178,25 +248,25 @@ int currentSymptom; //global int which reflects currently showing symptom
         case 0:
             return @"pain";
         case 1:
-            return @"tiredness";
+            return @"activity";
         case 2:
-            return @"drowsiness";
-        case 3:
             return @"nausea";
-        case 4:
-            return @"appetite";
-        case 5:
-            return @"shortness of breath";
-        case 6:
+        case 3:
             return @"depression";
-        case 7:
+        case 4:
             return @"anxiety";
+        case 5:
+            return @"drowsiness";
+        case 6:
+            return @"appetite";
+        case 7:
+            return @"weakness";
         case 8:
-            return @"wellbeing";
+            return @"shortness of breath";
         case 9:
             return @"other";
         default:
-            return @"ERROR in determinesymptomname";
+            return @"error in determineSymptomName";
     }
 }
 
@@ -214,6 +284,8 @@ int currentSymptom; //global int which reflects currently showing symptom
     NSLog(@"submit pressed");
     
     [self showConfirmAlert:[labelRef.text doubleValue]]; //confirm that the user meant to enter the num currently in the label
+    
+    //TODO: radio button screens don’t use labelRef. So we need a way to change the confirm alert behavior or something because it won't pull data correctly
 }
 
 //Called before each symptom screen is shown. Clears all UI subviews in the view
@@ -249,33 +321,14 @@ int currentSymptom; //global int which reflects currently showing symptom
             //do nothing
             break;
         case 1: //save
-            [self saveEntry];
-            
+            //TODO save data here
             //move on
-            currentSymptom++; //all done with this one!
-            [self showNextSymptom:currentSymptom];
+            self.currentSymptom++;
+            [self showNextSymptom:self.currentSymptom];
             break;
         default:
             NSLog(@"error");
             break;
     }
 }
-
-//Called when the user continues through the submit popup alert
-//Saves the user entry online
--(void) saveEntry
-{
-    CatalyzeObject* newEntry = [CatalyzeObject objectWithClassName:@"esasEntry"]; //uses test class on Catalyze dashboard
-    NSNumber* painScore = [NSNumber numberWithDouble:[labelRef.text doubleValue]];
-    NSNumber* symptomNum = [NSNumber numberWithDouble:currentSymptom];
-    
-    [newEntry setObject:painScore forKey:@"score"];
-    [newEntry setObject:symptomNum forKey:@"symptom"];
-    //[newEntry setObject:[CatalyzeUser currentUser] forKey:@"user"]; //TODO figure out how to unify this
-    
-    [newEntry createInBackground];
-    
-    NSLog(@"Saved score: %f for symptom %d", [labelRef.text doubleValue], currentSymptom);
-}
-
 @end
