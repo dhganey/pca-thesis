@@ -82,32 +82,37 @@
         [fullName setFirstName:[self.firstNameField.text capitalizedString]];
         [fullName setLastName:[self.lastNameField.text capitalizedString]];
         
-        [CatalyzeUser signUpWithUsernameInBackground:self.usernameField.text email:userEmail name:fullName password:self.passwordField.text block:^(int status, NSString *response, NSError *error)
+        //[CatalyzeUser signUpWithUsernameInBackground:self.usernameField.text email:userEmail name:fullName password:self.passwordField.text block:^(int status, NSString *response, NSError *error)
+        [CatalyzeUser signUpWithUsernameInBackground:self.usernameField.text email:userEmail name:fullName password:self.passwordField.text success:^(CatalyzeUser *result)
         {
-            if (error)
-            {
-                [self showAlert:1];
-            }
-            else if (status == 400) //username already registered
+            //Signup successful!
+            
+            NSLog(@"signed up successfully");
+            
+            NSNumber *genderNum = [[NSNumber alloc] initWithInteger:self.genderControl.selectedSegmentIndex];
+            
+            PhoneNumber *phoneNum = [[PhoneNumber alloc] init];
+            [phoneNum setPreferred:self.phoneField.text];
+            
+            [[CatalyzeUser currentUser] setExtra:genderNum forKey:@"gender"];
+            [[CatalyzeUser currentUser] setPhoneNumber:phoneNum];
+            [[CatalyzeUser currentUser] saveInBackground];
+            
+            //TODO: perform some sort of segue
+
+        }
+        failure:^(NSDictionary *result, int status, NSError *error) //callback if signup fails
+        {
+            if (status==400)
             {
                 [self showAlert:2];
             }
             else
             {
-                NSLog(@"signed up successfully");
-                
-                NSNumber *genderNum = [[NSNumber alloc] initWithInteger:self.genderControl.selectedSegmentIndex];
-                
-                PhoneNumber *phoneNum = [[PhoneNumber alloc] init];
-                [phoneNum setPreferred:self.phoneField.text];
-                
-                [[CatalyzeUser currentUser] setExtra:genderNum forKey:@"gender"];
-                [[CatalyzeUser currentUser] setPhoneNumber:phoneNum];
-                [[CatalyzeUser currentUser] saveInBackground];
-                
-                //TODO: perform some sort of segue
+                [self showAlert:1];
             }
         }];
+
     }
     else //input not valid
     {

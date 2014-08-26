@@ -63,17 +63,15 @@ UILabel* labelRef; //global reference to a label to pass to target selectors whe
 //Called when the user presses the logout button. Sends the user back to the login screen and disengages Catalyze
 - (IBAction)logoutPressed:(id)sender
 {
-    [[CatalyzeUser currentUser] logoutWithBlock:^(int status, NSString *response, NSError *error)
+    [[CatalyzeUser currentUser] logoutWithSuccess:^(id result)
     {
-        if (error)
-        {
-            NSLog(@"Error while logging out");
-            //TODO handle the error
-        }
-        else
-        {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    failure:^(NSDictionary *result, int status, NSError *error)
+    {
+        NSLog(@"Error while logging out");
+        //TODO handle the error
+
     }];
 }
 

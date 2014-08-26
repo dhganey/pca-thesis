@@ -49,32 +49,27 @@
     
     if ([self validateInput]) //if the user has entered appropriate information
     {
-        [CatalyzeUser logInWithUsernameInBackground:self.usernameField.text password:self.passwordField.text block:^(int status, NSString *response, NSError *error)
-         {
-             NSLog(@"%d %@", status, response); //log the response and status
-             
-             if (error)
-             {
-                 [self showAlert:1];
-             }
-             else
-             {
-                 NSLog(@"Logged in successfully");
-                 
-                 //TODO: this sets a symptom array with arbitrary values, but should function differently
-                 if ([[CatalyzeUser currentUser] extraForKey:@"symptomArray"] == nil) //if we don't have this stored for the user
-                 {
-                     NSArray* userSymptoms = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil];
-                     //TODO: the above populates the first four symptoms. Determine a better way to know which symptoms to show
-                     [[CatalyzeUser currentUser] setExtra:userSymptoms forKey:@"symptomArray"];
-                     
-                     [[CatalyzeUser currentUser] saveInBackground];
-                 }
-                 //else nothing, array already set
-                 
-                 [self performSegueWithIdentifier:@"doneLoggingSegue" sender:self];
-             }
-         }];
+        [CatalyzeUser logInWithUsernameInBackground:self.usernameField.text password:self.passwordField.text success:^(CatalyzeUser *result)
+        {
+            NSLog(@"Logged in successfully");
+            
+            //TODO: this sets a symptom array with arbitrary values, but should function differently
+            if ([[CatalyzeUser currentUser] extraForKey:@"symptomArray"] == nil) //if we don't have this stored for the user
+            {
+                NSArray* userSymptoms = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil];
+                //TODO: the above populates the first four symptoms. Determine a better way to know which symptoms to show
+                [[CatalyzeUser currentUser] setExtra:userSymptoms forKey:@"symptomArray"];
+                
+                [[CatalyzeUser currentUser] saveInBackground];
+            }
+            //else nothing, array already set
+            
+            [self performSegueWithIdentifier:@"doneLoggingSegue" sender:self];
+        }
+        failure:^(NSDictionary *result, int status, NSError *error) //callback if login fails
+        {
+            [self showAlert:1];
+        }];
     }
     else //if user input is invalid
     {
