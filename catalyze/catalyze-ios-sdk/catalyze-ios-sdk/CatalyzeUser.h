@@ -49,26 +49,31 @@
 @property (strong, nonatomic) NSString *avatar;
 @property (strong, nonatomic) NSString *ssn;
 @property (strong, nonatomic) NSString *profilePhoto;
+@property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) NSMutableDictionary *extras;
 
 + (CatalyzeUser *)currentUser;
 
 - (void)logout;
 
-- (void)logoutWithBlock:(CatalyzeHTTPResponseBlock)block;
+- (void)logoutWithSuccess:(CatalyzeSuccessBlock)success failure:(CatalyzeFailureBlock)failure;
 
 - (BOOL)isAuthenticated;
 
 + (CatalyzeUser *)user;
 
-+ (void)logInWithUsernameInBackground:(NSString *)username password:(NSString *)password block:(CatalyzeHTTPResponseBlock)block;
++ (void)logInWithUsernameInBackground:(NSString *)username password:(NSString *)password success:(CatalyzeUserSuccessBlock)success failure:(CatalyzeFailureBlock)failure;
 
-+ (void)signUpWithUsernameInBackground:(NSString *)username email:(Email *)email name:(Name *)name  password:(NSString *)password block:(CatalyzeHTTPResponseBlock)block;
++ (void)signUpWithUsernameInBackground:(NSString *)username email:(Email *)email name:(Name *)name  password:(NSString *)password success:(CatalyzeUserSuccessBlock)success failure:(CatalyzeFailureBlock)failure;
 
-//TODO validate user routes
++ (void)signUpWithUsernameInBackground:(NSString *)username email:(Email *)email name:(Name *)name  password:(NSString *)password inviteCode:(NSString *)inviteCode success:(CatalyzeUserSuccessBlock)success failure:(CatalyzeFailureBlock)failure;
 
 - (id)extraForKey:(NSString *)key;
 - (void)setExtra:(id)extra forKey:(NSString *)key;
 - (void)removeExtraForKey:(NSString *)key;
+
+- (void)createInBackground __attribute__((unavailable("Please use [CatalyzeUser signUpWithUsernameInBackground:email:name:password:success:failure:] instead")));
+- (void)createInBackgroundWithSuccess:(CatalyzeSuccessBlock)success failure:(CatalyzeFailureBlock)failure __attribute__((unavailable("Please use [CatalyzeUser signUpWithUsernameInBackground:email:name:password:success:failure:] instead")));
+- (void)createInBackgroundWithTarget:(id)target selector:(SEL)selector __attribute__((unavailable("Please use [CatalyzeUser signUpWithUsernameInBackground:email:name:password:success:failure:] instead")));
 
 @end

@@ -31,10 +31,10 @@
 - (id)initWithParentClass:(NSString *)parentClass parentId:(NSString *)parentId referenceName:(NSString *)referenceName referenceId:(NSString *)referenceId {
     self = [super initWithClassName:@"reference"];
     if (self) {
-        [self setObject:parentClass forKey:@"__reference_parent_class"];
-        [self setObject:parentId forKey:@"__reference_parent_id"];
-        [self setObject:referenceName forKey:@"__reference_name"];
-        [self setObjectId:referenceId];
+        [self.content setObject:parentClass forKey:@"__reference_parent_class"];
+        [self.content setObject:parentId forKey:@"__reference_parent_id"];
+        [self.content setObject:referenceName forKey:@"__reference_name"];
+        [self setEntryId:referenceId];
     }
     return self;
 }

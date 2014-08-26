@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D6D5B22B-7438-40CB-BCC3-416FC214AAE0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PCA-Thesis</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0952FE60-4B3E-4246-B8DF-9FF5FDA8ED56</key>
+		<string>https://github.com/dhganey/pca-thesis.git</string>
+		<key>2FA10E4F-9B46-4241-80AD-C209EA40C559</key>
+		<string>https://github.com/michaeltyson/TPKeyboardAvoiding.git</string>
+		<key>F1EA804F-A672-45DA-862F-AA2E4DD350EB</key>
+		<string>https://github.com/catalyzeio/catalyze-ios-sdk.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PCA-Thesis.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0952FE60-4B3E-4246-B8DF-9FF5FDA8ED56</key>
+		<string>../..</string>
+		<key>2FA10E4F-9B46-4241-80AD-C209EA40C559</key>
+		<string>../../TPKeyboardAvoiding/TPKeyboardAvoiding</string>
+		<key>F1EA804F-A672-45DA-862F-AA2E4DD350EB</key>
+		<string>../../catalyze/catalyze-ios-sdk</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/dhganey/pca-thesis.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0952FE60-4B3E-4246-B8DF-9FF5FDA8ED56</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F1EA804F-A672-45DA-862F-AA2E4DD350EB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>catalyze-ios-sdk</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0952FE60-4B3E-4246-B8DF-9FF5FDA8ED56</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PCA-Thesis</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2FA10E4F-9B46-4241-80AD-C209EA40C559</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TPKeyboardAvoiding</string>
+		</dict>
+	</array>
+</dict>
+</plist>

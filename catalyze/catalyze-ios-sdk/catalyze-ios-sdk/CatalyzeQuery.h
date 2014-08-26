@@ -29,8 +29,6 @@
 
 @interface CatalyzeQuery : NSObject
 
-@property (nonatomic, retain) CatalyzeHTTPManager *httpManager;
-
 #pragma mark Constructors
 
 /** @name Constructors */
@@ -88,17 +86,46 @@
 
 /**
  Performs the query asynchronously.  This should only be called after setting at minimum, the
- queryField and queryValue.  Upon completion of the request, the CatalyzeArrayResultBlock is 
- performed with the results of the query.
+ queryField and queryValue.  Upon completion of the request, the CatalyzeArrayResultBlock is
+ performed with the results of the query. This query requires administrator, superivsor, or
+ the appropriate ACL permission level to query all entries in a custom class.
  
  @param block the completion block to be executed upon the request's completion
  */
-- (void)retrieveInBackgroundWithBlock:(CatalyzeArrayResultBlock)block;
+- (void)retrieveAllEntriesInBackgroundWithSuccess:(CatalyzeArraySuccessBlock)success failure:(CatalyzeFailureBlock)failure;
+
+/**
+ Performs the query asynchronously.  This should only be called after setting at minimum, the
+ queryField and queryValue.  Upon completion of the request, the given selector will be
+ performed on the given target with the array of results as the object of the selector.
+ This query requires administrator, superivsor, or the appropriate ACL permission level 
+ to query all entries in a custom class.
+ 
+ **NOTE:**
+ The selector is performed on the target on the **Main Thread** see
+ [[NSThread mainThread]](http://bit.ly/11Z9D47)
+ 
+ @param target the target to perform the given selector on the **Main Thread**
+ upon the request's completion
+ @param selector the selector to be performed on the given target on the **Main Thread**
+ upon the request's completion
+ */
+- (void)retrieveAllEntriesInBackgroundWithTarget:(id)target selector:(SEL)selector;
+
+/**
+ Performs the query asynchronously.  This should only be called after setting at minimum, the
+ queryField and queryValue.  Upon completion of the request, the CatalyzeArrayResultBlock is 
+ performed with the results of the query. This only queries for your own entries.
+ 
+ @param block the completion block to be executed upon the request's completion
+ */
+- (void)retrieveInBackgroundWithSuccess:(CatalyzeArraySuccessBlock)success failure:(CatalyzeFailureBlock)failure;
 
 /**
  Performs the query asynchronously.  This should only be called after setting at minimum, the
  queryField and queryValue.  Upon completion of the request, the given selector will be 
  performed on the given target with the array of results as the object of the selector.
+ This only queries for your own entries.
  
  **NOTE:**
  The selector is performed on the target on the **Main Thread** see
@@ -110,5 +137,38 @@
  upon the request's completion
  */
 - (void)retrieveInBackgroundWithTarget:(id)target selector:(SEL)selector;
+
+/**
+ Performs the query asynchronously.  This should only be called after setting at minimum, the
+ queryField and queryValue.  Upon completion of the request, the CatalyzeArrayResultBlock is
+ performed with the results of the query. This query searches all entries in a custom class
+ that belong to the user with the given usersId. The user performing this query must have
+ administrator, supervisor, or the appropriate ACL permissions to view the data belonging to
+ that user.
+ 
+ @param usersId the ID of the user whose entries are to be queried for
+ @param block the completion block to be executed upon the request's completion
+ */
+- (void)retrieveInBackgroundForUsersId:(NSString *)usersId success:(CatalyzeArraySuccessBlock)success failure:(CatalyzeFailureBlock)failure;
+
+/**
+ Performs the query asynchronously.  This should only be called after setting at minimum, the
+ queryField and queryValue.  Upon completion of the request, the given selector will be
+ performed on the given target with the array of results as the object of the selector.
+ This query searches all entries in a custom class that belong to the user with the given 
+ usersId. The user performing this query must have administrator, supervisor, or the 
+ appropriate ACL permissions to view the data belonging to that user.
+ 
+ **NOTE:**
+ The selector is performed on the target on the **Main Thread** see
+ [[NSThread mainThread]](http://bit.ly/11Z9D47)
+ 
+ @param usersId the ID of the user whose entries are to be queried for
+ @param target the target to perform the given selector on the **Main Thread**
+ upon the request's completion
+ @param selector the selector to be performed on the given target on the **Main Thread**
+ upon the request's completion
+ */
+- (void)retrieveInBackgroundForUsersId:(NSString *)usersId target:(id)target selector:(SEL)selector;
 
 @end

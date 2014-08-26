@@ -43,6 +43,7 @@
 #define kEncodeKeyAvatar @"avatar"
 #define kEncodeKeySsn @"ssn"
 #define kEncodeKeyProfilePhoto @"profile_photo"
+#define kEncodeKeyType @"type"
 #define kEncodeKeyExtras @"extras"
 
 @interface CatalyzeUser() {
@@ -78,6 +79,7 @@
 @synthesize avatar = _avatar;
 @synthesize ssn = _ssn;
 @synthesize profilePhoto = _profilePhoto;
+@synthesize type = _type;
 @synthesize extras = _extras;
 
 static CatalyzeUser *currentUser;
@@ -125,6 +127,7 @@ static CatalyzeUser *currentUser;
     [aCoder encodeObject:_avatar forKey:kEncodeKeyAvatar];
     [aCoder encodeObject:_ssn forKey:kEncodeKeySsn];
     [aCoder encodeObject:_profilePhoto forKey:kEncodeKeyProfilePhoto];
+    [aCoder encodeObject:_type forKey:kEncodeKeyType];
     [aCoder encodeObject:_extras forKey:kEncodeKeyExtras];
 }
 
@@ -156,38 +159,37 @@ static CatalyzeUser *currentUser;
         [self setAvatar:[aDecoder decodeObjectForKey:kEncodeKeyAvatar]];
         [self setSsn:[aDecoder decodeObjectForKey:kEncodeKeySsn]];
         [self setProfilePhoto:[aDecoder decodeObjectForKey:kEncodeKeyProfilePhoto]];
+        [self setType:[aDecoder decodeObjectForKey:kEncodeKeyType]];
         [self setExtras:[aDecoder decodeObjectForKey:kEncodeKeyExtras]];
     }
     return self;
 }
 
 - (void)logout {
-    [self logoutWithBlock:nil];
+    [self logoutWithSuccess:nil failure:nil];
 }
 
-- (void)logoutWithBlock:(CatalyzeHTTPResponseBlock)block {
-    [CatalyzeHTTPManager doGet:@"/auth/signout" block:^(int status, NSString *response, NSError *error) {
-        if (CATALYZE_DEBUG) {
-            NSLog(@"%i - %@ - %@", status, response, error.description);
+- (void)logoutWithSuccess:(CatalyzeSuccessBlock)success failure:(CatalyzeFailureBlock)failure {
+    [CatalyzeHTTPManager doGet:@"/auth/signout" success:^(id result) {
+        currentUser = nil;
+        
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCatalyzeAuthorizationKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:@"currentuser.archive"];
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager removeItemAtPath:archivePath error:nil];
+        if (success) {
+            success(self);
         }
-        if (!error) {
-            currentUser = nil;
-            
-            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-            NSString *documentsDirectory = [paths objectAtIndex:0];
-            NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:@"currentuser.archive"];
-            
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            [fileManager removeItemAtPath:archivePath error:nil];
-        }
-        if (block) {
-            block(status, response, error);
-        }
-    }];
+    } failure:failure];
 }
 
 - (BOOL)isAuthenticated {
-    return ([[NSUserDefaults standardUserDefaults] valueForKey:@"Authorization"] && ![[[NSUserDefaults standardUserDefaults] valueForKey:@"Authorization"] isEqualToString:@""]);
+    return ([[NSUserDefaults standardUserDefaults] valueForKey:kCatalyzeAuthorizationKey] && ![[[NSUserDefaults standardUserDefaults] valueForKey:kCatalyzeAuthorizationKey] isEqualToString:@""]);
 }
 
 + (CatalyzeUser *)user {
@@ -202,53 +204,54 @@ static CatalyzeUser *currentUser;
 
 #pragma mark - Login
 
-+ (void)logInWithUsernameInBackground:(NSString *)username password:(NSString *)password block:(CatalyzeHTTPResponseBlock)block {
++ (void)logInWithUsernameInBackground:(NSString *)username password:(NSString *)password success:(CatalyzeUserSuccessBlock)success failure:(CatalyzeFailureBlock)failure {
     NSDictionary *body = @{@"username" : username, @"password": password};
-    [CatalyzeHTTPManager doPost:@"/auth/signin" withParams:body block:^(int status, NSString *response, NSError *error) {
-        if (!error) {
-            currentUser = [CatalyzeUser user];
-            NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:[response dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]];
-            NSString *sessionToken = [dict objectForKey:@"sessionToken"];
-            [dict removeObjectForKey:@"sessionToken"];
-            
-            dict = [CatalyzeUser modifyDict:dict];
-            
-            [currentUser setValuesForKeysWithDictionary:dict];
-            
-            //currentUser = [[response dataUsingEncoding:NSUTF8StringEncoding] objectFromJSONOfType:[CatalyzeUser class]];
-            
-            if (sessionToken) {
-                [[NSUserDefaults standardUserDefaults] setValue:sessionToken forKey:@"Authorization"];
-            }
-            [[NSUserDefaults standardUserDefaults] synchronize];
+    [CatalyzeHTTPManager doPost:@"/auth/signin" withParams:body success:^(id result) {
+        currentUser = [CatalyzeUser user];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:result];
+        NSString *sessionToken = [dict objectForKey:@"sessionToken"];
+        [dict removeObjectForKey:@"sessionToken"];
+        
+        dict = [CatalyzeUser modifyDict:dict];
+        
+        [currentUser setValuesForKeysWithDictionary:dict];
+        
+        if (sessionToken) {
+            [[NSUserDefaults standardUserDefaults] setValue:sessionToken forKey:kCatalyzeAuthorizationKey];
         }
-        block(status, nil, error);
-    }];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        if (success) {
+            success(currentUser);
+        }
+    } failure:failure];
 }
 
 #pragma mark - Signup
 
-+ (void)signUpWithUsernameInBackground:(NSString *)username email:(Email *)email name:(Name *)name  password:(NSString *)password block:(CatalyzeHTTPResponseBlock)block {
-    NSDictionary *body = @{@"username" : username, @"email" : [email JSON:[Email class]], @"name" : [name JSON:[Name class]], @"password": password};
-    [CatalyzeHTTPManager doPost:@"/users" withParams:body block:^(int status, NSString *response, NSError *error) {
-        if (!error) {
-            currentUser = [CatalyzeUser user];
-            NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:[response dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]];
-            NSString *sessionToken = [dict objectForKey:@"sessionToken"];
-            [dict removeObjectForKey:@"sessionToken"];
-            
-            dict = [CatalyzeUser modifyDict:dict];
-            
-            [currentUser setValuesForKeysWithDictionary:dict];
-            //currentUser = [[response dataUsingEncoding:NSUTF8StringEncoding] objectFromJSONOfType:[CatalyzeUser class]];
-            
-            if (sessionToken) {
-                [[NSUserDefaults standardUserDefaults] setValue:sessionToken forKey:@"Authorization"];
-            }
-            [[NSUserDefaults standardUserDefaults] synchronize];
++ (void)signUpWithUsernameInBackground:(NSString *)username email:(Email *)email name:(Name *)name  password:(NSString *)password success:(CatalyzeUserSuccessBlock)success failure:(CatalyzeFailureBlock)failure {
+    [CatalyzeUser signUpWithUsernameInBackground:username email:email name:name password:password inviteCode:@"" success:success failure:failure];
+}
+
++ (void)signUpWithUsernameInBackground:(NSString *)username email:(Email *)email name:(Name *)name  password:(NSString *)password inviteCode:(NSString *)inviteCode success:(CatalyzeUserSuccessBlock)success failure:(CatalyzeFailureBlock)failure {
+    NSDictionary *body = @{@"username" : username, @"email" : [email JSON:[Email class]], @"name" : [name JSON:[Name class]], @"password": password, @"inviteCode" : inviteCode};
+    [CatalyzeHTTPManager doPost:@"/users" withParams:body success:^(id result) {
+        currentUser = [CatalyzeUser user];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:result];
+        NSString *sessionToken = [dict objectForKey:@"sessionToken"];
+        [dict removeObjectForKey:@"sessionToken"];
+        
+        dict = [CatalyzeUser modifyDict:dict];
+        
+        [currentUser setValuesForKeysWithDictionary:dict];
+        
+        if (sessionToken) {
+            [[NSUserDefaults standardUserDefaults] setValue:sessionToken forKey:kCatalyzeAuthorizationKey];
         }
-        block(status, nil, error);
-    }];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        if (success) {
+            success(currentUser);
+        }
+    } failure:failure];
 }
 
 #pragma mark - Extras
@@ -282,120 +285,128 @@ static CatalyzeUser *currentUser;
 }
 
 - (void)createInBackground {
-    [self createInBackgroundWithBlock:nil];
+    [NSException raise:@"MethodUnavailable" format:@"%s is not available on CatalyzeUser", __PRETTY_FUNCTION__];
 }
 
-- (void)createInBackgroundWithBlock:(CatalyzeBooleanResultBlock)block {
-    [CatalyzeHTTPManager doPost:@"/users" withParams:[self JSON:[CatalyzeUser class]] block:^(int status, NSString *response, NSError *error) {
-        if (!error) {
-            dirty = NO;
-            [dirtyFields removeAllObjects];
-            
-            NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:[response dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]];
-            //CatalyzeUser *temp = [[response dataUsingEncoding:NSUTF8StringEncoding] objectFromJSONOfType:[CatalyzeUser class]];
-            //[self setValuesForKeysWithDictionary:[temp dictionaryOfProperties]];
-            
-            dict = [CatalyzeUser modifyDict:dict];
-            
-            [self setValuesForKeysWithDictionary:dict];
-        }
-        if (block) {
-            block(error == nil, status, error);
-        }
-    }];
+- (void)createInBackgroundWithSuccess:(CatalyzeSuccessBlock)success failure:(CatalyzeFailureBlock)failure {
+    [NSException raise:@"MethodUnavailable" format:@"%s is not available on CatalyzeUser", __PRETTY_FUNCTION__];
 }
 
 - (void)createInBackgroundWithTarget:(id)target selector:(SEL)selector {
-    [self createInBackgroundWithBlock:^(BOOL succeeded, int status, NSError *error) {
-        [target performSelector:selector onThread:[NSThread mainThread] withObject:error waitUntilDone:NO];
-    }];
+    [NSException raise:@"MethodUnavailable" format:@"%s is not available on CatalyzeUser", __PRETTY_FUNCTION__];
 }
 
 - (void)saveInBackground {
-    [self saveInBackgroundWithBlock:nil];
+    [self saveInBackgroundWithSuccess:nil failure:nil];
 }
 
-- (void)saveInBackgroundWithBlock:(CatalyzeBooleanResultBlock)block {
-    [CatalyzeHTTPManager doPut:[NSString stringWithFormat:@"/users/%@", _usersId] withParams:[self JSON:[CatalyzeUser class]] block:^(int status, NSString *response, NSError *error) {
-        if (!error) {
-            dirty = NO;
-            [dirtyFields removeAllObjects];
-            
-            NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:[response dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]];
-            //CatalyzeUser *temp = [[response dataUsingEncoding:NSUTF8StringEncoding] objectFromJSONOfType:[CatalyzeUser class]];
-            //[self setValuesForKeysWithDictionary:[temp dictionaryOfProperties]];
-            
-            dict = [CatalyzeUser modifyDict:dict];
-            
-            [self setValuesForKeysWithDictionary:dict];
+- (void)saveInBackgroundWithSuccess:(CatalyzeSuccessBlock)success failure:(CatalyzeFailureBlock)failure {
+    [CatalyzeHTTPManager doPut:[NSString stringWithFormat:@"/users/%@", _usersId] withParams:[self JSON:[CatalyzeUser class]] success:^(id result) {
+        dirty = NO;
+        [dirtyFields removeAllObjects];
+        
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:result];
+        
+        dict = [CatalyzeUser modifyDict:dict];
+        
+        [self setValuesForKeysWithDictionary:dict];
+        if (success) {
+            success(self);
         }
-        if (block) {
-            block(error == nil, status, error);
-        }
-    }];
+    } failure:failure];
 }
 
 - (void)saveInBackgroundWithTarget:(id)target selector:(SEL)selector {
-    [self saveInBackgroundWithBlock:^(BOOL succeeded, int status, NSError *error) {
-        [target performSelector:selector onThread:[NSThread mainThread] withObject:error waitUntilDone:NO];
+    [self saveInBackgroundWithSuccess:^(id result) {
+        [target performSelector:selector onThread:[NSThread mainThread] withObject:self waitUntilDone:NO];
+    } failure:^(NSDictionary *result, int status, NSError *error) {
+        [target performSelector:selector onThread:[NSThread mainThread] withObject:result waitUntilDone:NO];
     }];
 }
 
 - (void)retrieveInBackground {
-    [self retrieveInBackgroundWithBlock:nil];
+    [self retrieveInBackgroundWithSuccess:nil failure:nil];
 }
 
-- (void)retrieveInBackgroundWithBlock:(CatalyzeBooleanResultBlock)block {
-    [CatalyzeHTTPManager doGet:[NSString stringWithFormat:@"/users/%@", _usersId] block:^(int status, NSString *response, NSError *error) {
-        if (!error) {
-            dirty = NO;
-            [dirtyFields removeAllObjects];
-            
-            //CatalyzeUser *temp = [[response dataUsingEncoding:NSUTF8StringEncoding] objectFromJSONOfType:[CatalyzeUser class]];
-            //[self setValuesForKeysWithDictionary:[temp dictionaryOfProperties]];
-            NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:[response dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]];
-            
-            dict = [CatalyzeUser modifyDict:dict];
-            
-            [self setValuesForKeysWithDictionary:dict];
+- (void)retrieveInBackgroundWithSuccess:(CatalyzeSuccessBlock)success failure:(CatalyzeFailureBlock)failure {
+    [CatalyzeHTTPManager doGet:[NSString stringWithFormat:@"/users/%@", _usersId] success:^(id result) {
+        dirty = NO;
+        [dirtyFields removeAllObjects];
+        
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:result];
+        
+        dict = [CatalyzeUser modifyDict:dict];
+        
+        [self setValuesForKeysWithDictionary:dict];
+        if (success) {
+            success(self);
         }
-        if (block) {
-            block(error == nil, status, error);
-        }
-    }];
+    } failure:failure];
 }
 
 - (void)retrieveInBackgroundWithTarget:(id)target selector:(SEL)selector {
-    [self retrieveInBackgroundWithBlock:^(BOOL succeeded, int status, NSError *error) {
-        [target performSelector:selector onThread:[NSThread mainThread] withObject:error waitUntilDone:NO];
+    [self retrieveInBackgroundWithSuccess:^(id result) {
+        [target performSelector:selector onThread:[NSThread mainThread] withObject:self waitUntilDone:NO];
+    } failure:^(NSDictionary *result, int status, NSError *error) {
+        [target performSelector:selector onThread:[NSThread mainThread] withObject:result waitUntilDone:NO];
     }];
 }
 
 - (void)deleteInBackground {
-    [self deleteInBackgroundWithBlock:nil];
+    [self deleteInBackgroundWithSuccess:nil failure:nil];
 }
 
-- (void)deleteInBackgroundWithBlock:(CatalyzeBooleanResultBlock)block {
-    [CatalyzeHTTPManager doDelete:[NSString stringWithFormat:@"/users/%@", _usersId] block:^(int status, NSString *response, NSError *error) {
-        if (!error) {
-            currentUser = nil;
-            
-            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-            NSString *documentsDirectory = [paths objectAtIndex:0];
-            NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:@"currentuser.archive"];
-            
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            [fileManager removeItemAtPath:archivePath error:nil];
+- (void)deleteInBackgroundWithSuccess:(CatalyzeSuccessBlock)success failure:(CatalyzeFailureBlock)failure {
+    [CatalyzeHTTPManager doDelete:[NSString stringWithFormat:@"/users/%@", _usersId] success:^(id result) {
+        currentUser = nil;
+        self.usersId= nil;
+        self.active= nil;
+        self.createdAt= nil;
+        self.updatedAt= nil;
+        self.username= nil;
+        self.email= nil;
+        self.name= nil;
+        self.dob= nil;
+        self.age= nil;
+        self.phoneNumber= nil;
+        self.addresses= nil;
+        self.gender= nil;
+        self.maritalStatus= nil;
+        self.religion= nil;
+        self.race= nil;
+        self.ethnicity= nil;
+        self.guardians= nil;
+        self.confCode= nil;
+        self.languages= nil;
+        self.socialIds= nil;
+        self.mrns= nil;
+        self.healthPlans= nil;
+        self.avatar= nil;
+        self.ssn= nil;
+        self.profilePhoto= nil;
+        self.type= nil;
+        self.extras = nil;
+        
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCatalyzeAuthorizationKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:@"currentuser.archive"];
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager removeItemAtPath:archivePath error:nil];
+        if (success) {
+            success(self);
         }
-        if (block) {
-            block(error == nil, status, error);
-        }
-    }];
+    } failure:failure];
 }
 
 - (void)deleteInBackgroundWithTarget:(id)target selector:(SEL)selector {
-    [self deleteInBackgroundWithBlock:^(BOOL succeeded, int status, NSError *error) {
-        [target performSelector:selector onThread:[NSThread mainThread] withObject:error waitUntilDone:NO];
+    [self deleteInBackgroundWithSuccess:^(id result) {
+        [target performSelector:selector onThread:[NSThread mainThread] withObject:self waitUntilDone:NO];
+    } failure:^(NSDictionary *result, int status, NSError *error) {
+        [target performSelector:selector onThread:[NSThread mainThread] withObject:result waitUntilDone:NO];
     }];
 }
 

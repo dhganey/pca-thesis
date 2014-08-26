@@ -20,23 +20,28 @@
 @implementation Catalyze
 
 + (void)setApiKey:(NSString *)apiKey applicationId:(NSString *)appId {
-    [[NSUserDefaults standardUserDefaults] setValue:apiKey forKey:@"api_key"];
-    [[NSUserDefaults standardUserDefaults] setValue:appId forKey:@"app_id"];
+    [Catalyze setApiKey:apiKey applicationId:appId baseUrl:kCatalyzeBaseUrl];
+}
+
++ (void)setApiKey:(NSString *)apiKey applicationId:(NSString *)appId baseUrl:(NSString *)baseUrl {
+    [[NSUserDefaults standardUserDefaults] setValue:apiKey forKey:kCatalyzeApiKeyKey];
+    [[NSUserDefaults standardUserDefaults] setValue:appId forKey:kCatalyzeAppIdKey];
+    [[NSUserDefaults standardUserDefaults] setValue:baseUrl forKey:kCatalyzeBaseUrlKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (NSString *)apiKey {
-    if (![[NSUserDefaults standardUserDefaults] valueForKey:@"api_key"]) {
-        NSLog(@"Warning! Application key not set! Please call [Catalyze setApiKey:URLScheme:applicationId:] in your AppDelegate's applicationDidFinishLaunchingWithOptions: method");
+    if (![[NSUserDefaults standardUserDefaults] valueForKey:kCatalyzeApiKeyKey]) {
+        NSLog(@"Warning! Application key not set! Please call [Catalyze setApiKey:applicationId:] in your AppDelegate's applicationDidFinishLaunchingWithOptions: method");
     }
-    return [[NSUserDefaults standardUserDefaults] valueForKey:@"api_key"];
+    return [[NSUserDefaults standardUserDefaults] valueForKey:kCatalyzeApiKeyKey];
 }
 
 + (NSString *)applicationId {
-    if (![[NSUserDefaults standardUserDefaults] valueForKey:@"app_id"]) {
-        NSLog(@"Warning! Application id not set! Please call [Catalyze setApiKey:URLScheme:applicationId:] in your AppDelegate's applicationDidFinishLaunchingWithOptions: method");
+    if (![[NSUserDefaults standardUserDefaults] valueForKey:kCatalyzeAppIdKey]) {
+        NSLog(@"Warning! Application id not set! Please call [Catalyze setApiKey:applicationId:] in your AppDelegate's applicationDidFinishLaunchingWithOptions: method");
     }
-    return [[NSUserDefaults standardUserDefaults] valueForKey:@"app_id"];
+    return [[NSUserDefaults standardUserDefaults] valueForKey:kCatalyzeAppIdKey];
 }
 
 + (void)setLoggingLevel:(LoggingLevel)level {

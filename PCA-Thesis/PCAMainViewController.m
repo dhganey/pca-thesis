@@ -22,6 +22,8 @@ NSArray* userSymptoms; //global reference to bitmask of user symptoms
 
 UILabel* labelRef; //global reference to a label to pass to target selectors when UI elements change
 
+UISegmentedControl* radioRef;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -161,17 +163,28 @@ UILabel* labelRef; //global reference to a label to pass to target selectors whe
 
 //Prepares the submit button for the symptom screen
 //Changes the selector based on whether the user is inputting data on a slider or on "radio" buttons
--(void) prepareSubmitButton
+-(void) prepareSubmitButton:(INPUT_TYPE) type
 {
     UIButton *submitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     submitButton.frame = CGRectMake(self.view.center.x, self.view.center.y, 160, 40);
     [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
     [self.view addSubview:submitButton];
     
-    //set up a selector for when button pressed
-    SEL buttonSel = @selector(submitPressed:); //takes button as param
+    SEL buttonSel; //set up a selector for when button pressed
+    if (type == SLIDER)
+    {
+        buttonSel = @selector(submitPressedSlider:); //takes button as param
+    }
+    else if (type == RADIO)
+    {
+        buttonSel = @selector(submitPressedRadio:);
+    }
+    else
+    {
+        NSLog(@"error in prepareSubmitButton");
+    }
+    
     [submitButton addTarget:self action:buttonSel forControlEvents:UIControlEventTouchUpInside]; //call when pressed
-
 }
 
 //Main method called from showNextSymptom for symptoms requiring radio buttons
@@ -205,8 +218,9 @@ UILabel* labelRef; //global reference to a label to pass to target selectors whe
     segControl = [[UISegmentedControl alloc] initWithItems:buttonTexts];
     segControl.frame = CGRectMake(10, 150, 200, 40);
     [self.view addSubview:segControl];
+    radioRef = segControl;
     
-    [self prepareSubmitButton];
+    [self prepareSubmitButton:RADIO];
 }
 
 //Main method called from showNextSymptom for symptoms requiring a slider
@@ -235,7 +249,7 @@ UILabel* labelRef; //global reference to a label to pass to target selectors whe
     //we MUST set the class var labelRef so sliderChanged knows which label to modify
     labelRef = sliderLabel;
 
-    [self prepareSubmitButton];
+    [self prepareSubmitButton:SLIDER];
 }
 
 //Returns a string which contains the symptom name for a given integer
@@ -276,14 +290,24 @@ UILabel* labelRef; //global reference to a label to pass to target selectors whe
     [labelRef setText:[NSString stringWithFormat:@"%.0f", sender.value]];
 }
 
-//Target selector method to submit user data.
--(void)submitPressed:(UIButton*) sender
+//Target selector method to submit user data from slider screen.
+-(void)submitPressedSlider:(UIButton*) sender
 {
     NSLog(@"submit pressed");
     
-    [self showConfirmAlert:[labelRef.text doubleValue]]; //confirm that the user meant to enter the num currently in the label
+    self.valueToSave = [labelRef.text doubleValue];
     
-    //TODO: radio button screens don’t use labelRef. So we need a way to change the confirm alert behavior or something because it won't pull data correctly
+    [self showConfirmAlert:[NSString stringWithFormat:@"%.0f", [labelRef.text doubleValue]]]; //confirm that the user meant to enter the num currently in the label
+}
+
+//Target selector method to submit user data from radio button screen
+-(void)submitPressedRadio:(UIButton*) sender
+{
+    NSLog(@"submit pressed");
+    
+    self.valueToSave = [radioRef selectedSegmentIndex];
+    
+    [self showConfirmAlert:[radioRef titleForSegmentAtIndex:[radioRef selectedSegmentIndex]]];
 }
 
 //Called before each symptom screen is shown. Clears all UI subviews in the view
@@ -298,9 +322,9 @@ UILabel* labelRef; //global reference to a label to pass to target selectors whe
 
 //Shows the user a popup alert when they try to submit a score (any score)
 //User can continue with submission or go back to fix a mistake
--(void)showConfirmAlert:(double) value
+-(void)showConfirmAlert:(NSString*) value
 {
-    NSString* confirmMessage = [NSString stringWithFormat:@"You entered %.0f, is that correct?", value];
+    NSString* confirmMessage = [NSString stringWithFormat:@"You entered %@, is that correct?", value];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm"
                                                     message:confirmMessage
@@ -320,6 +344,7 @@ UILabel* labelRef; //global reference to a label to pass to target selectors whe
             break;
         case 1: //save
             //TODO save data here
+            NSLog(@"save data: %d", self.valueToSave);
             //move on
             self.currentSymptom++;
             [self showNextSymptom:self.currentSymptom];

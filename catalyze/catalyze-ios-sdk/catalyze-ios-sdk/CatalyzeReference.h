@@ -21,7 +21,7 @@
 #import <Foundation/Foundation.h>
 #import "Catalyze.h"
 
-@interface CatalyzeReference : CatalyzeObject
+@interface CatalyzeReference : CatalyzeEntry
 
 #pragma mark Constructors
 

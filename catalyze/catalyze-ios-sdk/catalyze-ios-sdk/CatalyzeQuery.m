@@ -31,7 +31,6 @@
     self = [super init];
     if (self) {
         _catalyzeClassName = newClassName;
-        self.httpManager = [[CatalyzeHTTPManager alloc] init];
     }
     return self;
 }
@@ -41,22 +40,108 @@
     return self;
 }
 
+- (void)setValue:(id)value forKey:(NSString *)key {
+    @try {
+        [super setValue:value forKey:key];
+    } @catch (NSException *e) {}
+}
+
 #pragma mark -
 #pragma mark Retrieve
 
-- (void)retrieveInBackgroundWithBlock:(CatalyzeArrayResultBlock)block {
-    [CatalyzeHTTPManager doGet:[NSString stringWithFormat:@"/classes/%@/query?pageSize=%i&pageNumber=%i",[self catalyzeClassName], _pageSize, _pageNumber] block:^(int status, NSString *response, NSError *error) {
-        if (block) {
-            NSLog(@"response: %@", response);
-            block([NSJSONSerialization JSONObjectWithData:[response dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil], error);
+- (void)retrieveAllEntriesInBackgroundWithSuccess:(CatalyzeArraySuccessBlock)success failure:(CatalyzeFailureBlock)failure; {
+    [CatalyzeHTTPManager doGet:[NSString stringWithFormat:@"/classes/%@/query?pageSize=%i&pageNumber=%i%@%@",[self catalyzeClassName], _pageSize, _pageNumber, [self constructQueryFieldParam], [self constructQueryValueParam]] success:^(id result) {
+        if (success) {
+            NSArray *array = (NSArray *)result;
+            NSMutableArray *entries = [NSMutableArray array];
+            for (id dict in array) {
+                CatalyzeEntry *entry = [CatalyzeEntry entryWithClassName:_catalyzeClassName];
+                [entry setValuesForKeysWithDictionary:dict];
+                entry.content = [NSMutableDictionary dictionaryWithDictionary:entry.content]; // to keep mutability
+                [entries addObject:entry];
+            }
+            success(entries);
         }
+    } failure:failure];
+}
+
+- (void)retrieveAllEntriesInBackgroundWithTarget:(id)target selector:(SEL)selector {
+    [self retrieveAllEntriesInBackgroundWithSuccess:^(NSArray *result) {
+        [target performSelector:selector onThread:[NSThread mainThread] withObject:result waitUntilDone:NO];
+    } failure:^(NSDictionary *result, int status, NSError *error) {
+        [target performSelector:selector onThread:[NSThread mainThread] withObject:result waitUntilDone:NO];
     }];
 }
 
+- (void)retrieveInBackgroundWithSuccess:(CatalyzeArraySuccessBlock)success failure:(CatalyzeFailureBlock)failure; {
+    //For compatibility with the current API the old implementation is left here. After 8/26/14 the following
+    //line should be uncommented and the rest of the method removed.
+    //[self retrieveInBackgroundForUsersId:[[CatalyzeUser currentUser] usersId] block:block];
+    
+    [CatalyzeHTTPManager doGet:[NSString stringWithFormat:@"/classes/%@/query?pageSize=%i&pageNumber=%i%@%@",[self catalyzeClassName], _pageSize, _pageNumber, [self constructQueryFieldParam], [self constructQueryValueParam]] success:^(id result) {
+        if (success) {
+            NSArray *array = (NSArray *)result;
+            NSMutableArray *entries = [NSMutableArray array];
+            for (id dict in array) {
+                CatalyzeEntry *entry = [CatalyzeEntry entryWithClassName:_catalyzeClassName];
+                [entry setValuesForKeysWithDictionary:dict];
+                entry.content = [NSMutableDictionary dictionaryWithDictionary:entry.content]; // to keep mutability
+                [entries addObject:entry];
+            }
+            success(entries);
+        }
+    } failure:failure];
+}
+
 - (void)retrieveInBackgroundWithTarget:(id)target selector:(SEL)selector {
-    [self retrieveInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        [target performSelector:selector onThread:[NSThread mainThread] withObject:objects waitUntilDone:NO];
+    [self retrieveInBackgroundWithSuccess:^(NSArray *result) {
+        [target performSelector:selector onThread:[NSThread mainThread] withObject:result waitUntilDone:NO];
+    } failure:^(NSDictionary *result, int status, NSError *error) {
+        [target performSelector:selector onThread:[NSThread mainThread] withObject:result waitUntilDone:NO];
     }];
+}
+
+- (void)retrieveInBackgroundForUsersId:(NSString *)usersId success:(CatalyzeArraySuccessBlock)success failure:(CatalyzeFailureBlock)failure; {
+    [CatalyzeHTTPManager doGet:[NSString stringWithFormat:@"/classes/%@/query/%@?pageSize=%i&pageNumber=%i%@%@",[self catalyzeClassName], usersId, _pageSize, _pageNumber, [self constructQueryFieldParam], [self constructQueryValueParam]] success:^(id result) {
+        if (success) {
+            NSArray *array = (NSArray *)result;
+            NSMutableArray *entries = [NSMutableArray array];
+            for (id dict in array) {
+                CatalyzeEntry *entry = [CatalyzeEntry entryWithClassName:_catalyzeClassName];
+                [entry setValuesForKeysWithDictionary:dict];
+                entry.content = [NSMutableDictionary dictionaryWithDictionary:entry.content]; // to keep mutability
+                [entries addObject:entry];
+            }
+            success(entries);
+        }
+    } failure:failure];
+}
+
+- (void)retrieveInBackgroundForUsersId:(NSString *)usersId target:(id)target selector:(SEL)selector {
+    [self retrieveInBackgroundForUsersId:usersId success:^(NSArray *result) {
+        [target performSelector:selector onThread:[NSThread mainThread] withObject:result waitUntilDone:NO];
+    } failure:^(NSDictionary *result, int status, NSError *error) {
+        [target performSelector:selector onThread:[NSThread mainThread] withObject:result waitUntilDone:NO];
+    }];
+}
+
+#pragma mark -
+#pragma mark Helpers
+
+- (NSString *)constructQueryFieldParam {
+    NSString *queryFieldParam = @"";
+    if (_queryField && ![_queryField isEqualToString:@""]) {
+        queryFieldParam = [NSString stringWithFormat:@"&field=%@", _queryField];
+    }
+    return queryFieldParam;
+}
+
+- (NSString *)constructQueryValueParam {
+    NSString *queryValueParam = @"";
+    if (_queryValue && ![_queryValue isEqualToString:@""]) {
+        queryValueParam = [NSString stringWithFormat:@"&searchBy=%@", _queryValue];
+    }
+    return queryValueParam;
 }
 
 @end
