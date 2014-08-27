@@ -7,16 +7,19 @@
 //
 
 #import "PCALoginViewController.h"
+#import "PCAAppDelegate.h"
 
 #import "Catalyze.h"
 
-#include "PCADefinitions.h"
+#import "PCADefinitions.h"
 
 @interface PCALoginViewController ()
 
 @end
 
 @implementation PCALoginViewController
+
+PCAAppDelegate* appDel;
 
 - (void)viewDidLoad
 {
@@ -26,6 +29,8 @@
     {
         [self performSegueWithIdentifier:@"doneLoggingSegue" sender:self];
     }
+    
+    appDel = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,12 +64,12 @@
         }
         failure:^(NSDictionary *result, int status, NSError *error) //callback if login fails
         {
-            [self showAlert:LOGIN_ERROR];
+            [appDel.defObj showAlert:LOGIN_ERROR];
         }];
     }
     else //if user input is invalid
     {
-        [self showAlert:INVALID_INPUT];
+        [appDel.defObj showAlert:INVALID_INPUT];
     }
 }
 
@@ -81,31 +86,9 @@
     else
     {
         NSLog(@"current user type not set");
+        //TODO: adjust this
+        [self performSegueWithIdentifier:@"doneLoggingInPatientSegue" sender:self];
     }
-}
-
-//Shows an alert with different text depending on passed error code
--(void) showAlert: (ERROR_TYPE) type
-{
-    NSString *errorMessage = @"There was a problem. Please try again";
-    switch (type)
-    {
-        case INVALID_INPUT:
-            errorMessage = @"Invalid input. Please try again";
-            break;
-        case LOGIN_ERROR:
-            errorMessage = @"Something went wrong while logging in. Please try again";
-            break;
-        default:
-            break;
-    }
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
-                                                    message:errorMessage
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
 }
 
 //Ensures that the length of inputted username and password is at least 1

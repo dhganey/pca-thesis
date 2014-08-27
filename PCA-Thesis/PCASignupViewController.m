@@ -7,16 +7,19 @@
 //
 
 #import "PCASignupViewController.h"
+#import "PCAAppDelegate.h"
 
 #import "Catalyze.h"
 
-#include "PCADefinitions.h"
+#import "PCADefinitions.h"
 
 @interface PCASignupViewController ()
 
 @end
 
 @implementation PCASignupViewController
+
+PCAAppDelegate* appDel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +37,8 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     tapGesture.cancelsTouchesInView = NO;
     [self.scrollView addGestureRecognizer:tapGesture];
+    
+    appDel = [[UIApplication sharedApplication] delegate]; //get the singleton app delegate
 }
 
 -(void) dealloc
@@ -115,18 +120,18 @@
         {
             if (status==400)
             {
-                [self showAlert:USERNAME_TAKEN];
+                [appDel.defObj showAlert:USERNAME_TAKEN];
             }
             else
             {
-                [self showAlert:SIGNUP_ERROR];
+                [appDel.defObj showAlert:SIGNUP_ERROR];
             }
         }];
 
     }
     else //input not valid
     {
-        [self showAlert:INVALID_INPUT];
+        [appDel.defObj showAlert:INVALID_INPUT];
     }
 }
 
@@ -149,30 +154,4 @@
     return ok;
 }
 
--(void) showAlert:(ERROR_TYPE) type
-{
-    NSString *errorMessage = @"There was a problem. Please try again";
-    
-    switch(type)
-    {
-        case INVALID_INPUT:
-            errorMessage = @"Input invalid. Please try again";
-            break;
-        case SIGNUP_ERROR:
-            errorMessage = @"There was a problem signing up. Please try again";
-            break;
-        case USERNAME_TAKEN:
-            errorMessage = @"Sorry, that username is already taken. Please try another";
-            break;
-        default:
-            break;
-    }
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
-                                                    message:errorMessage
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-}
 @end

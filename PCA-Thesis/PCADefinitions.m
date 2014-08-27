@@ -10,4 +10,34 @@
 
 @implementation PCADefinitions
 
+//Shows an alert with different text depending on passed error code
+-(void) showAlert: (ERROR_TYPE) type
+{
+    NSString *errorMessage = @"There was a problem. Please try again";
+    switch (type)
+    {
+        case INVALID_INPUT:
+            errorMessage = @"Invalid input. Please try again";
+            break;
+        case LOGIN_ERROR:
+            errorMessage = @"Something went wrong while logging in. Please try again";
+            break;
+        case SIGNUP_ERROR:
+            errorMessage = @"There was a problem signing up. Please try again";
+            break;
+        case USERNAME_TAKEN:
+            errorMessage = @"Sorry, that username is already taken. Please try another";
+            break;
+        default:
+            break;
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
+                                                    message:errorMessage
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 @end

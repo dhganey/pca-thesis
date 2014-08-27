@@ -39,4 +39,7 @@ typedef enum
     USERNAME_TAKEN
 } ERROR_TYPE;
 
+
+-(void) showAlert: (ERROR_TYPE) type;
+
 @end

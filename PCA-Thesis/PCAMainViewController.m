@@ -10,7 +10,7 @@
 
 #import "Catalyze.h"
 
-#include "PCADefinitions.h"
+#import "PCADefinitions.h"
 
 @interface PCAMainViewController ()
 
