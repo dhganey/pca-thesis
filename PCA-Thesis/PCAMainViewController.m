@@ -305,7 +305,7 @@ UISegmentedControl* radioRef;
 {
     NSLog(@"submit pressed");
     
-    self.valueToSave = [radioRef selectedSegmentIndex];
+    self.valueToSave = (int)[radioRef selectedSegmentIndex];
     
     [self showConfirmAlert:[radioRef titleForSegmentAtIndex:[radioRef selectedSegmentIndex]]];
 }

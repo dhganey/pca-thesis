@@ -98,10 +98,13 @@
 
             [CatalyzeUser currentUser].gender =  [self.genderControl titleForSegmentAtIndex:[self.genderControl selectedSegmentIndex]];
             
-             NSArray* userSymptoms = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil]; //by default, show all symptoms
-             [[CatalyzeUser currentUser] setExtra:userSymptoms forKey:@"symptomArray"];
-             
-             [CatalyzeUser currentUser].type = @"patient";
+            NSArray* userSymptoms = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil]; //by default, show all symptoms
+            
+            [[CatalyzeUser currentUser] setExtra:userSymptoms forKey:@"symptomArray"];
+            
+            [[CatalyzeUser currentUser] setExtra:self.idField forKey:@"patientID"];
+
+            [CatalyzeUser currentUser].type = @"patient"; //TODO this is hardcoded
              
             [[CatalyzeUser currentUser] saveInBackground];
             
