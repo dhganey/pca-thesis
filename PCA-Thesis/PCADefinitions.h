@@ -31,4 +31,12 @@ typedef enum
     RADIO
 } INPUT_TYPE;
 
+typedef enum
+{
+    INVALID_INPUT = 0,
+    LOGIN_ERROR,
+    SIGNUP_ERROR,
+    USERNAME_TAKEN
+} ERROR_TYPE;
+
 @end

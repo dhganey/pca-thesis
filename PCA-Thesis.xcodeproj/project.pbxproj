@@ -72,6 +72,7 @@
 		63BE8D52196BA3F000B20BD9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BE8D51196BA3F000B20BD9 /* Security.framework */; };
 		63BE8D54196BA3F500B20BD9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BE8D53196BA3F500B20BD9 /* StoreKit.framework */; };
 		63BE8D56196BA3FC00B20BD9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BE8D55196BA3FC00B20BD9 /* SystemConfiguration.framework */; };
+		63DE728C19AE3742001AA9B9 /* PCAPatientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DE728B19AE3742001AA9B9 /* PCAPatientTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +219,8 @@
 		63BE8D51196BA3F000B20BD9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		63BE8D53196BA3F500B20BD9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		63BE8D55196BA3FC00B20BD9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		63DE728A19AE3742001AA9B9 /* PCAPatientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAPatientTableViewController.h; sourceTree = "<group>"; };
+		63DE728B19AE3742001AA9B9 /* PCAPatientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAPatientTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +322,8 @@
 				63B503CE18FB43C20017F906 /* Main.storyboard */,
 				632E4E60197E1A2A00326376 /* PCAMainViewController.h */,
 				632E4E61197E1A2A00326376 /* PCAMainViewController.m */,
+				63DE728A19AE3742001AA9B9 /* PCAPatientTableViewController.h */,
+				63DE728B19AE3742001AA9B9 /* PCAPatientTableViewController.m */,
 				63438E5919AA7AA500C25DC5 /* PCADefinitions.h */,
 				63438E5A19AA7AA500C25DC5 /* PCADefinitions.m */,
 				63166DFA197C56FB006D78D2 /* PCASignupViewController.h */,
@@ -640,6 +645,7 @@
 				63BD90E519AD1430002B4D52 /* CatalyzeReference.m in Sources */,
 				63BD90EB19AD1430002B4D52 /* JSONObject.m in Sources */,
 				63BD90FA19AD1430002B4D52 /* PhoneNumber.m in Sources */,
+				63DE728C19AE3742001AA9B9 /* PCAPatientTableViewController.m in Sources */,
 				63BD90FB19AD1430002B4D52 /* SocialId.m in Sources */,
 				63BD90F119AD1430002B4D52 /* AFNetworkReachabilityManager.m in Sources */,
 				63BD90E819AD1430002B4D52 /* Geocode.m in Sources */,

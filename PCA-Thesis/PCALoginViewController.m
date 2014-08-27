@@ -10,6 +10,8 @@
 
 #import "Catalyze.h"
 
+#include "PCADefinitions.h"
+
 @interface PCALoginViewController ()
 
 @end
@@ -53,40 +55,45 @@
         {
             NSLog(@"Logged in successfully");
             
-            //TODO: this sets a symptom array with arbitrary values, but should function differently
-            if ([[CatalyzeUser currentUser] extraForKey:@"symptomArray"] == nil) //if we don't have this stored for the user
-            {
-                NSArray* userSymptoms = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil];
-                //TODO: the above populates the first four symptoms. Determine a better way to know which symptoms to show
-                [[CatalyzeUser currentUser] setExtra:userSymptoms forKey:@"symptomArray"];
-                
-                [[CatalyzeUser currentUser] saveInBackground];
-            }
-            //else nothing, array already set
-            
-            [self performSegueWithIdentifier:@"doneLoggingSegue" sender:self];
+            [self completeLoginSegue];
         }
         failure:^(NSDictionary *result, int status, NSError *error) //callback if login fails
         {
-            [self showAlert:1];
+            [self showAlert:LOGIN_ERROR];
         }];
     }
     else //if user input is invalid
     {
-        [self showAlert:0];
+        [self showAlert:INVALID_INPUT];
+    }
+}
+
+-(void) completeLoginSegue
+{
+    if ([[CatalyzeUser currentUser].type isEqualToString:@"patient"])
+    {
+        [self performSegueWithIdentifier:@"doneLoggingInPatientSegue" sender:self];
+    }
+    else if ([[CatalyzeUser currentUser].type isEqualToString:@"doctor"])
+    {
+        [self performSegueWithIdentifier:@"doneLoggingInDoctorSegue" sender:self];
+    }
+    else
+    {
+        NSLog(@"current user type not set");
     }
 }
 
 //Shows an alert with different text depending on passed error code
--(void) showAlert: (int) code
+-(void) showAlert: (ERROR_TYPE) type
 {
     NSString *errorMessage = @"There was a problem. Please try again";
-    switch (code)
+    switch (type)
     {
-        case 0: //invalid input
+        case INVALID_INPUT:
             errorMessage = @"Invalid input. Please try again";
             break;
-        case 1: //login error
+        case LOGIN_ERROR:
             errorMessage = @"Something went wrong while logging in. Please try again";
             break;
         default:

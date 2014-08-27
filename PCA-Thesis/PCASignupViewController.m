@@ -10,6 +10,8 @@
 
 #import "Catalyze.h"
 
+#include "PCADefinitions.h"
+
 @interface PCASignupViewController ()
 
 @end
@@ -82,20 +84,25 @@
         [fullName setFirstName:[self.firstNameField.text capitalizedString]];
         [fullName setLastName:[self.lastNameField.text capitalizedString]];
         
-        //[CatalyzeUser signUpWithUsernameInBackground:self.usernameField.text email:userEmail name:fullName password:self.passwordField.text block:^(int status, NSString *response, NSError *error)
         [CatalyzeUser signUpWithUsernameInBackground:self.usernameField.text email:userEmail name:fullName password:self.passwordField.text success:^(CatalyzeUser *result)
         {
             //Signup successful!
             
             NSLog(@"signed up successfully");
             
-            NSNumber *genderNum = [[NSNumber alloc] initWithInteger:self.genderControl.selectedSegmentIndex];
+            //finish adding data to the user
             
             PhoneNumber *phoneNum = [[PhoneNumber alloc] init];
             [phoneNum setPreferred:self.phoneField.text];
-            
-            [[CatalyzeUser currentUser] setExtra:genderNum forKey:@"gender"];
             [[CatalyzeUser currentUser] setPhoneNumber:phoneNum];
+
+            [CatalyzeUser currentUser].gender =  [self.genderControl titleForSegmentAtIndex:[self.genderControl selectedSegmentIndex]];
+            
+             NSArray* userSymptoms = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil]; //by default, show all symptoms
+             [[CatalyzeUser currentUser] setExtra:userSymptoms forKey:@"symptomArray"];
+             
+             [CatalyzeUser currentUser].type = @"patient";
+             
             [[CatalyzeUser currentUser] saveInBackground];
             
             //TODO: perform some sort of segue
@@ -105,18 +112,18 @@
         {
             if (status==400)
             {
-                [self showAlert:2];
+                [self showAlert:USERNAME_TAKEN];
             }
             else
             {
-                [self showAlert:1];
+                [self showAlert:SIGNUP_ERROR];
             }
         }];
 
     }
     else //input not valid
     {
-        [self showAlert:0];
+        [self showAlert:INVALID_INPUT];
     }
 }
 
@@ -132,25 +139,26 @@
     ok = ok && ([self.passwordField2.text length] > 0);
     ok = ok && ([self.phoneField.text length] > 0);
     ok = ok && ([self.emailField.text length] > 0);
+    ok = ok && ([self.idField.text length] > 0);
     
     ok = ok && [self.passwordField.text isEqualToString:self.passwordField2.text]; //ensure passwords are the same
     
     return ok;
 }
 
--(void) showAlert:(int) code
+-(void) showAlert:(ERROR_TYPE) type
 {
     NSString *errorMessage = @"There was a problem. Please try again";
     
-    switch(code)
+    switch(type)
     {
-        case 0:
+        case INVALID_INPUT:
             errorMessage = @"Input invalid. Please try again";
             break;
-        case 1:
+        case SIGNUP_ERROR:
             errorMessage = @"There was a problem signing up. Please try again";
             break;
-        case 2:
+        case USERNAME_TAKEN:
             errorMessage = @"Sorry, that username is already taken. Please try another";
             break;
         default:
