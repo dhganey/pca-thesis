@@ -21,8 +21,15 @@
 NSArray* userSymptoms; //global reference to bitmask of user symptoms
 
 UILabel* labelRef; //global reference to a label to pass to target selectors when UI elements change
-
 UISegmentedControl* radioRef;
+
+int X_OFFSET = 10;
+int INSTRUCTION_Y_OFFSET = 65;
+int PREVIOUS_Y_OFFSET = 105;
+int INPUT_Y_OFFSET = 150;
+int FEEDBACK_Y_OFFSET = 190;
+int HEIGHT = 40;
+int FONT_SIZE = 15;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -140,10 +147,10 @@ UISegmentedControl* radioRef;
         NSLog(@"error in prepareInstructionLabel");
     }
     
-    UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(10, 75, 280, 40)];
+    UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(X_OFFSET, INSTRUCTION_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
     instructions.lineBreakMode = NSLineBreakByCharWrapping;
     [instructions setNumberOfLines:2];
-    instructions.font = [instructions.font fontWithSize:10];
+    instructions.font = [instructions.font fontWithSize:FONT_SIZE];
     instructionString = [instructionString stringByAppendingString:[self determineSymptomName:self.currentSymptom]]; //clarify symptom
     [instructions setText:instructionString];
     [self.view addSubview:instructions];
@@ -152,7 +159,7 @@ UISegmentedControl* radioRef;
 //Prepares the UI elements to tell the user what their previously entered value was
 -(void) preparePreviousInstructionLabel
 {
-    UILabel* preVal = [[UILabel alloc] initWithFrame:CGRectMake(10, 110, 290, 40)];
+    UILabel* preVal = [[UILabel alloc] initWithFrame:CGRectMake(X_OFFSET, PREVIOUS_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
     NSString* preValString = @"Your previous ";
     preValString = [preValString stringByAppendingString:[self determineSymptomName:self.currentSymptom]];
     preValString = [preValString stringByAppendingString:@" score was "];
@@ -166,7 +173,7 @@ UISegmentedControl* radioRef;
 -(void) prepareSubmitButton:(INPUT_TYPE) type
 {
     UIButton *submitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    submitButton.frame = CGRectMake(self.view.center.x, self.view.center.y, 160, 40);
+    submitButton.frame = CGRectMake(self.view.center.x, self.view.center.y, 100, HEIGHT);
     [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
     [self.view addSubview:submitButton];
     
@@ -200,7 +207,7 @@ UISegmentedControl* radioRef;
     //prepare the buttons
     if (self.currentSymptom == ACTIVITY)
     {
-        buttonTexts = [NSArray arrayWithObjects:@"Full", @"Reduced", @"Assistance required", nil];
+        buttonTexts = [NSArray arrayWithObjects:@"Full", @"Reduced", @"Need Assistance", nil];
     }
     else if (self.currentSymptom == ANXIETY)
     {
@@ -208,7 +215,7 @@ UISegmentedControl* radioRef;
     }
     else if (self.currentSymptom == APPETITE)
     {
-        buttonTexts = [NSArray arrayWithObjects:@"Good/fair eating", @"Reduced intake", @"Fluids only", @"Nothing by mouth", nil];
+        buttonTexts = [NSArray arrayWithObjects:@"Good eating", @"Reduced intake", @"Fluids only", @"Nothing by mouth", nil];
     }
     else
     {
@@ -216,7 +223,7 @@ UISegmentedControl* radioRef;
     }
     
     segControl = [[UISegmentedControl alloc] initWithItems:buttonTexts];
-    segControl.frame = CGRectMake(10, 150, 200, 40);
+    segControl.frame = CGRectMake(X_OFFSET, INPUT_Y_OFFSET, CGRectGetWidth(self.view.bounds)-2*X_OFFSET, HEIGHT);
     [self.view addSubview:segControl];
     radioRef = segControl;
     
@@ -231,7 +238,7 @@ UISegmentedControl* radioRef;
     [self preparePreviousInstructionLabel];
     
     //prepare the slider
-    UISlider *inputSlider = [[UISlider alloc] initWithFrame:CGRectMake(10, 150, 280, 40)];
+    UISlider *inputSlider = [[UISlider alloc] initWithFrame:CGRectMake(X_OFFSET, INPUT_Y_OFFSET, CGRectGetWidth(self.view.bounds)-2*X_OFFSET, HEIGHT)];
     [inputSlider setMinimumValue:0];
     [inputSlider setMaximumValue:10];
     [self.view addSubview:inputSlider];
@@ -239,7 +246,7 @@ UISegmentedControl* radioRef;
     inputSlider.continuous = YES;
     
     //prepare the feedback label
-    UILabel *sliderLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x, 200, 280, 40)];
+    UILabel *sliderLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x, FEEDBACK_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
     [sliderLabel setText:[NSString stringWithFormat:@"%.0f", inputSlider.value]];
     [self.view addSubview:sliderLabel];
     
