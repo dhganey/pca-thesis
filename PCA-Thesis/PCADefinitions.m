@@ -28,6 +28,12 @@
         case USERNAME_TAKEN:
             errorMessage = @"Sorry, that username is already taken. Please try another";
             break;
+        case NO_USER_LOGGED_IN:
+            errorMessage = @"No user is logged in";
+            break;
+        case LOGOUT_ERROR:
+            errorMessage = @"Error while logging out, please try again";
+            break;
         default:
             break;
     }

@@ -11,12 +11,15 @@
 #import "Catalyze.h"
 
 #import "PCADefinitions.h"
+#import "PCAAppDelegate.h"
 
 @interface PCAMainViewController ()
 
 @end
 
 @implementation PCAMainViewController
+
+PCAAppDelegate* appDel;
 
 NSArray* userSymptoms; //global reference to bitmask of user symptoms
 
@@ -46,6 +49,8 @@ int FONT_SIZE = 15;
 {
     [super viewDidLoad];
     
+    appDel = [[UIApplication sharedApplication] delegate];
+    
     self.currentSymptom = 0; //start at beginning
  
     if ([CatalyzeUser currentUser]) //make sure someone is logged in
@@ -55,7 +60,7 @@ int FONT_SIZE = 15;
     }
     else
     {
-        //TODO error, nobody logged in
+        [appDel.defObj showAlert:NO_USER_LOGGED_IN];
     }
     
     if (true) //TODO: this should check if it's time to cycle symptoms, and show something else if not
@@ -79,8 +84,7 @@ int FONT_SIZE = 15;
     failure:^(NSDictionary *result, int status, NSError *error)
     {
         NSLog(@"Error while logging out");
-        //TODO handle the error
-
+        [appDel.defObj showAlert:LOGOUT_ERROR];
     }];
 }
 

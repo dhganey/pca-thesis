@@ -55,6 +55,7 @@ PCAAppDelegate* appDel;
     [self.passwordField resignFirstResponder];
     [self.passwordField2 resignFirstResponder];
     [self.phoneField resignFirstResponder];
+    [self.idField resignFirstResponder];
     
     [self.view endEditing:YES];
 }
@@ -113,8 +114,7 @@ PCAAppDelegate* appDel;
              
             [[CatalyzeUser currentUser] saveInBackground];
             
-            //TODO: perform some sort of segue
-
+            //TODO segue?
         }
         failure:^(NSDictionary *result, int status, NSError *error) //callback if signup fails
         {

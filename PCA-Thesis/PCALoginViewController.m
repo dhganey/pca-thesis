@@ -86,7 +86,7 @@ PCAAppDelegate* appDel;
     else
     {
         NSLog(@"current user type not set");
-        //TODO: adjust this
+        //TODO: adjust this, currently just segueing as a patient by default
         [self performSegueWithIdentifier:@"doneLoggingInPatientSegue" sender:self];
     }
 }
