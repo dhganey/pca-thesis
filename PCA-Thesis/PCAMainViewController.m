@@ -19,8 +19,6 @@
 
 @implementation PCAMainViewController
 
-PCAAppDelegate* appDel;
-
 NSArray* userSymptoms; //global reference to bitmask of user symptoms
 
 UILabel* labelRef; //global reference to a label to pass to target selectors when UI elements change
@@ -37,8 +35,9 @@ int FONT_SIZE = 15;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self)
+    {
+        //custom init
     }
     return self;
 }
@@ -49,9 +48,17 @@ int FONT_SIZE = 15;
 {
     [super viewDidLoad];
     
-    appDel = [[UIApplication sharedApplication] delegate];
+    //Set up app delegate object for use of shared functions
+    self.appDel = [[UIApplication sharedApplication] delegate];
     
-    self.currentSymptom = 0; //start at beginning
+    //Set up the previous entry dictionary which is used to show users their last entered score
+    self.previousDictionary = [self queryPreviousDictionary];
+    
+    //Set up esasDictionary which will hold inputted symptom data and is saved to a CatalyzeEntry at the end
+    self.esasDictionary = [[NSMutableDictionary alloc] init];
+    
+    //Start at beginning...
+    self.currentSymptom = 0;
  
     if ([CatalyzeUser currentUser]) //make sure someone is logged in
     {
@@ -60,15 +67,13 @@ int FONT_SIZE = 15;
     }
     else
     {
-        [appDel.defObj showAlert:NO_USER_LOGGED_IN];
+        [self.appDel.defObj showAlert:NO_USER_LOGGED_IN];
     }
     
     if (true) //TODO: this should check if it's time to cycle symptoms, and show something else if not
     {
         [self showNextSymptom:self.currentSymptom];
     }
-    
-    self.esasDictionary = [[NSMutableDictionary alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,7 +91,7 @@ int FONT_SIZE = 15;
     failure:^(NSDictionary *result, int status, NSError *error)
     {
         NSLog(@"Error while logging out");
-        [appDel.defObj showAlert:LOGOUT_ERROR];
+        [self.appDel.defObj showAlert:LOGOUT_ERROR];
     }];
 }
 
@@ -170,7 +175,14 @@ int FONT_SIZE = 15;
     NSString* preValString = @"Your previous ";
     preValString = [preValString stringByAppendingString:[self determineSymptomName:self.currentSymptom]];
     preValString = [preValString stringByAppendingString:@" score was "];
-    preValString = [preValString stringByAppendingString:@"todo"]; //TODO: adjust this to use backend data
+    if (![self.previousDictionary objectForKey:[self determineSymptomName:self.currentSymptom]]) //if not nil TODO
+    {
+        preValString = [preValString stringByAppendingString:[self.previousDictionary objectForKey:[self determineSymptomName:self.currentSymptom]]];
+    }
+    else
+    {
+        preValString = [preValString stringByAppendingString:@"No data"];
+    }
     preVal.text = preValString;
     [self.view addSubview:preVal];
 }
@@ -321,7 +333,7 @@ int FONT_SIZE = 15;
     
     if ([radioRef selectedSegmentIndex] == UISegmentedControlNoSegment) //if nothing selected
     {
-        [appDel.defObj showAlert:NOTHING_SELECTED];
+        [self.appDel.defObj showAlert:NOTHING_SELECTED];
     }
     else
     {
@@ -394,15 +406,34 @@ int FONT_SIZE = 15;
 -(void) saveEntryToCatalyze
 {
     CatalyzeEntry* newEsasEntry = [CatalyzeEntry entryWithClassName:@"esasEntry" dictionary:self.esasDictionary];
-    [newEsasEntry saveInBackgroundWithSuccess:^(id result)
+    [newEsasEntry createInBackgroundWithSuccess:^(id result)
     {
         //all done, move on
         [self performSegueWithIdentifier:@"doneSymptomsSegue" sender:self];
     }
     failure:^(NSDictionary *result, int status, NSError *error)
     {
-        //TODO handle this
+        NSLog(@"Error in saveinBackground, save unsuccessful");
+        NSLog(@"error status: %d", status);
+        
+        for (NSString* key in [result allKeys])
+        {
+            NSLog(@"%@", [result valueForKey:key]);
+        }
     }];
+}
+
+-(NSMutableDictionary*) queryPreviousDictionary
+{
+    __block NSMutableDictionary* dict;
+    
+    CatalyzeQuery* dictQuery = [CatalyzeQuery queryWithClassName:@"esasEntry"];
+    [dictQuery setPageNumber:1];
+    [dictQuery setPageSize:100];
+    
+    //TODO add query code here
+    
+    return dict;
 }
 
 @end

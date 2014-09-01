@@ -10,6 +10,8 @@
 
 #import "Catalyze.h"
 
+#import "PCAAppDelegate.h"
+
 @interface PCAMainViewController : UIViewController <UIAlertViewDelegate>
 
 - (IBAction)logoutPressed:(id)sender;
@@ -17,8 +19,11 @@
 @property int currentSymptom;
 @property int valueToSave;
 
+@property PCAAppDelegate* appDel;
+
 //@property CatalyzeEntry* esasEntry;
 
 @property NSMutableDictionary* esasDictionary;
+@property NSMutableDictionary* previousDictionary;
 
 @end
