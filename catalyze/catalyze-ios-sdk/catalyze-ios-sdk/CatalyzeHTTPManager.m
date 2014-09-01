@@ -93,4 +93,11 @@
     [[CatalyzeHTTPManager httpClient].requestSerializer setValue:[NSString stringWithFormat:@"%@", [Catalyze apiKey]] forHTTPHeaderField:kCatalyzeApiKeyHeader];
 }
 
++ (id)percentEncode:(id)string {
+    if ([string isKindOfClass:[NSString class]]) {
+        string = [string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+    return string;
+}
+
 @end

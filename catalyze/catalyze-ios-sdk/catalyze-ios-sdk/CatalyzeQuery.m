@@ -50,7 +50,7 @@
 #pragma mark Retrieve
 
 - (void)retrieveAllEntriesInBackgroundWithSuccess:(CatalyzeArraySuccessBlock)success failure:(CatalyzeFailureBlock)failure; {
-    [CatalyzeHTTPManager doGet:[NSString stringWithFormat:@"/classes/%@/query?pageSize=%i&pageNumber=%i%@%@",[self catalyzeClassName], _pageSize, _pageNumber, [self constructQueryFieldParam], [self constructQueryValueParam]] success:^(id result) {
+    [CatalyzeHTTPManager doGet:[NSString stringWithFormat:@"/classes/%@/query?pageSize=%i&pageNumber=%i%@%@",[CatalyzeHTTPManager percentEncode:[self catalyzeClassName]], _pageSize, _pageNumber, [self constructQueryFieldParam], [self constructQueryValueParam]] success:^(id result) {
         if (success) {
             NSArray *array = (NSArray *)result;
             NSMutableArray *entries = [NSMutableArray array];
@@ -74,23 +74,7 @@
 }
 
 - (void)retrieveInBackgroundWithSuccess:(CatalyzeArraySuccessBlock)success failure:(CatalyzeFailureBlock)failure; {
-    //For compatibility with the current API the old implementation is left here. After 8/26/14 the following
-    //line should be uncommented and the rest of the method removed.
-    //[self retrieveInBackgroundForUsersId:[[CatalyzeUser currentUser] usersId] block:block];
-    
-    [CatalyzeHTTPManager doGet:[NSString stringWithFormat:@"/classes/%@/query?pageSize=%i&pageNumber=%i%@%@",[self catalyzeClassName], _pageSize, _pageNumber, [self constructQueryFieldParam], [self constructQueryValueParam]] success:^(id result) {
-        if (success) {
-            NSArray *array = (NSArray *)result;
-            NSMutableArray *entries = [NSMutableArray array];
-            for (id dict in array) {
-                CatalyzeEntry *entry = [CatalyzeEntry entryWithClassName:_catalyzeClassName];
-                [entry setValuesForKeysWithDictionary:dict];
-                entry.content = [NSMutableDictionary dictionaryWithDictionary:entry.content]; // to keep mutability
-                [entries addObject:entry];
-            }
-            success(entries);
-        }
-    } failure:failure];
+    [self retrieveInBackgroundForUsersId:[[CatalyzeUser currentUser] usersId] success:success failure:failure];
 }
 
 - (void)retrieveInBackgroundWithTarget:(id)target selector:(SEL)selector {
@@ -102,7 +86,7 @@
 }
 
 - (void)retrieveInBackgroundForUsersId:(NSString *)usersId success:(CatalyzeArraySuccessBlock)success failure:(CatalyzeFailureBlock)failure; {
-    [CatalyzeHTTPManager doGet:[NSString stringWithFormat:@"/classes/%@/query/%@?pageSize=%i&pageNumber=%i%@%@",[self catalyzeClassName], usersId, _pageSize, _pageNumber, [self constructQueryFieldParam], [self constructQueryValueParam]] success:^(id result) {
+    [CatalyzeHTTPManager doGet:[NSString stringWithFormat:@"/classes/%@/query/%@?pageSize=%i&pageNumber=%i%@%@",[CatalyzeHTTPManager percentEncode:[self catalyzeClassName]], usersId, _pageSize, _pageNumber, [self constructQueryFieldParam], [self constructQueryValueParam]] success:^(id result) {
         if (success) {
             NSArray *array = (NSArray *)result;
             NSMutableArray *entries = [NSMutableArray array];
@@ -130,16 +114,20 @@
 
 - (NSString *)constructQueryFieldParam {
     NSString *queryFieldParam = @"";
-    if (_queryField && ![_queryField isEqualToString:@""]) {
-        queryFieldParam = [NSString stringWithFormat:@"&field=%@", _queryField];
+    if (_queryField) {
+        if (![_queryField isKindOfClass:[NSString class]] || ([_queryField isKindOfClass:[NSString class]] && ![_queryField isEqualToString:@""])) {
+            queryFieldParam = [NSString stringWithFormat:@"&field=%@", [CatalyzeHTTPManager percentEncode:_queryField]];
+        }
     }
     return queryFieldParam;
 }
 
 - (NSString *)constructQueryValueParam {
     NSString *queryValueParam = @"";
-    if (_queryValue && ![_queryValue isEqualToString:@""]) {
-        queryValueParam = [NSString stringWithFormat:@"&searchBy=%@", _queryValue];
+    if (_queryValue) {
+        if (![_queryValue isKindOfClass:[NSString class]] || ([_queryValue isKindOfClass:[NSString class]] && ![_queryValue isEqualToString:@""])) {
+            queryValueParam = [NSString stringWithFormat:@"&searchBy=%@", [CatalyzeHTTPManager percentEncode:_queryValue]];
+        }
     }
     return queryValueParam;
 }

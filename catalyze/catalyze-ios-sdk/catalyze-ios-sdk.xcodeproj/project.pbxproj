@@ -22,6 +22,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		271D663A19AFB571004FED88 /* CatalyzeQueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 271D663919AFB571004FED88 /* CatalyzeQueryTest.m */; };
 		274833CC19A3E68100F3B940 /* Catalyze.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C27417CBBAC600B8FA02 /* Catalyze.m */; };
 		274833CD19A3E68B00F3B940 /* CatalyzeHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C27717CBBAC600B8FA02 /* CatalyzeHTTPManager.m */; };
 		274833CE19A3E68B00F3B940 /* CatalyzeEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B9C27917CBBAC600B8FA02 /* CatalyzeEntry.m */; };
@@ -138,6 +139,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		271D663919AFB571004FED88 /* CatalyzeQueryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalyzeQueryTest.m; sourceTree = "<group>"; };
 		274A9FBE19ABEC6D00DB7039 /* CatalyzeUserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalyzeUserTest.m; sourceTree = "<group>"; };
 		274A9FC019ABECBB00DB7039 /* CatalyzeEntryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalyzeEntryTest.m; sourceTree = "<group>"; };
 		274A9FC219ABF27A00DB7039 /* NSObject+Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Properties.h"; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				278FBAE319A6B10A00FC41C4 /* CatalyzeTest.h */,
 				278FBADF19A6818700FC41C4 /* CatalyzeTest.m */,
 				274A9FC019ABECBB00DB7039 /* CatalyzeEntryTest.m */,
+				271D663919AFB571004FED88 /* CatalyzeQueryTest.m */,
 				274A9FBE19ABEC6D00DB7039 /* CatalyzeUserTest.m */,
 				278FBADD19A6815C00FC41C4 /* CatalyzeReferenceTest.m */,
 				278FBAEA19A6CF7300FC41C4 /* CatalyzeFileManagerTest.m */,
@@ -624,6 +627,7 @@
 				274833DE19A3E6A400F3B940 /* AFNetworkActivityLogger.m in Sources */,
 				274833DC19A3E69900F3B940 /* HealthPlan.m in Sources */,
 				274833D819A3E69900F3B940 /* Guardian.m in Sources */,
+				271D663A19AFB571004FED88 /* CatalyzeQueryTest.m in Sources */,
 				278FBAF319A7A12E00FC41C4 /* CatalyzeObject.m in Sources */,
 				274833CD19A3E68B00F3B940 /* CatalyzeHTTPManager.m in Sources */,
 				274833CC19A3E68100F3B940 /* Catalyze.m in Sources */,

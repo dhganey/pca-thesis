@@ -87,4 +87,6 @@
  */
 + (void)doDelete:(NSString *)urlString success:(CatalyzeSuccessBlock)success failure:(CatalyzeFailureBlock)failure;
 
++ (NSString *)percentEncode:(NSString *)string;
+
 @end

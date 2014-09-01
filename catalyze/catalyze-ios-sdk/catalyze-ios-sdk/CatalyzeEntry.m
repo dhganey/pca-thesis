@@ -196,11 +196,11 @@
 - (NSString *)lookupURL:(BOOL)post {
     NSString *retval;
     if ([_className isEqualToString:@"reference"]) {
-        retval = [NSString stringWithFormat:@"/classes/%@/%@/ref/%@",[self valueForKey:@"__reference_parent_class"],[self valueForKey:@"__reference_parent_id"],[self valueForKey:@"__reference_name"]];
+        retval = [NSString stringWithFormat:@"/classes/%@/%@/ref/%@",[CatalyzeHTTPManager percentEncode:[self valueForKey:@"__reference_parent_class"]],[CatalyzeHTTPManager percentEncode:[self valueForKey:@"__reference_parent_id"]],[CatalyzeHTTPManager percentEncode:[self valueForKey:@"__reference_name"]]];
     } else {
-        retval = [NSString stringWithFormat:@"/classes/%@/entry",_className];
+        retval = [NSString stringWithFormat:@"/classes/%@/entry",[CatalyzeHTTPManager percentEncode:_className]];
         if (!post) {
-            retval = [NSString stringWithFormat:@"%@/%@",retval,_entryId];
+            retval = [NSString stringWithFormat:@"%@/%@",retval,[CatalyzeHTTPManager percentEncode:_entryId]];
         }
     }
     return retval;
