@@ -108,8 +108,6 @@ int FONT_SIZE = 15;
         NSLog(@"all done, go to new VC");
         
         [self saveEntryToCatalyze];
-        
-        [self performSegueWithIdentifier:@"doneSymptomsSegue" sender:self];
     }
 }
 
@@ -396,7 +394,15 @@ int FONT_SIZE = 15;
 -(void) saveEntryToCatalyze
 {
     CatalyzeEntry* newEsasEntry = [CatalyzeEntry entryWithClassName:@"esasEntry" dictionary:self.esasDictionary];
-    [newEsasEntry saveInBackground]; //todo use callback method
+    [newEsasEntry saveInBackgroundWithSuccess:^(id result)
+    {
+        //all done, move on
+        [self performSegueWithIdentifier:@"doneSymptomsSegue" sender:self];
+    }
+    failure:^(NSDictionary *result, int status, NSError *error)
+    {
+        //TODO handle this
+    }];
 }
 
 @end
