@@ -34,6 +34,9 @@
         case LOGOUT_ERROR:
             errorMessage = @"Error while logging out, please try again";
             break;
+        case NOTHING_SELECTED:
+            errorMessage = @"Please select an option";
+            break;
         default:
             break;
     }

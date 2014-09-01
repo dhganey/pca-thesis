@@ -23,7 +23,7 @@ typedef enum
     SHORTNESS_OF_BREATH,
     OTHER,
     MAX_SYMPTOMS = 10
-} SYMPTOMS;
+} SYMPTOM;
 
 typedef enum
 {
@@ -38,8 +38,15 @@ typedef enum
     SIGNUP_ERROR,
     USERNAME_TAKEN,
     NO_USER_LOGGED_IN,
-    LOGOUT_ERROR
+    LOGOUT_ERROR,
+    NOTHING_SELECTED
 } ERROR_TYPE;
+
+typedef enum
+{
+    CANCEL = 0,
+    CONTINUE
+} BUTTON_VALUE;
 
 
 -(void) showAlert: (ERROR_TYPE) type;

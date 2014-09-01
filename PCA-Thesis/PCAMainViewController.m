@@ -67,6 +67,8 @@ int FONT_SIZE = 15;
     {
         [self showNextSymptom:self.currentSymptom];
     }
+    
+    self.esasDictionary = [[NSMutableDictionary alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,6 +106,9 @@ int FONT_SIZE = 15;
     else //if we have moved completely through the array
     {
         NSLog(@"all done, go to new VC");
+        
+        [self saveEntryToCatalyze];
+        
         [self performSegueWithIdentifier:@"doneSymptomsSegue" sender:self];
     }
 }
@@ -268,25 +273,25 @@ int FONT_SIZE = 15;
 {
     switch(symptom)
     {
-        case 0:
+        case PAIN:
             return @"pain";
-        case 1:
+        case ACTIVITY:
             return @"activity";
-        case 2:
+        case NAUSEA:
             return @"nausea";
-        case 3:
+        case DEPRESSION:
             return @"depression";
-        case 4:
+        case ANXIETY:
             return @"anxiety";
-        case 5:
+        case DROWSINESS:
             return @"drowsiness";
-        case 6:
+        case APPETITE:
             return @"appetite";
-        case 7:
+        case WEAKNESS:
             return @"weakness";
-        case 8:
+        case SHORTNESS_OF_BREATH:
             return @"shortness of breath";
-        case 9:
+        case OTHER:
             return @"other";
         default:
             return @"error in determineSymptomName";
@@ -316,9 +321,16 @@ int FONT_SIZE = 15;
 {
     NSLog(@"submit pressed");
     
-    self.valueToSave = (int)[radioRef selectedSegmentIndex];
-    
-    [self showConfirmAlert:[radioRef titleForSegmentAtIndex:[radioRef selectedSegmentIndex]]];
+    if ([radioRef selectedSegmentIndex] == UISegmentedControlNoSegment) //if nothing selected
+    {
+        [appDel.defObj showAlert:NOTHING_SELECTED];
+    }
+    else
+    {
+        self.valueToSave = (int)[radioRef selectedSegmentIndex];
+        
+        [self showConfirmAlert:[radioRef titleForSegmentAtIndex:[radioRef selectedSegmentIndex]]];
+    }
 }
 
 //Called before each symptom screen is shown. Clears all UI subviews in the view
@@ -348,21 +360,43 @@ int FONT_SIZE = 15;
 //Called when the user selects a button in the confirmation popup
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    switch(buttonIndex)
+    BUTTON_VALUE buttonVal = (BUTTON_VALUE)buttonIndex; //for clarity in switch statement
+    
+    switch(buttonVal)
     {
-        case 0: //cancel
+        case CANCEL:
             //do nothing
             break;
-        case 1: //save
-            //TODO save data here
-            NSLog(@"save data: %d", self.valueToSave);
+            
+        case CONTINUE:
+            [self updateEntry];
+            
             //move on
             self.currentSymptom++;
             [self showNextSymptom:self.currentSymptom];
             break;
+            
         default:
             NSLog(@"error");
             break;
     }
 }
+
+//Called when user continues through confirmation popup
+//Updates the esasDictionary but does NOT save it to the backend
+-(void) updateEntry
+{
+    NSLog(@"save data: %d", self.valueToSave);
+    NSNumber* temp = [NSNumber numberWithInt:self.valueToSave];
+    [self.esasDictionary setValue:temp forKey:[self determineSymptomName:self.currentSymptom]];
+}
+
+//Called before all done segue
+//Creates the esasEntry and saves it to the backend
+-(void) saveEntryToCatalyze
+{
+    CatalyzeEntry* newEsasEntry = [CatalyzeEntry entryWithClassName:@"esasEntry" dictionary:self.esasDictionary];
+    [newEsasEntry saveInBackground]; //todo use callback method
+}
+
 @end
