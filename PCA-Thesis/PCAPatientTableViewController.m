@@ -52,33 +52,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    PATIENT_SECTION pSection = (PATIENT_SECTION)section;
-    
-    switch(pSection)
-    {
-        case URGENT_PATIENTS:
-            //TODO return num of urgent patients
-            break;
-        case REGULAR_PATIENTS:
-            //TODO return num of regular patients
-            break;
-        default:
-            return 0;
-    }
-    
-    return 0; //todo check this? satisfies return issue?
+    //TODO return num in array
+    return 0;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"patientCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    //TODO: actually configure the cell
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
