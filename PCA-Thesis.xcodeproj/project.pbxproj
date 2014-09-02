@@ -45,14 +45,6 @@
 		6387F60619B53F2800B42F94 /* NSObject+Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6387F5D419B53F2800B42F94 /* NSObject+Properties.m */; };
 		6387F60719B53F2800B42F94 /* PhoneNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6387F5D619B53F2800B42F94 /* PhoneNumber.m */; };
 		6387F60819B53F2800B42F94 /* SocialId.m in Sources */ = {isa = PBXBuildFile; fileRef = 6387F5D819B53F2800B42F94 /* SocialId.m */; };
-		6387F60919B53F2800B42F94 /* CatalyzeEntryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6387F5DA19B53F2800B42F94 /* CatalyzeEntryTest.m */; };
-		6387F60A19B53F2800B42F94 /* CatalyzeFileManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6387F5DB19B53F2800B42F94 /* CatalyzeFileManagerTest.m */; };
-		6387F60B19B53F2800B42F94 /* CatalyzeQueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6387F5DC19B53F2800B42F94 /* CatalyzeQueryTest.m */; };
-		6387F60C19B53F2800B42F94 /* CatalyzeReferenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6387F5DD19B53F2800B42F94 /* CatalyzeReferenceTest.m */; };
-		6387F60D19B53F2800B42F94 /* CatalyzeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6387F5DF19B53F2800B42F94 /* CatalyzeTest.m */; };
-		6387F60E19B53F2800B42F94 /* CatalyzeUserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6387F5E019B53F2800B42F94 /* CatalyzeUserTest.m */; };
-		6387F60F19B53F2800B42F94 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6387F5E119B53F2800B42F94 /* Info.plist */; };
-		6387F61019B53F2800B42F94 /* testFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6387F5E319B53F2800B42F94 /* testFile.txt */; };
 		6387F61119B53F2800B42F94 /* catalyze-ios-sdk.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6387F5E419B53F2800B42F94 /* catalyze-ios-sdk.podspec */; };
 		6387F61219B53F2800B42F94 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6387F5E819B53F2800B42F94 /* LICENSE */; };
 		6387F61319B53F2800B42F94 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6387F5E919B53F2800B42F94 /* README.md */; };
@@ -194,15 +186,6 @@
 		6387F5D619B53F2800B42F94 /* PhoneNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneNumber.m; sourceTree = "<group>"; };
 		6387F5D719B53F2800B42F94 /* SocialId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialId.h; sourceTree = "<group>"; };
 		6387F5D819B53F2800B42F94 /* SocialId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialId.m; sourceTree = "<group>"; };
-		6387F5DA19B53F2800B42F94 /* CatalyzeEntryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalyzeEntryTest.m; sourceTree = "<group>"; };
-		6387F5DB19B53F2800B42F94 /* CatalyzeFileManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalyzeFileManagerTest.m; sourceTree = "<group>"; };
-		6387F5DC19B53F2800B42F94 /* CatalyzeQueryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalyzeQueryTest.m; sourceTree = "<group>"; };
-		6387F5DD19B53F2800B42F94 /* CatalyzeReferenceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalyzeReferenceTest.m; sourceTree = "<group>"; };
-		6387F5DE19B53F2800B42F94 /* CatalyzeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalyzeTest.h; sourceTree = "<group>"; };
-		6387F5DF19B53F2800B42F94 /* CatalyzeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalyzeTest.m; sourceTree = "<group>"; };
-		6387F5E019B53F2800B42F94 /* CatalyzeUserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalyzeUserTest.m; sourceTree = "<group>"; };
-		6387F5E119B53F2800B42F94 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6387F5E319B53F2800B42F94 /* testFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testFile.txt; sourceTree = "<group>"; };
 		6387F5E419B53F2800B42F94 /* catalyze-ios-sdk.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "catalyze-ios-sdk.podspec"; sourceTree = "<group>"; };
 		6387F5E519B53F2800B42F94 /* catalyze-ios-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "catalyze-ios-sdk.xcodeproj"; sourceTree = "<group>"; };
 		6387F5E819B53F2800B42F94 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -294,7 +277,6 @@
 			children = (
 				6387F59419B53F2800B42F94 /* .gitignore */,
 				6387F59519B53F2800B42F94 /* catalyze-ios-sdk */,
-				6387F5D919B53F2800B42F94 /* catalyze-ios-sdk Tests */,
 				6387F5E419B53F2800B42F94 /* catalyze-ios-sdk.podspec */,
 				6387F5E519B53F2800B42F94 /* catalyze-ios-sdk.xcodeproj */,
 				6387F5E819B53F2800B42F94 /* LICENSE */,
@@ -397,30 +379,6 @@
 				6387F5CE19B53F2800B42F94 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		6387F5D919B53F2800B42F94 /* catalyze-ios-sdk Tests */ = {
-			isa = PBXGroup;
-			children = (
-				6387F5DA19B53F2800B42F94 /* CatalyzeEntryTest.m */,
-				6387F5DB19B53F2800B42F94 /* CatalyzeFileManagerTest.m */,
-				6387F5DC19B53F2800B42F94 /* CatalyzeQueryTest.m */,
-				6387F5DD19B53F2800B42F94 /* CatalyzeReferenceTest.m */,
-				6387F5DE19B53F2800B42F94 /* CatalyzeTest.h */,
-				6387F5DF19B53F2800B42F94 /* CatalyzeTest.m */,
-				6387F5E019B53F2800B42F94 /* CatalyzeUserTest.m */,
-				6387F5E119B53F2800B42F94 /* Info.plist */,
-				6387F5E219B53F2800B42F94 /* resources */,
-			);
-			path = "catalyze-ios-sdk Tests";
-			sourceTree = "<group>";
-		};
-		6387F5E219B53F2800B42F94 /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				6387F5E319B53F2800B42F94 /* testFile.txt */,
-			);
-			path = resources;
 			sourceTree = "<group>";
 		};
 		6387F5E619B53F2800B42F94 /* Products */ = {
@@ -633,14 +591,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6387F61019B53F2800B42F94 /* testFile.txt in Resources */,
 				6387F5EA19B53F2800B42F94 /* .gitignore in Resources */,
 				6387F61219B53F2800B42F94 /* LICENSE in Resources */,
 				63B503D518FB43C20017F906 /* Images.xcassets in Resources */,
 				63B503C718FB43C20017F906 /* InfoPlist.strings in Resources */,
 				6387F61119B53F2800B42F94 /* catalyze-ios-sdk.podspec in Resources */,
 				6387F61319B53F2800B42F94 /* README.md in Resources */,
-				6387F60F19B53F2800B42F94 /* Info.plist in Resources */,
 				63B503D018FB43C20017F906 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,7 +617,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6387F5F719B53F2800B42F94 /* HealthPlan.m in Sources */,
-				6387F60B19B53F2800B42F94 /* CatalyzeQueryTest.m in Sources */,
 				6387F5FE19B53F2800B42F94 /* AFNetworkReachabilityManager.m in Sources */,
 				6387F60619B53F2800B42F94 /* NSObject+Properties.m in Sources */,
 				63166DFC197C56FB006D78D2 /* PCASignupViewController.m in Sources */,
@@ -670,7 +625,6 @@
 				6387F60819B53F2800B42F94 /* SocialId.m in Sources */,
 				6387F5EE19B53F2800B42F94 /* CatalyzeFileManager.m in Sources */,
 				6387F5F219B53F2800B42F94 /* CatalyzeReference.m in Sources */,
-				6387F60D19B53F2800B42F94 /* CatalyzeTest.m in Sources */,
 				6387F5F119B53F2800B42F94 /* CatalyzeQuery.m in Sources */,
 				6387F5F619B53F2800B42F94 /* Guardian.m in Sources */,
 				6387F60319B53F2800B42F94 /* AFURLSessionManager.m in Sources */,
@@ -679,11 +633,8 @@
 				63B503D318FB43C20017F906 /* PCALoginViewController.m in Sources */,
 				63B503C918FB43C20017F906 /* main.m in Sources */,
 				63438E5B19AA7AA500C25DC5 /* PCADefinitions.m in Sources */,
-				6387F60919B53F2800B42F94 /* CatalyzeEntryTest.m in Sources */,
 				6387F5F819B53F2800B42F94 /* JSONObject.m in Sources */,
-				6387F60A19B53F2800B42F94 /* CatalyzeFileManagerTest.m in Sources */,
 				6387F5F419B53F2800B42F94 /* Email.m in Sources */,
-				6387F60C19B53F2800B42F94 /* CatalyzeReferenceTest.m in Sources */,
 				6387F5ED19B53F2800B42F94 /* CatalyzeEntry.m in Sources */,
 				6387F60719B53F2800B42F94 /* PhoneNumber.m in Sources */,
 				6387F5F919B53F2800B42F94 /* Language.m in Sources */,
@@ -703,7 +654,6 @@
 				63DE728C19AE3742001AA9B9 /* PCAPatientTableViewController.m in Sources */,
 				6387F60119B53F2800B42F94 /* AFURLRequestSerialization.m in Sources */,
 				6387F5FF19B53F2800B42F94 /* AFSecurityPolicy.m in Sources */,
-				6387F60E19B53F2800B42F94 /* CatalyzeUserTest.m in Sources */,
 				6387F5FD19B53F2800B42F94 /* AFHTTPSessionManager.m in Sources */,
 				6387F5EC19B53F2800B42F94 /* Catalyze.m in Sources */,
 				63B503CD18FB43C20017F906 /* PCAAppDelegate.m in Sources */,
