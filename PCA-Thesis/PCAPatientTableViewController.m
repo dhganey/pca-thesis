@@ -8,6 +8,8 @@
 
 #import "PCAPatientTableViewController.h"
 
+#import "PCADefinitions.h"
+
 @interface PCAPatientTableViewController ()
 
 @end
@@ -50,9 +52,21 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    PATIENT_SECTION pSection = (PATIENT_SECTION)section;
+    
+    switch(pSection)
+    {
+        case URGENT_PATIENTS:
+            //TODO return num of urgent patients
+            break;
+        case REGULAR_PATIENTS:
+            //TODO return num of regular patients
+            break;
+        default:
+            return 0;
+    }
+    
+    return 0; //todo check this? satisfies return issue?
 }
 
 /*

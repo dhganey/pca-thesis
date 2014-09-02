@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PCAAppDelegate.h"
+
 @interface PCASignupViewController : UIViewController
 
 
@@ -21,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
 @property (weak, nonatomic) IBOutlet UITextField *idField;
+
+@property PCAAppDelegate* appDel;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *genderControl;
 

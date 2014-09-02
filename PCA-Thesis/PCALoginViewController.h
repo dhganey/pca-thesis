@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PCAAppDelegate.h"
+
 @interface PCALoginViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+
+@property PCAAppDelegate* appDel;
 
 
 - (IBAction)loginPressed:(id)sender;

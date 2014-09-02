@@ -48,6 +48,12 @@ typedef enum
     CONTINUE
 } BUTTON_VALUE;
 
+typedef enum
+{
+    URGENT_PATIENTS = 0,
+    REGULAR_PATIENTS
+} PATIENT_SECTION;
+
 
 -(void) showAlert: (ERROR_TYPE) type;
 

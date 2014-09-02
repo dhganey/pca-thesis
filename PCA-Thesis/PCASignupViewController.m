@@ -19,8 +19,6 @@
 
 @implementation PCASignupViewController
 
-PCAAppDelegate* appDel;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -38,7 +36,7 @@ PCAAppDelegate* appDel;
     tapGesture.cancelsTouchesInView = NO;
     [self.scrollView addGestureRecognizer:tapGesture];
     
-    appDel = [[UIApplication sharedApplication] delegate]; //get the singleton app delegate
+    self.appDel = [[UIApplication sharedApplication] delegate]; //get the singleton app delegate
 }
 
 -(void) dealloc
@@ -120,18 +118,18 @@ PCAAppDelegate* appDel;
         {
             if (status==400)
             {
-                [appDel.defObj showAlert:USERNAME_TAKEN];
+                [self.appDel.defObj showAlert:USERNAME_TAKEN];
             }
             else
             {
-                [appDel.defObj showAlert:SIGNUP_ERROR];
+                [self.appDel.defObj showAlert:SIGNUP_ERROR];
             }
         }];
 
     }
     else //input not valid
     {
-        [appDel.defObj showAlert:INVALID_INPUT];
+        [self.appDel.defObj showAlert:INVALID_INPUT];
     }
 }
 

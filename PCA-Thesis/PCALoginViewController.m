@@ -19,8 +19,6 @@
 
 @implementation PCALoginViewController
 
-PCAAppDelegate* appDel;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -30,7 +28,7 @@ PCAAppDelegate* appDel;
         [self performSegueWithIdentifier:@"doneLoggingSegue" sender:self];
     }
     
-    appDel = [[UIApplication sharedApplication] delegate];
+    self.appDel = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,12 +62,12 @@ PCAAppDelegate* appDel;
         }
         failure:^(NSDictionary *result, int status, NSError *error) //callback if login fails
         {
-            [appDel.defObj showAlert:LOGIN_ERROR];
+            [self.appDel.defObj showAlert:LOGIN_ERROR];
         }];
     }
     else //if user input is invalid
     {
-        [appDel.defObj showAlert:INVALID_INPUT];
+        [self.appDel.defObj showAlert:INVALID_INPUT];
     }
 }
 
