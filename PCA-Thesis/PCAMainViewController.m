@@ -423,6 +423,11 @@ int FONT_SIZE = 15;
     CatalyzeEntry* newEsasEntry = [CatalyzeEntry entryWithClassName:@"esasEntry" dictionary:self.esasDictionary];
     [newEsasEntry createInBackgroundWithSuccess:^(id result)
     {
+        //once we've saved that entry, determine if there are any issues:
+        //[[CatalyzeUser currentUser] setExtra:[self determineUrgentSymptoms] forKey:@"urgentSymptoms"];
+        //[[CatalyzeUser currentUser] saveInBackground];
+        //TODO
+ 
         //all done, move on
         [self performSegueWithIdentifier:@"doneSymptomsSegue" sender:self];
     }
@@ -475,6 +480,4 @@ int FONT_SIZE = 15;
     
     return mostRecent;
 }
-
-
 @end

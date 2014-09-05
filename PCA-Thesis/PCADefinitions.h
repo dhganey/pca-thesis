@@ -22,7 +22,7 @@ typedef enum
     WEAKNESS,
     SHORTNESS_OF_BREATH,
     OTHER,
-    MAX_SYMPTOMS = 10
+    MAX_SYMPTOMS = OTHER+1 //for for loops
 } SYMPTOM;
 
 typedef enum
