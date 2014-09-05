@@ -20,6 +20,8 @@
     //Create our singleton definitions object
     self.defObj = [[PCADefinitions alloc] init];
     
+    //[Catalyze setLoggingLevel:kLoggingLevelDebug]; //TODO for debug
+    
     return YES;
 }
 							

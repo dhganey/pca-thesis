@@ -431,17 +431,14 @@ int FONT_SIZE = 15;
     [dictQuery setPageNumber:1];
     [dictQuery setPageSize:100];
     
-    //TODO: find out why it skips this
-    [dictQuery retrieveInBackgroundForUsersId:[[CatalyzeUser currentUser] usersId] success:^(NSArray *result)
-    {
-        NSLog(@"query success");
-    }
-    failure:^(NSDictionary *result, int status, NSError *error)
-    {
-        NSLog(@"query failure");
-    }];
+    [CatalyzeUser currentUser];
     
-    NSLog(@"done query");
+    //TODO: find out why it skips this
+    [dictQuery retrieveInBackgroundForUsersId:[[CatalyzeUser currentUser] usersId] success:^(NSArray *result) {
+        NSLog(@"success");
+    } failure:^(NSDictionary *result, int status, NSError *error) {
+        NSLog(@"fail");
+    }];
     
     return dict;
 }
