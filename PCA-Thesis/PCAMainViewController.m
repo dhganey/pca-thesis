@@ -23,6 +23,7 @@ NSArray* userSymptoms; //global reference to bitmask of user symptoms
 
 UILabel* labelRef; //global reference to a label to pass to target selectors when UI elements change
 UISegmentedControl* radioRef;
+UILabel* preVal;
 
 int X_OFFSET = 10;
 int INSTRUCTION_Y_OFFSET = 65;
@@ -52,7 +53,7 @@ int FONT_SIZE = 15;
     self.appDel = [[UIApplication sharedApplication] delegate];
     
     //Set up the previous entry dictionary which is used to show users their last entered score
-    self.previousDictionary = [self queryPreviousDictionary];
+    [self queryPreviousDictionary];
     
     //Set up esasDictionary which will hold inputted symptom data and is saved to a CatalyzeEntry at the end
     self.esasDictionary = [[NSMutableDictionary alloc] init];
@@ -76,6 +77,7 @@ int FONT_SIZE = 15;
     }
 }
 
+//Called when a memory warning is received
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -121,6 +123,9 @@ int FONT_SIZE = 15;
 -(void)showSymptomScreen
 {
     [self removeSubviews]; //first, remove any subviews
+    
+    [self preparePreviousInstructionLabel];
+    [self.view addSubview:preVal];
     
     NSString* symptomName = [self determineSymptomName:self.currentSymptom]; //determine which symptom we're on
     
@@ -168,23 +173,37 @@ int FONT_SIZE = 15;
     [self.view addSubview:instructions];
 }
 
-//Prepares the UI elements to tell the user what their previously entered value was
+//Prepares the UI element which will tell the user what their previously entered value was
+//Displays "?" when no value found
 -(void) preparePreviousInstructionLabel
 {
-    UILabel* preVal = [[UILabel alloc] initWithFrame:CGRectMake(X_OFFSET, PREVIOUS_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
+    preVal = [[UILabel alloc] initWithFrame:CGRectMake(X_OFFSET, PREVIOUS_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
     NSString* preValString = @"Your previous ";
     preValString = [preValString stringByAppendingString:[self determineSymptomName:self.currentSymptom]];
     preValString = [preValString stringByAppendingString:@" score was "];
-    if (![self.previousDictionary objectForKey:[self determineSymptomName:self.currentSymptom]]) //if not nil TODO
+    
+    if (self.previousDictionary != nil)
     {
-        preValString = [preValString stringByAppendingString:[self.previousDictionary objectForKey:[self determineSymptomName:self.currentSymptom]]];
+        NSString* tempString = [NSString stringWithFormat:@"%@", [self.previousDictionary objectForKey:[self determineSymptomName:self.currentSymptom]]];
+        preValString = [preValString stringByAppendingString:tempString];
     }
     else
     {
-        preValString = [preValString stringByAppendingString:@"No data"];
+        preValString = [preValString stringByAppendingString:@"?"];
     }
-    preVal.text = preValString;
-    [self.view addSubview:preVal];
+    [preVal setText:preValString];
+    [preVal setNeedsDisplay];
+    [self.view setNeedsDisplay];
+}
+
+//Updates the preVal UI Label with new information from the dictionary.
+//ONLY called when the query finishes, so no need to check dictionary validity
+-(void) updatePreviousInstructionsLabel
+{
+    NSString* basic = [NSString stringWithFormat:@"Your previous %@ score was ", [self determineSymptomName:self.currentSymptom]];
+    NSString* value = [NSString stringWithFormat:@"%@", [self.previousDictionary objectForKey:[self determineSymptomName:self.currentSymptom]]];
+    [preVal setText:[NSString stringWithFormat:@"%@%@", basic, value]]; //manual concatenation?
+    [self.view setNeedsDisplay];
 }
 
 //Prepares the submit button for the symptom screen
@@ -217,8 +236,6 @@ int FONT_SIZE = 15;
 -(void) showRadioButtonScreen
 {
     [self prepareInstructionLabel:RADIO];
-    
-    [self preparePreviousInstructionLabel];
     
     NSArray* buttonTexts;
     UISegmentedControl* segControl;
@@ -253,8 +270,6 @@ int FONT_SIZE = 15;
 -(void)showSliderScreen
 {
     [self prepareInstructionLabel:SLIDER];
-    
-    [self preparePreviousInstructionLabel];
     
     //prepare the slider
     UISlider *inputSlider = [[UISlider alloc] initWithFrame:CGRectMake(X_OFFSET, INPUT_Y_OFFSET, CGRectGetWidth(self.view.bounds)-2*X_OFFSET, HEIGHT)];
@@ -423,24 +438,26 @@ int FONT_SIZE = 15;
     }];
 }
 
--(NSMutableDictionary*) queryPreviousDictionary
+//Called in viewDidLoad
+//Prepares the previousDictionary member variable using the most recent entry on Catalyze
+-(void) queryPreviousDictionary
 {
-    __block NSMutableDictionary* dict;
-    
     CatalyzeQuery* dictQuery = [CatalyzeQuery queryWithClassName:@"esasEntry"];
     [dictQuery setPageNumber:1];
     [dictQuery setPageSize:100];
     
-    [CatalyzeUser currentUser];
-    
-    //TODO: find out why it skips this
-    [dictQuery retrieveInBackgroundForUsersId:[[CatalyzeUser currentUser] usersId] success:^(NSArray *result) {
-        NSLog(@"success");
-    } failure:^(NSDictionary *result, int status, NSError *error) {
-        NSLog(@"fail");
+    [dictQuery retrieveInBackgroundForUsersId:[[CatalyzeUser currentUser] usersId] success:^(NSArray *result)
+    {
+        //When the async query finishes, we get here
+        CatalyzeEntry* mostRecent = result[0]; //TODO: not guaranteed, do a date comparison
+        self.previousDictionary = [mostRecent content];
+        [self updatePreviousInstructionsLabel];
+    }
+    failure:^(NSDictionary *result, int status, NSError *error)
+    {
+        NSLog(@"query failure in queryPreviousDictionary");
     }];
-    
-    return dict;
 }
+
 
 @end
