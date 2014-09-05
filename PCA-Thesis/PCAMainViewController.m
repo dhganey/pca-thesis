@@ -449,7 +449,7 @@ int FONT_SIZE = 15;
     [dictQuery retrieveInBackgroundForUsersId:[[CatalyzeUser currentUser] usersId] success:^(NSArray *result)
     {
         //When the async query finishes, we get here
-        CatalyzeEntry* mostRecent = result[0]; //TODO: not guaranteed, do a date comparison
+        CatalyzeEntry* mostRecent = [self findMostRecent:result];
         self.previousDictionary = [mostRecent content];
         [self updatePreviousInstructionsLabel];
     }
@@ -457,6 +457,23 @@ int FONT_SIZE = 15;
     {
         NSLog(@"query failure in queryPreviousDictionary");
     }];
+}
+
+-(CatalyzeEntry*) findMostRecent:(NSArray*) result
+{
+    CatalyzeEntry* mostRecent = result[0];
+    
+    for (CatalyzeEntry* entry in result)
+    {
+        NSComparisonResult comp = [mostRecent.createdAt compare:entry.createdAt];
+        if (comp == NSOrderedAscending)
+        {
+            mostRecent = entry;
+        }
+        //else, leave it--doesn’t matter
+    }
+    
+    return mostRecent;
 }
 
 
