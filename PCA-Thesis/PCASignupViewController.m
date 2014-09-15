@@ -106,10 +106,17 @@
             
             [[CatalyzeUser currentUser] setExtra:userSymptoms forKey:@"symptomArray"];
             
-            [[CatalyzeUser currentUser] setExtra:self.idField forKey:@"patientID"];
-
-            [CatalyzeUser currentUser].type = @"patient"; //TODO this is hardcoded
-             
+            if ([self.idField.text isEqualToString:@"greysAnatomy"]) //TODO change this later, secret string given to doctors
+            {
+                [CatalyzeUser currentUser].type = @"doctor";
+                //TODO no patient ID?
+            }
+            else
+            {
+                [CatalyzeUser currentUser].type = @"patient";
+                [[CatalyzeUser currentUser] setExtra:self.idField.text forKey:@"patientID"];
+            }
+            
             [[CatalyzeUser currentUser] saveInBackground];
             
             //TODO segue?
@@ -151,5 +158,6 @@
     
     return ok;
 }
+
 
 @end

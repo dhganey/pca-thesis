@@ -10,4 +10,6 @@
 
 @interface PCAPatientTableViewController : UITableViewController
 
+@property NSArray* userNames;
+
 @end
