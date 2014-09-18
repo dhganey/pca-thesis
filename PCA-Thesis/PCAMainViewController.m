@@ -23,7 +23,6 @@ NSArray* userSymptoms; //global reference to bitmask of user symptoms
 
 UILabel* labelRef; //global reference to a label to pass to target selectors when UI elements change
 UISegmentedControl* radioRef;
-UILabel* preVal;
 
 int X_OFFSET = 10;
 int INSTRUCTION_Y_OFFSET = 65;
@@ -51,9 +50,6 @@ int FONT_SIZE = 15;
     
     //Set up app delegate object for use of shared functions
     self.appDel = [[UIApplication sharedApplication] delegate];
-    
-    //Set up the previous entry dictionary which is used to show users their last entered score
-    [self queryPreviousDictionary];
     
     //Set up esasDictionary which will hold inputted symptom data and is saved to a CatalyzeEntry at the end
     self.esasDictionary = [[NSMutableDictionary alloc] init];
@@ -124,9 +120,6 @@ int FONT_SIZE = 15;
 {
     [self removeSubviews]; //first, remove any subviews
     
-    [self preparePreviousInstructionLabel];
-    [self.view addSubview:preVal];
-    
     NSString* symptomName = [self determineSymptomName:self.currentSymptom]; //determine which symptom we're on
     
     self.title = [symptomName capitalizedString]; //change the VC title
@@ -173,38 +166,38 @@ int FONT_SIZE = 15;
     [self.view addSubview:instructions];
 }
 
-//Prepares the UI element which will tell the user what their previously entered value was
-//Displays "?" when no value found
--(void) preparePreviousInstructionLabel
-{
-    preVal = [[UILabel alloc] initWithFrame:CGRectMake(X_OFFSET, PREVIOUS_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
-    NSString* preValString = @"Your previous ";
-    preValString = [preValString stringByAppendingString:[self determineSymptomName:self.currentSymptom]];
-    preValString = [preValString stringByAppendingString:@" score was "];
-    
-    if (self.previousDictionary != nil)
-    {
-        NSString* tempString = [NSString stringWithFormat:@"%@", [self.previousDictionary objectForKey:[self determineSymptomName:self.currentSymptom]]];
-        preValString = [preValString stringByAppendingString:tempString];
-    }
-    else
-    {
-        preValString = [preValString stringByAppendingString:@"?"];
-    }
-    [preVal setText:preValString];
-    [preVal setNeedsDisplay];
-    [self.view setNeedsDisplay];
-}
+////Prepares the UI element which will tell the user what their previously entered value was
+////Displays "?" when no value found
+//-(void) preparePreviousInstructionLabel
+//{
+//    preVal = [[UILabel alloc] initWithFrame:CGRectMake(X_OFFSET, PREVIOUS_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
+//    NSString* preValString = @"Your previous ";
+//    preValString = [preValString stringByAppendingString:[self determineSymptomName:self.currentSymptom]];
+//    preValString = [preValString stringByAppendingString:@" score was "];
+//    
+//    if (self.previousDictionary != nil)
+//    {
+//        NSString* tempString = [NSString stringWithFormat:@"%@", [self.previousDictionary objectForKey:[self determineSymptomName:self.currentSymptom]]];
+//        preValString = [preValString stringByAppendingString:tempString];
+//    }
+//    else
+//    {
+//        preValString = [preValString stringByAppendingString:@"?"];
+//    }
+//    [preVal setText:preValString];
+//    [preVal setNeedsDisplay];
+//    [self.view setNeedsDisplay];
+//}
 
-//Updates the preVal UI Label with new information from the dictionary.
-//ONLY called when the query finishes, so no need to check dictionary validity
--(void) updatePreviousInstructionsLabel
-{
-    NSString* basic = [NSString stringWithFormat:@"Your previous %@ score was ", [self determineSymptomName:self.currentSymptom]];
-    NSString* value = [NSString stringWithFormat:@"%@", [self.previousDictionary objectForKey:[self determineSymptomName:self.currentSymptom]]];
-    [preVal setText:[NSString stringWithFormat:@"%@%@", basic, value]]; //manual concatenation?
-    [self.view setNeedsDisplay];
-}
+////Updates the preVal UI Label with new information from the dictionary.
+////ONLY called when the query finishes, so no need to check dictionary validity
+//-(void) updatePreviousInstructionsLabel
+//{
+//    NSString* basic = [NSString stringWithFormat:@"Your previous %@ score was ", [self determineSymptomName:self.currentSymptom]];
+//    NSString* value = [NSString stringWithFormat:@"%@", [self.previousDictionary objectForKey:[self determineSymptomName:self.currentSymptom]]];
+//    [preVal setText:[NSString stringWithFormat:@"%@%@", basic, value]]; //manual concatenation?
+//    [self.view setNeedsDisplay];
+//}
 
 //Prepares the submit button for the symptom screen
 //Changes the selector based on whether the user is inputting data on a slider or on "radio" buttons
@@ -443,6 +436,8 @@ int FONT_SIZE = 15;
     }];
 }
 
+//DEPRICATED
+//No longer called, left for query example
 //Called in viewDidLoad
 //Prepares the previousDictionary member variable using the most recent entry on Catalyze
 -(void) queryPreviousDictionary
@@ -456,7 +451,7 @@ int FONT_SIZE = 15;
         //When the async query finishes, we get here
         CatalyzeEntry* mostRecent = [self findMostRecent:result];
         self.previousDictionary = [mostRecent content];
-        [self updatePreviousInstructionsLabel];
+        //[self updatePreviousInstructionsLabel];
     }
     failure:^(NSDictionary *result, int status, NSError *error)
     {
