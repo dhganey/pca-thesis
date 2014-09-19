@@ -20,7 +20,6 @@
 @implementation PCAMainViewController
 
 NSArray* userSymptoms; //global reference to bitmask of user symptoms
-
 UILabel* labelRef; //global reference to a label to pass to target selectors when UI elements change
 UISegmentedControl* radioRef;
 
@@ -42,8 +41,10 @@ int FONT_SIZE = 15;
     return self;
 }
 
-//Called after the view loads
-//Does basic checks to grab symptom bitmask and begin cycling through symptom screens
+/**
+ Called after the view loads. Does basic checks to grab symptom bitmask and begin cycling through symptom screens
+ @return void
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -73,13 +74,20 @@ int FONT_SIZE = 15;
     }
 }
 
-//Called when a memory warning is received
+/**
+ Called when a memory warning received
+ @return void
+ */
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
 
-//Called when the user presses the logout button. Sends the user back to the login screen and disengages Catalyze
+/**
+ Called when the user presses the logout button. Sends the user back to the login screen and disengages Catalyze
+ @param sender id of the pressed button
+ @return IBAction
+ */
 - (IBAction)logoutPressed:(id)sender
 {
     [[CatalyzeUser currentUser] logoutWithSuccess:^(id result)
@@ -93,8 +101,11 @@ int FONT_SIZE = 15;
     }];
 }
 
-//This method is called to show the UI elements for the next symptom
-//It moves the currentSymptom global var
+/**
+ Called to show UI element for next symptom. Moves currentSymptom class variable
+ @param start Symptom to start at (if not showing all symptoms)
+ @return void
+ */
 -(void)showNextSymptom:(int) start
 {
     while ([[userSymptoms objectAtIndex:self.currentSymptom] intValue] == 0 && self.currentSymptom < MAX_SYMPTOMS) //until we find an active symptom
@@ -114,8 +125,10 @@ int FONT_SIZE = 15;
     }
 }
 
-//Entry method for UI element creation and operation for symptom screen
-//Is called for all symptoms, parameter determines which symptom to show
+/**
+ Entry method for UI element creation and operation for symptom screen.
+ @return void
+ */
 -(void)showSymptomScreen
 {
     [self removeSubviews]; //first, remove any subviews
@@ -139,8 +152,11 @@ int FONT_SIZE = 15;
     }
 }
 
-//Prepares the UI elements which instruct the user on what to do
-//Changes the text depending on whether the input screen uses "radio" buttons or a slider
+/**
+ Prepares the UI elements which instruct the user on what to do. Changes the text depending on whether the input screen uses "radio" buttons or a slider
+ @param inputType INPUT_TYPE enum to determine whether to show a slider screen or a radio button screen
+ @return void
+ */
 -(void) prepareInstructionLabel:(INPUT_TYPE) inputType
 {
     NSString* instructionString = @"Please ";
@@ -166,41 +182,11 @@ int FONT_SIZE = 15;
     [self.view addSubview:instructions];
 }
 
-////Prepares the UI element which will tell the user what their previously entered value was
-////Displays "?" when no value found
-//-(void) preparePreviousInstructionLabel
-//{
-//    preVal = [[UILabel alloc] initWithFrame:CGRectMake(X_OFFSET, PREVIOUS_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
-//    NSString* preValString = @"Your previous ";
-//    preValString = [preValString stringByAppendingString:[self determineSymptomName:self.currentSymptom]];
-//    preValString = [preValString stringByAppendingString:@" score was "];
-//    
-//    if (self.previousDictionary != nil)
-//    {
-//        NSString* tempString = [NSString stringWithFormat:@"%@", [self.previousDictionary objectForKey:[self determineSymptomName:self.currentSymptom]]];
-//        preValString = [preValString stringByAppendingString:tempString];
-//    }
-//    else
-//    {
-//        preValString = [preValString stringByAppendingString:@"?"];
-//    }
-//    [preVal setText:preValString];
-//    [preVal setNeedsDisplay];
-//    [self.view setNeedsDisplay];
-//}
-
-////Updates the preVal UI Label with new information from the dictionary.
-////ONLY called when the query finishes, so no need to check dictionary validity
-//-(void) updatePreviousInstructionsLabel
-//{
-//    NSString* basic = [NSString stringWithFormat:@"Your previous %@ score was ", [self determineSymptomName:self.currentSymptom]];
-//    NSString* value = [NSString stringWithFormat:@"%@", [self.previousDictionary objectForKey:[self determineSymptomName:self.currentSymptom]]];
-//    [preVal setText:[NSString stringWithFormat:@"%@%@", basic, value]]; //manual concatenation?
-//    [self.view setNeedsDisplay];
-//}
-
-//Prepares the submit button for the symptom screen
-//Changes the selector based on whether the user is inputting data on a slider or on "radio" buttons
+/**
+ Prepares the submit button for the symptom screen. Changes the selector based on whether the user is inputting data on a slider or on "radio" buttons
+ @param type INPUT_TYPE enum to determine whether to set selector as slider pressed or radio pressed
+ @return void
+ */
 -(void) prepareSubmitButton:(INPUT_TYPE) type
 {
     UIButton *submitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -225,7 +211,10 @@ int FONT_SIZE = 15;
     [submitButton addTarget:self action:buttonSel forControlEvents:UIControlEventTouchUpInside]; //call when pressed
 }
 
-//Main method called from showNextSymptom for symptoms requiring radio buttons
+/**
+ Main method called from showNextSymptom for symptoms requiring radio buttons
+ @return void
+ */
 -(void) showRadioButtonScreen
 {
     [self prepareInstructionLabel:RADIO];
@@ -259,7 +248,10 @@ int FONT_SIZE = 15;
     [self prepareSubmitButton:RADIO];
 }
 
-//Main method called from showNextSymptom for symptoms requiring a slider
+/**
+ Main method called from showNextSymptom for symptoms requiring a slider
+ @return void
+ */
 -(void)showSliderScreen
 {
     [self prepareInstructionLabel:SLIDER];
@@ -286,7 +278,11 @@ int FONT_SIZE = 15;
     [self prepareSubmitButton:SLIDER];
 }
 
-//Returns a string which contains the symptom name for a given integer
+/**
+ Determines the symptom name for a given symptom
+ @param symptom Integer representing desired symptom
+ @return NSString
+ */
 -(NSString*)determineSymptomName:(int)symptom
 {
     switch(symptom)
@@ -316,15 +312,23 @@ int FONT_SIZE = 15;
     }
 }
 
-//Target selector method to adjust a label when a slider changes.
-//Uses labelRef, the global reference at the top. Make sure to set that to the appropriate UI element before adding this
-//method as a target to the slider
+/**
+ Target selector method to adjust a label when a slider changes. Uses labelRef, the global reference at the top.
+ @param sender UISlider* reference
+ @return void
+ @warning Make sure to set labelRef to the appropriate UI element before adding this method as a target to the slider
+ */
 -(void)sliderChanged:(UISlider*) sender
 {
     [labelRef setText:[NSString stringWithFormat:@"%.0f", sender.value]];
 }
 
-//Target selector method to submit user data from slider screen.
+/**
+ Target selector method to submit data when submit pressed
+ @param sender UIButton* reference
+ @return void
+ @warning Make sure to set labelRef to the appropriate UI element before adding this as a target
+ */
 -(void)submitPressedSlider:(UIButton*) sender
 {
     NSLog(@"submit pressed");
@@ -334,8 +338,12 @@ int FONT_SIZE = 15;
     [self showConfirmAlert:[NSString stringWithFormat:@"%.0f", [labelRef.text doubleValue]]]; //confirm that the user meant to enter the num currently in the label
 }
 
-//Target selector method to submit user data from radio button screen
--(void)submitPressedRadio:(UIButton*) sender
+/**
+ Target selector method to submit user data from the radio screen. Uses labelRef, global reference
+ @param sender UIButton* reference
+ @return void
+ @warning Make sure to set labelRef to the appropriate UI element before adding this as a target
+ */-(void)submitPressedRadio:(UIButton*) sender
 {
     NSLog(@"submit pressed");
     
@@ -351,7 +359,10 @@ int FONT_SIZE = 15;
     }
 }
 
-//Called before each symptom screen is shown. Clears all UI subviews in the view
+/**
+ Called before each symptom screen is shown. Clears all UI subviews in the view
+ @return void
+ */
 -(void)removeSubviews
 {
     NSArray* subViews = [self.view subviews];
@@ -361,8 +372,11 @@ int FONT_SIZE = 15;
     }
 }
 
-//Shows the user a popup alert when they try to submit a score (any score)
-//User can continue with submission or go back to fix a mistake
+/**
+ Shows the user a popup alert when they try to submit a score (any score). User can continue with submission or go back to fix a mistake
+ @param value NSString of value entered by user
+ @return void
+ */
 -(void)showConfirmAlert:(NSString*) value
 {
     NSString* confirmMessage = [NSString stringWithFormat:@"You entered %@, is that correct?", value];
@@ -375,7 +389,12 @@ int FONT_SIZE = 15;
     [alert show];
 }
 
-//Called when the user selects a button in the confirmation popup
+/**
+ Called when the user selects a button in the confirmation popup
+ @param alertView UIAlertView* reference to the alert
+ @param buttonIndex NSInteger representing which button user pressed on alert
+ @return void
+ */
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     BUTTON_VALUE buttonVal = (BUTTON_VALUE)buttonIndex; //for clarity in switch statement
@@ -400,8 +419,11 @@ int FONT_SIZE = 15;
     }
 }
 
-//Called when user continues through confirmation popup
-//Updates the esasDictionary but does NOT save it to the backend
+/**
+ Called when user continues through confirmation popup. Updates the esasDictionary.
+ @return void
+ @warning Note: this does NOT save the dictionary to the backend
+ */
 -(void) updateEntry
 {
     NSLog(@"save data: %d", self.valueToSave);
@@ -409,8 +431,10 @@ int FONT_SIZE = 15;
     [self.esasDictionary setValue:temp forKey:[self determineSymptomName:self.currentSymptom]];
 }
 
-//Called before all done segue
-//Creates the esasEntry and saves it to the backend
+/**
+ Called before all done segue. Creates the esasEntry and saves it to the backend
+ @return void
+ */
 -(void) saveEntryToCatalyze
 {
     CatalyzeEntry* newEsasEntry = [CatalyzeEntry entryWithClassName:@"esasEntry" dictionary:self.esasDictionary];
@@ -436,10 +460,11 @@ int FONT_SIZE = 15;
     }];
 }
 
-//DEPRICATED
-//No longer called, left for query example
-//Called in viewDidLoad
-//Prepares the previousDictionary member variable using the most recent entry on Catalyze
+/**
+ DEPRICATED. Prepares the previousDictionary member variable using the most recent entry on Catalyze
+ @return void
+ @warning DEPRICATED
+ */
 -(void) queryPreviousDictionary
 {
     CatalyzeQuery* dictQuery = [CatalyzeQuery queryWithClassName:@"esasEntry"];
@@ -459,6 +484,11 @@ int FONT_SIZE = 15;
     }];
 }
 
+/**
+ DEPRICATED. Finds the most recent entry in the query results
+ @param result NSArray returned by Catalyze query function
+ @return CatalyzeEntry* most recent entry
+ */
 -(CatalyzeEntry*) findMostRecent:(NSArray*) result
 {
     CatalyzeEntry* mostRecent = result[0];

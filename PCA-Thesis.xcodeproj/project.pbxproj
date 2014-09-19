@@ -910,6 +910,7 @@
 				63AA0C3119CC8AEB00C05C97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		63B503B418FB43C20017F906 /* Build configuration list for PBXProject "PCA-Thesis" */ = {
 			isa = XCConfigurationList;
