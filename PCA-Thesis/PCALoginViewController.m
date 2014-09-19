@@ -36,11 +36,22 @@
     [super didReceiveMemoryWarning];
 }
 
+/**
+ Called before view appears. Used to empty the password field
+ @param animated BOOL
+ @return void
+ */
 -(void) viewWillAppear:(BOOL)animated
 {
     self.passwordField.text = @""; //empty the password field
 }
 
+/**
+ Called when touches begin. Used to hide keyboard
+ @param touches NSSet* of touches
+ @param event UIEvent*
+ @return void
+ */
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.usernameField resignFirstResponder];
@@ -50,7 +61,7 @@
 
 /**
  Called when login button is pressed by user
- @param (id) sender
+ @param sender id of login button
  @return IBAction
  */
 - (IBAction)loginPressed:(id)sender
@@ -76,6 +87,10 @@
     }
 }
 
+/**
+ Called when finished logging in. Segues to the main view controller.
+ @return void
+ */
 -(void) completeLoginSegue
 {
     if ([[CatalyzeUser currentUser].type isEqualToString:@"patient"])
@@ -94,7 +109,10 @@
     }
 }
 
-//Ensures that the length of inputted username and password is at least 1
+/**
+ Ensures that the length of inputted username and password is at least 1
+ @return BOOL
+ */
 -(BOOL) validateInput
 {
     BOOL ok = true;
@@ -105,7 +123,11 @@
     return ok;
 }
 
-
+/**
+ Called when signup pressed. Segues to signup controller
+ @param sender id of signup button
+ @return IBAction
+ */
 - (IBAction)signupPressed:(id)sender
 {
     [self performSegueWithIdentifier:@"signupSegue" sender:self];

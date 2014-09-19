@@ -44,7 +44,12 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-//Responds when the user touches the screen. Used to hide keyboard
+/**
+ Called when the user touches the screen. Used to hide keyboard
+ @param touches NSSet* of touches
+ @param event Event triggered when touched
+ @return void
+ */
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.usernameField resignFirstResponder];
@@ -58,7 +63,10 @@
     [self.view endEditing:YES];
 }
 
-//Hides the keyboard. Called by the gesture recognizer in viewDidLoad
+/**
+ Hides the keyboard. Called by the gesture recognizer in viewDidLoad
+ @return void
+ */
 -(void) dismissKeyboard
 {
     [self.view endEditing:YES];
@@ -70,11 +78,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+/**
+ Called when user presses cancel. Dismisses the view controller.
+ @param sender id of cancel button
+ @return IBAction
+ */
 - (IBAction)cancelPressed:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+/**
+ Called when user presses signup. Creates the user account
+ @param sender id of signup button
+ @return IBAction
+ */
 - (IBAction)signupPressed:(id)sender
 {
     [self.view endEditing:YES];
@@ -140,7 +158,10 @@
     }
 }
 
-//Ensures user input is valid
+/**
+ Validates user input
+ @return BOOL
+ */
 -(BOOL)validateInput
 {
     BOOL ok = true;
