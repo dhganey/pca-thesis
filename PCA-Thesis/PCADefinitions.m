@@ -10,7 +10,11 @@
 
 @implementation PCADefinitions
 
-//Shows an alert with different text depending on passed error code
+/**
+ Determines the error message and shows a UI alert
+ @param type ERROR_TYPE enum type which determines which alert to show
+ @return void
+ */
 -(void) showAlert: (ERROR_TYPE) type
 {
     NSString *errorMessage = @"There was a problem. Please try again";

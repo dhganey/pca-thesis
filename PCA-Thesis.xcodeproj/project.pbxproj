@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		63AA0C2F19CC8AEB00C05C97 /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 63AA0C3619CC8AEB00C05C97 /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				63AA0C3719CC8B0800C05C97 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		63166DFC197C56FB006D78D2 /* PCASignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166DFB197C56FB006D78D2 /* PCASignupViewController.m */; };
 		63166DFF197C719B006D78D2 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166DFE197C719B006D78D2 /* TPKeyboardAvoidingScrollView.m */; };
@@ -191,6 +205,7 @@
 		6370E70919B9454F00BDE59F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		6370E70A19B9454F00BDE59F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		63905457196BA59900A6848F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		63AA0C3819CC8BA700C05C97 /* readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.markdown; sourceTree = "<group>"; };
 		63B503B918FB43C20017F906 /* PCA-Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PCA-Thesis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B503BC18FB43C20017F906 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		63B503BE18FB43C20017F906 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -394,6 +409,7 @@
 		63B503B018FB43C20017F906 = {
 			isa = PBXGroup;
 			children = (
+				63AA0C3819CC8BA700C05C97 /* readme.markdown */,
 				6370E6B419B9454F00BDE59F /* catalyze-ios-sdk */,
 				63166E00197C71AF006D78D2 /* TPKeyboard */,
 				63B503C218FB43C20017F906 /* PCA-Thesis */,
@@ -532,6 +548,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = dhganey;
 				TargetAttributes = {
+					63AA0C2F19CC8AEB00C05C97 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
 					63B503D918FB43C20017F906 = {
 						TestTargetID = 63B503B818FB43C20017F906;
 					};
@@ -558,6 +577,7 @@
 			targets = (
 				63B503B818FB43C20017F906 /* PCA-Thesis */,
 				63B503D918FB43C20017F906 /* PCA-ThesisTests */,
+				63AA0C2F19CC8AEB00C05C97 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -610,6 +630,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		63AA0C3719CC8B0800C05C97 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"dhganey\";\ncompanyID=\"edu.asu.dhganey\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"~/help\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"${outputPath}\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		63B503B518FB43C20017F906 /* Sources */ = {
@@ -706,6 +742,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		63AA0C3019CC8AEB00C05C97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		63AA0C3119CC8AEB00C05C97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		63B503E918FB43C20017F906 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -853,6 +903,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		63AA0C3619CC8AEB00C05C97 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63AA0C3019CC8AEB00C05C97 /* Debug */,
+				63AA0C3119CC8AEB00C05C97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		63B503B418FB43C20017F906 /* Build configuration list for PBXProject "PCA-Thesis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

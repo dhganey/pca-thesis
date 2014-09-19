@@ -48,6 +48,11 @@
     [self.view endEditing:YES];
 }
 
+/**
+ Called when login button is pressed by user
+ @param (id) sender
+ @return IBAction
+ */
 - (IBAction)loginPressed:(id)sender
 {
     [self.view endEditing:YES];
