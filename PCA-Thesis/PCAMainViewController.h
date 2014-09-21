@@ -24,7 +24,7 @@
 /**
  Holds the value to be saved as the UILabel will be inaccessible during saving
  */
-@property int valueToSave;
+@property double valueToSave;
 
 /**
  AppDelegate object used to reference defObj for static functions

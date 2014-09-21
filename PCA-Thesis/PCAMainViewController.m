@@ -320,7 +320,7 @@ int FONT_SIZE = 15;
  */
 -(void)sliderChanged:(UISlider*) sender
 {
-    [labelRef setText:[NSString stringWithFormat:@"%.0f", sender.value]];
+    [labelRef setText:[NSString stringWithFormat:@"%.1f", sender.value]];
 }
 
 /**
@@ -335,7 +335,7 @@ int FONT_SIZE = 15;
     
     self.valueToSave = [labelRef.text doubleValue];
     
-    [self showConfirmAlert:[NSString stringWithFormat:@"%.0f", [labelRef.text doubleValue]]]; //confirm that the user meant to enter the num currently in the label
+    [self showConfirmAlert:[NSString stringWithFormat:@"%.1f", [labelRef.text doubleValue]]]; //confirm that the user meant to enter the num currently in the label
 }
 
 /**
@@ -426,9 +426,10 @@ int FONT_SIZE = 15;
  */
 -(void) updateEntry
 {
-    NSLog(@"save data: %d", self.valueToSave);
-    NSNumber* temp = [NSNumber numberWithInt:self.valueToSave];
-    [self.esasDictionary setValue:temp forKey:[self determineSymptomName:self.currentSymptom]];
+    NSLog(@"save data: %.1f", self.valueToSave);
+    
+    [self.esasDictionary setValue:[NSNumber numberWithDouble:self.valueToSave] forKey:[self determineSymptomName:self.currentSymptom]];
+    NSLog(@"%@", self.esasDictionary);
 }
 
 /**
