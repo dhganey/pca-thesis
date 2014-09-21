@@ -86,6 +86,7 @@
 		63BE8D54196BA3F500B20BD9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BE8D53196BA3F500B20BD9 /* StoreKit.framework */; };
 		63BE8D56196BA3FC00B20BD9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BE8D55196BA3FC00B20BD9 /* SystemConfiguration.framework */; };
 		63DE728C19AE3742001AA9B9 /* PCAPatientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DE728B19AE3742001AA9B9 /* PCAPatientTableViewController.m */; };
+		63DF0CC219CF7AFD005814BA /* PCAAllDoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DF0CC119CF7AFD005814BA /* PCAAllDoneViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +236,8 @@
 		63BE8D55196BA3FC00B20BD9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		63DE728A19AE3742001AA9B9 /* PCAPatientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAPatientTableViewController.h; sourceTree = "<group>"; };
 		63DE728B19AE3742001AA9B9 /* PCAPatientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAPatientTableViewController.m; sourceTree = "<group>"; };
+		63DF0CC019CF7AFD005814BA /* PCAAllDoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAAllDoneViewController.h; sourceTree = "<group>"; };
+		63DF0CC119CF7AFD005814BA /* PCAAllDoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAAllDoneViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -453,6 +456,8 @@
 				63B503CB18FB43C20017F906 /* PCAAppDelegate.h */,
 				63B503CC18FB43C20017F906 /* PCAAppDelegate.m */,
 				63B503CE18FB43C20017F906 /* Main.storyboard */,
+				63DF0CC019CF7AFD005814BA /* PCAAllDoneViewController.h */,
+				63DF0CC119CF7AFD005814BA /* PCAAllDoneViewController.m */,
 				632E4E60197E1A2A00326376 /* PCAMainViewController.h */,
 				632E4E61197E1A2A00326376 /* PCAMainViewController.m */,
 				63DE728A19AE3742001AA9B9 /* PCAPatientTableViewController.h */,
@@ -681,6 +686,7 @@
 				6370E72119B9454F00BDE59F /* AFURLConnectionOperation.m in Sources */,
 				6370E71D19B9454F00BDE59F /* AFHTTPRequestOperationManager.m in Sources */,
 				63166E08197C722B006D78D2 /* TPKeyboardAvoidingTableView.m in Sources */,
+				63DF0CC219CF7AFD005814BA /* PCAAllDoneViewController.m in Sources */,
 				6370E72519B9454F00BDE59F /* Mrn.m in Sources */,
 				632E4E62197E1A2A00326376 /* PCAMainViewController.m in Sources */,
 				6370E71B19B9454F00BDE59F /* AFNetworkActivityLogger.m in Sources */,

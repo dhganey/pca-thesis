@@ -12,6 +12,7 @@
 
 #import "PCADefinitions.h"
 #import "PCAAppDelegate.h"
+#import "PCAAllDoneViewController.h"
 
 @interface PCAMainViewController ()
 
@@ -68,9 +69,41 @@ int FONT_SIZE = 15;
         [self.appDel.defObj showAlert:NO_USER_LOGGED_IN];
     }
     
-    if (true) //TODO: this should check if it's time to cycle symptoms, and show something else if not
+    if ([self shouldCycleSymptoms])
     {
         [self showNextSymptom:self.currentSymptom];
+    }
+    else //not time to enter symptoms, move on
+    {
+        [self performSegueWithIdentifier:@"doneSymptomsSegue" sender:self];
+    }
+}
+
+/**
+ Called in viewDidLoad. Returns true if it's time for the application to show user symptoms to enter.
+ @return BOOL
+ */
+-(BOOL) shouldCycleSymptoms
+{
+    return true; //TODO
+}
+
+/**
+ Called before executing a segue. Determines what to show when the patient is done
+ @param UIStoryboardSegue* segue to be executed
+ @param sender id of sender
+ @return void
+ */
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    PCAAllDoneViewController* nextVC = segue.destinationViewController;
+    if(true) //TODO: ADJUST THIS to actually check what type of "done" it is
+    {
+        nextVC.doneType = DONE_ENTERING;
+    }
+    else
+    {
+        nextVC.doneType = NO_NEED;
     }
 }
 

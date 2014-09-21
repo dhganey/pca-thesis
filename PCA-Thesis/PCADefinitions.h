@@ -48,6 +48,12 @@ typedef enum
     CONTINUE
 } BUTTON_VALUE;
 
+typedef enum
+{
+    DONE_ENTERING = 0,
+    NO_NEED
+} ALL_DONE_TYPE;
+
 
 -(void) showAlert: (ERROR_TYPE) type;
 
