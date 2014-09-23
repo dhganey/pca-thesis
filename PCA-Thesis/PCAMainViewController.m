@@ -353,7 +353,7 @@ int FONT_SIZE = 15;
     
     self.valueToSave = sliderRef.value;
     
-    [self showConfirmAlert:[NSString stringWithFormat:@"%.1f", sliderRef.value]]; //confirm that the user meant to enter the num currently in the label
+    [self showConfirmAlert]; //confirm that the user is ready to save this value
 }
 
 /**
@@ -373,7 +373,7 @@ int FONT_SIZE = 15;
     {
         self.valueToSave = (int)[radioRef selectedSegmentIndex];
         
-        [self showConfirmAlert:[radioRef titleForSegmentAtIndex:[radioRef selectedSegmentIndex]]];
+        [self showConfirmAlert];
     }
 }
 
@@ -392,12 +392,11 @@ int FONT_SIZE = 15;
 
 /**
  Shows the user a popup alert when they try to submit a score (any score). User can continue with submission or go back to fix a mistake
- @param value NSString of value entered by user
  @return void
  */
--(void)showConfirmAlert:(NSString*) value
+-(void)showConfirmAlert
 {
-    NSString* confirmMessage = [NSString stringWithFormat:@"You entered %@, is that correct?", value];
+    NSString* confirmMessage = @"Are you sure this is the value you wish to submit?";
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm"
                                                     message:confirmMessage
