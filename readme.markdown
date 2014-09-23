@@ -7,6 +7,6 @@ This application is a component of my Barrett Honors undergraduate thesis projec
 
 TODO
 ----
-+ thing 1
-+ thing 2
-+ thing 3
++ Statistical analysis for urgent symptoms
++ New app--ensure setup works
++ Doctor view
