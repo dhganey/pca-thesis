@@ -455,14 +455,12 @@ int FONT_SIZE = 15;
  */
 -(void) saveEntryToCatalyze
 {
+    //first, update the esasDictionary to add an array of urgent symptoms
+    [self checkUrgentSymptoms];
+    
     CatalyzeEntry* newEsasEntry = [CatalyzeEntry entryWithClassName:@"esasEntry" dictionary:self.esasDictionary];
     [newEsasEntry createInBackgroundWithSuccess:^(id result)
     {
-        //once we've saved that entry, determine if there are any issues:
-        //[[CatalyzeUser currentUser] setExtra:[self determineUrgentSymptoms] forKey:@"urgentSymptoms"];
-        //[[CatalyzeUser currentUser] saveInBackground];
-        //TODO
- 
         //all done, move on
         [self performSegueWithIdentifier:@"doneSymptomsSegue" sender:self];
     }
@@ -476,6 +474,67 @@ int FONT_SIZE = 15;
             NSLog(@"%@", [result valueForKey:key]);
         }
     }];
+}
+
+/**
+ Checks urgent symptoms.
+ Automatically makes a symptom urgent if it is over 9 or the highest option on the radio dials
+ Records a dictionary of urgent symptoms inside the dictionary of symptoms, since esasEntry has an "urgent" object
+ @return void
+ */
+-(void)checkUrgentSymptoms
+{
+    NSMutableDictionary* urgentDict;
+    NSNumber* numNine = [NSNumber numberWithInt:9];
+    NSNumber* numThree = [NSNumber numberWithInt:3];
+    NSNumber* numTwo = [NSNumber numberWithInt:2];
+    NSNumber* numOne = [NSNumber numberWithInt:1];
+    NSNumber* numZero = [NSNumber numberWithInt:0];
+    
+    for(NSString* key in self.esasDictionary)
+    {
+        NSNumber* temp = [self.esasDictionary objectForKey:key];
+        if ([key isEqualToString:@"activity"] || [key isEqualToString:@"anxiety"]) //these both have 2 as the highesrt val
+        {
+            if (temp == numTwo)
+            {
+                [urgentDict setValue:numOne forKey:key];
+            }
+            else
+            {
+                [urgentDict setValue:numZero forKey:key];
+            }
+        }
+        else if ([key isEqualToString:@"appetite"])
+        {
+            if (temp == numThree)
+            {
+                [urgentDict setValue:numOne forKey:key];
+            }
+            else
+            {
+                [urgentDict setValue:numZero forKey:key];
+            }
+        }
+        else //all other symptoms go to 10
+        {
+            if (temp >= numNine)
+            {
+                [urgentDict setValue:numOne forKey:key];
+            }
+            else
+            {
+                [urgentDict setValue:numZero forKey:key];
+            }
+        }
+        
+        //TODO: also do average analysis
+        
+        
+        
+        //finally, add the urgent dictionary to the main dictionary to be saved
+        [self.esasDictionary setValue:urgentDict forKey:@"urgent"];
+    }
 }
 
 /**
