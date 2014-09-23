@@ -40,7 +40,7 @@ typedef enum
     NO_USER_LOGGED_IN,
     LOGOUT_ERROR,
     NOTHING_SELECTED,
-    QUERY_FAILURE
+    QUERY_EMPTY
 } ERROR_TYPE;
 
 typedef enum

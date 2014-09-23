@@ -510,7 +510,7 @@ int FONT_SIZE = 15;
 {
     if ([result count] < 1) //if nothing in array
     {
-        [self.appDel.defObj showAlert:QUERY_FAILURE];
+        [self.appDel.defObj showAlert:QUERY_EMPTY];
     }
     else
     {
