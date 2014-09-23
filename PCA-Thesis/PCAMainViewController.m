@@ -21,7 +21,7 @@
 @implementation PCAMainViewController
 
 NSArray* userSymptoms; //global reference to bitmask of user symptoms
-UILabel* labelRef; //global reference to a label to pass to target selectors when UI elements change
+UISlider* sliderRef; //global reference to a slider to get value
 UISegmentedControl* radioRef;
 
 int X_OFFSET = 10;
@@ -53,6 +53,9 @@ int FONT_SIZE = 15;
     //Set up app delegate object for use of shared functions
     self.appDel = [[UIApplication sharedApplication] delegate];
     
+    //Set up the previous entry dictionary
+    [self queryPreviousDictionary];
+
     //Set up esasDictionary which will hold inputted symptom data and is saved to a CatalyzeEntry at the end
     self.esasDictionary = [[NSMutableDictionary alloc] init];
     
@@ -85,12 +88,12 @@ int FONT_SIZE = 15;
  */
 -(BOOL) shouldCycleSymptoms
 {
-    return true; //TODO
+    return true;
 }
 
 /**
  Called before executing a segue. Determines what to show when the patient is done
- @param UIStoryboardSegue* segue to be executed
+ @param segue to be executed
  @param sender id of sender
  @return void
  */
@@ -141,10 +144,11 @@ int FONT_SIZE = 15;
  */
 -(void)showNextSymptom:(int) start
 {
-    while ([[userSymptoms objectAtIndex:self.currentSymptom] intValue] == 0 && self.currentSymptom < MAX_SYMPTOMS) //until we find an active symptom
-    {
-        self.currentSymptom++; //move up, check next symptom
-    }
+    //TODO: disabled this filtering to show all 10 symptoms
+//    while ([[userSymptoms objectAtIndex:self.currentSymptom] intValue] == 0 && self.currentSymptom < MAX_SYMPTOMS) //until we find an active symptom
+//    {
+//        self.currentSymptom++; //move up, check next symptom
+//    }
     
     if (self.currentSymptom < MAX_SYMPTOMS) //if we haven't moved past the array
     {
@@ -297,16 +301,8 @@ int FONT_SIZE = 15;
     [inputSlider setValue:5 animated:YES];
     inputSlider.continuous = YES;
     
-    //prepare the feedback label
-    UILabel *sliderLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x, FEEDBACK_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
-    [sliderLabel setText:[NSString stringWithFormat:@"%.0f", inputSlider.value]];
-    [self.view addSubview:sliderLabel];
-    
-    //set up a selector for when the slider changes
-    SEL sliderSel = @selector(sliderChanged:); //selector takes slider as parameter
-    [inputSlider addTarget:self action:sliderSel forControlEvents:UIControlEventValueChanged]; //call when changed
-    //we MUST set the class var labelRef so sliderChanged knows which label to modify
-    labelRef = sliderLabel;
+    //we must set this so we can retrieve value later
+    sliderRef = inputSlider;
 
     [self prepareSubmitButton:SLIDER];
 }
@@ -346,17 +342,6 @@ int FONT_SIZE = 15;
 }
 
 /**
- Target selector method to adjust a label when a slider changes. Uses labelRef, the global reference at the top.
- @param sender UISlider* reference
- @return void
- @warning Make sure to set labelRef to the appropriate UI element before adding this method as a target to the slider
- */
--(void)sliderChanged:(UISlider*) sender
-{
-    [labelRef setText:[NSString stringWithFormat:@"%.1f", sender.value]];
-}
-
-/**
  Target selector method to submit data when submit pressed
  @param sender UIButton* reference
  @return void
@@ -366,13 +351,13 @@ int FONT_SIZE = 15;
 {
     NSLog(@"submit pressed");
     
-    self.valueToSave = [labelRef.text doubleValue];
+    self.valueToSave = sliderRef.value;
     
-    [self showConfirmAlert:[NSString stringWithFormat:@"%.1f", [labelRef.text doubleValue]]]; //confirm that the user meant to enter the num currently in the label
+    [self showConfirmAlert:[NSString stringWithFormat:@"%.1f", sliderRef.value]]; //confirm that the user meant to enter the num currently in the label
 }
 
 /**
- Target selector method to submit user data from the radio screen. Uses labelRef, global reference
+ Target selector method to submit user data from the radio screen. Uses radioref, global reference
  @param sender UIButton* reference
  @return void
  @warning Make sure to set labelRef to the appropriate UI element before adding this as a target
@@ -495,9 +480,8 @@ int FONT_SIZE = 15;
 }
 
 /**
- DEPRICATED. Prepares the previousDictionary member variable using the most recent entry on Catalyze
+ Prepares the previousDictionary member variable using the most recent entry on Catalyze
  @return void
- @warning DEPRICATED
  */
 -(void) queryPreviousDictionary
 {
@@ -510,7 +494,6 @@ int FONT_SIZE = 15;
         //When the async query finishes, we get here
         CatalyzeEntry* mostRecent = [self findMostRecent:result];
         self.previousDictionary = [mostRecent content];
-        //[self updatePreviousInstructionsLabel];
     }
     failure:^(NSDictionary *result, int status, NSError *error)
     {
@@ -519,24 +502,32 @@ int FONT_SIZE = 15;
 }
 
 /**
- DEPRICATED. Finds the most recent entry in the query results
+ Finds the most recent entry in the query results
  @param result NSArray returned by Catalyze query function
  @return CatalyzeEntry* most recent entry
  */
 -(CatalyzeEntry*) findMostRecent:(NSArray*) result
 {
-    CatalyzeEntry* mostRecent = result[0];
-    
-    for (CatalyzeEntry* entry in result)
+    if ([result count] < 1) //if nothing in array
     {
-        NSComparisonResult comp = [mostRecent.createdAt compare:entry.createdAt];
-        if (comp == NSOrderedAscending)
+        [self.appDel.defObj showAlert:QUERY_FAILURE];
+    }
+    else
+    {
+        CatalyzeEntry* mostRecent = result[0];
+        
+        for (CatalyzeEntry* entry in result)
         {
-            mostRecent = entry;
+            NSComparisonResult comp = [mostRecent.createdAt compare:entry.createdAt];
+            if (comp == NSOrderedAscending)
+            {
+                mostRecent = entry;
+            }
+            //else, leave it--doesn’t matter
         }
-        //else, leave it--doesn’t matter
+        return mostRecent;
     }
     
-    return mostRecent;
+    return nil; //TODO: NOT THIS
 }
 @end

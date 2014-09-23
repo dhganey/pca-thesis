@@ -41,6 +41,9 @@
         case NOTHING_SELECTED:
             errorMessage = @"Please select an option";
             break;
+        case QUERY_FAILURE:
+            errorMessage = @"Failure in Catalyze query";
+            break;
         default:
             break;
     }
