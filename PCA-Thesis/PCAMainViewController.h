@@ -39,9 +39,8 @@
 @property NSMutableDictionary* esasDictionary;
 
 /**
- The dictionary of previous entries to show to the user
- @warning Depricated
+ The most recent CatalyzeEntry
  */
-@property NSMutableDictionary* previousDictionary;
+@property CatalyzeEntry* mostRecent;
 
 @end

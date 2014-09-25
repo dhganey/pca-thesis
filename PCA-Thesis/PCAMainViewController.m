@@ -88,7 +88,16 @@ int FONT_SIZE = 15;
  */
 -(BOOL) shouldCycleSymptoms
 {
-    return true;
+    if (self.mostRecent.createdAt == [NSDate date]) //if it was created today
+    {
+        return false;
+    }
+    else
+    {
+        //todo
+        //https://discussions.apple.com/thread/1700102?start=0&tstart=0
+        return true;
+    }
 }
 
 /**
@@ -562,8 +571,7 @@ int FONT_SIZE = 15;
         //When the async query finishes, we get here
         if ([result count] > 0)
         {
-            CatalyzeEntry* mostRecent = [self findMostRecent:result];
-            self.previousDictionary = [mostRecent content];
+            self.mostRecent = [self findMostRecent:result];
         }
         else
         {
