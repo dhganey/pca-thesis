@@ -71,13 +71,17 @@ int FONT_SIZE = 15;
     {
         [self.appDel.defObj showAlert:NO_USER_LOGGED_IN];
     }
-    
-    if ([self shouldCycleSymptoms])
+}
+
+-(void)startCycle
+{
+    if ([self shouldCycleSymptoms] == NOT_DONE)
     {
         [self showNextSymptom:self.currentSymptom];
     }
     else //not time to enter symptoms, move on
     {
+        //TODO set done type here? set something so prepareforsegue can make the right call based on what shouldCycleSymptoms returns
         [self performSegueWithIdentifier:@"allDoneSegue" sender:self];
     }
 }
@@ -86,17 +90,67 @@ int FONT_SIZE = 15;
  Called in viewDidLoad. Returns true if it's time for the application to show user symptoms to enter.
  @return BOOL
  */
--(BOOL) shouldCycleSymptoms
+-(ALL_DONE_TYPE) shouldCycleSymptoms
 {
-    if (self.mostRecent.createdAt == [NSDate date]) //if it was created today
+    NSCalendar* gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    unsigned unitflags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit; //prep categories to compare
+    NSDateComponents* todayComps = [gregorian components:unitflags fromDate:[NSDate date]];
+    NSDateComponents* mostRecentComps = [gregorian components:unitflags fromDate:(NSDate*)self.mostRecent.content];
+    
+    if ([todayComps day] == [mostRecentComps day] &&
+        [todayComps month] == [mostRecentComps month] &&
+        [todayComps year] == [mostRecentComps year])
     {
-        return false;
+        //the most recent entry was created on exactly the same day
+        return DONE_ENTERING; //we've clearly already recorded
     }
-    else
+    else //the most recent entry was created on a different day
     {
-        //todo
-        //https://discussions.apple.com/thread/1700102?start=0&tstart=0
-        return true;
+        NSDateComponents* todayWeekday = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+        NSDateComponents* recentWeekday = [gregorian components:NSWeekdayCalendarUnit fromDate:self.mostRecent.createdAt];
+        
+        DAYS_OF_WEEK recentDay = (DAYS_OF_WEEK)[recentWeekday weekday];
+        DAYS_OF_WEEK todayDay = (DAYS_OF_WEEK)[todayWeekday weekday];
+        
+        switch(recentDay)
+        {
+            case TUESDAY:
+                if (todayDay == THURSDAY)
+                {
+                    return NOT_DONE;
+                }
+                else
+                {
+                    return NO_NEED;
+                }
+                break;
+            case THURSDAY:
+                if (todayDay == SATURDAY)
+                {
+                    return NOT_DONE;
+                }
+                else
+                {
+                    return NO_NEED;
+                }
+                break;
+            case SATURDAY:
+                if (todayDay == TUESDAY)
+                {
+                    return NOT_DONE;
+                }
+                else
+                {
+                    return NO_NEED;
+                }
+                break;
+            default:
+                //if we get here, we have a problem--previous entry was made not on tuesday, thursday, saturday
+                //this will happen frequently during testing
+                //TODO handle this here
+                return NOT_DONE;
+                
+        }
     }
 }
 
@@ -553,7 +607,26 @@ int FONT_SIZE = 15;
     
     //finally, add the urgent dictionary to the main dictionary to be saved
     [self.esasDictionary setValue:urgentDict forKey:@"urgent"];
+}
 
+/**
+ Counts the number of urgent symptoms in a dictionary. Essentially counts the number of 1's
+ @param dict NSMutableDictionary* dictionary to count
+ @return int
+ */
+-(int) countUrgentSymptoms:(NSMutableDictionary*) dict
+{
+    int count = 0;
+    
+    for (NSString* key in dict)
+    {
+        if ([dict valueForKey:key] == [NSNumber numberWithInt:1])
+        {
+            count++;
+        }
+    }
+    
+    return count;
 }
 
 /**
@@ -572,6 +645,7 @@ int FONT_SIZE = 15;
         if ([result count] > 0)
         {
             self.mostRecent = [self findMostRecent:result];
+            [self startCycle];
         }
         else
         {

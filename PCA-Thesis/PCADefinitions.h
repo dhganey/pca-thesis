@@ -52,9 +52,20 @@ typedef enum
 typedef enum
 {
     DONE_ENTERING = 0,
-    NO_NEED
+    NO_NEED,
+    NOT_DONE
 } ALL_DONE_TYPE;
 
+typedef enum
+{
+    SUNDAY = 1,
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY
+} DAYS_OF_WEEK;
 
 -(void) showAlert: (ERROR_TYPE) type;
 -(void) showAlertWithText: (NSString*) text;
