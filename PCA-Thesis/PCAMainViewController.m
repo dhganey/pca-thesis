@@ -78,7 +78,7 @@ int FONT_SIZE = 15;
     }
     else //not time to enter symptoms, move on
     {
-        [self performSegueWithIdentifier:@"doneSymptomsSegue" sender:self];
+        [self performSegueWithIdentifier:@"allDoneSegue" sender:self];
     }
 }
 
@@ -99,7 +99,9 @@ int FONT_SIZE = 15;
  */
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    PCAAllDoneViewController* nextVC = segue.destinationViewController;
+    UINavigationController* destinationNC = segue.destinationViewController;
+    PCAAllDoneViewController* nextVC = [[destinationNC viewControllers] objectAtIndex:0];
+    
     if(true) //TODO: ADJUST THIS to actually check what type of "done" it is
     {
         nextVC.doneType = DONE_ENTERING;
@@ -150,7 +152,7 @@ int FONT_SIZE = 15;
 //        self.currentSymptom++; //move up, check next symptom
 //    }
     
-    if (self.currentSymptom < MAX_SYMPTOMS) //if we haven't moved past the array
+    if (self.currentSymptom < OTHER) //if we haven't moved past the array, //todo this removes the ability to record other
     {
         [self showSymptomScreen];
     }
@@ -445,7 +447,14 @@ int FONT_SIZE = 15;
 {
     NSLog(@"save data: %.1f", self.valueToSave);
     
-    [self.esasDictionary setValue:[NSNumber numberWithDouble:self.valueToSave] forKey:[self determineSymptomName:self.currentSymptom]];
+    if (self.currentSymptom == SHORTNESS_OF_BREATH) //special case--different name in schema
+    {
+        [self.esasDictionary setValue:[NSNumber numberWithDouble:self.valueToSave] forKey:@"shortness_of_breath"];
+    }
+    else
+    {
+        [self.esasDictionary setValue:[NSNumber numberWithDouble:self.valueToSave] forKey:[self determineSymptomName:self.currentSymptom]];
+    }
     NSLog(@"%@", self.esasDictionary);
 }
 
@@ -462,7 +471,7 @@ int FONT_SIZE = 15;
     [newEsasEntry createInBackgroundWithSuccess:^(id result)
     {
         //all done, move on
-        [self performSegueWithIdentifier:@"doneSymptomsSegue" sender:self];
+        [self performSegueWithIdentifier:@"allDoneSegue" sender:self];
     }
     failure:^(NSDictionary *result, int status, NSError *error)
     {
@@ -473,6 +482,7 @@ int FONT_SIZE = 15;
         {
             NSLog(@"%@", [result valueForKey:key]);
         }
+        NSLog(@"dictionary:%@", self.esasDictionary);
     }];
 }
 
@@ -530,11 +540,11 @@ int FONT_SIZE = 15;
         
         //TODO: also do average analysis
         
-        
-        
-        //finally, add the urgent dictionary to the main dictionary to be saved
-        [self.esasDictionary setValue:urgentDict forKey:@"urgent"];
     }
+    
+    //finally, add the urgent dictionary to the main dictionary to be saved
+    [self.esasDictionary setValue:urgentDict forKey:@"urgent"];
+
 }
 
 /**
@@ -550,8 +560,15 @@ int FONT_SIZE = 15;
     [dictQuery retrieveInBackgroundForUsersId:[[CatalyzeUser currentUser] usersId] success:^(NSArray *result)
     {
         //When the async query finishes, we get here
-        CatalyzeEntry* mostRecent = [self findMostRecent:result];
-        self.previousDictionary = [mostRecent content];
+        if ([result count] > 0)
+        {
+            CatalyzeEntry* mostRecent = [self findMostRecent:result];
+            self.previousDictionary = [mostRecent content];
+        }
+        else
+        {
+            //TODO
+        }
     }
     failure:^(NSDictionary *result, int status, NSError *error)
     {
@@ -566,26 +583,21 @@ int FONT_SIZE = 15;
  */
 -(CatalyzeEntry*) findMostRecent:(NSArray*) result
 {
-    if ([result count] < 1) //if nothing in array
+    CatalyzeEntry* mostRecent = result[0];
+    
+    for (CatalyzeEntry* entry in result)
     {
-        [self.appDel.defObj showAlert:QUERY_EMPTY];
-    }
-    else
-    {
-        CatalyzeEntry* mostRecent = result[0];
-        
-        for (CatalyzeEntry* entry in result)
+        NSComparisonResult comp = [mostRecent.createdAt compare:entry.createdAt];
+        if (comp == NSOrderedAscending)
         {
-            NSComparisonResult comp = [mostRecent.createdAt compare:entry.createdAt];
-            if (comp == NSOrderedAscending)
-            {
-                mostRecent = entry;
-            }
-            //else, leave it--doesn’t matter
+            mostRecent = entry;
         }
-        return mostRecent;
+        //else, leave it--doesn’t matter
     }
     
-    return nil; //TODO: NOT THIS
-}
+    //TODO this is just for debugging
+    [self.appDel.defObj showAlertWithText:[NSString stringWithFormat:@"Last pain score was %@", [mostRecent.content valueForKey:@"pain"]]];
+    return mostRecent;
+
+    }
 @end

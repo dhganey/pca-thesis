@@ -56,4 +56,20 @@
     [alert show];
 }
 
+/**
+ Shows an alert which simply displays the passed text. Good for debugging
+ @param textMessage NSString* text to display
+ @return void
+ */
+-(void) showAlertWithText:(NSString*) text
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message!"
+                                                    message:text
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+
+}
+
 @end

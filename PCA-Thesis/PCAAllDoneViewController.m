@@ -18,7 +18,18 @@
 {
     [super viewDidLoad];
 
-    //TODO
+    if (self.doneType == NO_NEED)
+    {
+        
+    }
+    else if (self.doneType == DONE_ENTERING)
+    {
+        
+    }
+    else
+    {
+        //todo
+    }
 }
 
 - (void)didReceiveMemoryWarning {

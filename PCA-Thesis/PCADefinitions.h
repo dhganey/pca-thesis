@@ -57,5 +57,6 @@ typedef enum
 
 
 -(void) showAlert: (ERROR_TYPE) type;
+-(void) showAlertWithText: (NSString*) text;
 
 @end
