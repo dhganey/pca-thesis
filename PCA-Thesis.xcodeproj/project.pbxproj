@@ -87,6 +87,7 @@
 		63BE8D56196BA3FC00B20BD9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BE8D55196BA3FC00B20BD9 /* SystemConfiguration.framework */; };
 		63DE728C19AE3742001AA9B9 /* PCAPatientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DE728B19AE3742001AA9B9 /* PCAPatientTableViewController.m */; };
 		63DF0CC219CF7AFD005814BA /* PCAAllDoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DF0CC119CF7AFD005814BA /* PCAAllDoneViewController.m */; };
+		63E9126119D5D3E400465856 /* PCAPatientDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E9126019D5D3E400465856 /* PCAPatientDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -238,6 +239,8 @@
 		63DE728B19AE3742001AA9B9 /* PCAPatientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAPatientTableViewController.m; sourceTree = "<group>"; };
 		63DF0CC019CF7AFD005814BA /* PCAAllDoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAAllDoneViewController.h; sourceTree = "<group>"; };
 		63DF0CC119CF7AFD005814BA /* PCAAllDoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAAllDoneViewController.m; sourceTree = "<group>"; };
+		63E9125F19D5D3E400465856 /* PCAPatientDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAPatientDetailViewController.h; sourceTree = "<group>"; };
+		63E9126019D5D3E400465856 /* PCAPatientDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAPatientDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -462,6 +465,8 @@
 				632E4E61197E1A2A00326376 /* PCAMainViewController.m */,
 				63DE728A19AE3742001AA9B9 /* PCAPatientTableViewController.h */,
 				63DE728B19AE3742001AA9B9 /* PCAPatientTableViewController.m */,
+				63E9125F19D5D3E400465856 /* PCAPatientDetailViewController.h */,
+				63E9126019D5D3E400465856 /* PCAPatientDetailViewController.m */,
 				63438E5919AA7AA500C25DC5 /* PCADefinitions.h */,
 				63438E5A19AA7AA500C25DC5 /* PCADefinitions.m */,
 				63166DFA197C56FB006D78D2 /* PCASignupViewController.h */,
@@ -664,6 +669,7 @@
 				6370E72919B9454F00BDE59F /* SocialId.m in Sources */,
 				6370E70F19B9454F00BDE59F /* CatalyzeFileManager.m in Sources */,
 				6370E71319B9454F00BDE59F /* CatalyzeReference.m in Sources */,
+				63E9126119D5D3E400465856 /* PCAPatientDetailViewController.m in Sources */,
 				6370E71219B9454F00BDE59F /* CatalyzeQuery.m in Sources */,
 				6370E71719B9454F00BDE59F /* Guardian.m in Sources */,
 				6370E72419B9454F00BDE59F /* AFURLSessionManager.m in Sources */,

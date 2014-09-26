@@ -9,6 +9,7 @@
 #import "PCAPatientTableViewController.h"
 
 #import "PCADefinitions.h"
+#import "Catalyze.h"
 
 @interface PCAPatientTableViewController ()
 
@@ -35,7 +36,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    
+    CatalyzeQuery* query = [CatalyzeQuery queryWithClassName:@"esasEntry"];
+    [query setPageNumber:1];
+    [query setPageSize:100];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,13 +52,13 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2; //TODO: this is hardcoded to reflect a section for "urgent" patients and a section for remaining patients
+    return 1; //one section for now
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //TODO return num in array
-    return 0;
+    return [self.userNames count];
 }
 
 
@@ -63,9 +66,21 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"patientCell" forIndexPath:indexPath];
     
+    //TODO: do you need the identifier
     //TODO: actually configure the cell
     
     return cell;
+}
+
+/**
+ Event triggered when doctor clicks a patient's name
+ @param tableView UITableView*
+ @param indexPath NSIndexPath representing the specific cell clicked
+ @return void
+ */
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //TODO: transfer the specific patient information to the patientdetailviewcontroller
 }
 
 /*
