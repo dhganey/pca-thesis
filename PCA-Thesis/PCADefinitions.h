@@ -53,7 +53,8 @@ typedef enum
 {
     DONE_ENTERING = 0,
     NO_NEED,
-    NOT_DONE
+    NOT_DONE,
+    NOT_SET
 } ALL_DONE_TYPE;
 
 typedef enum

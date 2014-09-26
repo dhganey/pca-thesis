@@ -53,6 +53,7 @@ int FONT_SIZE = 15;
     [super viewDidLoad];
     
     self.standard_deviation_cutoff = 2;
+    self.doneType = NOT_SET;
     
     //Set up app delegate object for use of shared functions
     self.appDel = [[UIApplication sharedApplication] delegate];
@@ -80,16 +81,22 @@ int FONT_SIZE = 15;
     }
 }
 
--(void)startCycle
+-(void)startCycle:(BOOL) shouldCheckCycle
 {
-    //if ([self shouldCycleSymptoms] == NOT_DONE)
-    if (true) //TODO RESTORE THIS AFTER TESTING
+    ALL_DONE_TYPE doneType = [self shouldCycleSymptoms];
+    
+    if (!shouldCheckCycle) //probably new user, don't check, just go
     {
-        [self showNextSymptom:self.currentSymptom];
+        [self showNextSymptom];
+    }
+    //else if (doneType == NOT_DONE)
+    else if (true) //TODO RESTORE THIS AFTER TESTING
+    {
+        [self showNextSymptom];
     }
     else //not time to enter symptoms, move on
     {
-        //TODO set done type here? set something so prepareforsegue can make the right call based on what shouldCycleSymptoms returns
+        self.doneType = doneType;
         [self performSegueWithIdentifier:@"allDoneSegue" sender:self];
     }
 }
@@ -174,14 +181,15 @@ int FONT_SIZE = 15;
     UINavigationController* destinationNC = segue.destinationViewController;
     PCAAllDoneViewController* nextVC = [[destinationNC viewControllers] objectAtIndex:0];
     
-    if(true) //TODO: ADJUST THIS to actually check what type of "done" it is
+    if (self.doneType == NOT_SET)
     {
-        nextVC.doneType = DONE_ENTERING;
+        nextVC.doneType = DONE_ENTERING; //TODO check this
     }
     else
     {
-        nextVC.doneType = NO_NEED;
+        nextVC.doneType = self.doneType;
     }
+        
 }
 
 /**
@@ -216,15 +224,9 @@ int FONT_SIZE = 15;
  @param start Symptom to start at (if not showing all symptoms)
  @return void
  */
--(void)showNextSymptom:(int) start
+-(void)showNextSymptom
 {
-    //TODO: disabled this filtering to show all 10 symptoms
-//    while ([[userSymptoms objectAtIndex:self.currentSymptom] intValue] == 0 && self.currentSymptom < MAX_SYMPTOMS) //until we find an active symptom
-//    {
-//        self.currentSymptom++; //move up, check next symptom
-//    }
-    
-    if (self.currentSymptom < OTHER) //if we haven't moved past the array, //todo this removes the ability to record other
+    if (self.currentSymptom < OTHER) //if we haven't moved past the array
     {
         [self showSymptomScreen];
     }
@@ -501,7 +503,7 @@ int FONT_SIZE = 15;
             
             //move on
             self.currentSymptom++;
-            [self showNextSymptom:self.currentSymptom];
+            [self showNextSymptom];
             break;
             
         default:
@@ -707,11 +709,11 @@ int FONT_SIZE = 15;
         if ([result count] > 0)
         {
             self.mostRecent = [self findMostRecent:result];
-            [self startCycle];
+            [self startCycle:true];
         }
-        else
+        else //no recent entries--start cycle automatically as this is a new user
         {
-            //TODO
+            [self startCycle:false];
         }
     }
     failure:^(NSDictionary *result, int status, NSError *error)

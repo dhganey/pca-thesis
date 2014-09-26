@@ -53,4 +53,9 @@
  */
 @property double standard_deviation_cutoff;
 
+/**
+ The type of "done" we have
+ */
+@property ALL_DONE_TYPE doneType;
+
 @end
