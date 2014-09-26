@@ -14,6 +14,8 @@
 #import "PCAAppDelegate.h"
 #import "PCAAllDoneViewController.h"
 
+#define STD_DEV_CUTOFF = 2
+
 @interface PCAMainViewController ()
 
 @end
@@ -50,11 +52,16 @@ int FONT_SIZE = 15;
 {
     [super viewDidLoad];
     
+    self.standard_deviation_cutoff = 2;
+    
     //Set up app delegate object for use of shared functions
     self.appDel = [[UIApplication sharedApplication] delegate];
     
     //Set up the previous entry dictionary
     [self queryPreviousDictionary];
+    
+    //Set up the NSArray of previous symptoms for statistical calculations
+    [self queryForStatistics];
 
     //Set up esasDictionary which will hold inputted symptom data and is saved to a CatalyzeEntry at the end
     self.esasDictionary = [[NSMutableDictionary alloc] init];
@@ -95,7 +102,7 @@ int FONT_SIZE = 15;
     NSCalendar* gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     unsigned unitflags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit; //prep categories to compare
     NSDateComponents* todayComps = [gregorian components:unitflags fromDate:[NSDate date]];
-    NSDateComponents* mostRecentComps = [gregorian components:unitflags fromDate:(NSDate*)self.mostRecent.content];
+    NSDateComponents* mostRecentComps = [gregorian components:unitflags fromDate:self.mostRecent.createdAt];
     
     if ([todayComps day] == [mostRecentComps day] &&
         [todayComps month] == [mostRecentComps month] &&
@@ -108,6 +115,7 @@ int FONT_SIZE = 15;
     {
         NSDateComponents* todayWeekday = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
         NSDateComponents* recentWeekday = [gregorian components:NSWeekdayCalendarUnit fromDate:self.mostRecent.createdAt];
+        //TODO: this does not currently work but should be resolved when SDK updated to 3.0.2
         
         DAYS_OF_WEEK recentDay = (DAYS_OF_WEEK)[recentWeekday weekday];
         DAYS_OF_WEEK todayDay = (DAYS_OF_WEEK)[todayWeekday weekday];
@@ -564,7 +572,7 @@ int FONT_SIZE = 15;
     NSNumber* numOne = [NSNumber numberWithInt:1];
     NSNumber* numZero = [NSNumber numberWithInt:0];
     
-    for(NSString* key in self.esasDictionary)
+    for (NSString* key in self.esasDictionary)
     {
         NSNumber* temp = [self.esasDictionary objectForKey:key];
         if ([key isEqualToString:@"activity"] || [key isEqualToString:@"anxiety"]) //these both have 2 as the highesrt val
@@ -600,9 +608,61 @@ int FONT_SIZE = 15;
                 [urgentDict setValue:numZero forKey:key];
             }
         }
+    }
+    
+    //by this point, we have added to set urgency for each symptom which crosses the absolute boundary.
+    //now we need to do statistical analysis to determine if any of the symptoms are 2 SD's above mean
+    //note that this analysis does not need to be done for radio screens, or for symptoms already urgent
+    
+    //ASSUMPTION: the asynchronous CatalyzeQuery will complete by this point
+    
+    for (NSString* key in self.esasDictionary)
+    {
+        if ([key isEqualToString:@"activity"] || [key isEqualToString:@"anxiety"] || [key isEqualToString:@"appetite"])
+        {
+            continue; //no need to calculate averages for these
+        }
         
-        //TODO: also do average analysis
+        if ([urgentDict valueForKey:key] == numOne) //if already urgent
+        {
+            continue; //why bother?
+        }
         
+        //if not a radio screen and not already urgent, calculate the mean
+        
+        //can't calculate mean if no previous entries
+        if (self.last60Entries == nil || ([self.last60Entries count] < 1))
+        {
+            break;
+        }
+        
+        int count = 0;
+        double total = 0.0;
+        double mean;
+        for (CatalyzeEntry* entry in self.last60Entries)
+        {
+            count++;
+            total += [[entry.content valueForKey:key] doubleValue];
+        }
+        mean = (total / count);
+        
+        //Now we have the mean for the key, let's calculate the standard deviation
+        double sumOfSquaredDiffs = 0.0;
+        for (CatalyzeEntry* entry in self.last60Entries)
+        {
+            double difference = [[entry.content valueForKey:key] doubleValue] - mean;
+            sumOfSquaredDiffs += difference * difference;
+        }
+        
+        double standardDev = sqrt(sumOfSquaredDiffs / count);
+        
+        //Now we have the standard deviation. Compare and decide urgency
+        double cutoff = (self.standard_deviation_cutoff * standardDev);
+        double absoluteCutoff = cutoff + mean;
+        if ([self.esasDictionary valueForKey:key] > [NSNumber numberWithDouble:absoluteCutoff])
+        {
+            [urgentDict setValue:numOne forKey:key];
+        }
     }
     
     //finally, add the urgent dictionary to the main dictionary to be saved
@@ -655,6 +715,26 @@ int FONT_SIZE = 15;
     failure:^(NSDictionary *result, int status, NSError *error)
     {
         NSLog(@"query failure in queryPreviousDictionary");
+    }];
+}
+
+/**
+ Queries the last 60 user entries and stores the resulting array as a class variable for use later
+ */
+-(void)queryForStatistics
+{
+    CatalyzeQuery* query = [CatalyzeQuery queryWithClassName:@"esasEntry"];
+    [query setPageNumber:1];
+    [query setPageSize:60];
+    
+    [query retrieveInBackgroundForUsersId:[[CatalyzeUser currentUser] usersId] success:^(NSArray *result)
+    {
+        self.last60Entries = result;
+    }
+    failure:^(NSDictionary *result, int status, NSError *error)
+    {
+        NSLog(@"query failure in queryforstatistics");
+        NSLog(@"%@", error);
     }];
 }
 

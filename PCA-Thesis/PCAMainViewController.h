@@ -43,4 +43,14 @@
  */
 @property CatalyzeEntry* mostRecent;
 
+/**
+ The NSArray of the last 60 results
+ */
+@property NSArray* last60Entries;
+
+/**
+ The number of standard deviations above mean which defines urgent
+ */
+@property double standard_deviation_cutoff;
+
 @end
