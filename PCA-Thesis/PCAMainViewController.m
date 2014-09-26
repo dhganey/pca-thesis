@@ -82,7 +82,8 @@ int FONT_SIZE = 15;
 
 -(void)startCycle
 {
-    if ([self shouldCycleSymptoms] == NOT_DONE)
+    //if ([self shouldCycleSymptoms] == NOT_DONE)
+    if (true) //TODO RESTORE THIS AFTER TESTING
     {
         [self showNextSymptom:self.currentSymptom];
     }
@@ -565,7 +566,7 @@ int FONT_SIZE = 15;
  */
 -(void)checkUrgentSymptoms
 {
-    NSMutableDictionary* urgentDict;
+    NSMutableDictionary* urgentDict = [[NSMutableDictionary alloc] init];
     NSNumber* numNine = [NSNumber numberWithInt:9];
     NSNumber* numThree = [NSNumber numberWithInt:3];
     NSNumber* numTwo = [NSNumber numberWithInt:2];
@@ -659,6 +660,7 @@ int FONT_SIZE = 15;
         //Now we have the standard deviation. Compare and decide urgency
         double cutoff = (self.standard_deviation_cutoff * standardDev);
         double absoluteCutoff = cutoff + mean;
+        absoluteCutoff = (absoluteCutoff > 10 ? 10 : absoluteCutoff); //if greater than 10, reset to 10
         if ([self.esasDictionary valueForKey:key] > [NSNumber numberWithDouble:absoluteCutoff])
         {
             [urgentDict setValue:numOne forKey:key];
