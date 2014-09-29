@@ -52,7 +52,6 @@ int FONT_SIZE = 15;
 {
     [super viewDidLoad];
     
-    self.standard_deviation_cutoff = 2;
     self.doneType = NOT_SET;
     
     //Set up app delegate object for use of shared functions
@@ -83,14 +82,14 @@ int FONT_SIZE = 15;
 
 -(void)startCycle:(BOOL) shouldCheckCycle
 {
-    ALL_DONE_TYPE doneType = [self shouldCycleSymptoms];
+    //ALL_DONE_TYPE doneType = [self shouldCycleSymptoms]; //TODO restore this too
+    ALL_DONE_TYPE doneType = NOT_DONE;
     
     if (!shouldCheckCycle) //probably new user, don't check, just go
     {
         [self showNextSymptom];
     }
-    //else if (doneType == NOT_DONE)
-    else if (true) //TODO RESTORE THIS AFTER TESTING
+    else if (doneType == NOT_DONE)
     {
         [self showNextSymptom];
     }
@@ -520,7 +519,7 @@ int FONT_SIZE = 15;
 -(void) updateEntry
 {
     NSLog(@"save data: %.1f", self.valueToSave);
-    
+
     if (self.currentSymptom == SHORTNESS_OF_BREATH) //special case--different name in schema
     {
         [self.esasDictionary setValue:[NSNumber numberWithDouble:self.valueToSave] forKey:@"shortness_of_breath"];
@@ -564,11 +563,20 @@ int FONT_SIZE = 15;
  Checks urgent symptoms.
  Automatically makes a symptom urgent if it is over 9 or the highest option on the radio dials
  Records a dictionary of urgent symptoms inside the dictionary of symptoms, since esasEntry has an "urgent" object
+ Each entry in the dictionary is either 0 (not urgent), 1 (slightly), or 2 (very)
+ These are determined in two ways:
+ Any slider symptom above 9 is automatically a 1, if it's 10 it's automatically a 2
+ Any radio symptom at highest level is a 1, but TODO check and see if this should be 2 instead
+ Any slider symtom > 1 SD above mean is a 1
+ Any slider symptom > 2 SD above mean is a 2
  @return void
  */
 -(void)checkUrgentSymptoms
 {
     NSMutableDictionary* urgentDict = [[NSMutableDictionary alloc] init];
+    
+    //Set up frequently used NSNumbers
+    NSNumber* numTen = [NSNumber numberWithInt:10];
     NSNumber* numNine = [NSNumber numberWithInt:9];
     NSNumber* numThree = [NSNumber numberWithInt:3];
     NSNumber* numTwo = [NSNumber numberWithInt:2];
@@ -602,7 +610,11 @@ int FONT_SIZE = 15;
         }
         else //all other symptoms go to 10
         {
-            if (temp >= numNine)
+            if (temp == numTen)
+            {
+                [urgentDict setValue:numTwo forKey:key];
+            }
+            else if (temp >= numNine)
             {
                 [urgentDict setValue:numOne forKey:key];
             }
@@ -614,7 +626,7 @@ int FONT_SIZE = 15;
     }
     
     //by this point, we have added to set urgency for each symptom which crosses the absolute boundary.
-    //now we need to do statistical analysis to determine if any of the symptoms are 2 SD's above mean
+    //now we need to do statistical analysis to determine if any of the symptoms are 1-2 SD's above mean
     //note that this analysis does not need to be done for radio screens, or for symptoms already urgent
     
     //ASSUMPTION: the asynchronous CatalyzeQuery will complete by this point
@@ -626,12 +638,12 @@ int FONT_SIZE = 15;
             continue; //no need to calculate averages for these
         }
         
-        if ([urgentDict valueForKey:key] == numOne) //if already urgent
+        if ([urgentDict valueForKey:key] == numTwo) //if already very urgent
         {
-            continue; //why bother?
+            continue; //don't bother
         }
         
-        //if not a radio screen and not already urgent, calculate the mean
+        //if not a radio screen and not already super urgent, calculate the mean
         
         //can't calculate mean if no previous entries
         if (self.last60Entries == nil || ([self.last60Entries count] < 1))
@@ -660,10 +672,21 @@ int FONT_SIZE = 15;
         double standardDev = sqrt(sumOfSquaredDiffs / count);
         
         //Now we have the standard deviation. Compare and decide urgency
-        double cutoff = (self.standard_deviation_cutoff * standardDev);
-        double absoluteCutoff = cutoff + mean;
-        absoluteCutoff = (absoluteCutoff > 10 ? 10 : absoluteCutoff); //if greater than 10, reset to 10
-        if ([self.esasDictionary valueForKey:key] > [NSNumber numberWithDouble:absoluteCutoff])
+        double oneCutoff = 1 * standardDev;
+        double twoCutoff = 2 * standardDev;
+        
+        double absoluteOne = oneCutoff + mean;
+        double absoluteTwo = twoCutoff + mean;
+        
+        absoluteOne = (absoluteOne > 10 ? 10 : absoluteOne); //if greater than 10, reset to 10
+        absoluteTwo = (absoluteTwo > 10 ? 10 : absoluteTwo);
+        
+        //Now check if it's super urgent--greater than absolute two
+        if ([[self.esasDictionary valueForKey:key] doubleValue] > absoluteTwo)
+        {
+            [urgentDict setValue:numTwo forKey:key];
+        }
+        else if ([[self.esasDictionary valueForKey:key] doubleValue] > absoluteOne)
         {
             [urgentDict setValue:numOne forKey:key];
         }
