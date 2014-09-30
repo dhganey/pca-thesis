@@ -58,6 +58,28 @@
     } @catch (NSException *e) {}
 }
 
+- (void)setCreatedAt:(NSDate *)createdAt {
+    if (![createdAt isKindOfClass:[NSDate class]]) {
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+        [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+        _createdAt = [format dateFromString:(NSString *)createdAt];
+    } else {
+        _createdAt = createdAt;
+    }
+}
+
+- (void)setUpdatedAt:(NSDate *)updatedAt {
+    if (![updatedAt isKindOfClass:[NSDate class]]) {
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+        [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+        _updatedAt = [format dateFromString:(NSString *)updatedAt];
+    } else {
+        _updatedAt = updatedAt;
+    }
+}
+
 #pragma mark -
 #pragma mark Create
 

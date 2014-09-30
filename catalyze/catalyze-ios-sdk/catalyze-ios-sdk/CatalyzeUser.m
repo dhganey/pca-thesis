@@ -165,6 +165,39 @@ static CatalyzeUser *currentUser;
     return self;
 }
 
+- (void)setCreatedAt:(NSDate *)createdAt {
+    if (![createdAt isKindOfClass:[NSDate class]]) {
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+        [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+        _createdAt = [format dateFromString:(NSString *)createdAt];
+    } else {
+        _createdAt = createdAt;
+    }
+}
+
+- (void)setUpdatedAt:(NSDate *)updatedAt {
+    if (![updatedAt isKindOfClass:[NSDate class]]) {
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+        [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+        _updatedAt = [format dateFromString:(NSString *)updatedAt];
+    } else {
+        _updatedAt = updatedAt;
+    }
+}
+
+- (void)setDob:(NSDate *)dob {
+    if (![dob isKindOfClass:[NSDate class]]) {
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+        [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+        _dob = [format dateFromString:(NSString *)dob];
+    } else {
+        _dob = dob;
+    }
+}
+
 - (void)logout {
     [self logoutWithSuccess:nil failure:nil];
 }

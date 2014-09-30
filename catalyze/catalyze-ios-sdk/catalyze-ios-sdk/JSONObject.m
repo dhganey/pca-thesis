@@ -16,6 +16,7 @@
 
 #import "JSONObject.h"
 #import "NSObject+Properties.h"
+#import "CatalyzeUser.h"
 
 @implementation JSONObject
 
@@ -25,7 +26,19 @@
     
 	NSString *propName;
 	for (propName in propertyNames) {
-		[dict setValue:[self valueForKey:propName] forKey:propName];
+        id value = [self valueForKey:propName];
+        if ([value isKindOfClass:[NSDate class]]) {
+            NSDateFormatter *format = [[NSDateFormatter alloc] init];
+            [format setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+            if ([propName isEqualToString:@"createdAt"] || [propName isEqualToString:@"updatedAt"]) {
+                //only set the full length for the createdAt and updatedAt timestamps, everything else uses short dates
+                [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+            } else {
+                [format setDateFormat:@"yyyy-MM-dd"];
+            }
+            value = [format stringFromDate:value];
+        }
+		[dict setValue:value forKey:propName];
 	}
 	
 	return dict;
