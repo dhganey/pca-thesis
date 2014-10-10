@@ -49,30 +49,32 @@
             count++;
         }
     }
-    count++; //for final line
     
-    UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, CGRectGetWidth(self.view.bounds), 100)]; //todo adjust magic nums
+    UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, CGRectGetWidth(self.view.bounds), 75)]; //todo adjust magic nums
     feedLabel.lineBreakMode = NSLineBreakByCharWrapping;
-    [feedLabel setNumberOfLines:count];
+    [feedLabel setNumberOfLines:count*2];
     feedLabel.font = [feedLabel.font fontWithSize:14];
 
+    NSString* tempString;
+    
     for (NSString* key in self.urgentDictionary)
     {
         if ([[self.urgentDictionary valueForKey:key] intValue] > 0)
         {
             if ([[self.urgentDictionary valueForKey:key] intValue] == 1)
             {
-                NSString* tempString = [NSString stringWithFormat:@"Your %@ is a little high\n", key];
+                tempString = [NSString stringWithFormat:@"Your %@ is a little high\n", [key stringByReplacingOccurrencesOfString:@"_" withString:@" "]]; //removes underscores from shortness_of_breath
                 feedback = [feedback stringByAppendingString:tempString];
             }
             else if ([[self.urgentDictionary valueForKey:key] intValue] == 2)
             {
-                NSString* tempString = [NSString stringWithFormat:@"Your %@ is very high\n", key];
+                tempString = [NSString stringWithFormat:@"Your %@ is very high\n", [key stringByReplacingOccurrencesOfString:@"_" withString:@" "]];
                 feedback = [feedback stringByAppendingString:tempString];
             }
         }
     }
-    feedback = [feedback stringByAppendingString:@"Your physician has been notified"];
+    tempString = @"\n\nYour physician has been notified";
+    feedback = [feedback stringByAppendingString:tempString];
     
     [feedLabel setText:feedback];
     [self.view addSubview:feedLabel];
