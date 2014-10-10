@@ -24,7 +24,7 @@
     }
     else if (self.doneType == DONE_ENTERING)
     {
-        
+        [self showUrgentSymptoms];
     }
     else
     {
@@ -35,6 +35,48 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) showUrgentSymptoms
+{
+    NSString* feedback = @"";
+    int count = 0;
+    
+    for (NSString* key in self.urgentDictionary)
+    {
+        if ([self.urgentDictionary valueForKey:key] > 0)
+        {
+            count++;
+        }
+    }
+    count++; //for final line
+    
+    UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, CGRectGetWidth(self.view.bounds), 400)]; //todo adjust magic nums
+    feedLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    [feedLabel setNumberOfLines:count];
+    feedLabel.font = [feedLabel.font fontWithSize:14];
+
+    for (NSString* key in self.urgentDictionary)
+    {
+        if ([self.urgentDictionary valueForKey:key] > 0)
+        {
+            if ([[self.urgentDictionary valueForKey:key] intValue] == 1)
+            {
+                NSString* tempString = [NSString stringWithFormat:@"Your %@ is a little high\n", key];
+                feedback = [feedback stringByAppendingString:tempString];
+            }
+            else if ([[self.urgentDictionary valueForKey:key] intValue] == 2)
+            {
+                NSString* tempString = [NSString stringWithFormat:@"Your %@ is very high\n", key];
+                feedback = [feedback stringByAppendingString:tempString];
+            }
+        }
+    }
+    feedback = [feedback stringByAppendingString:@"Your physician has been notified"];
+    
+    [feedLabel setText:feedback];
+    [self.view addSubview:feedLabel];
+
 }
 
 /*

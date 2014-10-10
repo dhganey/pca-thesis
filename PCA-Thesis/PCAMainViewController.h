@@ -39,6 +39,11 @@
 @property NSMutableDictionary* esasDictionary;
 
 /**
+ The dictionary of urgent symptoms to be saved
+ */
+@property NSMutableDictionary* urgentDictionary;
+
+/**
  The most recent CatalyzeEntry
  */
 @property CatalyzeEntry* mostRecent;

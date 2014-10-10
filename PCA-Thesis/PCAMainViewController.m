@@ -187,6 +187,7 @@ int FONT_SIZE = 15;
     else
     {
         nextVC.doneType = self.doneType;
+        nextVC.urgentDictionary = self.urgentDictionary;
     }
         
 }
@@ -245,7 +246,7 @@ int FONT_SIZE = 15;
 {
     [self removeSubviews]; //first, remove any subviews
     
-    NSString* symptomName = [self determineSymptomName:self.currentSymptom]; //determine which symptom we're on
+    NSString* symptomName = [self.appDel.defObj determineSymptomName:self.currentSymptom]; //determine which symptom we're on
     
     self.title = [symptomName capitalizedString]; //change the VC title
 
@@ -289,7 +290,7 @@ int FONT_SIZE = 15;
     instructions.lineBreakMode = NSLineBreakByCharWrapping;
     [instructions setNumberOfLines:2];
     instructions.font = [instructions.font fontWithSize:FONT_SIZE];
-    instructionString = [instructionString stringByAppendingString:[self determineSymptomName:self.currentSymptom]]; //clarify symptom
+    instructionString = [instructionString stringByAppendingString:[self.appDel.defObj determineSymptomName:self.currentSymptom]]; //clarify symptom
     [instructions setText:instructionString];
     [self.view addSubview:instructions];
 }
@@ -382,39 +383,6 @@ int FONT_SIZE = 15;
     [self prepareSubmitButton:SLIDER];
 }
 
-/**
- Determines the symptom name for a given symptom
- @param symptom Integer representing desired symptom
- @return NSString
- */
--(NSString*)determineSymptomName:(int)symptom
-{
-    switch(symptom)
-    {
-        case PAIN:
-            return @"pain";
-        case ACTIVITY:
-            return @"activity";
-        case NAUSEA:
-            return @"nausea";
-        case DEPRESSION:
-            return @"depression";
-        case ANXIETY:
-            return @"anxiety";
-        case DROWSINESS:
-            return @"drowsiness";
-        case APPETITE:
-            return @"appetite";
-        case WEAKNESS:
-            return @"weakness";
-        case SHORTNESS_OF_BREATH:
-            return @"shortness of breath";
-        case OTHER:
-            return @"other";
-        default:
-            return @"error in determineSymptomName";
-    }
-}
 
 /**
  Target selector method to submit data when submit pressed
@@ -526,7 +494,7 @@ int FONT_SIZE = 15;
     }
     else
     {
-        [self.esasDictionary setValue:[NSNumber numberWithDouble:self.valueToSave] forKey:[self determineSymptomName:self.currentSymptom]];
+        [self.esasDictionary setValue:[NSNumber numberWithDouble:self.valueToSave] forKey:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
     }
     NSLog(@"%@", self.esasDictionary);
 }
@@ -576,6 +544,7 @@ int FONT_SIZE = 15;
     NSMutableDictionary* urgentDict = [[NSMutableDictionary alloc] init];
     
     //Set up frequently used NSNumbers
+    //TODO, CONVERT ALL THESE TO INTS, USE INTVALUE FOR COMPARISON. WERE COMPARING POINTERS HERE
     NSNumber* numTen = [NSNumber numberWithInt:10];
     NSNumber* numNine = [NSNumber numberWithInt:9];
     NSNumber* numThree = [NSNumber numberWithInt:3];
@@ -694,6 +663,7 @@ int FONT_SIZE = 15;
     
     //finally, add the urgent dictionary to the main dictionary to be saved
     [self.esasDictionary setValue:urgentDict forKey:@"urgent"];
+    self.urgentDictionary = urgentDict; //preserve for use later
 }
 
 /**

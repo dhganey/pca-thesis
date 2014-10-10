@@ -72,4 +72,39 @@
 
 }
 
+/**
+ Determines the symptom name for a given symptom
+ @param symptom Integer representing desired symptom
+ @return NSString
+ */
+-(NSString*)determineSymptomName:(int)symptom
+{
+    switch(symptom)
+    {
+        case PAIN:
+            return @"pain";
+        case ACTIVITY:
+            return @"activity";
+        case NAUSEA:
+            return @"nausea";
+        case DEPRESSION:
+            return @"depression";
+        case ANXIETY:
+            return @"anxiety";
+        case DROWSINESS:
+            return @"drowsiness";
+        case APPETITE:
+            return @"appetite";
+        case WEAKNESS:
+            return @"weakness";
+        case SHORTNESS_OF_BREATH:
+            return @"shortness of breath";
+        case OTHER:
+            return @"other";
+        default:
+            return @"error in determineSymptomName";
+    }
+}
+
+
 @end

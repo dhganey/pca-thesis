@@ -17,4 +17,9 @@
  */
 @property ALL_DONE_TYPE doneType;
 
+/**
+ Represents the symptoms which were urgent to give feedback to the user
+ */
+@property NSMutableDictionary* urgentDictionary;
+
 @end
