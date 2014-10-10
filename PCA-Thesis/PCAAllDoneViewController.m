@@ -44,21 +44,21 @@
     
     for (NSString* key in self.urgentDictionary)
     {
-        if ([self.urgentDictionary valueForKey:key] > 0)
+        if ([[self.urgentDictionary valueForKey:key] intValue] > 0)
         {
             count++;
         }
     }
     count++; //for final line
     
-    UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, CGRectGetWidth(self.view.bounds), 400)]; //todo adjust magic nums
+    UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, CGRectGetWidth(self.view.bounds), 100)]; //todo adjust magic nums
     feedLabel.lineBreakMode = NSLineBreakByCharWrapping;
     [feedLabel setNumberOfLines:count];
     feedLabel.font = [feedLabel.font fontWithSize:14];
 
     for (NSString* key in self.urgentDictionary)
     {
-        if ([self.urgentDictionary valueForKey:key] > 0)
+        if ([[self.urgentDictionary valueForKey:key] intValue] > 0)
         {
             if ([[self.urgentDictionary valueForKey:key] intValue] == 1)
             {

@@ -183,11 +183,11 @@ int FONT_SIZE = 15;
     if (self.doneType == NOT_SET)
     {
         nextVC.doneType = DONE_ENTERING; //TODO check this
+        nextVC.urgentDictionary = self.urgentDictionary;
     }
     else
     {
         nextVC.doneType = self.doneType;
-        nextVC.urgentDictionary = self.urgentDictionary;
     }
         
 }
@@ -543,53 +543,53 @@ int FONT_SIZE = 15;
 {
     NSMutableDictionary* urgentDict = [[NSMutableDictionary alloc] init];
     
-    //Set up frequently used NSNumbers
-    //TODO, CONVERT ALL THESE TO INTS, USE INTVALUE FOR COMPARISON. WERE COMPARING POINTERS HERE
-    NSNumber* numTen = [NSNumber numberWithInt:10];
-    NSNumber* numNine = [NSNumber numberWithInt:9];
-    NSNumber* numThree = [NSNumber numberWithInt:3];
-    NSNumber* numTwo = [NSNumber numberWithInt:2];
-    NSNumber* numOne = [NSNumber numberWithInt:1];
-    NSNumber* numZero = [NSNumber numberWithInt:0];
+    //Set up frequently used numbers
+    int TEN = 10;
+    int NINE = 9;
+    int THREE = 3;
+    int TWO = 2;
+    int ONE = 1;
+    int ZERO = 0;
     
     for (NSString* key in self.esasDictionary)
     {
-        NSNumber* temp = [self.esasDictionary objectForKey:key];
+        NSNumber* currentNum = [self.esasDictionary objectForKey:key];
+        int temp = [currentNum intValue];
         if ([key isEqualToString:@"activity"] || [key isEqualToString:@"anxiety"]) //these both have 2 as the highesrt val
         {
-            if (temp == numTwo)
+            if (temp == TWO)
             {
-                [urgentDict setValue:numOne forKey:key];
+                [urgentDict setValue:[NSNumber numberWithInt:ONE] forKey:key];
             }
             else
             {
-                [urgentDict setValue:numZero forKey:key];
+                [urgentDict setValue:[NSNumber numberWithInt:ZERO] forKey:key];
             }
         }
         else if ([key isEqualToString:@"appetite"])
         {
-            if (temp == numThree)
+            if (temp == THREE)
             {
-                [urgentDict setValue:numOne forKey:key];
+                [urgentDict setValue:[NSNumber numberWithInt:ONE] forKey:key];
             }
             else
             {
-                [urgentDict setValue:numZero forKey:key];
+                [urgentDict setValue:[NSNumber numberWithInt:ZERO] forKey:key];
             }
         }
         else //all other symptoms go to 10
         {
-            if (temp == numTen)
+            if (temp == TEN)
             {
-                [urgentDict setValue:numTwo forKey:key];
+                [urgentDict setValue:[NSNumber numberWithInt:TWO] forKey:key];
             }
-            else if (temp >= numNine)
+            else if (temp >= NINE)
             {
-                [urgentDict setValue:numOne forKey:key];
+                [urgentDict setValue:[NSNumber numberWithInt:ONE] forKey:key];
             }
             else
             {
-                [urgentDict setValue:numZero forKey:key];
+                [urgentDict setValue:[NSNumber numberWithInt:ZERO] forKey:key];
             }
         }
     }
@@ -607,9 +607,9 @@ int FONT_SIZE = 15;
             continue; //no need to calculate averages for these
         }
         
-        if ([urgentDict valueForKey:key] == numTwo) //if already very urgent
+        if ([[urgentDict valueForKey:key] intValue] == TWO)
         {
-            continue; //don't bother
+            continue; //don't bother if already urgent
         }
         
         //if not a radio screen and not already super urgent, calculate the mean
@@ -653,11 +653,11 @@ int FONT_SIZE = 15;
         //Now check if it's super urgent--greater than absolute two
         if ([[self.esasDictionary valueForKey:key] doubleValue] > absoluteTwo)
         {
-            [urgentDict setValue:numTwo forKey:key];
+            [urgentDict setValue:[NSNumber numberWithInt:TWO] forKey:key];
         }
         else if ([[self.esasDictionary valueForKey:key] doubleValue] > absoluteOne)
         {
-            [urgentDict setValue:numOne forKey:key];
+            [urgentDict setValue:[NSNumber numberWithInt:ONE] forKey:key];
         }
     }
     
