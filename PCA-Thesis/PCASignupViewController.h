@@ -58,6 +58,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *idField;
 
 /**
+ UITextField for the user's zip code
+ */
+@property (weak, nonatomic) IBOutlet UITextField *zipField;
+
+/**
  AppDelegate reference to use defObj
  */
 @property PCAAppDelegate* appDel;

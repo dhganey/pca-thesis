@@ -120,6 +120,8 @@
 
             [CatalyzeUser currentUser].gender =  [self.genderControl titleForSegmentAtIndex:[self.genderControl selectedSegmentIndex]];
             
+            [[CatalyzeUser currentUser] setExtra:self.zipField.text forKey:@"zipCode"];
+            
             NSArray* userSymptoms = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil]; //by default, show all symptoms
             
             [[CatalyzeUser currentUser] setExtra:userSymptoms forKey:@"symptomArray"];
@@ -174,6 +176,7 @@
     ok = ok && ([self.phoneField.text length] > 0);
     ok = ok && ([self.emailField.text length] > 0);
     ok = ok && ([self.idField.text length] > 0);
+    ok = ok && ([self.zipField.text length] > 0);
     
     ok = ok && [self.passwordField.text isEqualToString:self.passwordField2.text]; //ensure passwords are the same
     
