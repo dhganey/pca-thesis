@@ -355,6 +355,21 @@ int FONT_SIZE = 15;
     
     segControl = [[UISegmentedControl alloc] initWithItems:buttonTexts];
     segControl.frame = CGRectMake(X_OFFSET, INPUT_Y_OFFSET, CGRectGetWidth(self.view.bounds)-2*X_OFFSET, HEIGHT);
+    
+    for (id segment in [segControl subviews])
+    {
+        for (id label in [segment subviews])
+        {
+            if ([label isKindOfClass:[UILabel class]])
+            {
+                UILabel* titleLabel = (UILabel*) label;
+                //set width to 80
+                titleLabel.numberOfLines = 0;
+            }
+        }
+    }
+    
+    
     [self.view addSubview:segControl];
     radioRef = segControl;
     

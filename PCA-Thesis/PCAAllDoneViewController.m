@@ -50,7 +50,7 @@
         }
     }
     
-    UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, CGRectGetWidth(self.view.bounds), 75)]; //todo adjust magic nums
+    UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, CGRectGetWidth(self.view.bounds), 500)]; //todo adjust magic nums
     feedLabel.lineBreakMode = NSLineBreakByCharWrapping;
     [feedLabel setNumberOfLines:count*2];
     feedLabel.font = [feedLabel.font fontWithSize:14];
@@ -73,12 +73,12 @@
             }
         }
     }
-    tempString = @"\n\nYour physician has been notified";
+    tempString = @"Your physician has been notified";
     feedback = [feedback stringByAppendingString:tempString];
     
     [feedLabel setText:feedback];
+    [feedLabel sizeToFit];
     [self.view addSubview:feedLabel];
-
 }
 
 /*
