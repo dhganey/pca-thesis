@@ -20,7 +20,7 @@
 
     if (self.doneType == NO_NEED)
     {
-        
+        [self showNoNeed];
     }
     else if (self.doneType == DONE_ENTERING)
     {
@@ -78,6 +78,16 @@
     
     [feedLabel setText:feedback];
     [feedLabel sizeToFit];
+    [self.view addSubview:feedLabel];
+}
+
+-(void) showNoNeed
+{
+    UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, CGRectGetWidth(self.view.bounds), 500)]; //todo adjust magic nums
+    
+    [feedLabel setText:@"No need to enter symptoms right now! Please enter symptoms once on Tuesdays, Thursdays, and Saturdays"];
+    [feedLabel sizeToFit];
+    //feedLabel.lineBreakMode = NSLineBreakByCharWrapping; //TODO fix this
     [self.view addSubview:feedLabel];
 }
 

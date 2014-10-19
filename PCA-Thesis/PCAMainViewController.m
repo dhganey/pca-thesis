@@ -22,7 +22,6 @@
 
 @implementation PCAMainViewController
 
-NSArray* userSymptoms; //global reference to bitmask of user symptoms
 UISlider* sliderRef; //global reference to a slider to get value
 UISegmentedControl* radioRef;
 
@@ -69,21 +68,17 @@ int FONT_SIZE = 15;
     //Start at beginning...
     self.currentSymptom = 0;
  
-    if ([CatalyzeUser currentUser]) //make sure someone is logged in
-    {
-        userSymptoms = [[NSArray alloc] init];
-        userSymptoms = [[CatalyzeUser currentUser] extraForKey:@"symptomArray"]; //grab the symptom bitmask from the user data
-    }
-    else
+    if (![CatalyzeUser currentUser]) //make sure someone is logged in
     {
         [self.appDel.defObj showAlert:NO_USER_LOGGED_IN];
+
     }
 }
 
 -(void)startCycle:(BOOL) shouldCheckCycle
 {
-    //ALL_DONE_TYPE doneType = [self shouldCycleSymptoms]; //TODO restore this in release version, and test on Tuesdays
-    ALL_DONE_TYPE doneType = NOT_DONE;
+    ALL_DONE_TYPE doneType = [self shouldCycleSymptoms]; //TODO restore this in release version, and test on Tuesdays
+    //ALL_DONE_TYPE doneType = NOT_DONE;
     
     if (!shouldCheckCycle) //probably new user, don't check, just go
     {
@@ -116,7 +111,7 @@ int FONT_SIZE = 15;
         [todayComps year] == [mostRecentComps year])
     {
         //the most recent entry was created on exactly the same day
-        return DONE_ENTERING; //we've clearly already recorded
+        return NO_NEED; //we've clearly already recorded
     }
     else //the most recent entry was created on a different day
     {
@@ -356,6 +351,10 @@ int FONT_SIZE = 15;
     segControl = [[UISegmentedControl alloc] initWithItems:buttonTexts];
     segControl.frame = CGRectMake(X_OFFSET, INPUT_Y_OFFSET, CGRectGetWidth(self.view.bounds)-2*X_OFFSET, HEIGHT);
     
+    //The loop below iterates through each segment in the control
+    //For each label in the subviews of the segment, if it's a UILabel, it sets the number of lines to 0
+    //Somehow, this allows the segmented control to show multiple lines of text
+    //http://stackoverflow.com/questions/19868284/two-lines-of-text-in-a-uisegmentedcontrol
     for (id segment in [segControl subviews])
     {
         for (id label in [segment subviews])
@@ -363,7 +362,6 @@ int FONT_SIZE = 15;
             if ([label isKindOfClass:[UILabel class]])
             {
                 UILabel* titleLabel = (UILabel*) label;
-                //set width to 80
                 titleLabel.numberOfLines = 0;
             }
         }
@@ -770,8 +768,9 @@ int FONT_SIZE = 15;
     }
     
     //TODO this is just for debugging
-    [self.appDel.defObj showAlertWithText:[NSString stringWithFormat:@"Last pain score was %@", [mostRecent.content valueForKey:@"pain"]]];
-    return mostRecent;
+//    [self.appDel.defObj showAlertWithText:[NSString stringWithFormat:@"Last pain score was %@", [mostRecent.content valueForKey:@"pain"]]];
 
-    }
+    return mostRecent;
+}
+
 @end
