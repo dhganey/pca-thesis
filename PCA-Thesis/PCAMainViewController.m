@@ -80,7 +80,7 @@ int FONT_SIZE = 15;
     ALL_DONE_TYPE doneType;
     
     doneType = [self shouldCycleSymptoms]; //TODO restore this in release version, and test on Tuesdays
-    //doneType = NOT_DONE;
+    doneType = NOT_DONE;
     
     if (!shouldCheckCycle) //probably new user, don't check, just go
     {
