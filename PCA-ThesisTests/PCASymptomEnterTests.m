@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "Catalyze.h"
+#import "XCTestCase+AsyncTesting.h"
+#import "AsyncXCTestingKit.h"
 
 @interface PCASymptomEnterTests : XCTestCase
 
@@ -16,29 +18,27 @@
 
 @implementation PCASymptomEnterTests
 
+NSString* user = @"dhganey";
+NSString* pword = @"";
+
 - (void)setUp
 {
     [super setUp];
     
-    //sign in to catalyze here
+    [CatalyzeUser logInWithUsernameInBackground:user password:pword success:^(CatalyzeUser *result)
+    {
+        [self XCA_notify:XCTAsyncTestCaseStatusSucceeded];
+    } failure:^(NSDictionary *result, int status, NSError *error) {
+        XCTFail(@"could not sign in to catalyze");
+    }];
+    
+    [self XCA_waitForStatus:XCTAsyncTestCaseStatusSucceeded timeout:10];
 }
 
 - (void)tearDown {
     [super tearDown];
     
-    //sign out of catalyze here?
-}
-
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+    [[CatalyzeUser currentUser] logout];
 }
 
 @end

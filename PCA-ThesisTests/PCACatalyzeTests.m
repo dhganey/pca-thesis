@@ -17,7 +17,8 @@
 
 @implementation PCACatalyzeTests
 
-
+NSString* user = @"dhganey";
+NSString* pword = @"";
 
 - (void)setUp
 {
@@ -31,7 +32,7 @@
 
 - (void)testLogin
 {
-    [CatalyzeUser logInWithUsernameInBackground:@"dhganey" password:@"" success:^(CatalyzeUser *result) {
+    [CatalyzeUser logInWithUsernameInBackground:user password:pword success:^(CatalyzeUser *result) {
         XCTAssertEqual(true, true);
     } failure:^(NSDictionary *result, int status, NSError *error) {
         XCTFail(@"failed to login to catalyze");
@@ -42,7 +43,7 @@
 {
     [self measureBlock:^
     {
-        [CatalyzeUser logInWithUsernameInBackground:@"dhganey" password:@"" success:^(CatalyzeUser *result) {
+        [CatalyzeUser logInWithUsernameInBackground:user password:pword success:^(CatalyzeUser *result) {
             XCTAssertEqual(true, true);
         } failure:^(NSDictionary *result, int status, NSError *error) {
             XCTFail(@"failed to login to catalyze");
@@ -53,7 +54,7 @@
 -(void) testLogout
 {
     [self measureBlock:^{
-        [CatalyzeUser logInWithUsernameInBackground:@"dhganey" password:@"" success:^(CatalyzeUser *result) {
+        [CatalyzeUser logInWithUsernameInBackground:user password:pword success:^(CatalyzeUser *result) {
             XCTAssertEqual(true, true);
             [[CatalyzeUser currentUser] logout];
         } failure:^(NSDictionary *result, int status, NSError *error) {

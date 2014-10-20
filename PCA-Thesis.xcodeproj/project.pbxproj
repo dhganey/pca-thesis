@@ -30,6 +30,11 @@
 		63438E5B19AA7AA500C25DC5 /* PCADefinitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 63438E5A19AA7AA500C25DC5 /* PCADefinitions.m */; };
 		6351120E19F4BE5C00486293 /* PCACatalyzeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351120D19F4BE5C00486293 /* PCACatalyzeTests.m */; };
 		6351121419F4C0F200486293 /* PCASymptomEnterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351121319F4C0F200486293 /* PCASymptomEnterTests.m */; };
+		6351122519F4C27C00486293 /* AsyncXCTestingKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351121919F4C27C00486293 /* AsyncXCTestingKit.m */; };
+		6351122619F4C27C00486293 /* XCTestCase+AsyncTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351121B19F4C27C00486293 /* XCTestCase+AsyncTesting.m */; };
+		6351122719F4C27C00486293 /* AsyncXCTestingKitTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6351122019F4C27C00486293 /* AsyncXCTestingKitTests-Info.plist */; };
+		6351122819F4C27C00486293 /* AsyncXCTestingKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351122219F4C27C00486293 /* AsyncXCTestingKitTests.m */; };
+		6351122919F4C27C00486293 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6351122319F4C27C00486293 /* InfoPlist.strings */; };
 		63B503BD18FB43C20017F906 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BC18FB43C20017F906 /* Foundation.framework */; };
 		63B503BF18FB43C20017F906 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BE18FB43C20017F906 /* CoreGraphics.framework */; };
 		63B503C118FB43C20017F906 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503C018FB43C20017F906 /* UIKit.framework */; };
@@ -93,6 +98,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6351122C19F4C27C00486293 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6351121C19F4C27C00486293 /* AsyncXCTestingKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FA8CBC1717D2C53B00B727A3;
+			remoteInfo = AsyncXCTestingKit;
+		};
+		6351122E19F4C27C00486293 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6351121C19F4C27C00486293 /* AsyncXCTestingKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FA8CBC2717D2C53C00B727A3;
+			remoteInfo = AsyncXCTestingKitTests;
+		};
 		63B503DF18FB43C20017F906 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 63B503B118FB43C20017F906 /* Project object */;
@@ -140,6 +159,16 @@
 		63438E5A19AA7AA500C25DC5 /* PCADefinitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCADefinitions.m; sourceTree = "<group>"; };
 		6351120D19F4BE5C00486293 /* PCACatalyzeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCACatalyzeTests.m; sourceTree = "<group>"; };
 		6351121319F4C0F200486293 /* PCASymptomEnterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCASymptomEnterTests.m; sourceTree = "<group>"; };
+		6351121719F4C27C00486293 /* AsyncXCTestingKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AsyncXCTestingKit-Prefix.pch"; sourceTree = "<group>"; };
+		6351121819F4C27C00486293 /* AsyncXCTestingKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncXCTestingKit.h; sourceTree = "<group>"; };
+		6351121919F4C27C00486293 /* AsyncXCTestingKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncXCTestingKit.m; sourceTree = "<group>"; };
+		6351121A19F4C27C00486293 /* XCTestCase+AsyncTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+AsyncTesting.h"; sourceTree = "<group>"; };
+		6351121B19F4C27C00486293 /* XCTestCase+AsyncTesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+AsyncTesting.m"; sourceTree = "<group>"; };
+		6351121C19F4C27C00486293 /* AsyncXCTestingKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AsyncXCTestingKit.xcodeproj; sourceTree = "<group>"; };
+		6351122019F4C27C00486293 /* AsyncXCTestingKitTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AsyncXCTestingKitTests-Info.plist"; sourceTree = "<group>"; };
+		6351122119F4C27C00486293 /* AsyncXCTestingKitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncXCTestingKitTests.h; sourceTree = "<group>"; };
+		6351122219F4C27C00486293 /* AsyncXCTestingKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncXCTestingKitTests.m; sourceTree = "<group>"; };
+		6351122419F4C27C00486293 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		63905457196BA59900A6848F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		63AA0C3819CC8BA700C05C97 /* readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.markdown; sourceTree = "<group>"; };
 		63B503B918FB43C20017F906 /* PCA-Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PCA-Thesis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,9 +324,53 @@
 			name = TPKeyboard;
 			sourceTree = "<group>";
 		};
+		6351121519F4C27C00486293 /* AsyncXCTestingKit */ = {
+			isa = PBXGroup;
+			children = (
+				6351121619F4C27C00486293 /* AsyncXCTestingKit */,
+				6351121C19F4C27C00486293 /* AsyncXCTestingKit.xcodeproj */,
+				6351121F19F4C27C00486293 /* AsyncXCTestingKitTests */,
+			);
+			name = AsyncXCTestingKit;
+			path = XCAsync/XCAsyncTestCase/AsyncXCTestingKit;
+			sourceTree = "<group>";
+		};
+		6351121619F4C27C00486293 /* AsyncXCTestingKit */ = {
+			isa = PBXGroup;
+			children = (
+				6351121719F4C27C00486293 /* AsyncXCTestingKit-Prefix.pch */,
+				6351121819F4C27C00486293 /* AsyncXCTestingKit.h */,
+				6351121919F4C27C00486293 /* AsyncXCTestingKit.m */,
+				6351121A19F4C27C00486293 /* XCTestCase+AsyncTesting.h */,
+				6351121B19F4C27C00486293 /* XCTestCase+AsyncTesting.m */,
+			);
+			path = AsyncXCTestingKit;
+			sourceTree = "<group>";
+		};
+		6351121D19F4C27C00486293 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6351122D19F4C27C00486293 /* libAsyncXCTestingKit.a */,
+				6351122F19F4C27C00486293 /* AsyncXCTestingKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6351121F19F4C27C00486293 /* AsyncXCTestingKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				6351122019F4C27C00486293 /* AsyncXCTestingKitTests-Info.plist */,
+				6351122119F4C27C00486293 /* AsyncXCTestingKitTests.h */,
+				6351122219F4C27C00486293 /* AsyncXCTestingKitTests.m */,
+				6351122319F4C27C00486293 /* InfoPlist.strings */,
+			);
+			path = AsyncXCTestingKitTests;
+			sourceTree = "<group>";
+		};
 		63B503B018FB43C20017F906 = {
 			isa = PBXGroup;
 			children = (
+				6351121519F4C27C00486293 /* AsyncXCTestingKit */,
 				63C1087719DA2CB2005E8C45 /* catalyze-ios-sdk */,
 				63AA0C3819CC8BA700C05C97 /* readme.markdown */,
 				63166E00197C71AF006D78D2 /* TPKeyboard */,
@@ -583,6 +656,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 6351121D19F4C27C00486293 /* Products */;
+					ProjectRef = 6351121C19F4C27C00486293 /* AsyncXCTestingKit.xcodeproj */;
+				},
+				{
 					ProductGroup = 63C108CA19DA2CB2005E8C45 /* Products */;
 					ProjectRef = 63C108C919DA2CB2005E8C45 /* catalyze-ios-sdk.xcodeproj */;
 				},
@@ -597,6 +674,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		6351122D19F4C27C00486293 /* libAsyncXCTestingKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAsyncXCTestingKit.a;
+			remoteRef = 6351122C19F4C27C00486293 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6351122F19F4C27C00486293 /* AsyncXCTestingKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AsyncXCTestingKitTests.xctest;
+			remoteRef = 6351122E19F4C27C00486293 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		63C108FD19DA2CB2005E8C45 /* libcatalyze-ios-sdk.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -638,6 +729,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6351122719F4C27C00486293 /* AsyncXCTestingKitTests-Info.plist in Resources */,
+				6351122919F4C27C00486293 /* InfoPlist.strings in Resources */,
 				63B503E618FB43C20017F906 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -716,7 +809,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6351122619F4C27C00486293 /* XCTestCase+AsyncTesting.m in Sources */,
 				63B503E818FB43C20017F906 /* PCA_ThesisTests.m in Sources */,
+				6351122519F4C27C00486293 /* AsyncXCTestingKit.m in Sources */,
+				6351122819F4C27C00486293 /* AsyncXCTestingKitTests.m in Sources */,
 				6351121419F4C0F200486293 /* PCASymptomEnterTests.m in Sources */,
 				6351120E19F4BE5C00486293 /* PCACatalyzeTests.m in Sources */,
 			);
@@ -733,6 +829,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		6351122319F4C27C00486293 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6351122419F4C27C00486293 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		63B503C518FB43C20017F906 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
