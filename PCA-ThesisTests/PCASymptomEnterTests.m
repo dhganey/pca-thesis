@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <XCTest/XCTest.h>
+
 #import "Catalyze.h"
 #import "XCTestCase+AsyncTesting.h"
-#import "AsyncXCTestingKit.h"
 
 @interface PCASymptomEnterTests : XCTestCase
 
@@ -18,14 +17,14 @@
 
 @implementation PCASymptomEnterTests
 
-NSString* user = @"dhganey";
-NSString* pword = @"";
+NSString* username1 = @"dhganey";
+NSString* pword1 = @"";
 
 - (void)setUp
 {
     [super setUp];
     
-    [CatalyzeUser logInWithUsernameInBackground:user password:pword success:^(CatalyzeUser *result)
+    [CatalyzeUser logInWithUsernameInBackground:username1 password:pword1 success:^(CatalyzeUser *result)
     {
         [self XCA_notify:XCTAsyncTestCaseStatusSucceeded];
     } failure:^(NSDictionary *result, int status, NSError *error) {

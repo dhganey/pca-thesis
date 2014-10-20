@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <XCTest/XCTest.h>
 
 #import "Catalyze.h"
+#import "XCTestCase+AsyncTesting.h"
 
 @interface PCACatalyzeTests : XCTestCase
 
@@ -17,8 +17,8 @@
 
 @implementation PCACatalyzeTests
 
-NSString* user = @"dhganey";
-NSString* pword = @"";
+NSString* username2 = @"dhganey";
+NSString* pword2 = @"";
 
 - (void)setUp
 {
@@ -32,7 +32,7 @@ NSString* pword = @"";
 
 - (void)testLogin
 {
-    [CatalyzeUser logInWithUsernameInBackground:user password:pword success:^(CatalyzeUser *result) {
+    [CatalyzeUser logInWithUsernameInBackground:username2 password:pword2 success:^(CatalyzeUser *result) {
         XCTAssertEqual(true, true);
     } failure:^(NSDictionary *result, int status, NSError *error) {
         XCTFail(@"failed to login to catalyze");
@@ -43,7 +43,7 @@ NSString* pword = @"";
 {
     [self measureBlock:^
     {
-        [CatalyzeUser logInWithUsernameInBackground:user password:pword success:^(CatalyzeUser *result) {
+        [CatalyzeUser logInWithUsernameInBackground:username2 password:pword2 success:^(CatalyzeUser *result) {
             XCTAssertEqual(true, true);
         } failure:^(NSDictionary *result, int status, NSError *error) {
             XCTFail(@"failed to login to catalyze");
@@ -54,7 +54,7 @@ NSString* pword = @"";
 -(void) testLogout
 {
     [self measureBlock:^{
-        [CatalyzeUser logInWithUsernameInBackground:user password:pword success:^(CatalyzeUser *result) {
+        [CatalyzeUser logInWithUsernameInBackground:username2 password:pword2 success:^(CatalyzeUser *result) {
             XCTAssertEqual(true, true);
             [[CatalyzeUser currentUser] logout];
         } failure:^(NSDictionary *result, int status, NSError *error) {
