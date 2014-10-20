@@ -77,8 +77,10 @@ int FONT_SIZE = 15;
 
 -(void)startCycle:(BOOL) shouldCheckCycle
 {
-    ALL_DONE_TYPE doneType = [self shouldCycleSymptoms]; //TODO restore this in release version, and test on Tuesdays
-    //ALL_DONE_TYPE doneType = NOT_DONE;
+    ALL_DONE_TYPE doneType;
+    
+    doneType = [self shouldCycleSymptoms]; //TODO restore this in release version, and test on Tuesdays
+    //doneType = NOT_DONE;
     
     if (!shouldCheckCycle) //probably new user, don't check, just go
     {

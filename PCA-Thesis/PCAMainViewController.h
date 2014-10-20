@@ -14,6 +14,9 @@
 
 @interface PCAMainViewController : UIViewController <UIAlertViewDelegate>
 
+/**
+ Called when logout button pressed
+ */
 - (IBAction)logoutPressed:(id)sender;
 
 /**

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "PCADefinitions.h"
+#import "PCAAppDelegate.h"
 
 @interface PCAAllDoneViewController : UIViewController
 
@@ -21,5 +22,15 @@
  Represents the symptoms which were urgent to give feedback to the user
  */
 @property NSMutableDictionary* urgentDictionary;
+
+/**
+ AppDelegate object used to reference defObj for static functions
+ */
+@property PCAAppDelegate* appDel;
+
+/**
+ Called when logout button pressed
+ */
+- (IBAction)logoutPressed:(id)sender;
 
 @end

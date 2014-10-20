@@ -7,6 +7,8 @@
 //
 
 #import "PCAAllDoneViewController.h"
+#import "Catalyze.h"
+#import "PCADefinitions.h"
 
 @interface PCAAllDoneViewController ()
 
@@ -30,6 +32,10 @@
     {
         //todo
     }
+    
+    //Set up app delegate object for use of shared functions
+    self.appDel = [[UIApplication sharedApplication] delegate];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,6 +95,25 @@
     [feedLabel sizeToFit];
     //feedLabel.lineBreakMode = NSLineBreakByCharWrapping; //TODO fix this
     [self.view addSubview:feedLabel];
+}
+
+/**
+ Called when the user presses the logout button. Sends the user back to the login screen and disengages Catalyze
+ @param sender id of the pressed button
+ @return IBAction
+ */
+- (IBAction)logoutPressed:(id)sender
+{
+    [[CatalyzeUser currentUser] logoutWithSuccess:^(id result)
+    {
+        //we're in alldoneVC behind mainVC, so dismiss the presenting's presenting VC
+        [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    }
+    failure:^(NSDictionary *result, int status, NSError *error)
+    {
+        NSLog(@"Error while logging out");
+        [self.appDel.defObj showAlert:LOGOUT_ERROR];
+    }];
 }
 
 /*
