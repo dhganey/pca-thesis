@@ -32,9 +32,6 @@
 		6351121419F4C0F200486293 /* PCASymptomEnterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351121319F4C0F200486293 /* PCASymptomEnterTests.m */; };
 		6351122519F4C27C00486293 /* AsyncXCTestingKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351121919F4C27C00486293 /* AsyncXCTestingKit.m */; };
 		6351122619F4C27C00486293 /* XCTestCase+AsyncTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351121B19F4C27C00486293 /* XCTestCase+AsyncTesting.m */; };
-		6351122719F4C27C00486293 /* AsyncXCTestingKitTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6351122019F4C27C00486293 /* AsyncXCTestingKitTests-Info.plist */; };
-		6351122819F4C27C00486293 /* AsyncXCTestingKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351122219F4C27C00486293 /* AsyncXCTestingKitTests.m */; };
-		6351122919F4C27C00486293 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6351122319F4C27C00486293 /* InfoPlist.strings */; };
 		63B503BD18FB43C20017F906 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BC18FB43C20017F906 /* Foundation.framework */; };
 		63B503BF18FB43C20017F906 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BE18FB43C20017F906 /* CoreGraphics.framework */; };
 		63B503C118FB43C20017F906 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503C018FB43C20017F906 /* UIKit.framework */; };
@@ -165,10 +162,6 @@
 		6351121A19F4C27C00486293 /* XCTestCase+AsyncTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+AsyncTesting.h"; sourceTree = "<group>"; };
 		6351121B19F4C27C00486293 /* XCTestCase+AsyncTesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+AsyncTesting.m"; sourceTree = "<group>"; };
 		6351121C19F4C27C00486293 /* AsyncXCTestingKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AsyncXCTestingKit.xcodeproj; sourceTree = "<group>"; };
-		6351122019F4C27C00486293 /* AsyncXCTestingKitTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AsyncXCTestingKitTests-Info.plist"; sourceTree = "<group>"; };
-		6351122119F4C27C00486293 /* AsyncXCTestingKitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncXCTestingKitTests.h; sourceTree = "<group>"; };
-		6351122219F4C27C00486293 /* AsyncXCTestingKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncXCTestingKitTests.m; sourceTree = "<group>"; };
-		6351122419F4C27C00486293 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		63905457196BA59900A6848F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		63AA0C3819CC8BA700C05C97 /* readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.markdown; sourceTree = "<group>"; };
 		63B503B918FB43C20017F906 /* PCA-Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PCA-Thesis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,7 +322,6 @@
 			children = (
 				6351121619F4C27C00486293 /* AsyncXCTestingKit */,
 				6351121C19F4C27C00486293 /* AsyncXCTestingKit.xcodeproj */,
-				6351121F19F4C27C00486293 /* AsyncXCTestingKitTests */,
 			);
 			name = AsyncXCTestingKit;
 			path = XCAsync/XCAsyncTestCase/AsyncXCTestingKit;
@@ -354,17 +346,6 @@
 				6351122F19F4C27C00486293 /* AsyncXCTestingKitTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		6351121F19F4C27C00486293 /* AsyncXCTestingKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				6351122019F4C27C00486293 /* AsyncXCTestingKitTests-Info.plist */,
-				6351122119F4C27C00486293 /* AsyncXCTestingKitTests.h */,
-				6351122219F4C27C00486293 /* AsyncXCTestingKitTests.m */,
-				6351122319F4C27C00486293 /* InfoPlist.strings */,
-			);
-			path = AsyncXCTestingKitTests;
 			sourceTree = "<group>";
 		};
 		63B503B018FB43C20017F906 = {
@@ -729,8 +710,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6351122719F4C27C00486293 /* AsyncXCTestingKitTests-Info.plist in Resources */,
-				6351122919F4C27C00486293 /* InfoPlist.strings in Resources */,
 				63B503E618FB43C20017F906 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -812,7 +791,6 @@
 				6351122619F4C27C00486293 /* XCTestCase+AsyncTesting.m in Sources */,
 				63B503E818FB43C20017F906 /* PCA_ThesisTests.m in Sources */,
 				6351122519F4C27C00486293 /* AsyncXCTestingKit.m in Sources */,
-				6351122819F4C27C00486293 /* AsyncXCTestingKitTests.m in Sources */,
 				6351121419F4C0F200486293 /* PCASymptomEnterTests.m in Sources */,
 				6351120E19F4BE5C00486293 /* PCACatalyzeTests.m in Sources */,
 			);
@@ -829,14 +807,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6351122319F4C27C00486293 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6351122419F4C27C00486293 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		63B503C518FB43C20017F906 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
