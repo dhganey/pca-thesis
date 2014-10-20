@@ -80,7 +80,7 @@ int FONT_SIZE = 15;
     ALL_DONE_TYPE doneType;
     
     doneType = [self shouldCycleSymptoms]; //TODO restore this in release version, and test on Tuesdays
-    doneType = NOT_DONE;
+    //doneType = NOT_DONE;
     
     if (!shouldCheckCycle) //probably new user, don't check, just go
     {
@@ -113,9 +113,9 @@ int FONT_SIZE = 15;
         [todayComps year] == [mostRecentComps year])
     {
         //the most recent entry was created on exactly the same day
-        return NO_NEED; //we've clearly already recorded
+        return NO_NEED; //we've clearly already recorded //TODO restore this
     }
-    else //the most recent entry was created on a different day
+    //else //the most recent entry was created on a different day
     {
         NSDateComponents* todayWeekday = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
         NSDateComponents* recentWeekday = [gregorian components:NSWeekdayCalendarUnit fromDate:self.mostRecent.createdAt];
@@ -164,6 +164,9 @@ int FONT_SIZE = 15;
                 
         }
     }
+    
+    //in case we get here, we don't want to return nothing, so err on the side of caution and let them enter symptoms
+    return NOT_DONE;
 }
 
 /**

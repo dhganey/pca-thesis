@@ -28,6 +28,8 @@
 		63166E09197C722B006D78D2 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166E06197C722B006D78D2 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		632E4E62197E1A2A00326376 /* PCAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 632E4E61197E1A2A00326376 /* PCAMainViewController.m */; };
 		63438E5B19AA7AA500C25DC5 /* PCADefinitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 63438E5A19AA7AA500C25DC5 /* PCADefinitions.m */; };
+		6351120E19F4BE5C00486293 /* PCACatalyzeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351120D19F4BE5C00486293 /* PCACatalyzeTests.m */; };
+		6351121419F4C0F200486293 /* PCASymptomEnterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351121319F4C0F200486293 /* PCASymptomEnterTests.m */; };
 		63B503BD18FB43C20017F906 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BC18FB43C20017F906 /* Foundation.framework */; };
 		63B503BF18FB43C20017F906 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BE18FB43C20017F906 /* CoreGraphics.framework */; };
 		63B503C118FB43C20017F906 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503C018FB43C20017F906 /* UIKit.framework */; };
@@ -136,6 +138,8 @@
 		632E4E61197E1A2A00326376 /* PCAMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAMainViewController.m; sourceTree = "<group>"; };
 		63438E5919AA7AA500C25DC5 /* PCADefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCADefinitions.h; sourceTree = "<group>"; };
 		63438E5A19AA7AA500C25DC5 /* PCADefinitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCADefinitions.m; sourceTree = "<group>"; };
+		6351120D19F4BE5C00486293 /* PCACatalyzeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCACatalyzeTests.m; sourceTree = "<group>"; };
+		6351121319F4C0F200486293 /* PCASymptomEnterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCASymptomEnterTests.m; sourceTree = "<group>"; };
 		63905457196BA59900A6848F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		63AA0C3819CC8BA700C05C97 /* readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.markdown; sourceTree = "<group>"; };
 		63B503B918FB43C20017F906 /* PCA-Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PCA-Thesis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -374,6 +378,8 @@
 		63B503E118FB43C20017F906 /* PCA-ThesisTests */ = {
 			isa = PBXGroup;
 			children = (
+				6351121319F4C0F200486293 /* PCASymptomEnterTests.m */,
+				6351120D19F4BE5C00486293 /* PCACatalyzeTests.m */,
 				63B503E718FB43C20017F906 /* PCA_ThesisTests.m */,
 				63B503E218FB43C20017F906 /* Supporting Files */,
 			);
@@ -711,6 +717,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				63B503E818FB43C20017F906 /* PCA_ThesisTests.m in Sources */,
+				6351121419F4C0F200486293 /* PCASymptomEnterTests.m in Sources */,
+				6351120E19F4BE5C00486293 /* PCACatalyzeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
