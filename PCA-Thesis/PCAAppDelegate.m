@@ -15,7 +15,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //Setup Catalyze
-    [Catalyze setApiKey:@"ios catalyze a908af7b-b816-42f3-8958-ee1ec3857403" applicationId:@"9eff1826-f0bf-4c9a-9d3b-4c954fdb4642"];
+    [Catalyze setApiKey:@"ios pca 2f708c6f-0ab6-429b-a056-d01622b1ea69" applicationId:@"5735e7c5-2669-4778-afa4-64cf7e5707a6"];
     
     //Create our singleton definitions object
     self.defObj = [[PCADefinitions alloc] init];
