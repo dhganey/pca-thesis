@@ -35,6 +35,7 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     tapGesture.cancelsTouchesInView = NO;
     [self.scrollView addGestureRecognizer:tapGesture];
+    self.scrollView.userInteractionEnabled = YES;
     
     self.appDel = [[UIApplication sharedApplication] delegate]; //get the singleton app delegate
 }
@@ -179,6 +180,8 @@
     ok = ok && ([self.zipField.text length] > 0);
     
     ok = ok && [self.passwordField.text isEqualToString:self.passwordField2.text]; //ensure passwords are the same
+    
+    //TODO: check email addr, phone number length
     
     return ok;
 }

@@ -85,8 +85,8 @@ int FONT_SIZE = 15;
     }
     else
     {
-        doneType = [self shouldCycleSymptoms]; //TODO restore this in release version, and test on Tuesdays
-        //doneType = NOT_DONE;
+        //doneType = [self shouldCycleSymptoms]; //TODO restore this in release version, and test on Tuesdays
+        doneType = NOT_DONE;
         if (doneType == NOT_DONE)
         {
             [self showNextSymptom];
@@ -777,6 +777,17 @@ int FONT_SIZE = 15;
     
     //TODO this is just for debugging
 //    [self.appDel.defObj showAlertWithText:[NSString stringWithFormat:@"Last pain score was %@", [mostRecent.content valueForKey:@"pain"]]];
+    //TODO this too
+    NSString* text;
+    if ([CatalyzeUser currentUser].type == @"doctor")
+    {
+        text = @"This user is a doctor";
+    }
+    else
+    {
+        text = @"This user is a patient";
+    }
+    [self.appDel.defObj showAlertWithText:text];
 
     return mostRecent;
 }
