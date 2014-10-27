@@ -20,17 +20,17 @@
 		<string>https://github.com/michaeltyson/TPKeyboardAvoiding.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>PCA-Thesis.xcodeproj/project.xcworkspace</string>
+	<string>PCA-Thesis.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1C75703DF6F6AF9663DD351C6CC2AD08CFBE7B2E</key>
-		<string>../../XCAsync/XCAsyncTestCase</string>
+		<string>../..XCAsync/XCAsyncTestCase</string>
 		<key>3AF12AAC359037359A94347B5B2D060A7C0049CA</key>
 		<string>../..</string>
 		<key>4BD79C162FD3171164E9F654D1F4940E11635A44</key>
-		<string>../../catalyze/catalyze-ios-sdk</string>
+		<string>../..catalyze/catalyze-ios-sdk</string>
 		<key>76E96B9A9B43D9E2850DCCE751CBB3CAFE5C89D8</key>
-		<string>../../TPKeyboardAvoiding/TPKeyboardAvoiding</string>
+		<string>../..TPKeyboardAvoiding/TPKeyboardAvoiding</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/dhganey/pca-thesis.git</string>
