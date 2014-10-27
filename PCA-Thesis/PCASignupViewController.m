@@ -139,7 +139,7 @@
             
             [[CatalyzeUser currentUser] saveInBackground];
             
-            //TODO segue?
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
         failure:^(NSDictionary *result, int status, NSError *error) //callback if signup fails
         {
