@@ -36,9 +36,70 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    //Set up app delegate object for use of shared functions
+    self.appDel = [[UIApplication sharedApplication] delegate];
+    
+    [self executeQuery];
+}
+
+//TODO -- this is a terrible algorithm and it must be revised
+-(void) executeQuery
+{
     CatalyzeQuery* query = [CatalyzeQuery queryWithClassName:@"esasEntry"];
     [query setPageNumber:1];
     [query setPageSize:100];
+    
+    NSMutableDictionary* checkedIDs = [[NSMutableDictionary alloc] init]; //hashtable holding IDs we've already checked
+    
+    //TODO--should also be filtering to just the doctor's patients? right now, he sees all esasEntries
+    [query retrieveAllEntriesInBackgroundWithSuccess:^(NSArray *result)
+    {
+        [result enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+        {
+            CatalyzeEntry* entry = obj;
+            if ([checkedIDs objectForKey:entry.authorId] == nil)
+            {
+                NSMutableArray* sameIDs = [[NSMutableArray alloc] init];
+                [sameIDs addObject:entry];
+                for (NSUInteger i = idx + 1; i < [result count]; i++)
+                {
+                    CatalyzeEntry* newEntry = [result objectAtIndex:i];
+                    if (newEntry.authorId == entry.authorId)
+                    {
+                        [sameIDs addObject:newEntry];
+                    }
+                }
+                
+                //once we have all the IDs, get the most recent
+                NSArray* immutableArr = sameIDs;
+                CatalyzeEntry* mostRecent = [self.appDel.defObj findMostRecent:immutableArr];
+                [checkedIDs setObject:mostRecent forKey:mostRecent.authorId];
+            }
+        }];
+        //at this point, we should have the most recent entry for each user
+        self.recentEntries = [checkedIDs allValues];
+        [self.tableView reloadData];
+    }
+    failure:^(NSDictionary *result, int status, NSError *error)
+     {
+         //TODO handle this failure case
+     }];
+}
+
+-(int) urgentSum: (CatalyzeEntry*)entry
+{
+    NSArray* urgents = [(NSDictionary*)[entry.content valueForKey:@"urgent"] allValues];
+    
+    int count = 0;
+    for (NSUInteger i = 0; i < [urgents count]; i++)
+    {
+        if ([[urgents objectAtIndex:i] intValue] > 0)
+        {
+            count++;
+        }
+    }
+    
+    return count;
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,23 +112,30 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1; //one section for now
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //TODO return num in array
-    return [self.userNames count];
+    return [self.recentEntries count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"patientCell" forIndexPath:indexPath];
+    CatalyzeEntry* entry = [self.recentEntries objectAtIndex:indexPath.row];
     
-    //TODO: do you need the identifier
-    //TODO: actually configure the cell
+    UILabel* cellLabel = (UILabel*)[cell viewWithTag:111];
+    cellLabel.text = entry.authorId; //TODO -- how to get usernames?
+    
+    UILabel* urgentLabel = (UILabel*)[cell viewWithTag:222];
+    NSString* labelText = [NSString stringWithFormat:@"#Urgent: %d", [self urgentSum:entry]];
+    urgentLabel.text = labelText;
+    if ([self urgentSum:entry] > 0)
+    {
+        urgentLabel.textColor = [UIColor colorWithRed:255 green:0 blue:0 alpha:1];
+    }
     
     return cell;
 }

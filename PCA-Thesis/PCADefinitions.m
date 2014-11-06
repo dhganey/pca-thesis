@@ -8,6 +8,8 @@
 
 #import "PCADefinitions.h"
 
+#import "Catalyze.h"
+
 @implementation PCADefinitions
 
 /**
@@ -104,6 +106,28 @@
         default:
             return @"error in determineSymptomName";
     }
+}
+
+/**
+ Finds the most recent entry in the query results
+ @param result NSArray returned by Catalyze query function
+ @return CatalyzeEntry* most recent entry
+ */
+-(CatalyzeEntry*) findMostRecent:(NSArray*) result
+{
+    CatalyzeEntry* mostRecent = result[0];
+    
+    for (CatalyzeEntry* entry in result)
+    {
+        NSComparisonResult comp = [mostRecent.createdAt compare:entry.createdAt];
+        if (comp == NSOrderedAscending)
+        {
+            mostRecent = entry;
+        }
+        //else, leave it--doesn’t matter
+    }
+    
+    return mostRecent;
 }
 
 

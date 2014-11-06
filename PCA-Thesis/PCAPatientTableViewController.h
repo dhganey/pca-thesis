@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PCAAppDelegate.h"
+
 @interface PCAPatientTableViewController : UITableViewController
 
-@property NSArray* userNames;
+@property NSArray* recentEntries;
+
+/**
+ AppDelegate object used to reference defObj for static functions
+ */
+@property PCAAppDelegate* appDel;
 
 @end

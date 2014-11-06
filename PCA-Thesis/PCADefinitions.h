@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Catalyze.h"
+
 @interface PCADefinitions : NSObject
 
 typedef enum
@@ -71,5 +73,6 @@ typedef enum
 -(void) showAlert: (ERROR_TYPE) type;
 -(void) showAlertWithText: (NSString*) text;
 -(NSString*)determineSymptomName:(int)symptom;
+-(CatalyzeEntry*) findMostRecent:(NSArray*) result;
 
 @end
