@@ -123,20 +123,9 @@
             
             [[CatalyzeUser currentUser] setExtra:self.zipField.text forKey:@"zipCode"];
             
-            NSArray* userSymptoms = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil]; //by default, show all symptoms
-            
-            [[CatalyzeUser currentUser] setExtra:userSymptoms forKey:@"symptomArray"];
-            
-            if ([self.idField.text isEqualToString:@"greysAnatomy"]) //TODO change this later, secret string given to doctors
-            {
-                [CatalyzeUser currentUser].type = @"doctor";
-                //TODO no patient ID?
-            }
-            else
-            {
-                [CatalyzeUser currentUser].type = @"patient";
-                [[CatalyzeUser currentUser] setExtra:self.idField.text forKey:@"patientID"];
-            }
+            //users begin as patients but can be changed manually later
+            [CatalyzeUser currentUser].type = @"patient";
+            [[CatalyzeUser currentUser] setExtra:self.idField.text forKey:@"patientID"];
             
             [[CatalyzeUser currentUser] saveInBackground];
             

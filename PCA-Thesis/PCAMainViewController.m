@@ -779,7 +779,7 @@ int FONT_SIZE = 15;
 //    [self.appDel.defObj showAlertWithText:[NSString stringWithFormat:@"Last pain score was %@", [mostRecent.content valueForKey:@"pain"]]];
     //TODO this too
     NSString* text;
-    if ([CatalyzeUser currentUser].type == @"doctor")
+    if ([[CatalyzeUser currentUser].type isEqualToString:@"doctor"])
     {
         text = @"This user is a doctor";
     }
