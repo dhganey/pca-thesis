@@ -143,7 +143,7 @@
  @param indexPath NSIndexPath representing the specific cell clicked
  @return void
  */
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedEntry = [self.recentEntries objectAtIndex:indexPath.row]; //preserve the entry for the segue
     [self performSegueWithIdentifier:@"patientDetailSegue" sender:self];

@@ -14,4 +14,5 @@
 
 @property CatalyzeEntry* selectedEntry;
 
+@property (weak, nonatomic) IBOutlet UITextView *informationView;
 @end
