@@ -1,0 +1,1928 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>PCAMainViewController Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">PCA-Thesis </a></h1>
+				<a id="developerHome" href="../index.html">dhganey</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">PCAMainViewController Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/appDel">&nbsp;&nbsp;&nbsp;&nbsp;appDel</option>
+	
+	<option value="//api/name/currentSymptom">&nbsp;&nbsp;&nbsp;&nbsp;currentSymptom</option>
+	
+	<option value="//api/name/doneType">&nbsp;&nbsp;&nbsp;&nbsp;doneType</option>
+	
+	<option value="//api/name/esasDictionary">&nbsp;&nbsp;&nbsp;&nbsp;esasDictionary</option>
+	
+	<option value="//api/name/last60Entries">&nbsp;&nbsp;&nbsp;&nbsp;last60Entries</option>
+	
+	<option value="//api/name/mostRecent">&nbsp;&nbsp;&nbsp;&nbsp;mostRecent</option>
+	
+	<option value="//api/name/urgentDictionary">&nbsp;&nbsp;&nbsp;&nbsp;urgentDictionary</option>
+	
+	<option value="//api/name/valueToSave">&nbsp;&nbsp;&nbsp;&nbsp;valueToSave</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/alertView:clickedButtonAtIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- alertView:clickedButtonAtIndex:</option>
+	
+	<option value="//api/name/checkUrgentSymptoms">&nbsp;&nbsp;&nbsp;&nbsp;- checkUrgentSymptoms</option>
+	
+	<option value="//api/name/countUrgentSymptoms:">&nbsp;&nbsp;&nbsp;&nbsp;- countUrgentSymptoms:</option>
+	
+	<option value="//api/name/didReceiveMemoryWarning">&nbsp;&nbsp;&nbsp;&nbsp;- didReceiveMemoryWarning</option>
+	
+	<option value="//api/name/findMostRecent:">&nbsp;&nbsp;&nbsp;&nbsp;- findMostRecent:</option>
+	
+	<option value="//api/name/logoutPressed:">&nbsp;&nbsp;&nbsp;&nbsp;- logoutPressed:</option>
+	
+	<option value="//api/name/prepareForSegue:sender:">&nbsp;&nbsp;&nbsp;&nbsp;- prepareForSegue:sender:</option>
+	
+	<option value="//api/name/prepareInstructionLabel:">&nbsp;&nbsp;&nbsp;&nbsp;- prepareInstructionLabel:</option>
+	
+	<option value="//api/name/prepareSubmitButton:">&nbsp;&nbsp;&nbsp;&nbsp;- prepareSubmitButton:</option>
+	
+	<option value="//api/name/queryForStatistics">&nbsp;&nbsp;&nbsp;&nbsp;- queryForStatistics</option>
+	
+	<option value="//api/name/queryPreviousDictionary">&nbsp;&nbsp;&nbsp;&nbsp;- queryPreviousDictionary</option>
+	
+	<option value="//api/name/removeSubviews">&nbsp;&nbsp;&nbsp;&nbsp;- removeSubviews</option>
+	
+	<option value="//api/name/saveEntryToCatalyze">&nbsp;&nbsp;&nbsp;&nbsp;- saveEntryToCatalyze</option>
+	
+	<option value="//api/name/shouldCycleSymptoms">&nbsp;&nbsp;&nbsp;&nbsp;- shouldCycleSymptoms</option>
+	
+	<option value="//api/name/showConfirmAlert">&nbsp;&nbsp;&nbsp;&nbsp;- showConfirmAlert</option>
+	
+	<option value="//api/name/showNextSymptom">&nbsp;&nbsp;&nbsp;&nbsp;- showNextSymptom</option>
+	
+	<option value="//api/name/showRadioButtonScreen">&nbsp;&nbsp;&nbsp;&nbsp;- showRadioButtonScreen</option>
+	
+	<option value="//api/name/showSliderScreen">&nbsp;&nbsp;&nbsp;&nbsp;- showSliderScreen</option>
+	
+	<option value="//api/name/showSymptomScreen">&nbsp;&nbsp;&nbsp;&nbsp;- showSymptomScreen</option>
+	
+	<option value="//api/name/submitPressedRadio:">&nbsp;&nbsp;&nbsp;&nbsp;- submitPressedRadio:</option>
+	
+	<option value="//api/name/submitPressedSlider:">&nbsp;&nbsp;&nbsp;&nbsp;- submitPressedSlider:</option>
+	
+	<option value="//api/name/updateEntry">&nbsp;&nbsp;&nbsp;&nbsp;- updateEntry</option>
+	
+	<option value="//api/name/viewDidLoad">&nbsp;&nbsp;&nbsp;&nbsp;- viewDidLoad</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/appDel">appDel</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentSymptom">currentSymptom</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/doneType">doneType</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/esasDictionary">esasDictionary</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/last60Entries">last60Entries</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mostRecent">mostRecent</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/urgentDictionary">urgentDictionary</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/valueToSave">valueToSave</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/alertView:clickedButtonAtIndex:">alertView:clickedButtonAtIndex:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/checkUrgentSymptoms">checkUrgentSymptoms</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/countUrgentSymptoms:">countUrgentSymptoms:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/didReceiveMemoryWarning">didReceiveMemoryWarning</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/findMostRecent:">findMostRecent:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logoutPressed:">logoutPressed:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareForSegue:sender:">prepareForSegue:sender:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareInstructionLabel:">prepareInstructionLabel:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareSubmitButton:">prepareSubmitButton:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queryForStatistics">queryForStatistics</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queryPreviousDictionary">queryPreviousDictionary</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeSubviews">removeSubviews</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/saveEntryToCatalyze">saveEntryToCatalyze</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shouldCycleSymptoms">shouldCycleSymptoms</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showConfirmAlert">showConfirmAlert</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showNextSymptom">showNextSymptom</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showRadioButtonScreen">showRadioButtonScreen</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showSliderScreen">showSliderScreen</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showSymptomScreen">showSymptomScreen</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/submitPressedRadio:">submitPressedRadio:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/submitPressedSlider:">submitPressedSlider:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateEntry">updateEntry</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDidLoad">viewDidLoad</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="PCAMainViewController Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">PCAMainViewController Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">UIViewController</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">UIAlertViewDelegate</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">PCAMainViewController.h<br />PCAMainViewController.m</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logoutPressed:">&ndash;&nbsp;logoutPressed:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentSymptom">&nbsp;&nbsp;currentSymptom</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/valueToSave">&nbsp;&nbsp;valueToSave</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/appDel">&nbsp;&nbsp;appDel</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/esasDictionary">&nbsp;&nbsp;esasDictionary</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/urgentDictionary">&nbsp;&nbsp;urgentDictionary</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mostRecent">&nbsp;&nbsp;mostRecent</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/last60Entries">&nbsp;&nbsp;last60Entries</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/doneType">&nbsp;&nbsp;doneType</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDidLoad">&ndash;&nbsp;viewDidLoad</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/shouldCycleSymptoms">&ndash;&nbsp;shouldCycleSymptoms</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/prepareForSegue:sender:">&ndash;&nbsp;prepareForSegue:sender:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/didReceiveMemoryWarning">&ndash;&nbsp;didReceiveMemoryWarning</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showNextSymptom">&ndash;&nbsp;showNextSymptom</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showSymptomScreen">&ndash;&nbsp;showSymptomScreen</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/prepareInstructionLabel:">&ndash;&nbsp;prepareInstructionLabel:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/prepareSubmitButton:">&ndash;&nbsp;prepareSubmitButton:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showRadioButtonScreen">&ndash;&nbsp;showRadioButtonScreen</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showSliderScreen">&ndash;&nbsp;showSliderScreen</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/submitPressedSlider:">&ndash;&nbsp;submitPressedSlider:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/submitPressedRadio:">&ndash;&nbsp;submitPressedRadio:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeSubviews">&ndash;&nbsp;removeSubviews</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showConfirmAlert">&ndash;&nbsp;showConfirmAlert</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/alertView:clickedButtonAtIndex:">&ndash;&nbsp;alertView:clickedButtonAtIndex:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateEntry">&ndash;&nbsp;updateEntry</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/saveEntryToCatalyze">&ndash;&nbsp;saveEntryToCatalyze</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/checkUrgentSymptoms">&ndash;&nbsp;checkUrgentSymptoms</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/countUrgentSymptoms:">&ndash;&nbsp;countUrgentSymptoms:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/queryPreviousDictionary">&ndash;&nbsp;queryPreviousDictionary</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/queryForStatistics">&ndash;&nbsp;queryForStatistics</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/findMostRecent:">&ndash;&nbsp;findMostRecent:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/appDel" title="appDel"></a>
+	<h3 class="subsubtitle method-title">appDel</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>AppDelegate object used to reference defObj for static functions</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property PCAAppDelegate *appDel</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentSymptom" title="currentSymptom"></a>
+	<h3 class="subsubtitle method-title">currentSymptom</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Reflects the current symptom during symptom iteration</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property int currentSymptom</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/doneType" title="doneType"></a>
+	<h3 class="subsubtitle method-title">doneType</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The type of &ldquo;done&rdquo; we have</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property ALL_DONE_TYPE doneType</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/esasDictionary" title="esasDictionary"></a>
+	<h3 class="subsubtitle method-title">esasDictionary</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The dictionary of new symptoms to be saved</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property NSMutableDictionary *esasDictionary</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/last60Entries" title="last60Entries"></a>
+	<h3 class="subsubtitle method-title">last60Entries</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The NSArray of the last 60 results</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property NSArray *last60Entries</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mostRecent" title="mostRecent"></a>
+	<h3 class="subsubtitle method-title">mostRecent</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The most recent <a href="../Classes/CatalyzeEntry.html">CatalyzeEntry</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property CatalyzeEntry *mostRecent</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/urgentDictionary" title="urgentDictionary"></a>
+	<h3 class="subsubtitle method-title">urgentDictionary</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The dictionary of urgent symptoms to be saved</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property NSMutableDictionary *urgentDictionary</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/valueToSave" title="valueToSave"></a>
+	<h3 class="subsubtitle method-title">valueToSave</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Holds the value to be saved as the UILabel will be inaccessible during saving</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property double valueToSave</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/alertView:clickedButtonAtIndex:" title="alertView:clickedButtonAtIndex:"></a>
+	<h3 class="subsubtitle method-title">alertView:clickedButtonAtIndex:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the user selects a button in the confirmation popup</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)alertView:(id)<em>alertView</em> clickedButtonAtIndex:(id)<em>buttonIndex</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>alertView</em></dt>
+			<dd><p>UIAlertView* reference to the alert</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>buttonIndex</em></dt>
+			<dd><p>NSInteger representing which button user pressed on alert</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/checkUrgentSymptoms" title="checkUrgentSymptoms"></a>
+	<h3 class="subsubtitle method-title">checkUrgentSymptoms</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Checks urgent symptoms.
+Automatically makes a symptom urgent if it is over 9 or the highest option on the radio dials
+Records a dictionary of urgent symptoms inside the dictionary of symptoms, since esasEntry has an &ldquo;urgent&rdquo; object
+Each entry in the dictionary is either 0 (not urgent), 1 (slightly), or 2 (very)
+These are determined in two ways:
+Any slider symptom above 9 is automatically a 1, if it&rsquo;s 10 it&rsquo;s automatically a 2
+Any radio symptom at highest level is a 1, but TODO check and see if this should be 2 instead
+Any slider symtom > 1 SD above mean is a 1
+Any slider symptom > 2 SD above mean is a 2</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)checkUrgentSymptoms</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/countUrgentSymptoms:" title="countUrgentSymptoms:"></a>
+	<h3 class="subsubtitle method-title">countUrgentSymptoms:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Counts the number of urgent symptoms in a dictionary. Essentially counts the number of 1&rsquo;s</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (int)countUrgentSymptoms:(id)<em>dict</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>dict</em></dt>
+			<dd><p>NSMutableDictionary* dictionary to count</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>int</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/didReceiveMemoryWarning" title="didReceiveMemoryWarning"></a>
+	<h3 class="subsubtitle method-title">didReceiveMemoryWarning</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when a memory warning received</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)didReceiveMemoryWarning</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/findMostRecent:" title="findMostRecent:"></a>
+	<h3 class="subsubtitle method-title">findMostRecent:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Finds the most recent entry in the query results</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CatalyzeEntry *)findMostRecent:(id)<em>result</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>result</em></dt>
+			<dd><p>NSArray returned by <a href="../Classes/Catalyze.html">Catalyze</a> query function</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>CatalyzeEntry* most recent entry</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logoutPressed:" title="logoutPressed:"></a>
+	<h3 class="subsubtitle method-title">logoutPressed:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when logout button pressed</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (IBAction)logoutPressed:(id)<em>sender</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/prepareForSegue:sender:" title="prepareForSegue:sender:"></a>
+	<h3 class="subsubtitle method-title">prepareForSegue:sender:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called before executing a segue. Determines what to show when the patient is done</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)prepareForSegue:(id)<em>segue</em> sender:(id)<em>sender</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>segue</em></dt>
+			<dd><p>to be executed</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sender</em></dt>
+			<dd><p>id of sender</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/prepareInstructionLabel:" title="prepareInstructionLabel:"></a>
+	<h3 class="subsubtitle method-title">prepareInstructionLabel:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Prepares the UI elements which instruct the user on what to do. Changes the text depending on whether the input screen uses &ldquo;radio&rdquo; buttons or a slider</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)prepareInstructionLabel:(id)<em>inputType</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>inputType</em></dt>
+			<dd><p>INPUT_TYPE enum to determine whether to show a slider screen or a radio button screen</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/prepareSubmitButton:" title="prepareSubmitButton:"></a>
+	<h3 class="subsubtitle method-title">prepareSubmitButton:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Prepares the submit button for the symptom screen. Changes the selector based on whether the user is inputting data on a slider or on &ldquo;radio&rdquo; buttons</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)prepareSubmitButton:(id)<em>type</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>type</em></dt>
+			<dd><p>INPUT_TYPE enum to determine whether to set selector as slider pressed or radio pressed</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/queryForStatistics" title="queryForStatistics"></a>
+	<h3 class="subsubtitle method-title">queryForStatistics</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Queries the last 60 user entries and stores the resulting array as a class variable for use later</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)queryForStatistics</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/queryPreviousDictionary" title="queryPreviousDictionary"></a>
+	<h3 class="subsubtitle method-title">queryPreviousDictionary</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Prepares the previousDictionary member variable using the most recent entry on <a href="../Classes/Catalyze.html">Catalyze</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)queryPreviousDictionary</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeSubviews" title="removeSubviews"></a>
+	<h3 class="subsubtitle method-title">removeSubviews</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called before each symptom screen is shown. Clears all UI subviews in the view</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeSubviews</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/saveEntryToCatalyze" title="saveEntryToCatalyze"></a>
+	<h3 class="subsubtitle method-title">saveEntryToCatalyze</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called before all done segue. Creates the esasEntry and saves it to the backend</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)saveEntryToCatalyze</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/shouldCycleSymptoms" title="shouldCycleSymptoms"></a>
+	<h3 class="subsubtitle method-title">shouldCycleSymptoms</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called in <a href="#//api/name/viewDidLoad">viewDidLoad</a>. Returns true if it&rsquo;s time for the application to show user symptoms to enter.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (ALL_DONE_TYPE)shouldCycleSymptoms</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>BOOL</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showConfirmAlert" title="showConfirmAlert"></a>
+	<h3 class="subsubtitle method-title">showConfirmAlert</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Shows the user a popup alert when they try to submit a score (any score). User can continue with submission or go back to fix a mistake</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)showConfirmAlert</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showNextSymptom" title="showNextSymptom"></a>
+	<h3 class="subsubtitle method-title">showNextSymptom</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called to show UI element for next symptom. Moves <a href="#//api/name/currentSymptom">currentSymptom</a> class variable</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)showNextSymptom</code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>start</em></dt>
+			<dd><p>Symptom to start at (if not showing all symptoms)</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showRadioButtonScreen" title="showRadioButtonScreen"></a>
+	<h3 class="subsubtitle method-title">showRadioButtonScreen</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Main method called from <a href="#//api/name/showNextSymptom">showNextSymptom</a> for symptoms requiring radio buttons</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)showRadioButtonScreen</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showSliderScreen" title="showSliderScreen"></a>
+	<h3 class="subsubtitle method-title">showSliderScreen</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Main method called from <a href="#//api/name/showNextSymptom">showNextSymptom</a> for symptoms requiring a slider</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)showSliderScreen</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showSymptomScreen" title="showSymptomScreen"></a>
+	<h3 class="subsubtitle method-title">showSymptomScreen</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Entry method for UI element creation and operation for symptom screen.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)showSymptomScreen</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/submitPressedRadio:" title="submitPressedRadio:"></a>
+	<h3 class="subsubtitle method-title">submitPressedRadio:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Target selector method to submit user data from the radio screen. Uses radioref, global reference</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)submitPressedRadio:(id)<em>sender</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sender</em></dt>
+			<dd><p>UIButton* reference</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Warning:</strong> Make sure to set labelRef to the appropriate UI element before adding this as a target</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/submitPressedSlider:" title="submitPressedSlider:"></a>
+	<h3 class="subsubtitle method-title">submitPressedSlider:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Target selector method to submit data when submit pressed</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)submitPressedSlider:(id)<em>sender</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sender</em></dt>
+			<dd><p>UIButton* reference</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Warning:</strong> Make sure to set labelRef to the appropriate UI element before adding this as a target</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updateEntry" title="updateEntry"></a>
+	<h3 class="subsubtitle method-title">updateEntry</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when user continues through confirmation popup. Updates the <a href="#//api/name/esasDictionary">esasDictionary</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)updateEntry</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Warning:</strong> Note: this does NOT save the dictionary to the backend</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDidLoad" title="viewDidLoad"></a>
+	<h3 class="subsubtitle method-title">viewDidLoad</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called after the view loads. Does basic checks to grab symptom bitmask and begin cycling through symptom screens</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)viewDidLoad</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+                    
+                    
+
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2014 dhganey. All rights reserved. (Last updated: 2014-11-06)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

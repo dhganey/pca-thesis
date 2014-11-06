@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AFHTTPRequestSerializer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AFHTTPRequestSerializer</TokenIdentifier>
+			<Abstract type="html">AFHTTPRequestSerializer conforms to the AFURLRequestSerialization &amp;amp; AFURLResponseSerialization protocols, offering a concrete base implementation of query string / URL form-encoded parameter serialization and default request headers, as well as response status code and content type validation.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+            
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/setStringEncoding:</TokenIdentifier>
+			<Abstract type="html">The string encoding used to serialize parameters. NSUTF8StringEncoding by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSStringEncoding stringEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/stringEncoding</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/stringEncoding</TokenIdentifier>
+			<Abstract type="html">The string encoding used to serialize parameters. NSUTF8StringEncoding by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSStringEncoding stringEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/stringEncoding</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/stringEncoding</TokenIdentifier>
+			<Abstract type="html">The string encoding used to serialize parameters. NSUTF8StringEncoding by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSStringEncoding stringEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/stringEncoding</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/setAllowsCellularAccess:</TokenIdentifier>
+			<Abstract type="html">Whether created requests can use the device’s cellular radio (if present). YES by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/allowsCellularAccess</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) BOOL allowsCellularAccess</Declaration>
+			
+			
+			<Anchor>//api/name/allowsCellularAccess</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/allowsCellularAccess</TokenIdentifier>
+			<Abstract type="html">Whether created requests can use the device’s cellular radio (if present). YES by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/allowsCellularAccess</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) BOOL allowsCellularAccess</Declaration>
+			
+			
+			<Anchor>//api/name/allowsCellularAccess</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/allowsCellularAccess</TokenIdentifier>
+			<Abstract type="html">Whether created requests can use the device’s cellular radio (if present). YES by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/allowsCellularAccess</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) BOOL allowsCellularAccess</Declaration>
+			
+			
+			<Anchor>//api/name/allowsCellularAccess</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/setCachePolicy:</TokenIdentifier>
+			<Abstract type="html">The cache policy of created requests. NSURLRequestUseProtocolCachePolicy by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/cachePolicy</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) NSURLRequestCachePolicy cachePolicy</Declaration>
+			
+			
+			<Anchor>//api/name/cachePolicy</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/cachePolicy</TokenIdentifier>
+			<Abstract type="html">The cache policy of created requests. NSURLRequestUseProtocolCachePolicy by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/cachePolicy</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) NSURLRequestCachePolicy cachePolicy</Declaration>
+			
+			
+			<Anchor>//api/name/cachePolicy</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/cachePolicy</TokenIdentifier>
+			<Abstract type="html">The cache policy of created requests. NSURLRequestUseProtocolCachePolicy by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/cachePolicy</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) NSURLRequestCachePolicy cachePolicy</Declaration>
+			
+			
+			<Anchor>//api/name/cachePolicy</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/setHTTPShouldHandleCookies:</TokenIdentifier>
+			<Abstract type="html">Whether created requests should use the default cookie handling. YES by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/HTTPShouldHandleCookies</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) BOOL HTTPShouldHandleCookies</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPShouldHandleCookies</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/HTTPShouldHandleCookies</TokenIdentifier>
+			<Abstract type="html">Whether created requests should use the default cookie handling. YES by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/HTTPShouldHandleCookies</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) BOOL HTTPShouldHandleCookies</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPShouldHandleCookies</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/HTTPShouldHandleCookies</TokenIdentifier>
+			<Abstract type="html">Whether created requests should use the default cookie handling. YES by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/HTTPShouldHandleCookies</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) BOOL HTTPShouldHandleCookies</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPShouldHandleCookies</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/setHTTPShouldUsePipelining:</TokenIdentifier>
+			<Abstract type="html">Whether created requests can continue transmitting data before receiving a response from an earlier transmission. NO by default</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/HTTPShouldUsePipelining</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) BOOL HTTPShouldUsePipelining</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPShouldUsePipelining</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/HTTPShouldUsePipelining</TokenIdentifier>
+			<Abstract type="html">Whether created requests can continue transmitting data before receiving a response from an earlier transmission. NO by default</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/HTTPShouldUsePipelining</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) BOOL HTTPShouldUsePipelining</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPShouldUsePipelining</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/HTTPShouldUsePipelining</TokenIdentifier>
+			<Abstract type="html">Whether created requests can continue transmitting data before receiving a response from an earlier transmission. NO by default</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/HTTPShouldUsePipelining</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) BOOL HTTPShouldUsePipelining</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPShouldUsePipelining</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/setNetworkServiceType:</TokenIdentifier>
+			<Abstract type="html">The network service type for created requests. NSURLNetworkServiceTypeDefault by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/networkServiceType</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) NSURLRequestNetworkServiceType networkServiceType</Declaration>
+			
+			
+			<Anchor>//api/name/networkServiceType</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/networkServiceType</TokenIdentifier>
+			<Abstract type="html">The network service type for created requests. NSURLNetworkServiceTypeDefault by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/networkServiceType</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) NSURLRequestNetworkServiceType networkServiceType</Declaration>
+			
+			
+			<Anchor>//api/name/networkServiceType</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/networkServiceType</TokenIdentifier>
+			<Abstract type="html">The network service type for created requests. NSURLNetworkServiceTypeDefault by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/networkServiceType</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) NSURLRequestNetworkServiceType networkServiceType</Declaration>
+			
+			
+			<Anchor>//api/name/networkServiceType</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/setTimeoutInterval:</TokenIdentifier>
+			<Abstract type="html">The timeout interval, in seconds, for created requests. The default timeout interval is 60 seconds.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/timeoutInterval</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) NSTimeInterval timeoutInterval</Declaration>
+			
+			
+			<Anchor>//api/name/timeoutInterval</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/timeoutInterval</TokenIdentifier>
+			<Abstract type="html">The timeout interval, in seconds, for created requests. The default timeout interval is 60 seconds.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/timeoutInterval</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) NSTimeInterval timeoutInterval</Declaration>
+			
+			
+			<Anchor>//api/name/timeoutInterval</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/timeoutInterval</TokenIdentifier>
+			<Abstract type="html">The timeout interval, in seconds, for created requests. The default timeout interval is 60 seconds.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/timeoutInterval</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) NSTimeInterval timeoutInterval</Declaration>
+			
+			
+			<Anchor>//api/name/timeoutInterval</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/setHTTPRequestHeaders:</TokenIdentifier>
+			<Abstract type="html">Default HTTP header field values to be applied to serialized requests.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, nonatomic, strong) NSDictionary *HTTPRequestHeaders</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPRequestHeaders</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/HTTPRequestHeaders</TokenIdentifier>
+			<Abstract type="html">Default HTTP header field values to be applied to serialized requests.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, nonatomic, strong) NSDictionary *HTTPRequestHeaders</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPRequestHeaders</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/HTTPRequestHeaders</TokenIdentifier>
+			<Abstract type="html">Default HTTP header field values to be applied to serialized requests.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, nonatomic, strong) NSDictionary *HTTPRequestHeaders</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPRequestHeaders</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AFHTTPRequestSerializer/serializer</TokenIdentifier>
+			<Abstract type="html">Creates and returns a serializer with default configuration.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)serializer</Declaration>
+			
+			
+			<Anchor>//api/name/serializer</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/setValue:forHTTPHeaderField:</TokenIdentifier>
+			<Abstract type="html">Sets the value for the HTTP headers set in request objects made by the HTTP client. If nil, removes the existing value for that header.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>- (void)setValue:(id)value forHTTPHeaderField:(id)field</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>value</Name>
+					<Abstract type="html">The value set as default for the specified header, or nil</Abstract>
+				</Parameter><Parameter>
+					<Name>field</Name>
+					<Abstract type="html">The HTTP header to set a default value for</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setValue:forHTTPHeaderField:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/valueForHTTPHeaderField:</TokenIdentifier>
+			<Abstract type="html">Returns the value for the HTTP headers set in the request serializer.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>- (NSString *)valueForHTTPHeaderField:(id)field</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>field</Name>
+					<Abstract type="html">The HTTP header to retrieve the default value for</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The value set as default for the specified header, or nil</Abstract></ReturnValue>
+			<Anchor>//api/name/valueForHTTPHeaderField:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/setAuthorizationHeaderFieldWithUsername:password:</TokenIdentifier>
+			<Abstract type="html">Sets the &quot;Authorization&quot; HTTP header set in request objects made by the HTTP client to a basic authentication value with Base64-encoded username and password. This overwrites any existing value for this header.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>- (void)setAuthorizationHeaderFieldWithUsername:(id)username password:(id)password</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>username</Name>
+					<Abstract type="html">The HTTP basic auth username</Abstract>
+				</Parameter><Parameter>
+					<Name>password</Name>
+					<Abstract type="html">The HTTP basic auth password</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setAuthorizationHeaderFieldWithUsername:password:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/setAuthorizationHeaderFieldWithToken:</TokenIdentifier>
+			<Abstract type="html">This method has been deprecated. Use setValue:forHTTPHeaderField: instead. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; This method has been deprecated. Use -setValue:forHTTPHeaderField: instead.&lt;/span&gt;)</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>- (void)setAuthorizationHeaderFieldWithToken:(id)token</Declaration>
+			
+			
+			<Anchor>//api/name/setAuthorizationHeaderFieldWithToken:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/clearAuthorizationHeader</TokenIdentifier>
+			<Abstract type="html">Clears any existing value for the &quot;Authorization&quot; HTTP header.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>- (void)clearAuthorizationHeader</Declaration>
+			
+			
+			<Anchor>//api/name/clearAuthorizationHeader</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/setHTTPMethodsEncodingParametersInURI:</TokenIdentifier>
+			<Abstract type="html">HTTP methods for which serialized requests will encode parameters as a query string. GET, HEAD, and DELETE by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSSet *HTTPMethodsEncodingParametersInURI</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPMethodsEncodingParametersInURI</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/HTTPMethodsEncodingParametersInURI</TokenIdentifier>
+			<Abstract type="html">HTTP methods for which serialized requests will encode parameters as a query string. GET, HEAD, and DELETE by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSSet *HTTPMethodsEncodingParametersInURI</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPMethodsEncodingParametersInURI</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestSerializer/HTTPMethodsEncodingParametersInURI</TokenIdentifier>
+			<Abstract type="html">HTTP methods for which serialized requests will encode parameters as a query string. GET, HEAD, and DELETE by default.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSSet *HTTPMethodsEncodingParametersInURI</Declaration>
+			
+			
+			<Anchor>//api/name/HTTPMethodsEncodingParametersInURI</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/setQueryStringSerializationWithStyle:</TokenIdentifier>
+			<Abstract type="html">Set the method of query string serialization according to one of the pre-defined styles.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/c/tdef/AFHTTPRequestQueryStringSerializationStyle</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)setQueryStringSerializationWithStyle:(id)style</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>style</Name>
+					<Abstract type="html">The serialization style.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setQueryStringSerializationWithStyle:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/setQueryStringSerializationWithBlock:</TokenIdentifier>
+			<Abstract type="html">Set the a custom method of query string serialization according to the specified block.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>- (void)setQueryStringSerializationWithBlock:(id)block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>block</Name>
+					<Abstract type="html">A block that defines a process of encoding parameters into a query string. This block returns the query string and takes three arguments: the request, the parameters to encode, and the error that occurred when attempting to encode parameters for the given request.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setQueryStringSerializationWithBlock:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/requestWithMethod:URLString:parameters:</TokenIdentifier>
+			<Abstract type="html">This method has been deprecated. Use requestWithMethod:URLString:parameters:error: instead. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; This method has been deprecated. Use -requestWithMethod:URLString:parameters:error: instead.&lt;/span&gt;)</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>- (NSMutableURLRequest *)requestWithMethod:(id)method URLString:(id)URLString parameters:(id)parameters</Declaration>
+			
+			
+			<Anchor>//api/name/requestWithMethod:URLString:parameters:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/requestWithMethod:URLString:parameters:error:</TokenIdentifier>
+			<Abstract type="html">Creates an NSMutableURLRequest object with the specified HTTP method and URL string.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>- (NSMutableURLRequest *)requestWithMethod:(id)method URLString:(id)URLString parameters:(id)parameters error:(id)error</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>method</Name>
+					<Abstract type="html">The HTTP method for the request, such as GET, POST, PUT, or DELETE. This parameter must not be nil.</Abstract>
+				</Parameter><Parameter>
+					<Name>URLString</Name>
+					<Abstract type="html">The URL string used to create the request URL.</Abstract>
+				</Parameter><Parameter>
+					<Name>parameters</Name>
+					<Abstract type="html">The parameters to be either set as a query string for GET requests, or the request HTTP body.</Abstract>
+				</Parameter><Parameter>
+					<Name>error</Name>
+					<Abstract type="html">The error that occured while constructing the request.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An NSMutableURLRequest object.</Abstract></ReturnValue>
+			<Anchor>//api/name/requestWithMethod:URLString:parameters:error:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:</TokenIdentifier>
+			<Abstract type="html">This method has been deprecated. Use multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:error: instead. (&lt;b class=&quot;deprecated&quot;&gt;Deprecated:&lt;/b&gt;&lt;span class=&quot;deprecated&quot;&gt; This method has been deprecated. Use -multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:error: instead.&lt;/span&gt;)</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>- (NSMutableURLRequest *)multipartFormRequestWithMethod:(id)method URLString:(id)URLString parameters:(id)parameters constructingBodyWithBlock:(id)block</Declaration>
+			
+			
+			<Anchor>//api/name/multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:error:</TokenIdentifier>
+			<Abstract type="html">Creates an NSMutableURLRequest object with the specified HTTP method and URLString, and constructs a multipart/form-data HTTP body, using the specified parameters and multipart form data block. See http://www.w3.org/TR/html4/interact/forms.html#h-17.13.4.2</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>- (NSMutableURLRequest *)multipartFormRequestWithMethod:(id)method URLString:(id)URLString parameters:(id)parameters constructingBodyWithBlock:(id)block error:(id)error</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>method</Name>
+					<Abstract type="html">The HTTP method for the request. This parameter must not be GET or HEAD, or nil.</Abstract>
+				</Parameter><Parameter>
+					<Name>URLString</Name>
+					<Abstract type="html">The URL string used to create the request URL.</Abstract>
+				</Parameter><Parameter>
+					<Name>parameters</Name>
+					<Abstract type="html">The parameters to be encoded and set in the request HTTP body.</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">A block that takes a single argument and appends data to the HTTP body. The block argument is an object adopting the AFMultipartFormData protocol.</Abstract>
+				</Parameter><Parameter>
+					<Name>error</Name>
+					<Abstract type="html">The error that occured while constructing the request.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An NSMutableURLRequest object</Abstract></ReturnValue>
+			<Anchor>//api/name/multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:error:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/requestWithMultipartFormRequest:writingStreamContentsToFile:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Creates an NSMutableURLRequest by removing the HTTPBodyStream from a request, and asynchronously writing its contents into the specified file, invoking the completion handler when finished.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>- (NSMutableURLRequest *)requestWithMultipartFormRequest:(id)request writingStreamContentsToFile:(id)fileURL completionHandler:(id)handler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">The multipart form request.</Abstract>
+				</Parameter><Parameter>
+					<Name>fileURL</Name>
+					<Abstract type="html">The file URL to write multipart form contents to.</Abstract>
+				</Parameter><Parameter>
+					<Name>handler</Name>
+					<Abstract type="html">A handler block to execute.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/requestWithMultipartFormRequest:writingStreamContentsToFile:completionHandler:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/requestBySerializingRequest:withParameters:error:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AFURLRequestSerialization.m</DeclaredIn>
+			
+			<Declaration>- (NSURLRequest *)requestBySerializingRequest:(id)request withParameters:(id)parameters error:(id)error</Declaration>
+			
+			
+			<Anchor>//api/name/requestBySerializingRequest:withParameters:error:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

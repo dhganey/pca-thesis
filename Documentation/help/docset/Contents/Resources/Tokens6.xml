@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AFHTTPSessionManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AFHTTPSessionManager</TokenIdentifier>
+			<Abstract type="html">AFHTTPSessionManager is a subclass of AFURLSessionManager with convenience methods for making HTTP requests. When a baseURL is provided, requests made with the GET / POST / et al. convenience methods can be made with relative paths.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+            
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/setBaseURL:</TokenIdentifier>
+			<Abstract type="html">The URL used to monitor reachability, and construct requests from relative paths in methods like requestWithMethod:URLString:parameters:, and the GET / POST / et al. convenience methods.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, nonatomic, strong) NSURL *baseURL</Declaration>
+			
+			
+			<Anchor>//api/name/baseURL</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/baseURL</TokenIdentifier>
+			<Abstract type="html">The URL used to monitor reachability, and construct requests from relative paths in methods like requestWithMethod:URLString:parameters:, and the GET / POST / et al. convenience methods.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, nonatomic, strong) NSURL *baseURL</Declaration>
+			
+			
+			<Anchor>//api/name/baseURL</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPSessionManager/baseURL</TokenIdentifier>
+			<Abstract type="html">The URL used to monitor reachability, and construct requests from relative paths in methods like requestWithMethod:URLString:parameters:, and the GET / POST / et al. convenience methods.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, nonatomic, strong) NSURL *baseURL</Declaration>
+			
+			
+			<Anchor>//api/name/baseURL</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/setRequestSerializer:</TokenIdentifier>
+			<Abstract type="html">Requests created with requestWithMethod:URLString:parameters: &amp;amp; multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock: are constructed with a set of default headers using a parameter serialization specified by this property. By default, this is set to an instance of AFHTTPRequestSerializer, which serializes query string parameters for GET, HEAD, and DELETE requests, or otherwise URL-form-encodes HTTP message bodies.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AFHTTPRequestSerializer&lt;AFURLRequestSerialization&gt; *requestSerializer</Declaration>
+			
+			
+			<Anchor>//api/name/requestSerializer</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/requestSerializer</TokenIdentifier>
+			<Abstract type="html">Requests created with requestWithMethod:URLString:parameters: &amp;amp; multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock: are constructed with a set of default headers using a parameter serialization specified by this property. By default, this is set to an instance of AFHTTPRequestSerializer, which serializes query string parameters for GET, HEAD, and DELETE requests, or otherwise URL-form-encodes HTTP message bodies.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AFHTTPRequestSerializer&lt;AFURLRequestSerialization&gt; *requestSerializer</Declaration>
+			
+			
+			<Anchor>//api/name/requestSerializer</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPSessionManager/requestSerializer</TokenIdentifier>
+			<Abstract type="html">Requests created with requestWithMethod:URLString:parameters: &amp;amp; multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock: are constructed with a set of default headers using a parameter serialization specified by this property. By default, this is set to an instance of AFHTTPRequestSerializer, which serializes query string parameters for GET, HEAD, and DELETE requests, or otherwise URL-form-encodes HTTP message bodies.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AFHTTPRequestSerializer&lt;AFURLRequestSerialization&gt; *requestSerializer</Declaration>
+			
+			
+			<Anchor>//api/name/requestSerializer</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/setResponseSerializer:</TokenIdentifier>
+			<Abstract type="html">Responses sent from the server in data tasks created with dataTaskWithRequest:success:failure: and run using the GET / POST / et al. convenience methods are automatically validated and serialized by the response serializer. By default, this property is set to an instance of AFJSONResponseSerializer.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AFHTTPResponseSerializer&lt;AFURLResponseSerialization&gt; *responseSerializer</Declaration>
+			
+			
+			<Anchor>//api/name/responseSerializer</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/responseSerializer</TokenIdentifier>
+			<Abstract type="html">Responses sent from the server in data tasks created with dataTaskWithRequest:success:failure: and run using the GET / POST / et al. convenience methods are automatically validated and serialized by the response serializer. By default, this property is set to an instance of AFJSONResponseSerializer.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AFHTTPResponseSerializer&lt;AFURLResponseSerialization&gt; *responseSerializer</Declaration>
+			
+			
+			<Anchor>//api/name/responseSerializer</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPSessionManager/responseSerializer</TokenIdentifier>
+			<Abstract type="html">Responses sent from the server in data tasks created with dataTaskWithRequest:success:failure: and run using the GET / POST / et al. convenience methods are automatically validated and serialized by the response serializer. By default, this property is set to an instance of AFJSONResponseSerializer.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AFHTTPResponseSerializer&lt;AFURLResponseSerialization&gt; *responseSerializer</Declaration>
+			
+			
+			<Anchor>//api/name/responseSerializer</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AFHTTPSessionManager/manager</TokenIdentifier>
+			<Abstract type="html">Creates and returns an AFHTTPSessionManager object.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)manager</Declaration>
+			
+			
+			<Anchor>//api/name/manager</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/initWithBaseURL:</TokenIdentifier>
+			<Abstract type="html">Initializes an AFHTTPSessionManager object with the specified base URL.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithBaseURL:(id)url</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>url</Name>
+					<Abstract type="html">The base URL for the HTTP client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The newly-initialized HTTP client</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithBaseURL:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/initWithBaseURL:sessionConfiguration:</TokenIdentifier>
+			<Abstract type="html">Initializes an AFHTTPSessionManager object with the specified base URL.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithBaseURL:(id)url sessionConfiguration:(id)configuration</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>url</Name>
+					<Abstract type="html">The base URL for the HTTP client.</Abstract>
+				</Parameter><Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">The configuration used to create the managed session.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The newly-initialized HTTP client</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithBaseURL:sessionConfiguration:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/GET:parameters:success:failure:</TokenIdentifier>
+			<Abstract type="html">Creates and runs an NSURLSessionDataTask with a GET request.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>- (NSURLSessionDataTask *)GET:(id)URLString parameters:(id)parameters success:(id)success failure:(id)failure</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>URLString</Name>
+					<Abstract type="html">The URL string used to create the request URL.</Abstract>
+				</Parameter><Parameter>
+					<Name>parameters</Name>
+					<Abstract type="html">The parameters to be encoded according to the client request serializer.</Abstract>
+				</Parameter><Parameter>
+					<Name>success</Name>
+					<Abstract type="html">A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the data task, and the response object created by the client response serializer.</Abstract>
+				</Parameter><Parameter>
+					<Name>failure</Name>
+					<Abstract type="html">A block object to be executed when the task finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the data task and the error describing the network or parsing error that occurred.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/GET:parameters:success:failure:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/HEAD:parameters:success:failure:</TokenIdentifier>
+			<Abstract type="html">Creates and runs an NSURLSessionDataTask with a HEAD request.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>- (NSURLSessionDataTask *)HEAD:(id)URLString parameters:(id)parameters success:(id)success failure:(id)failure</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>URLString</Name>
+					<Abstract type="html">The URL string used to create the request URL.</Abstract>
+				</Parameter><Parameter>
+					<Name>parameters</Name>
+					<Abstract type="html">The parameters to be encoded according to the client request serializer.</Abstract>
+				</Parameter><Parameter>
+					<Name>success</Name>
+					<Abstract type="html">A block object to be executed when the task finishes successfully. This block has no return value and takes a single arguments: the data task.</Abstract>
+				</Parameter><Parameter>
+					<Name>failure</Name>
+					<Abstract type="html">A block object to be executed when the task finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the data task and the error describing the network or parsing error that occurred.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/HEAD:parameters:success:failure:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/POST:parameters:success:failure:</TokenIdentifier>
+			<Abstract type="html">Creates and runs an NSURLSessionDataTask with a POST request.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>- (NSURLSessionDataTask *)POST:(id)URLString parameters:(id)parameters success:(id)success failure:(id)failure</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>URLString</Name>
+					<Abstract type="html">The URL string used to create the request URL.</Abstract>
+				</Parameter><Parameter>
+					<Name>parameters</Name>
+					<Abstract type="html">The parameters to be encoded according to the client request serializer.</Abstract>
+				</Parameter><Parameter>
+					<Name>success</Name>
+					<Abstract type="html">A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the data task, and the response object created by the client response serializer.</Abstract>
+				</Parameter><Parameter>
+					<Name>failure</Name>
+					<Abstract type="html">A block object to be executed when the task finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the data task and the error describing the network or parsing error that occurred.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/POST:parameters:success:failure:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/POST:parameters:constructingBodyWithBlock:success:failure:</TokenIdentifier>
+			<Abstract type="html">Creates and runs an NSURLSessionDataTask with a multipart POST request.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>- (NSURLSessionDataTask *)POST:(id)URLString parameters:(id)parameters constructingBodyWithBlock:(id)block success:(id)success failure:(id)failure</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>URLString</Name>
+					<Abstract type="html">The URL string used to create the request URL.</Abstract>
+				</Parameter><Parameter>
+					<Name>parameters</Name>
+					<Abstract type="html">The parameters to be encoded according to the client request serializer.</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">A block that takes a single argument and appends data to the HTTP body. The block argument is an object adopting the AFMultipartFormData protocol.</Abstract>
+				</Parameter><Parameter>
+					<Name>success</Name>
+					<Abstract type="html">A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the data task, and the response object created by the client response serializer.</Abstract>
+				</Parameter><Parameter>
+					<Name>failure</Name>
+					<Abstract type="html">A block object to be executed when the task finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the data task and the error describing the network or parsing error that occurred.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/POST:parameters:constructingBodyWithBlock:success:failure:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/PUT:parameters:success:failure:</TokenIdentifier>
+			<Abstract type="html">Creates and runs an NSURLSessionDataTask with a PUT request.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>- (NSURLSessionDataTask *)PUT:(id)URLString parameters:(id)parameters success:(id)success failure:(id)failure</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>URLString</Name>
+					<Abstract type="html">The URL string used to create the request URL.</Abstract>
+				</Parameter><Parameter>
+					<Name>parameters</Name>
+					<Abstract type="html">The parameters to be encoded according to the client request serializer.</Abstract>
+				</Parameter><Parameter>
+					<Name>success</Name>
+					<Abstract type="html">A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the data task, and the response object created by the client response serializer.</Abstract>
+				</Parameter><Parameter>
+					<Name>failure</Name>
+					<Abstract type="html">A block object to be executed when the task finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the data task and the error describing the network or parsing error that occurred.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/PUT:parameters:success:failure:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/PATCH:parameters:success:failure:</TokenIdentifier>
+			<Abstract type="html">Creates and runs an NSURLSessionDataTask with a PATCH request.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>- (NSURLSessionDataTask *)PATCH:(id)URLString parameters:(id)parameters success:(id)success failure:(id)failure</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>URLString</Name>
+					<Abstract type="html">The URL string used to create the request URL.</Abstract>
+				</Parameter><Parameter>
+					<Name>parameters</Name>
+					<Abstract type="html">The parameters to be encoded according to the client request serializer.</Abstract>
+				</Parameter><Parameter>
+					<Name>success</Name>
+					<Abstract type="html">A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the data task, and the response object created by the client response serializer.</Abstract>
+				</Parameter><Parameter>
+					<Name>failure</Name>
+					<Abstract type="html">A block object to be executed when the task finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the data task and the error describing the network or parsing error that occurred.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/PATCH:parameters:success:failure:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/DELETE:parameters:success:failure:</TokenIdentifier>
+			<Abstract type="html">Creates and runs an NSURLSessionDataTask with a DELETE request.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.h</DeclaredIn>
+			
+			<Declaration>- (NSURLSessionDataTask *)DELETE:(id)URLString parameters:(id)parameters success:(id)success failure:(id)failure</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>URLString</Name>
+					<Abstract type="html">The URL string used to create the request URL.</Abstract>
+				</Parameter><Parameter>
+					<Name>parameters</Name>
+					<Abstract type="html">The parameters to be encoded according to the client request serializer.</Abstract>
+				</Parameter><Parameter>
+					<Name>success</Name>
+					<Abstract type="html">A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the data task, and the response object created by the client response serializer.</Abstract>
+				</Parameter><Parameter>
+					<Name>failure</Name>
+					<Abstract type="html">A block object to be executed when the task finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the data task and the error describing the network or parsing error that occurred.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/DELETE:parameters:success:failure:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPSessionManager/initWithSessionConfiguration:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a manager for a session created with the specified configuration. This is the designated initializer.</Abstract>
+			<DeclaredIn>AFHTTPSessionManager.m</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithSessionConfiguration:(id)configuration</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">The configuration used to create the managed session.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A manager for a newly-created session.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithSessionConfiguration:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

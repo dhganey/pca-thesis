@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AFPropertyListResponseSerializer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AFPropertyListResponseSerializer</TokenIdentifier>
+			<Abstract type="html">AFPropertyListSerializer is a subclass of AFHTTPResponseSerializer that validates and decodes XML responses as an NSXMLDocument objects.</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+            
+			
+			<NodeRef refid="13"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFPropertyListResponseSerializer/setFormat:</TokenIdentifier>
+			<Abstract type="html">The property list format. Possible values are described in &quot;NSPropertyListFormat&quot;.</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSPropertyListFormat format</Declaration>
+			
+			
+			<Anchor>//api/name/format</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFPropertyListResponseSerializer/format</TokenIdentifier>
+			<Abstract type="html">The property list format. Possible values are described in &quot;NSPropertyListFormat&quot;.</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSPropertyListFormat format</Declaration>
+			
+			
+			<Anchor>//api/name/format</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFPropertyListResponseSerializer/format</TokenIdentifier>
+			<Abstract type="html">The property list format. Possible values are described in &quot;NSPropertyListFormat&quot;.</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSPropertyListFormat format</Declaration>
+			
+			
+			<Anchor>//api/name/format</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFPropertyListResponseSerializer/setReadOptions:</TokenIdentifier>
+			<Abstract type="html">The property list reading options. Possible values are described in &quot;NSPropertyListMutabilityOptions.&quot;</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSPropertyListReadOptions readOptions</Declaration>
+			
+			
+			<Anchor>//api/name/readOptions</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFPropertyListResponseSerializer/readOptions</TokenIdentifier>
+			<Abstract type="html">The property list reading options. Possible values are described in &quot;NSPropertyListMutabilityOptions.&quot;</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSPropertyListReadOptions readOptions</Declaration>
+			
+			
+			<Anchor>//api/name/readOptions</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFPropertyListResponseSerializer/readOptions</TokenIdentifier>
+			<Abstract type="html">The property list reading options. Possible values are described in &quot;NSPropertyListMutabilityOptions.&quot;</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSPropertyListReadOptions readOptions</Declaration>
+			
+			
+			<Anchor>//api/name/readOptions</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AFPropertyListResponseSerializer/serializerWithFormat:readOptions:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a property list serializer with a specified format, read options, and write options.</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)serializerWithFormat:(id)format readOptions:(id)readOptions</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>format</Name>
+					<Abstract type="html">The property list format.</Abstract>
+				</Parameter><Parameter>
+					<Name>readOptions</Name>
+					<Abstract type="html">The property list reading options.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/serializerWithFormat:readOptions:</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AFPropertyListResponseSerializer/serializer</TokenIdentifier>
+			<Abstract type="html">Creates and returns a serializer with default configuration.</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.m</DeclaredIn>
+			
+			<Declaration>+ (instancetype)serializer</Declaration>
+			
+			
+			<Anchor>//api/name/serializer</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFPropertyListResponseSerializer/responseObjectForResponse:data:error:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AFURLResponseSerialization.m</DeclaredIn>
+			
+			<Declaration>- (id)responseObjectForResponse:(id)response data:(id)data error:(id)error</Declaration>
+			
+			
+			<Anchor>//api/name/responseObjectForResponse:data:error:</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

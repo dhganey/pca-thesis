@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AFHTTPRequestLoggerLevel.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AFHTTPRequestLoggerLevel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+            
+			
+			<NodeRef refid="37"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AFLoggerLevelOff</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AFLoggerLevelOff</Declaration>
+            
+            <DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+            
+            <NodeRef refid="37"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AFLoggerLevelDebug</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AFLoggerLevelDebug</Declaration>
+            
+            <DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+            
+            <NodeRef refid="37"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AFLoggerLevelInfo</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AFLoggerLevelInfo</Declaration>
+            
+            <DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+            
+            <NodeRef refid="37"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AFLoggerLevelWarn</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AFLoggerLevelWarn</Declaration>
+            
+            <DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+            
+            <NodeRef refid="37"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AFLoggerLevelError</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AFLoggerLevelError</Declaration>
+            
+            <DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+            
+            <NodeRef refid="37"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AFLoggerLevelFatal</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AFLoggerLevelFatal</Declaration>
+            
+            <DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+            
+            <NodeRef refid="37"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

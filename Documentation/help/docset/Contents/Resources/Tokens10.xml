@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AFNetworkActivityLogger.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AFNetworkActivityLogger</TokenIdentifier>
+			<Abstract type="html">AFNetworkActivityLogger logs requests and responses made by AFNetworking, with an adjustable level of detail.</Abstract>
+			<DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+            
+			
+			<NodeRef refid="10"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFNetworkActivityLogger/setLevel:</TokenIdentifier>
+			<Abstract type="html">The level of logging detail. See &quot;Logging Levels&quot; for possible values. AFLoggerLevelInfo by default.</Abstract>
+			<DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AFHTTPRequestLoggerLevel level</Declaration>
+			
+			
+			<Anchor>//api/name/level</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFNetworkActivityLogger/level</TokenIdentifier>
+			<Abstract type="html">The level of logging detail. See &quot;Logging Levels&quot; for possible values. AFLoggerLevelInfo by default.</Abstract>
+			<DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AFHTTPRequestLoggerLevel level</Declaration>
+			
+			
+			<Anchor>//api/name/level</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFNetworkActivityLogger/level</TokenIdentifier>
+			<Abstract type="html">The level of logging detail. See &quot;Logging Levels&quot; for possible values. AFLoggerLevelInfo by default.</Abstract>
+			<DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AFHTTPRequestLoggerLevel level</Declaration>
+			
+			
+			<Anchor>//api/name/level</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFNetworkActivityLogger/setFilterPredicate:</TokenIdentifier>
+			<Abstract type="html">Only log requests conforming to the specified predicate, if specified. nil by default.</Abstract>
+			<DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSPredicate *filterPredicate</Declaration>
+			
+			
+			<Anchor>//api/name/filterPredicate</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFNetworkActivityLogger/filterPredicate</TokenIdentifier>
+			<Abstract type="html">Only log requests conforming to the specified predicate, if specified. nil by default.</Abstract>
+			<DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSPredicate *filterPredicate</Declaration>
+			
+			
+			<Anchor>//api/name/filterPredicate</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFNetworkActivityLogger/filterPredicate</TokenIdentifier>
+			<Abstract type="html">Only log requests conforming to the specified predicate, if specified. nil by default.</Abstract>
+			<DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSPredicate *filterPredicate</Declaration>
+			
+			
+			<Anchor>//api/name/filterPredicate</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AFNetworkActivityLogger/sharedLogger</TokenIdentifier>
+			<Abstract type="html">Returns the shared logger instance.</Abstract>
+			<DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)sharedLogger</Declaration>
+			
+			
+			<Anchor>//api/name/sharedLogger</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFNetworkActivityLogger/startLogging</TokenIdentifier>
+			<Abstract type="html">Start logging requests and responses.</Abstract>
+			<DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+			
+			<Declaration>- (void)startLogging</Declaration>
+			
+			
+			<Anchor>//api/name/startLogging</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFNetworkActivityLogger/stopLogging</TokenIdentifier>
+			<Abstract type="html">Stop logging requests and responses.</Abstract>
+			<DeclaredIn>AFNetworkActivityLogger.h</DeclaredIn>
+			
+			<Declaration>- (void)stopLogging</Declaration>
+			
+			
+			<Anchor>//api/name/stopLogging</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

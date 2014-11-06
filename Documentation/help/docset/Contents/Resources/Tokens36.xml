@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/AFURLResponseSerialization.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/AFURLResponseSerialization</TokenIdentifier>
+			<Abstract type="html">The AFURLResponseSerialization protocol is adopted by an object that decodes data into a more useful object representation, according to details in the server response. Response serializers may additionally perform validation on the incoming response and data.</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+            
+			
+			<NodeRef refid="36"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AFURLResponseSerialization/responseObjectForResponse:data:error:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+			
+			<Declaration>- (id)responseObjectForResponse:(id)response data:(id)data error:(id)error</Declaration>
+			
+			
+			<Anchor>//api/name/responseObjectForResponse:data:error:</Anchor>
+            <NodeRef refid="36"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

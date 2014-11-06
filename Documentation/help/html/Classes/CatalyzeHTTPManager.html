@@ -1,0 +1,586 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>CatalyzeHTTPManager Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">PCA-Thesis </a></h1>
+				<a id="developerHome" href="../index.html">dhganey</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">CatalyzeHTTPManager Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/doDelete:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;+ doDelete:success:failure:</option>
+	
+	<option value="//api/name/doGet:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;+ doGet:success:failure:</option>
+	
+	<option value="//api/name/doPost:withParams:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;+ doPost:withParams:success:failure:</option>
+	
+	<option value="//api/name/doPut:withParams:success:failure:">&nbsp;&nbsp;&nbsp;&nbsp;+ doPut:withParams:success:failure:</option>
+	
+	
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_GET">GET</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_POST">POST</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_PUT">PUT</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_DELETE">DELETE</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/doDelete:success:failure:">doDelete:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/doGet:success:failure:">doGet:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/doPost:withParams:success:failure:">doPost:withParams:success:failure:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/doPut:withParams:success:failure:">doPut:withParams:success:failure:</a></span></li>
+	
+</ul></li>
+
+
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="CatalyzeHTTPManager Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">CatalyzeHTTPManager Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">CatalyzeHTTPManager.h<br />CatalyzeHTTPManager.m</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The CatalyzeHTTPManager class provides an abstracted layer of functionality in
+order to not clutter to core of the catalyze.io iOS SDK. Network calls were viewed
+as a separate entity of the SDK entirely.  In order to emphasize this, <strong>ALL</strong>
+network traffic in or out of the SDK goes through one of the following four
+methods.  The library used for network traffic is AFNetworking found here
+<a href="http://afnetworking.com/">http://afnetworking.com/</a> .</p>
+
+<p>The main purpose for this class is to translate AFNetworking results into
+completion blocks specified in CatalyzeConstants.</p>
+
+<p>This class does not have any ties to the rest of the catalyze.io iOS SDK and so
+it can be used as its own entity for your personal networking use.  Or you
+can simply download AFNetworking directly at the above link.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="GET" name="task_GET"></a>
+						<h3 class="subsubtitle task-title">GET</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/doGet:success:failure:">+&nbsp;doGet:success:failure:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="POST" name="task_POST"></a>
+						<h3 class="subsubtitle task-title">POST</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/doPost:withParams:success:failure:">+&nbsp;doPost:withParams:success:failure:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="PUT" name="task_PUT"></a>
+						<h3 class="subsubtitle task-title">PUT</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/doPut:withParams:success:failure:">+&nbsp;doPut:withParams:success:failure:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="DELETE" name="task_DELETE"></a>
+						<h3 class="subsubtitle task-title">DELETE</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/doDelete:success:failure:">+&nbsp;doDelete:success:failure:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/doDelete:success:failure:" title="doDelete:success:failure:"></a>
+	<h3 class="subsubtitle method-title">doDelete:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Performs a DELETE request at the given url and executes the CatalyzeHTTPResponseBlock
+upon completion of the request whether it succeeded or failed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)doDelete:(id)<em>urlString</em> success:(id)<em>success</em> failure:(id)<em>failure</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>urlString</em></dt>
+			<dd><p>the url to direct the request to</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>success</em></dt>
+			<dd><p>the completion block to be executed upon the request&rsquo;s successful completion</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failure</em></dt>
+			<dd><p>the completion block to be executed if the request fails</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CatalyzeHTTPManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/doGet:success:failure:" title="doGet:success:failure:"></a>
+	<h3 class="subsubtitle method-title">doGet:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Performs a GET request at the given url and executes the CatalyzeHTTPResponseBlock
+upon completion of the request whether it succeeded or failed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)doGet:(id)<em>urlString</em> success:(id)<em>success</em> failure:(id)<em>failure</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>urlString</em></dt>
+			<dd><p>the url to direct the request to</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>success</em></dt>
+			<dd><p>the completion block to be executed upon the request&rsquo;s successful completion</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failure</em></dt>
+			<dd><p>the completion block to be executed if the request fails</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CatalyzeHTTPManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/doPost:withParams:success:failure:" title="doPost:withParams:success:failure:"></a>
+	<h3 class="subsubtitle method-title">doPost:withParams:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Performs a POST request at the given url with the given parameters and executes
+the CatalyzeHTTPResponseBlock upon completion of the request whether it succeeded
+or failed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)doPost:(id)<em>urlString</em> withParams:(id)<em>params</em> success:(id)<em>success</em> failure:(id)<em>failure</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>urlString</em></dt>
+			<dd><p>the url to direct the request to</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>params</em></dt>
+			<dd><p>the key value pairs to be sent to the specified url</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>success</em></dt>
+			<dd><p>the completion block to be executed upon the request&rsquo;s successful completion</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failure</em></dt>
+			<dd><p>the completion block to be executed if the request fails</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CatalyzeHTTPManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/doPut:withParams:success:failure:" title="doPut:withParams:success:failure:"></a>
+	<h3 class="subsubtitle method-title">doPut:withParams:success:failure:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Performs a PUT request at the given url with the given parameters and executes
+the CatalyzeHTTPResponseBlock upon completion of the request whether it succeeded
+or failed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)doPut:(id)<em>urlString</em> withParams:(id)<em>params</em> success:(id)<em>success</em> failure:(id)<em>failure</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>urlString</em></dt>
+			<dd><p>the url to direct the request to</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>params</em></dt>
+			<dd><p>the key value pairs to be sent to the specified url</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>success</em></dt>
+			<dd><p>the completion block to be executed upon the request&rsquo;s successful completion</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failure</em></dt>
+			<dd><p>the completion block to be executed if the request fails</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CatalyzeHTTPManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+                    
+                    
+                    
+                    
+
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2014 dhganey. All rights reserved. (Last updated: 2014-11-06)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

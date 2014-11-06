@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PCAAppDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PCAAppDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PCAAppDelegate.h</DeclaredIn>
+            
+			
+			<NodeRef refid="27"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAAppDelegate/setDefObj:</TokenIdentifier>
+			<Abstract type="html">The singleton PCADefinitions object used throughout the app to call static functions (e.g. showAlert)</Abstract>
+			<DeclaredIn>PCAAppDelegate.h</DeclaredIn>
+			
+			<Declaration>@property PCADefinitions *defObj</Declaration>
+			
+			
+			<Anchor>//api/name/defObj</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAAppDelegate/defObj</TokenIdentifier>
+			<Abstract type="html">The singleton PCADefinitions object used throughout the app to call static functions (e.g. showAlert)</Abstract>
+			<DeclaredIn>PCAAppDelegate.h</DeclaredIn>
+			
+			<Declaration>@property PCADefinitions *defObj</Declaration>
+			
+			
+			<Anchor>//api/name/defObj</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PCAAppDelegate/defObj</TokenIdentifier>
+			<Abstract type="html">The singleton PCADefinitions object used throughout the app to call static functions (e.g. showAlert)</Abstract>
+			<DeclaredIn>PCAAppDelegate.h</DeclaredIn>
+			
+			<Declaration>@property PCADefinitions *defObj</Declaration>
+			
+			
+			<Anchor>//api/name/defObj</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/AFURLRequestSerialization.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/AFURLRequestSerialization</TokenIdentifier>
+			<Abstract type="html">The AFURLRequestSerialization protocol is adopted by an object that encodes parameters for a specified HTTP requests. Request serializers may encode parameters as query strings, HTTP bodies, setting the appropriate HTTP header fields as necessary.</Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+            
+			
+			<NodeRef refid="35"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AFURLRequestSerialization/requestBySerializingRequest:withParameters:error:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AFURLRequestSerialization.h</DeclaredIn>
+			
+			<Declaration>- (NSURLRequest *)requestBySerializingRequest:(id)request withParameters:(id)parameters error:(id)error</Declaration>
+			
+			
+			<Anchor>//api/name/requestBySerializingRequest:withParameters:error:</Anchor>
+            <NodeRef refid="35"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

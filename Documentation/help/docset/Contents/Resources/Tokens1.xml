@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AFCompoundResponseSerializer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AFCompoundResponseSerializer</TokenIdentifier>
+			<Abstract type="html">AFCompoundSerializer is a subclass of AFHTTPResponseSerializer that delegates the response serialization to the first AFHTTPResponseSerializer object that returns an object for responseObjectForResponse:data:error:, falling back on the default behavior of AFHTTPResponseSerializer. This is useful for supporting multiple potential types and structures of server responses with a single serializer.</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFCompoundResponseSerializer/setResponseSerializers:</TokenIdentifier>
+			<Abstract type="html">The component response serializers.</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, nonatomic, copy) NSArray *responseSerializers</Declaration>
+			
+			
+			<Anchor>//api/name/responseSerializers</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFCompoundResponseSerializer/responseSerializers</TokenIdentifier>
+			<Abstract type="html">The component response serializers.</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, nonatomic, copy) NSArray *responseSerializers</Declaration>
+			
+			
+			<Anchor>//api/name/responseSerializers</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AFCompoundResponseSerializer/responseSerializers</TokenIdentifier>
+			<Abstract type="html">The component response serializers.</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, nonatomic, copy) NSArray *responseSerializers</Declaration>
+			
+			
+			<Anchor>//api/name/responseSerializers</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AFCompoundResponseSerializer/compoundSerializerWithResponseSerializers:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a compound serializer comprised of the specified response serializers.</Abstract>
+			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)compoundSerializerWithResponseSerializers:(id)responseSerializers</Declaration>
+			
+			
+			<Anchor>//api/name/compoundSerializerWithResponseSerializers:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

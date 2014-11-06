@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AFOperationState.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AFOperationState</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AFURLConnectionOperation.m</DeclaredIn>
+            
+			
+			<NodeRef refid="41"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AFOperationPausedState</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AFOperationPausedState</Declaration>
+            
+            <DeclaredIn>AFURLConnectionOperation.m</DeclaredIn>
+            
+            <NodeRef refid="41"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AFOperationReadyState</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AFOperationReadyState</Declaration>
+            
+            <DeclaredIn>AFURLConnectionOperation.m</DeclaredIn>
+            
+            <NodeRef refid="41"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AFOperationExecutingState</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AFOperationExecutingState</Declaration>
+            
+            <DeclaredIn>AFURLConnectionOperation.m</DeclaredIn>
+            
+            <NodeRef refid="41"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AFOperationFinishedState</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AFOperationFinishedState</Declaration>
+            
+            <DeclaredIn>AFURLConnectionOperation.m</DeclaredIn>
+            
+            <NodeRef refid="41"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>
