@@ -27,6 +27,9 @@
     return self;
 }
 
+/**
+ When the view loads, execute the query
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -41,7 +44,13 @@
     [self executeQuery];
 }
 
-//TODO -- this is a terrible algorithm and it must be revised
+/**
+ Executes the Catalyze query on esasEntry classes
+ If the user is in the doctor's ACL, this will return values
+ It then filters to the most recent for each unique ID and saves them to an instance var
+ TODO should also filter to patients assigned to this particular doctor id?
+ @return void
+ */
 -(void) executeQuery
 {
     CatalyzeQuery* query = [CatalyzeQuery queryWithClassName:@"esasEntry"];
@@ -85,6 +94,11 @@
      }];
 }
 
+/**
+ Computes the number of urgent entries in the given entry
+ @param entry Full CatalyzeEntry (not just the urgents dictionary!)
+ @return urgentSum int representing how many symptoms are urgent
+ */
 -(int) urgentSum: (CatalyzeEntry*)entry
 {
     NSArray* urgents = [(NSDictionary*)[entry.content valueForKey:@"urgent"] allValues];
@@ -104,8 +118,8 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

@@ -20,15 +20,19 @@
     
     self.title = self.selectedEntry.authorId;
     
-    [self updateLabel];
+    [self updateInformationArea];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
--(void) updateLabel
+/**
+ Updates the information text area with the user's urgent symptoms and the values entered
+ @return void
+ */
+-(void) updateInformationArea
 {
     NSString* labelText = @"";
     NSDictionary* urgentEntries = [self.selectedEntry.content objectForKey:@"urgent"];
@@ -53,15 +57,5 @@
     
     self.informationView.text = labelText;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
