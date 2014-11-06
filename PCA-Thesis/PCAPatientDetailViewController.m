@@ -14,9 +14,10 @@
 
 @implementation PCAPatientDetailViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.navigationController.title = self.selectedEntry.authorId;
 }
 
 - (void)didReceiveMemoryWarning {

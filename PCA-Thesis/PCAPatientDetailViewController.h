@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Catalyze.h"
+
 @interface PCAPatientDetailViewController : UIViewController
+
+@property CatalyzeEntry* selectedEntry;
 
 @end

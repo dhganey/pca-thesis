@@ -19,4 +19,6 @@
  */
 @property PCAAppDelegate* appDel;
 
+@property CatalyzeEntry* selectedEntry;
+
 @end

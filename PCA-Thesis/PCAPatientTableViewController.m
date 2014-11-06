@@ -10,6 +10,7 @@
 
 #import "PCADefinitions.h"
 #import "Catalyze.h"
+#import "PCAPatientDetailViewController.h"
 
 @interface PCAPatientTableViewController ()
 
@@ -30,11 +31,9 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = YES;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     //Set up app delegate object for use of shared functions
     self.appDel = [[UIApplication sharedApplication] delegate];
@@ -108,8 +107,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1; //one section for now
@@ -148,7 +145,8 @@
  */
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //TODO: transfer the specific patient information to the patientdetailviewcontroller
+    self.selectedEntry = [self.recentEntries objectAtIndex:indexPath.row]; //preserve the entry for the segue
+    [self performSegueWithIdentifier:@"patientDetailSegue" sender:self];
 }
 
 /*
@@ -189,15 +187,12 @@
 }
 */
 
-/*
-#pragma mark - Navigation
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    PCAPatientDetailViewController* nextVC = [segue destinationViewController];
+    nextVC.selectedEntry = self.selectedEntry;
 }
-*/
+
 
 @end
