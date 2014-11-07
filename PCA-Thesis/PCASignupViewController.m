@@ -34,8 +34,6 @@
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     tapGesture.cancelsTouchesInView = NO;
-    [self.scrollView addGestureRecognizer:tapGesture];
-    self.scrollView.userInteractionEnabled = YES;
     
     self.appDel = [[UIApplication sharedApplication] delegate]; //get the singleton app delegate
 }
