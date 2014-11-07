@@ -141,6 +141,15 @@
                                     <segment title="Other"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nx7-46-aed">
+                                <rect key="frame" x="107" y="450" width="107" height="30"/>
+                                <state key="normal" title="Create Account">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signupPressed:" destination="jua-0m-3P0" eventType="touchUpInside" id="vuz-rs-MX7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -150,6 +159,8 @@
                             <constraint firstItem="TnS-hW-MA4" firstAttribute="top" secondItem="gTS-FZ-sTt" secondAttribute="bottom" constant="8" id="5GS-yp-3Z6"/>
                             <constraint firstItem="nWA-ME-5GD" firstAttribute="top" secondItem="fVg-cp-Y0N" secondAttribute="bottom" constant="8" id="6GO-pM-Jjm"/>
                             <constraint firstItem="hpq-lP-GI6" firstAttribute="leading" secondItem="tBa-5d-DxR" secondAttribute="leadingMargin" constant="49" id="BOs-qL-mrA"/>
+                            <constraint firstItem="Nx7-46-aed" firstAttribute="leading" secondItem="tBa-5d-DxR" secondAttribute="leadingMargin" constant="91" id="CbU-OM-1UB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Nx7-46-aed" secondAttribute="trailing" constant="90" id="FUe-Je-oiw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fwd-Yr-XB3" secondAttribute="trailing" constant="48" id="GEp-M9-iCJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6M9-5r-PIi" secondAttribute="trailing" constant="48" id="GsK-lo-QSS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TSt-ox-9PQ" secondAttribute="trailing" constant="48" id="H0s-9Z-PAm"/>
@@ -173,22 +184,11 @@
                             <constraint firstItem="TSt-ox-9PQ" firstAttribute="leading" secondItem="tBa-5d-DxR" secondAttribute="leadingMargin" constant="49" id="s5o-Zu-56g"/>
                             <constraint firstItem="6M9-5r-PIi" firstAttribute="top" secondItem="nWA-ME-5GD" secondAttribute="bottom" constant="8" id="w1g-0t-zOG"/>
                             <constraint firstItem="tJN-7p-bWD" firstAttribute="top" secondItem="hpq-lP-GI6" secondAttribute="bottom" constant="8" id="wYb-lY-wkj"/>
+                            <constraint firstItem="Nx7-46-aed" firstAttribute="top" secondItem="Fwd-Yr-XB3" secondAttribute="bottom" constant="8" id="yGP-Su-zvR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gTS-FZ-sTt" secondAttribute="trailing" constant="48" id="yWR-j2-YJa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="0gg-Fp-mv4">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="isg-Nk-mMH">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3lb-VP-3kW">
-                                <rect key="frame" x="107" y="359" width="107" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create Account">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="signupPressed:" destination="jua-0m-3P0" eventType="touchUpInside" id="Ks7-eq-iDM"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="Qyi-32-ltk">
                             <connections>
                                 <action selector="cancelPressed:" destination="jua-0m-3P0" id="xka-DT-kEB"/>
@@ -446,6 +446,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tU4-tv-TKV"/>
+        <segue reference="XOk-Hz-NLX"/>
     </inferredMetricsTieBreakers>
 </document>

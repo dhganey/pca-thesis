@@ -13,11 +13,6 @@
 @interface PCASignupViewController : UIViewController
 
 /**
- The scroll view for the signup VC
- */
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
-/**
  UITextField for the user's first name
  */
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
