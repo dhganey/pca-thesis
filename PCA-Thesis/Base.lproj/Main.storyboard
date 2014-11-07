@@ -250,7 +250,13 @@
                             <outlet property="delegate" destination="GHG-32-9b8" id="Ags-KH-MEx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Doctor View" id="PHf-6k-MmA"/>
+                    <navigationItem key="navigationItem" title="Doctor View" id="PHf-6k-MmA">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="FeH-dN-WXE">
+                            <connections>
+                                <action selector="logoutPressed:" destination="GHG-32-9b8" id="upJ-nc-gAc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="huc-xW-noy" kind="push" identifier="patientDetailSegue" id="1Jk-fe-QVn"/>
                     </connections>

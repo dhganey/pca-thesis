@@ -208,5 +208,24 @@
     nextVC.selectedEntry = self.selectedEntry;
 }
 
+/**
+ Called when the user presses the logout button. Sends the user back to the login screen and disengages Catalyze
+ @param sender id of the pressed button
+ @return IBAction
+ */
+- (IBAction)logoutPressed:(id)sender
+{
+    [[CatalyzeUser currentUser] logoutWithSuccess:^(id result)
+     {
+         [self dismissViewControllerAnimated:YES completion:nil];
+     }
+                                          failure:^(NSDictionary *result, int status, NSError *error)
+     {
+         NSLog(@"Error while logging out");
+         [self.appDel.defObj showAlert:LOGOUT_ERROR];
+     }];
+}
+
+
 
 @end
