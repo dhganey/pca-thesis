@@ -42,10 +42,12 @@
         NSNumber* curVal = [urgentEntries valueForKey:key];
         if ([curVal intValue] > 0) //if urgent symptom
         {
+            NSNumber* enteredVal = [self.selectedEntry.content objectForKey:key];
+            
             labelText = [labelText stringByAppendingString:@"User's "];
             labelText = [labelText stringByAppendingString:key];
             labelText = [labelText stringByAppendingString:@" is urgent; user entered "];
-            labelText = [labelText stringByAppendingString:[NSString stringWithFormat:@"%@", [self.selectedEntry.content objectForKey:key]]];
+            labelText = [labelText stringByAppendingString:[NSString stringWithFormat:@"%.2f", [enteredVal doubleValue]]];
             labelText = [labelText stringByAppendingString:@"\n"];
         }
     }
