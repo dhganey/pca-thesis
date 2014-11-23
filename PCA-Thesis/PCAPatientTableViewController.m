@@ -85,13 +85,27 @@
             }
         }];
         //at this point, we should have the most recent entry for each user
-        self.recentEntries = [checkedIDs allValues];
+        //self.recentEntries = [checkedIDs allValues];
+        [self filterValuesToProvider:checkedIDs];
         [self.tableView reloadData];
     }
     failure:^(NSDictionary *result, int status, NSError *error)
      {
          //TODO handle this failure case
      }];
+}
+
+-(void) filterValuesToProvider: (NSDictionary*) dictionary
+{
+    NSMutableArray* finalArr = [[NSMutableArray alloc] init];
+    NSArray* input = [dictionary allValues];
+    
+    CatalyzeQuery* query = [CatalyzeQuery queryWithClassName:@"users"];
+    [query setPageNumber:1];
+    [query setPageSize:100];
+    
+    //todo--need to match these classes with their users
+    //need a way to query users to get providers id
 }
 
 /**

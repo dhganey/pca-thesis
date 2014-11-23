@@ -392,6 +392,7 @@ int FONT_SIZE = 15;
     
     //prepare the slider
     UISlider *inputSlider = [[UISlider alloc] initWithFrame:CGRectMake(X_OFFSET, INPUT_Y_OFFSET, CGRectGetWidth(self.view.bounds)-2*X_OFFSET, HEIGHT)];
+    [inputSlider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:(UIControlEventTouchDragInside)];
     [inputSlider setMinimumValue:0];
     [inputSlider setMaximumValue:10];
     [self.view addSubview:inputSlider];
@@ -404,6 +405,10 @@ int FONT_SIZE = 15;
     [self prepareSubmitButton:SLIDER];
 }
 
+-(IBAction)sliderValueChanged:(id)sender
+{
+    NSLog(@"%f", sliderRef.value);
+}
 
 /**
  Target selector method to submit data when submit pressed
