@@ -534,7 +534,15 @@ int FONT_SIZE = 15;
     //first, update the esasDictionary to add an array of urgent symptoms
     [self checkUrgentSymptoms];
     
+    //then, add the doctors who are permitted to view this entry
+    //this is easier for the doctor's view than for doctors to query all users
+    //TODO: update this to pull an array from the users. right now, they all have
+    //one providerId as an extra, make it an array later
+    NSString* doctor = [[CatalyzeUser currentUser] extraForKey:@"providerId"];
+    
     CatalyzeEntry* newEsasEntry = [CatalyzeEntry entryWithClassName:@"esasEntry" dictionary:self.esasDictionary];
+    [newEsasEntry.content setValue:doctor forKey:@"doctor"]; //TODO update to use array
+    
     [newEsasEntry createInBackgroundWithSuccess:^(id result)
     {
         //all done, move on
