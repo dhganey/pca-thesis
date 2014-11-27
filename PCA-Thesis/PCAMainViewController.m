@@ -788,19 +788,19 @@ int FONT_SIZE = 15;
         //else, leave it--doesn’t matter
     }
     
-    //TODO this is just for debugging
-//    [self.appDel.defObj showAlertWithText:[NSString stringWithFormat:@"Last pain score was %@", [mostRecent.content valueForKey:@"pain"]]];
-    //TODO this too
-    NSString* text;
-    if ([[CatalyzeUser currentUser].type isEqualToString:@"doctor"])
-    {
-        text = @"This user is a doctor";
-    }
-    else
-    {
-        text = @"This user is a patient";
-    }
-    [self.appDel.defObj showAlertWithText:text];
+//    //TODO this is just for debugging
+////    [self.appDel.defObj showAlertWithText:[NSString stringWithFormat:@"Last pain score was %@", [mostRecent.content valueForKey:@"pain"]]];
+//    //TODO this too
+//    NSString* text;
+//    if ([[CatalyzeUser currentUser].type isEqualToString:@"doctor"])
+//    {
+//        text = @"This user is a doctor";
+//    }
+//    else
+//    {
+//        text = @"This user is a patient";
+//    }
+//    [self.appDel.defObj showAlertWithText:text];
 
     return mostRecent;
 }

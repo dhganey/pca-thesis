@@ -127,6 +127,8 @@
             
             [[CatalyzeUser currentUser] saveInBackground];
             
+            [self prepareUserTranslationClass];
+            
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         failure:^(NSDictionary *result, int status, NSError *error) //callback if signup fails
@@ -146,6 +148,19 @@
     {
         [self.appDel.defObj showAlert:INVALID_INPUT];
     }
+}
+
+/**
+ Prepares a custom class which is used by the doctor app to translate between user Id strings and full names
+ */
+-(void) prepareUserTranslationClass
+{
+    CatalyzeEntry* newTranslationClass = [CatalyzeEntry entryWithClassName:@"userTranslation"];
+    [newTranslationClass.content setValue:[[CatalyzeUser currentUser] usersId] forKey:@"userId"];
+    [newTranslationClass.content setValue:[CatalyzeUser currentUser].name.firstName forKey:@"firstName"];
+    [newTranslationClass.content setValue:[CatalyzeUser currentUser].name.lastName forKey:@"lastName"];
+
+    [newTranslationClass createInBackground];
 }
 
 /**

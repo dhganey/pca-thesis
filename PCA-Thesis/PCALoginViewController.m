@@ -92,7 +92,7 @@
  @return void
  */
 -(void) completeLoginSegue
-{
+{    
     if ([[CatalyzeUser currentUser].type isEqualToString:@"patient"])
     {
         [self performSegueWithIdentifier:@"doneLoggingInPatientSegue" sender:self];
@@ -104,7 +104,6 @@
     else
     {
         NSLog(@"current user type not set");
-        //TODO: adjust this, currently just segueing as a patient by default
         [self performSegueWithIdentifier:@"doneLoggingInPatientSegue" sender:self];
     }
 }
