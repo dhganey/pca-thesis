@@ -15,4 +15,7 @@
 @property CatalyzeEntry* selectedEntry;
 
 @property (weak, nonatomic) IBOutlet UITextView *informationView;
+
+@property NSDictionary* userTranslation;
+
 @end

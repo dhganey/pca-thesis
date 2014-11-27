@@ -18,7 +18,7 @@
 {
     [super viewDidLoad];
     
-    self.title = self.selectedEntry.authorId;
+    self.title = [self.userTranslation valueForKey:self.selectedEntry.authorId];
     
     [self updateInformationArea];
 }

@@ -252,6 +252,7 @@
 {
     PCAPatientDetailViewController* nextVC = [segue destinationViewController];
     nextVC.selectedEntry = self.selectedEntry;
+    nextVC.userTranslation = self.userTranslation;
 }
 
 /**
