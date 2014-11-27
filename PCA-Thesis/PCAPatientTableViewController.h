@@ -21,4 +21,6 @@
 
 @property CatalyzeEntry* selectedEntry;
 
+@property NSDictionary* userTranslation;
+
 @end

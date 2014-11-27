@@ -41,7 +41,36 @@
     //Set up app delegate object for use of shared functions
     self.appDel = [[UIApplication sharedApplication] delegate];
     
+    [self queryUserTranslations];
     [self executeQuery];
+}
+
+/**
+ Runs a CatalyzeQuery to get "translations" for the user's names and IDs
+ */
+-(void) queryUserTranslations
+{
+    CatalyzeQuery* query = [CatalyzeQuery queryWithClassName:@"userTranslation"];
+    [query setPageNumber:1];
+    [query setPageSize:100];
+    
+    NSMutableDictionary* finalResult = [[NSMutableDictionary alloc] init];
+    
+    [query retrieveAllEntriesInBackgroundWithSuccess:^(NSArray *result)
+    {
+        for (CatalyzeEntry* entry in result)
+        {
+            NSString* fullName = [entry.content valueForKey:@"firstName"];
+            fullName = [fullName stringByAppendingString:@" "];
+            fullName = [fullName stringByAppendingString:[entry.content valueForKey:@"lastName"]];
+            [finalResult setValue:fullName forKey:[entry.content valueForKey:@"userId"]];
+            
+            self.userTranslation = finalResult;
+        }
+    } failure:^(NSDictionary *result, int status, NSError *error)
+    {
+        NSLog(@"query fail");
+    }];
 }
 
 /**
@@ -59,7 +88,6 @@
     
     NSMutableDictionary* checkedIDs = [[NSMutableDictionary alloc] init]; //hashtable holding IDs we've already checked
     
-    //TODO--should also be filtering to just the doctor's patients? right now, he sees all esasEntries
     [query retrieveAllEntriesInBackgroundWithSuccess:^(NSArray *result)
     {
         [result enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
@@ -155,7 +183,8 @@
     CatalyzeEntry* entry = [self.recentEntries objectAtIndex:indexPath.row];
     
     UILabel* cellLabel = (UILabel*)[cell viewWithTag:111];
-    cellLabel.text = entry.authorId; //TODO -- how to get usernames?
+    //cellLabel.text = entry.authorId; //TODO -- how to get usernames?
+    cellLabel.text = [self.userTranslation valueForKey:entry.authorId];
     
     UILabel* urgentLabel = (UILabel*)[cell viewWithTag:222];
     NSString* labelText = [NSString stringWithFormat:@"#Urgent: %d", [self urgentSum:entry]];
