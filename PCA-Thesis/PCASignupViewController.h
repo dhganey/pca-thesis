@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "PCAAppDelegate.h"
+#import "TPKeyboardAvoidingScrollView.h"
 
 @interface PCASignupViewController : UIViewController
 
