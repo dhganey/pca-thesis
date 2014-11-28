@@ -58,28 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PCA-Thesis/PCAPatientTableViewController.m"
-            timestampString = "438822271.667443"
+            timestampString = "438850387.345669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "-executeQuery"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PCA-Thesis/PCAPatientTableViewController.m"
-            timestampString = "438822271.667443"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "-filterRecentValuesToProvider"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "-sortRecentEntriesByUrgency"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

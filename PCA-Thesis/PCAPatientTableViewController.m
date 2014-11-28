@@ -112,9 +112,13 @@
                 [checkedIDs setObject:mostRecent forKey:mostRecent.authorId];
             }
         }];
+        
         //at this point, we should have the most recent entry for each user
+        //prep them for use in the table view
         self.recentEntries = [checkedIDs allValues];
         [self filterRecentValuesToProvider];
+        [self sortRecentEntriesByUrgency];
+        
         [self.tableView reloadData];
     }
     failure:^(NSDictionary *result, int status, NSError *error)
@@ -123,6 +127,10 @@
      }];
 }
 
+/**
+ Removes recent values from the class variable unless their provider
+ id matches the current user's id
+ */
 -(void) filterRecentValuesToProvider
 {
     NSMutableArray* newArray = [[NSMutableArray alloc] init];
@@ -137,6 +145,60 @@
     }
     
     self.recentEntries = newArray;
+}
+
+/**
+ Reorganizes the recent values in the class variable according to number of
+ urgent symptoms
+ */
+-(void) sortRecentEntriesByUrgency
+{
+    NSArray* sortedArray = [self.recentEntries sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2)
+    {
+        CatalyzeEntry* entry1 = (CatalyzeEntry*) obj1;
+        CatalyzeEntry* entry2 = (CatalyzeEntry*) obj2;
+        
+        NSDictionary* urgent1 = [entry1.content valueForKey:@"urgent"];
+        NSDictionary* urgent2 = [entry2.content valueForKey:@"urgent"];
+        
+        int numUrgent1 = [self countUrgentSymptoms:urgent1];
+        int numUrgent2 = [self countUrgentSymptoms:urgent2];
+        
+        if (numUrgent1 == numUrgent2)
+        {
+            return NSOrderedSame;
+        }
+        else if (numUrgent1 > numUrgent2)
+        {
+            return NSOrderedAscending;
+        }
+        else
+        {
+            return NSOrderedDescending;
+        }
+    }];
+    
+    self.recentEntries = sortedArray;
+}
+
+/**
+ Counts the number of urgent symptoms in a dictionary. Essentially counts the number of 1's
+ @param dict NSMutableDictionary* dictionary to count
+ @return int
+ */
+-(int) countUrgentSymptoms:(NSDictionary*) dict
+{
+    int count = 0;
+    
+    for (NSString* key in dict)
+    {
+        if ([[dict valueForKey:key] isEqualToNumber:[NSNumber numberWithInt:1]])
+        {
+            count++;
+        }
+    }
+    
+    return count;
 }
 
 /**

@@ -701,26 +701,6 @@ int FONT_SIZE = 15;
 }
 
 /**
- Counts the number of urgent symptoms in a dictionary. Essentially counts the number of 1's
- @param dict NSMutableDictionary* dictionary to count
- @return int
- */
--(int) countUrgentSymptoms:(NSMutableDictionary*) dict
-{
-    int count = 0;
-    
-    for (NSString* key in dict)
-    {
-        if ([dict valueForKey:key] == [NSNumber numberWithInt:1])
-        {
-            count++;
-        }
-    }
-    
-    return count;
-}
-
-/**
  Prepares the previousDictionary member variable using the most recent entry on Catalyze
  @return void
  */
