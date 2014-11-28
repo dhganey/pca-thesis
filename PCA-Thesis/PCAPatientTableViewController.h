@@ -23,4 +23,7 @@
 
 @property NSDictionary* userTranslation;
 
+-(void) executeQuery;
+-(void) queryUserTranslations;
+
 @end

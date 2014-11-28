@@ -12,6 +12,7 @@
 #import "Catalyze.h"
 
 #import "PCADefinitions.h"
+#import "PCAPatientTableViewController.h"
 
 @interface PCALoginViewController ()
 
@@ -105,6 +106,24 @@
     {
         NSLog(@"current user type not set");
         [self performSegueWithIdentifier:@"doneLoggingInPatientSegue" sender:self];
+    }
+}
+
+/**
+ Called before executing a segue. Determines whether to execute doctor query early
+ @param segue to be executed
+ @param sender id of sender
+ @return void
+ */
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    UINavigationController* destinationNC = segue.destinationViewController;
+    UIViewController* nextVC = [[destinationNC viewControllers] objectAtIndex:0];
+    if ([nextVC isKindOfClass:[PCAPatientTableViewController class]])
+    {
+        PCAPatientTableViewController* realNextVC = [[destinationNC viewControllers] objectAtIndex:0];
+        [realNextVC queryUserTranslations];
+        [realNextVC executeQuery];
     }
 }
 

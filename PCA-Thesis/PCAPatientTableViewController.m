@@ -40,9 +40,6 @@
     
     //Set up app delegate object for use of shared functions
     self.appDel = [[UIApplication sharedApplication] delegate];
-    
-    [self queryUserTranslations];
-    [self executeQuery];
 }
 
 /**
