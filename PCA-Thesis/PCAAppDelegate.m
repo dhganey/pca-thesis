@@ -25,6 +25,10 @@
     //change status bar to dark
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:RED/BASE green:GREEN/BASE blue:BLUE/BASE alpha:ALPHA]];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
     return YES;
 }
 							

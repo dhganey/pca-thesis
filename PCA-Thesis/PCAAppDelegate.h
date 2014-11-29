@@ -20,4 +20,13 @@
  */
 @property PCADefinitions* defObj;
 
+/**
+ Define some colors for navigation bar customization
+ */
+#define RED 10.0f
+#define GREEN 4.0f
+#define BLUE 199.0f
+#define BASE 255.0f
+#define ALPHA 1.0f
+
 @end
