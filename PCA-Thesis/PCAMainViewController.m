@@ -51,7 +51,7 @@ int FONT_SIZE = 15;
 {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor clearColor]];
+    //[self.view setBackgroundColor:[UIColor clearColor]];
     
     self.doneType = NOT_SET;
     

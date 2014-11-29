@@ -32,7 +32,7 @@
 {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor clearColor]];
+    //[self.view setBackgroundColor:[UIColor clearColor]];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     tapGesture.cancelsTouchesInView = NO;

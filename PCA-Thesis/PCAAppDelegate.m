@@ -35,10 +35,10 @@
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     //prepare background image
-    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wallpaper-1-white-blue.jpg"]];
-    imageView.frame = _window.frame;
-    [_window addSubview:imageView];
-    [imageView.superview sendSubviewToBack:imageView];
+//    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wallpaper-1-white-blue.jpg"]];
+//    imageView.frame = _window.frame;
+//    [_window addSubview:imageView];
+//    [imageView.superview sendSubviewToBack:imageView];
     
     return YES;
 }

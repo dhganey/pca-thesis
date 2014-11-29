@@ -26,7 +26,7 @@
 {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor clearColor]];
+    //[self.view setBackgroundColor:[UIColor clearColor]];
     
     if ([CatalyzeUser currentUser]) //if someone is logged in
     {

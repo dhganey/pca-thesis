@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor clearColor]];
+    //[self.view setBackgroundColor:[UIColor clearColor]];
 
     if (self.doneType == NO_NEED)
     {
