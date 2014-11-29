@@ -22,6 +22,9 @@
     
     //[Catalyze setLoggingLevel:kLoggingLevelDebug]; //TODO for debug
     
+    //change status bar to dark
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     return YES;
 }
 							
