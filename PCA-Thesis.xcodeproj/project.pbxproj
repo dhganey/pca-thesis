@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		6303ED071A2A3C4700C3F2F7 /* wallpaper-1-white-blue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6303ED061A2A3C4700C3F2F7 /* wallpaper-1-white-blue.jpg */; };
+		6303ED0F1A2A3DA100C3F2F7 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6303ED0E1A2A3DA100C3F2F7 /* test.jpg */; };
 		63166DFC197C56FB006D78D2 /* PCASignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166DFB197C56FB006D78D2 /* PCASignupViewController.m */; };
 		63166DFF197C719B006D78D2 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166DFE197C719B006D78D2 /* TPKeyboardAvoidingScrollView.m */; };
 		63166E07197C722B006D78D2 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166E02197C722B006D78D2 /* TPKeyboardAvoidingCollectionView.m */; };
@@ -141,6 +143,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6303ED061A2A3C4700C3F2F7 /* wallpaper-1-white-blue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "wallpaper-1-white-blue.jpg"; path = "Images/wallpaper-1-white-blue.jpg"; sourceTree = "<group>"; };
+		6303ED0E1A2A3DA100C3F2F7 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = test.jpg; path = Images/test.jpg; sourceTree = "<group>"; };
 		63166DFA197C56FB006D78D2 /* PCASignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCASignupViewController.h; sourceTree = "<group>"; };
 		63166DFB197C56FB006D78D2 /* PCASignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCASignupViewController.m; sourceTree = "<group>"; };
 		63166DFD197C719B006D78D2 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingScrollView.h; path = TPKeyboardAvoiding/TPKeyboardAvoiding/TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
@@ -353,6 +357,8 @@
 		638610FD1A2A366E00B47B2E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6303ED0E1A2A3DA100C3F2F7 /* test.jpg */,
+				6303ED061A2A3C4700C3F2F7 /* wallpaper-1-white-blue.jpg */,
 				638611001A2A393F00B47B2E /* sliderTick.png */,
 			);
 			name = Images;
@@ -710,7 +716,9 @@
 			files = (
 				63C108CE19DA2CB2005E8C45 /* .gitignore in Resources */,
 				63C108F619DA2CB2005E8C45 /* LICENSE in Resources */,
+				6303ED071A2A3C4700C3F2F7 /* wallpaper-1-white-blue.jpg in Resources */,
 				63B503D518FB43C20017F906 /* Images.xcassets in Resources */,
+				6303ED0F1A2A3DA100C3F2F7 /* test.jpg in Resources */,
 				63B503C718FB43C20017F906 /* InfoPlist.strings in Resources */,
 				63C108F519DA2CB2005E8C45 /* catalyze-ios-sdk.podspec in Resources */,
 				638611011A2A393F00B47B2E /* sliderTick.png in Resources */,

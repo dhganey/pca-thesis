@@ -293,16 +293,17 @@ int FONT_SIZE = 15;
     instructionString = [instructionString stringByAppendingString:@".\n"];
     if (inputType == SLIDER)
     {
-        instructionString = [instructionString stringByAppendingString:@"The mark on the slider shows your last entered value"];
+        instructionString = [instructionString stringByAppendingString:@"The mark on the slider shows your last entered value."];
     }
-
+    
     //Now create the actual label
     UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(X_OFFSET, INSTRUCTION_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
     instructions.lineBreakMode = NSLineBreakByWordWrapping;
-    [instructions setNumberOfLines:3]; //TODO fix this
+    [instructions setNumberOfLines:0]; //this should cause it to auto wrap
     instructions.font = [instructions.font fontWithSize:FONT_SIZE];
     
     [instructions setText:instructionString];
+    [instructions sizeToFit];
     [self.view addSubview:instructions];
 }
 
@@ -433,6 +434,7 @@ int FONT_SIZE = 15;
     UIImageView* bar = [[UIImageView alloc] initWithFrame:newFrame];
     bar.image = [UIImage imageNamed:@"sliderTick.png"];
     [self.view addSubview:bar];
+    [bar.superview sendSubviewToBack:bar];
 }
 
 /**

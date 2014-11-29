@@ -24,6 +24,11 @@
 {
     [super viewDidLoad];
     
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wallpaper-1-white-blue.jpg"]];
+    imageView.frame = self.view.frame;
+    [self.view addSubview:imageView];
+    [imageView.superview sendSubviewToBack:imageView];
+    
     if ([CatalyzeUser currentUser]) //if someone is logged in
     {
         [self performSegueWithIdentifier:@"doneLoggingSegue" sender:self];
