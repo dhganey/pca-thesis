@@ -32,6 +32,7 @@
 		6351121419F4C0F200486293 /* PCASymptomEnterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351121319F4C0F200486293 /* PCASymptomEnterTests.m */; };
 		6351122519F4C27C00486293 /* AsyncXCTestingKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351121919F4C27C00486293 /* AsyncXCTestingKit.m */; };
 		6351122619F4C27C00486293 /* XCTestCase+AsyncTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351121B19F4C27C00486293 /* XCTestCase+AsyncTesting.m */; };
+		638611011A2A393F00B47B2E /* sliderTick.png in Resources */ = {isa = PBXBuildFile; fileRef = 638611001A2A393F00B47B2E /* sliderTick.png */; };
 		63B503BD18FB43C20017F906 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BC18FB43C20017F906 /* Foundation.framework */; };
 		63B503BF18FB43C20017F906 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BE18FB43C20017F906 /* CoreGraphics.framework */; };
 		63B503C118FB43C20017F906 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503C018FB43C20017F906 /* UIKit.framework */; };
@@ -162,6 +163,7 @@
 		6351121A19F4C27C00486293 /* XCTestCase+AsyncTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+AsyncTesting.h"; sourceTree = "<group>"; };
 		6351121B19F4C27C00486293 /* XCTestCase+AsyncTesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+AsyncTesting.m"; sourceTree = "<group>"; };
 		6351121C19F4C27C00486293 /* AsyncXCTestingKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AsyncXCTestingKit.xcodeproj; sourceTree = "<group>"; };
+		638611001A2A393F00B47B2E /* sliderTick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sliderTick.png; path = Images/sliderTick.png; sourceTree = "<group>"; };
 		63905457196BA59900A6848F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		63AA0C3819CC8BA700C05C97 /* readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.markdown; sourceTree = "<group>"; };
 		63B503B918FB43C20017F906 /* PCA-Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PCA-Thesis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -348,9 +350,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		638610FD1A2A366E00B47B2E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				638611001A2A393F00B47B2E /* sliderTick.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		63B503B018FB43C20017F906 = {
 			isa = PBXGroup;
 			children = (
+				638610FD1A2A366E00B47B2E /* Images */,
 				6351121519F4C27C00486293 /* AsyncXCTestingKit */,
 				63C1087719DA2CB2005E8C45 /* catalyze-ios-sdk */,
 				63AA0C3819CC8BA700C05C97 /* readme.markdown */,
@@ -702,6 +713,7 @@
 				63B503D518FB43C20017F906 /* Images.xcassets in Resources */,
 				63B503C718FB43C20017F906 /* InfoPlist.strings in Resources */,
 				63C108F519DA2CB2005E8C45 /* catalyze-ios-sdk.podspec in Resources */,
+				638611011A2A393F00B47B2E /* sliderTick.png in Resources */,
 				63B503D018FB43C20017F906 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

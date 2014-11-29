@@ -74,7 +74,6 @@
  Executes the Catalyze query on esasEntry classes
  If the user is in the doctor's ACL, this will return values
  It then filters to the most recent for each unique ID and saves them to an instance var
- TODO should also filter to patients assigned to this particular doctor id?
  @return void
  */
 -(void) executeQuery

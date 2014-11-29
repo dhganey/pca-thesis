@@ -275,6 +275,7 @@ int FONT_SIZE = 15;
  */
 -(void) prepareInstructionLabel:(INPUT_TYPE) inputType
 {
+    //First, create the string
     NSString* instructionString = @"Please ";
     if (inputType == SLIDER)
     {
@@ -288,12 +289,19 @@ int FONT_SIZE = 15;
     {
         NSLog(@"error in prepareInstructionLabel");
     }
-    
+    instructionString = [instructionString stringByAppendingString:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
+    instructionString = [instructionString stringByAppendingString:@".\n"];
+    if (inputType == SLIDER)
+    {
+        instructionString = [instructionString stringByAppendingString:@"The mark on the slider shows your last entered value"];
+    }
+
+    //Now create the actual label
     UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(X_OFFSET, INSTRUCTION_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
-    instructions.lineBreakMode = NSLineBreakByCharWrapping;
-    [instructions setNumberOfLines:2];
+    instructions.lineBreakMode = NSLineBreakByWordWrapping;
+    [instructions setNumberOfLines:3]; //TODO fix this
     instructions.font = [instructions.font fontWithSize:FONT_SIZE];
-    instructionString = [instructionString stringByAppendingString:[self.appDel.defObj determineSymptomName:self.currentSymptom]]; //clarify symptom
+    
     [instructions setText:instructionString];
     [self.view addSubview:instructions];
 }
@@ -401,6 +409,9 @@ int FONT_SIZE = 15;
     
     //we must set this so we can retrieve value later
     sliderRef = inputSlider;
+    
+    //show the user their last entered score
+    [self showPreviousValueSliderPosition];
 
     [self prepareSubmitButton:SLIDER];
 }
@@ -408,6 +419,20 @@ int FONT_SIZE = 15;
 -(IBAction)sliderValueChanged:(id)sender
 {
     NSLog(@"%f", sliderRef.value);
+}
+
+-(void) showPreviousValueSliderPosition
+{
+    //first, figure out the frame
+    NSNumber* lastVal = [self.mostRecent.content valueForKey:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
+    double percent = [lastVal doubleValue] / 10.0;
+    double xPoint = (sliderRef.frame.size.width) * percent;
+    
+    CGRect newFrame = CGRectMake(xPoint, sliderRef.frame.origin.y + (.5 * sliderRef.frame.size.height), 3, 25); //width and height are hardcoded from image, the subtraction from the frame is used to move the tick into the frame
+    
+    UIImageView* bar = [[UIImageView alloc] initWithFrame:newFrame];
+    bar.image = [UIImage imageNamed:@"sliderTick.png"];
+    [self.view addSubview:bar];
 }
 
 /**
@@ -767,21 +792,6 @@ int FONT_SIZE = 15;
         }
         //else, leave it--doesn’t matter
     }
-    
-//    //TODO this is just for debugging
-////    [self.appDel.defObj showAlertWithText:[NSString stringWithFormat:@"Last pain score was %@", [mostRecent.content valueForKey:@"pain"]]];
-//    //TODO this too
-//    NSString* text;
-//    if ([[CatalyzeUser currentUser].type isEqualToString:@"doctor"])
-//    {
-//        text = @"This user is a doctor";
-//    }
-//    else
-//    {
-//        text = @"This user is a patient";
-//    }
-//    [self.appDel.defObj showAlertWithText:text];
-
     return mostRecent;
 }
 
