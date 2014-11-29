@@ -14,6 +14,10 @@
 #import "PCADefinitions.h"
 #import "PCAPatientTableViewController.h"
 
+#define RED 10.0f
+#define GREEN 4.0f
+#define BLUE 199.0f
+
 @interface PCALoginViewController ()
 
 @end
@@ -30,7 +34,11 @@
     [self.view addSubview:imageView];
     [imageView.superview sendSubviewToBack:imageView];
     
-    [self.navigationController.navigationBar setBarTintColor:[UIColor blueColor]];
+    //set navigation bar color
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:RED/255.0f green:GREEN/255.0f blue:BLUE/255.0f alpha:1.0f]];
+    
+    //make title white
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
     if ([CatalyzeUser currentUser]) //if someone is logged in
     {
