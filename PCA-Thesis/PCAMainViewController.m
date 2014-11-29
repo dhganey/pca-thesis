@@ -51,6 +51,8 @@ int FONT_SIZE = 15;
 {
     [super viewDidLoad];
     
+    [self.view setBackgroundColor:[UIColor clearColor]];
+    
     self.doneType = NOT_SET;
     
     //Set up app delegate object for use of shared functions
@@ -290,7 +292,7 @@ int FONT_SIZE = 15;
         NSLog(@"error in prepareInstructionLabel");
     }
     instructionString = [instructionString stringByAppendingString:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
-    instructionString = [instructionString stringByAppendingString:@".\n"];
+    instructionString = [instructionString stringByAppendingString:@".\n\n"];
     if (inputType == SLIDER)
     {
         instructionString = [instructionString stringByAppendingString:@"The mark on the slider shows your last entered value."];

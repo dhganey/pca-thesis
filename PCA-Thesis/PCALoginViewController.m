@@ -26,12 +26,8 @@
 {
     [super viewDidLoad];
     
-    //prepare background image
-    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wallpaper-1-white-blue.jpg"]];
-    imageView.frame = self.view.frame;
-    [self.view addSubview:imageView];
-    [imageView.superview sendSubviewToBack:imageView];
-            
+    [self.view setBackgroundColor:[UIColor clearColor]];
+    
     if ([CatalyzeUser currentUser]) //if someone is logged in
     {
         [self performSegueWithIdentifier:@"doneLoggingSegue" sender:self];

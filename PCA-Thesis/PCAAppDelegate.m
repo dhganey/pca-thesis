@@ -25,9 +25,20 @@
     //change status bar to dark
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    //set navigation bar color
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:RED/BASE green:GREEN/BASE blue:BLUE/BASE alpha:ALPHA]];
     
+    //make nav title white
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    //make back buttons white
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    //prepare background image
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wallpaper-1-white-blue.jpg"]];
+    imageView.frame = _window.frame;
+    [_window addSubview:imageView];
+    [imageView.superview sendSubviewToBack:imageView];
     
     return YES;
 }
