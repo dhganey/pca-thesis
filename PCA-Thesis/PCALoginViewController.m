@@ -10,11 +10,8 @@
 #import "PCAAppDelegate.h"
 
 #import "Catalyze.h"
-
 #import "PCADefinitions.h"
 #import "PCAPatientTableViewController.h"
-
-
 
 @interface PCALoginViewController ()
 

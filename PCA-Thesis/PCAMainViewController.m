@@ -431,7 +431,7 @@ int FONT_SIZE = 15;
     double percent = [lastVal doubleValue] / 10.0;
     double xPoint = (sliderRef.frame.size.width) * percent;
     
-    CGRect newFrame = CGRectMake(xPoint, sliderRef.frame.origin.y + (.5 * sliderRef.frame.size.height), 3, 25); //width and height are hardcoded from image, the subtraction from the frame is used to move the tick into the frame
+    CGRect newFrame = CGRectMake(sliderRef.frame.origin.x + xPoint, sliderRef.frame.origin.y + (.5 * sliderRef.frame.size.height), 3, 25); //width and height are pixel counts from the image. other values calculated to put mark below slider
     
     UIImageView* bar = [[UIImageView alloc] initWithFrame:newFrame];
     bar.image = [UIImage imageNamed:@"sliderTick.png"];
