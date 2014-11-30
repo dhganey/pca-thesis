@@ -20,11 +20,17 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MHX-2i-itI">
                                 <rect key="frame" x="65" y="111" width="191" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="191" id="n5y-dj-y15"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w1D-c1-CMK">
                                 <rect key="frame" x="65" y="165" width="191" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="191" id="0B0-py-Uha"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
@@ -49,15 +55,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="w1D-c1-CMK" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="49" id="6PB-x7-d2g"/>
                             <constraint firstItem="w1D-c1-CMK" firstAttribute="top" secondItem="MHX-2i-itI" secondAttribute="bottom" constant="24" id="ADa-jN-nRz"/>
                             <constraint firstItem="MHX-2i-itI" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="111" id="BEl-d2-ytc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MHX-2i-itI" secondAttribute="trailing" constant="48" id="GGX-tO-540"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ol4-yA-Fnz" secondAttribute="trailing" constant="116" id="KKU-3y-OaS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="w1D-c1-CMK" secondAttribute="trailing" constant="48" id="WCj-8Y-0Kn"/>
-                            <constraint firstItem="MHX-2i-itI" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="49" id="XE2-L4-yVl"/>
+                            <constraint firstAttribute="centerX" secondItem="w1D-c1-CMK" secondAttribute="centerX" id="X8F-yE-pjH"/>
                             <constraint firstItem="F5Z-c6-4VT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="123" id="Xin-l6-qBC"/>
                             <constraint firstItem="F5Z-c6-4VT" firstAttribute="top" secondItem="w1D-c1-CMK" secondAttribute="bottom" constant="18" id="bho-Ra-JGI"/>
+                            <constraint firstAttribute="centerX" secondItem="MHX-2i-itI" secondAttribute="centerX" id="daX-IV-nba"/>
                             <constraint firstItem="Ol4-yA-Fnz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="117" id="oZ3-8r-Hsz"/>
                             <constraint firstItem="Ol4-yA-Fnz" firstAttribute="top" secondItem="F5Z-c6-4VT" secondAttribute="bottom" constant="44" id="oi6-Ed-MuD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F5Z-c6-4VT" secondAttribute="trailing" constant="122" id="zoq-Gt-JWJ"/>
@@ -129,7 +133,7 @@
                                             <constraint firstAttribute="width" constant="191" id="8W8-l6-zBa"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TSt-ox-9PQ">
                                         <rect key="frame" x="65" y="270" width="191" height="30"/>
@@ -137,7 +141,7 @@
                                             <constraint firstAttribute="width" constant="191" id="axV-EE-FqE"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Patient ID Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hpq-lP-GI6">
                                         <rect key="frame" x="65" y="308" width="191" height="30"/>
@@ -145,7 +149,7 @@
                                             <constraint firstAttribute="width" constant="191" id="4Ou-7o-WCb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tJN-7p-bWD">
                                         <rect key="frame" x="65" y="346" width="191" height="30"/>
@@ -153,7 +157,7 @@
                                             <constraint firstAttribute="width" constant="191" id="TJV-dC-jCS"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fwd-Yr-XB3">
                                         <rect key="frame" x="65" y="384" width="191" height="29"/>
