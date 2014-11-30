@@ -108,9 +108,7 @@
         [fullName setLastName:[self.lastNameField.text capitalizedString]];
         
         [CatalyzeUser signUpWithUsernameInBackground:self.usernameField.text email:userEmail name:fullName password:self.passwordField.text success:^(CatalyzeUser *result)
-        {
-            //Signup successful!
-            
+        {            
             NSLog(@"signed up successfully");
             
             //finish adding data to the user

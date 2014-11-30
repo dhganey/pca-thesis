@@ -204,6 +204,26 @@
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCALoginViewController/prepareForSegue:sender:</TokenIdentifier>
+			<Abstract type="html">Called before executing a segue. Determines whether to execute doctor query early</Abstract>
+			<DeclaredIn>PCALoginViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)prepareForSegue:(id)segue sender:(id)sender</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>segue</Name>
+					<Abstract type="html">to be executed</Abstract>
+				</Parameter><Parameter>
+					<Name>sender</Name>
+					<Abstract type="html">id of sender</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
+			<Anchor>//api/name/prepareForSegue:sender:</Anchor>
+            <NodeRef refid="29"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/PCALoginViewController/validateInput</TokenIdentifier>
 			<Abstract type="html">Ensures that the length of inputted username and password is at least 1</Abstract>
 			<DeclaredIn>PCALoginViewController.m</DeclaredIn>

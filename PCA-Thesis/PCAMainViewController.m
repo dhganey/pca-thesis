@@ -77,6 +77,11 @@ int FONT_SIZE = 15;
     }
 }
 
+/**
+ Starts the symptom cycle
+ @param shouldCheckCycle bool which determines whether to check (don't if new user)
+ @return void
+ */
 -(void)startCycle:(BOOL) shouldCheckCycle
 {
     ALL_DONE_TYPE doneType;
@@ -419,11 +424,17 @@ int FONT_SIZE = 15;
     [self prepareSubmitButton:SLIDER];
 }
 
+/**
+ Basic IBAction used to reflect changing slider values for entering test data
+ */
 -(IBAction)sliderValueChanged:(id)sender
 {
     NSLog(@"%f", sliderRef.value);
 }
 
+/**
+ Method used to create and place image view on slider to show previously entered value
+ */
 -(void) showPreviousValueSliderPosition
 {
     //first, figure out the frame

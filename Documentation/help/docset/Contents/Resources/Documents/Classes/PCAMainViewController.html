@@ -64,8 +64,6 @@
 	
 	<option value="//api/name/checkUrgentSymptoms">&nbsp;&nbsp;&nbsp;&nbsp;- checkUrgentSymptoms</option>
 	
-	<option value="//api/name/countUrgentSymptoms:">&nbsp;&nbsp;&nbsp;&nbsp;- countUrgentSymptoms:</option>
-	
 	<option value="//api/name/didReceiveMemoryWarning">&nbsp;&nbsp;&nbsp;&nbsp;- didReceiveMemoryWarning</option>
 	
 	<option value="//api/name/findMostRecent:">&nbsp;&nbsp;&nbsp;&nbsp;- findMostRecent:</option>
@@ -92,11 +90,17 @@
 	
 	<option value="//api/name/showNextSymptom">&nbsp;&nbsp;&nbsp;&nbsp;- showNextSymptom</option>
 	
+	<option value="//api/name/showPreviousValueSliderPosition">&nbsp;&nbsp;&nbsp;&nbsp;- showPreviousValueSliderPosition</option>
+	
 	<option value="//api/name/showRadioButtonScreen">&nbsp;&nbsp;&nbsp;&nbsp;- showRadioButtonScreen</option>
 	
 	<option value="//api/name/showSliderScreen">&nbsp;&nbsp;&nbsp;&nbsp;- showSliderScreen</option>
 	
 	<option value="//api/name/showSymptomScreen">&nbsp;&nbsp;&nbsp;&nbsp;- showSymptomScreen</option>
+	
+	<option value="//api/name/sliderValueChanged:">&nbsp;&nbsp;&nbsp;&nbsp;- sliderValueChanged:</option>
+	
+	<option value="//api/name/startCycle:">&nbsp;&nbsp;&nbsp;&nbsp;- startCycle:</option>
 	
 	<option value="//api/name/submitPressedRadio:">&nbsp;&nbsp;&nbsp;&nbsp;- submitPressedRadio:</option>
 	
@@ -156,8 +160,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/checkUrgentSymptoms">checkUrgentSymptoms</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/countUrgentSymptoms:">countUrgentSymptoms:</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/didReceiveMemoryWarning">didReceiveMemoryWarning</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/findMostRecent:">findMostRecent:</a></span></li>
@@ -184,11 +186,17 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showNextSymptom">showNextSymptom</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showPreviousValueSliderPosition">showPreviousValueSliderPosition</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showRadioButtonScreen">showRadioButtonScreen</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showSliderScreen">showSliderScreen</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showSymptomScreen">showSymptomScreen</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sliderValueChanged:">sliderValueChanged:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startCycle:">startCycle:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/submitPressedRadio:">submitPressedRadio:</a></span></li>
 	
@@ -316,6 +324,12 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/startCycle:">&ndash;&nbsp;startCycle:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/shouldCycleSymptoms">&ndash;&nbsp;shouldCycleSymptoms</a></code>
 	</span>
 	
@@ -370,6 +384,18 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/sliderValueChanged:">&ndash;&nbsp;sliderValueChanged:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showPreviousValueSliderPosition">&ndash;&nbsp;showPreviousValueSliderPosition</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/submitPressedSlider:">&ndash;&nbsp;submitPressedSlider:</a></code>
 	</span>
 	
@@ -413,12 +439,6 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/checkUrgentSymptoms">&ndash;&nbsp;checkUrgentSymptoms</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/countUrgentSymptoms:">&ndash;&nbsp;countUrgentSymptoms:</a></code>
 	</span>
 	
 	
@@ -836,57 +856,6 @@ Any slider symptom > 2 SD above mean is a 2</p>
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
 		<p>void</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PCAMainViewController.m</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/countUrgentSymptoms:" title="countUrgentSymptoms:"></a>
-	<h3 class="subsubtitle method-title">countUrgentSymptoms:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Counts the number of urgent symptoms in a dictionary. Essentially counts the number of 1&rsquo;s</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (int)countUrgentSymptoms:(id)<em>dict</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>dict</em></dt>
-			<dd><p>NSMutableDictionary* dictionary to count</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>int</p>
 	</div>
 	
 	
@@ -1486,6 +1455,42 @@ Any slider symptom > 2 SD above mean is a 2</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/showPreviousValueSliderPosition" title="showPreviousValueSliderPosition"></a>
+	<h3 class="subsubtitle method-title">showPreviousValueSliderPosition</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Method used to create and place image view on slider to show previously entered value</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)showPreviousValueSliderPosition</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/showRadioButtonScreen" title="showRadioButtonScreen"></a>
 	<h3 class="subsubtitle method-title">showRadioButtonScreen</h3>
 	
@@ -1582,6 +1587,93 @@ Any slider symptom > 2 SD above mean is a 2</p>
 	<div class="method-subsection method-declaration"><code>- (void)showSymptomScreen</code></div>
 
     
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sliderValueChanged:" title="sliderValueChanged:"></a>
+	<h3 class="subsubtitle method-title">sliderValueChanged:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Basic IBAction used to reflect changing slider values for entering test data</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (IBAction)sliderValueChanged:(id)<em>sender</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/startCycle:" title="startCycle:"></a>
+	<h3 class="subsubtitle method-title">startCycle:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Starts the symptom cycle</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)startCycle:(id)<em>shouldCheckCycle</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>shouldCheckCycle</em></dt>
+			<dd><p>bool which determines whether to check (don&rsquo;t if new user)</p></dd>
+		</dl>
+		
+	</div>
 	
 	
 	
@@ -1825,7 +1917,7 @@ Any slider symptom > 2 SD above mean is a 2</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 dhganey. All rights reserved. (Last updated: 2014-11-06)</span><br />
+						<p><span class="copyright">&copy; 2014 dhganey. All rights reserved. (Last updated: 2014-11-29)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

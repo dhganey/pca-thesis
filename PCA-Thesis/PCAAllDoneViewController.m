@@ -45,6 +45,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+/**
+ Gives the user feedback on the symtoms which are urgent
+ Tells the user their symptom is "a little" high when urgency is 1
+ Tells the user their symptom is "very high" when urgency is 2
+ */
 -(void) showUrgentSymptoms
 {
     NSString* feedback = @"";
@@ -89,13 +94,17 @@
     [self.view addSubview:feedLabel];
 }
 
+/**
+ Tells the user if they do not need to currently enter symptoms
+ Used when app skips from login straight to this view controller
+ */
 -(void) showNoNeed
 {
     UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, CGRectGetWidth(self.view.bounds), 500)]; //todo adjust magic nums
     
     [feedLabel setText:@"No need to enter symptoms right now! Please enter symptoms once on Tuesdays, Thursdays, and Saturdays"];
+    feedLabel.numberOfLines = 0;
     [feedLabel sizeToFit];
-    //feedLabel.lineBreakMode = NSLineBreakByCharWrapping; //TODO fix this
     [self.view addSubview:feedLabel];
 }
 

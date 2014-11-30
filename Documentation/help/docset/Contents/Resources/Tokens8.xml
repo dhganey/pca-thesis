@@ -77,18 +77,6 @@
             <NodeRef refid="8"/>
 		</Token>
 		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFJSONRequestSerializer/requestBySerializingRequest:withParameters:error:</TokenIdentifier>
-			<Abstract type="html"></Abstract>
-			<DeclaredIn>AFURLRequestSerialization.m</DeclaredIn>
-			
-			<Declaration>- (NSURLRequest *)requestBySerializingRequest:(id)request withParameters:(id)parameters error:(id)error</Declaration>
-			
-			
-			<Anchor>//api/name/requestBySerializingRequest:withParameters:error:</Anchor>
-            <NodeRef refid="8"/>
-		</Token>
-		
         
         
 	</File>

@@ -404,12 +404,6 @@
                 </Node>
                 
                 
-                <Node type="section">
-                    <Path>Classes/AFJSONRequestSerializer.html</Path>
-                    <Name>Instance Methods</Name>
-                    <Anchor>instance_methods</Anchor>
-                </Node>
-                
             </Subnodes>
             
         </Node>
@@ -442,12 +436,6 @@
                     <Anchor>class_methods</Anchor>
                 </Node>
                 
-                
-                <Node type="section">
-                    <Path>Classes/AFJSONResponseSerializer.html</Path>
-                    <Name>Instance Methods</Name>
-                    <Anchor>instance_methods</Anchor>
-                </Node>
                 
             </Subnodes>
             
@@ -560,12 +548,6 @@
                 </Node>
                 
                 
-                <Node type="section">
-                    <Path>Classes/AFPropertyListRequestSerializer.html</Path>
-                    <Name>Instance Methods</Name>
-                    <Anchor>instance_methods</Anchor>
-                </Node>
-                
             </Subnodes>
             
         </Node>
@@ -598,12 +580,6 @@
                     <Anchor>class_methods</Anchor>
                 </Node>
                 
-                
-                <Node type="section">
-                    <Path>Classes/AFPropertyListResponseSerializer.html</Path>
-                    <Name>Instance Methods</Name>
-                    <Anchor>instance_methods</Anchor>
-                </Node>
                 
             </Subnodes>
             
@@ -776,12 +752,6 @@
                 </Node>
                 
                 
-                <Node type="section">
-                    <Path>Classes/AFXMLDocumentResponseSerializer.html</Path>
-                    <Name>Instance Methods</Name>
-                    <Anchor>instance_methods</Anchor>
-                </Node>
-                
             </Subnodes>
             
         </Node>
@@ -808,12 +778,6 @@
                     <Anchor>class_methods</Anchor>
                 </Node>
                 
-                
-                <Node type="section">
-                    <Path>Classes/AFXMLParserResponseSerializer.html</Path>
-                    <Name>Instance Methods</Name>
-                    <Anchor>instance_methods</Anchor>
-                </Node>
                 
             </Subnodes>
             

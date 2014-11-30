@@ -325,6 +325,23 @@
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAMainViewController/startCycle:</TokenIdentifier>
+			<Abstract type="html">Starts the symptom cycle</Abstract>
+			<DeclaredIn>PCAMainViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)startCycle:(id)shouldCheckCycle</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>shouldCheckCycle</Name>
+					<Abstract type="html">bool which determines whether to check (don&apos;t if new user)</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
+			<Anchor>//api/name/startCycle:</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/PCAMainViewController/shouldCycleSymptoms</TokenIdentifier>
 			<Abstract type="html">Called in viewDidLoad. Returns true if it&apos;s time for the application to show user symptoms to enter.</Abstract>
 			<DeclaredIn>PCAMainViewController.m</DeclaredIn>
@@ -456,6 +473,30 @@
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAMainViewController/sliderValueChanged:</TokenIdentifier>
+			<Abstract type="html">Basic IBAction used to reflect changing slider values for entering test data</Abstract>
+			<DeclaredIn>PCAMainViewController.m</DeclaredIn>
+			
+			<Declaration>- (IBAction)sliderValueChanged:(id)sender</Declaration>
+			
+			
+			<Anchor>//api/name/sliderValueChanged:</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAMainViewController/showPreviousValueSliderPosition</TokenIdentifier>
+			<Abstract type="html">Method used to create and place image view on slider to show previously entered value</Abstract>
+			<DeclaredIn>PCAMainViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)showPreviousValueSliderPosition</Declaration>
+			
+			
+			<Anchor>//api/name/showPreviousValueSliderPosition</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/PCAMainViewController/submitPressedSlider:</TokenIdentifier>
 			<Abstract type="html">Target selector method to submit data when submit pressed</Abstract>
 			<DeclaredIn>PCAMainViewController.m</DeclaredIn>
@@ -574,23 +615,6 @@ Any slider symptom &gt; 2 SD above mean is a 2</Abstract>
 			
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
 			<Anchor>//api/name/checkUrgentSymptoms</Anchor>
-            <NodeRef refid="30"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/PCAMainViewController/countUrgentSymptoms:</TokenIdentifier>
-			<Abstract type="html">Counts the number of urgent symptoms in a dictionary. Essentially counts the number of 1&apos;s</Abstract>
-			<DeclaredIn>PCAMainViewController.m</DeclaredIn>
-			
-			<Declaration>- (int)countUrgentSymptoms:(id)dict</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>dict</Name>
-					<Abstract type="html">NSMutableDictionary* dictionary to count</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">int</Abstract></ReturnValue>
-			<Anchor>//api/name/countUrgentSymptoms:</Anchor>
             <NodeRef refid="30"/>
 		</Token>
 		

@@ -13,42 +13,6 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/PCASignupViewController/setScrollView:</TokenIdentifier>
-			<Abstract type="html">The scroll view for the signup VC</Abstract>
-			<DeclaredIn>PCASignupViewController.h</DeclaredIn>
-			
-			<Declaration>@property (weak, nonatomic) IBOutlet UIScrollView *scrollView</Declaration>
-			
-			
-			<Anchor>//api/name/scrollView</Anchor>
-            <NodeRef refid="33"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/PCASignupViewController/scrollView</TokenIdentifier>
-			<Abstract type="html">The scroll view for the signup VC</Abstract>
-			<DeclaredIn>PCASignupViewController.h</DeclaredIn>
-			
-			<Declaration>@property (weak, nonatomic) IBOutlet UIScrollView *scrollView</Declaration>
-			
-			
-			<Anchor>//api/name/scrollView</Anchor>
-            <NodeRef refid="33"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/PCASignupViewController/scrollView</TokenIdentifier>
-			<Abstract type="html">The scroll view for the signup VC</Abstract>
-			<DeclaredIn>PCASignupViewController.h</DeclaredIn>
-			
-			<Declaration>@property (weak, nonatomic) IBOutlet UIScrollView *scrollView</Declaration>
-			
-			
-			<Anchor>//api/name/scrollView</Anchor>
-            <NodeRef refid="33"/>
-		</Token>
-		
-		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/PCASignupViewController/setFirstNameField:</TokenIdentifier>
 			<Abstract type="html">UITextField for the user&apos;s first name</Abstract>
 			<DeclaredIn>PCASignupViewController.h</DeclaredIn>
@@ -507,6 +471,18 @@
 			
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
 			<Anchor>//api/name/dismissKeyboard</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCASignupViewController/prepareUserTranslationClass</TokenIdentifier>
+			<Abstract type="html">Prepares a custom class which is used by the doctor app to translate between user Id strings and full names</Abstract>
+			<DeclaredIn>PCASignupViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)prepareUserTranslationClass</Declaration>
+			
+			
+			<Anchor>//api/name/prepareUserTranslationClass</Anchor>
             <NodeRef refid="33"/>
 		</Token>
 		
