@@ -44,7 +44,7 @@ int FONT_SIZE = 15;
 }
 
 /**
- Called after the view loads. Does basic checks to grab symptom bitmask and begin cycling through symptom screens
+ Called after the view loads. Does basic checks and begins cycling through symptom screens
  @return void
  */
 - (void)viewDidLoad
@@ -58,11 +58,10 @@ int FONT_SIZE = 15;
     //Set up app delegate object for use of shared functions
     self.appDel = [[UIApplication sharedApplication] delegate];
     
-    //Set up the previous entry dictionary
-    [self queryPreviousDictionary];
-    
-    //Set up the NSArray of previous symptoms for statistical calculations
-    [self queryForStatistics];
+    //Query Catalyze for previous values
+    //This is an asynchronous query but we don't want to start asking the user
+    //for input until it finishes. Therefore, this method starts the input cycle
+    [self executeQuery];
 
     //Set up esasDictionary which will hold inputted symptom data and is saved to a CatalyzeEntry at the end
     self.esasDictionary = [[NSMutableDictionary alloc] init];
@@ -741,38 +740,12 @@ int FONT_SIZE = 15;
 }
 
 /**
- Prepares the previousDictionary member variable using the most recent entry on Catalyze
- @return void
+ Queries the last 60 user entries
+ Stores all 60 for use in statistics later
+ Finds and stores most recent for use showing previous value
+ Begins the symptom UI cycle
  */
--(void) queryPreviousDictionary
-{
-    CatalyzeQuery* dictQuery = [CatalyzeQuery queryWithClassName:@"esasEntry"];
-    [dictQuery setPageNumber:1];
-    [dictQuery setPageSize:100];
-    
-    [dictQuery retrieveInBackgroundForUsersId:[[CatalyzeUser currentUser] usersId] success:^(NSArray *result)
-    {
-        //When the async query finishes, we get here
-        if ([result count] > 0)
-        {
-            self.mostRecent = [self findMostRecent:result];
-            [self startCycle:true];
-        }
-        else //no recent entries--start cycle automatically as this is a new user
-        {
-            [self startCycle:false];
-        }
-    }
-    failure:^(NSDictionary *result, int status, NSError *error)
-    {
-        NSLog(@"query failure in queryPreviousDictionary");
-    }];
-}
-
-/**
- Queries the last 60 user entries and stores the resulting array as a class variable for use later
- */
--(void)queryForStatistics
+-(void) executeQuery
 {
     CatalyzeQuery* query = [CatalyzeQuery queryWithClassName:@"esasEntry"];
     [query setPageNumber:1];
@@ -780,7 +753,16 @@ int FONT_SIZE = 15;
     
     [query retrieveInBackgroundForUsersId:[[CatalyzeUser currentUser] usersId] success:^(NSArray *result)
     {
-        self.last60Entries = result;
+        if ([result count] > 0)
+        {
+            self.last60Entries = result;
+            self.mostRecent = [self findMostRecent:result];
+            [self startCycle:true];
+        }
+        else //no recent entries--start cycle automatically as this is a new user
+        {
+            [self startCycle:false];
+        }
     }
     failure:^(NSDictionary *result, int status, NSError *error)
     {
