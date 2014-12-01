@@ -77,7 +77,7 @@ int FONT_SIZE = 15;
 }
 
 /**
- Starts the symptom cycle
+ Starts the symptom cycle to display UI elements to user
  @param shouldCheckCycle bool which determines whether to check (don't if new user)
  @return void
  */
@@ -91,7 +91,10 @@ int FONT_SIZE = 15;
     }
     else
     {
-        //doneType = [self shouldCycleSymptoms]; //TODO restore this in release version, and test on Tuesdays
+        //doneType = [self shouldCycleSymptoms]; //TODO this is used to check if the user should enter symptoms
+                                                 //initially it was indicated that users should only enter symptoms
+                                                 //on certain days. Currently this is not true--users can enter symptoms
+                                                 //at any time if this line is commented out
         doneType = NOT_DONE;
         if (doneType == NOT_DONE)
         {
@@ -102,13 +105,12 @@ int FONT_SIZE = 15;
             self.doneType = doneType;
             [self performSegueWithIdentifier:@"allDoneSegue" sender:self];
         }
-
     }
 }
 
 /**
- Called in viewDidLoad. Returns true if it's time for the application to show user symptoms to enter.
- @return BOOL
+ Determines if it's time for the application to show user symptoms to enter.
+ @return ALL_DONE_TYPE enum showing whether user is done entering symptoms, does not need to enter, can enter, etc.
  */
 -(ALL_DONE_TYPE) shouldCycleSymptoms
 {
@@ -122,13 +124,12 @@ int FONT_SIZE = 15;
         [todayComps year] == [mostRecentComps year])
     {
         //the most recent entry was created on exactly the same day
-        return NO_NEED; //we've clearly already recorded //TODO restore this
+        return NO_NEED; //we've clearly already recorded
     }
-    //else //the most recent entry was created on a different day
+    else //the most recent entry was created on a different day
     {
         NSDateComponents* todayWeekday = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
         NSDateComponents* recentWeekday = [gregorian components:NSWeekdayCalendarUnit fromDate:self.mostRecent.createdAt];
-        //TODO: this does not currently work but should be resolved when SDK updated to 3.0.2
         
         DAYS_OF_WEEK recentDay = (DAYS_OF_WEEK)[recentWeekday weekday];
         DAYS_OF_WEEK todayDay = (DAYS_OF_WEEK)[todayWeekday weekday];
@@ -191,14 +192,13 @@ int FONT_SIZE = 15;
     
     if (self.doneType == NOT_SET)
     {
-        nextVC.doneType = DONE_ENTERING; //TODO check this
+        nextVC.doneType = DONE_ENTERING; //TODO default
         nextVC.urgentDictionary = self.urgentDictionary;
     }
     else
     {
         nextVC.doneType = self.doneType;
     }
-        
 }
 
 /**
@@ -253,24 +253,20 @@ int FONT_SIZE = 15;
  */
 -(void)showSymptomScreen
 {
-    [self removeSubviews]; //first, remove any subviews
+    [self removeSubviews];
     
     NSString* symptomName = [self.appDel.defObj determineSymptomName:self.currentSymptom]; //determine which symptom we're on
     
     self.title = [symptomName capitalizedString]; //change the VC title
 
     //Uses the enumerated type in PCADefinitions.h to determine whether to show a generic slider screen or specific "radio" buttons
-    if (self.currentSymptom == PAIN || self.currentSymptom == NAUSEA || self.currentSymptom == DEPRESSION || self.currentSymptom == DROWSINESS || self.currentSymptom == WEAKNESS || self.currentSymptom == SHORTNESS_OF_BREATH) //analog scale
-    {
-        [self showSliderScreen];
-    }
-    else if (self.currentSymptom == ACTIVITY || self.currentSymptom == ANXIETY || self.currentSymptom == APPETITE)
+    if (self.currentSymptom == ACTIVITY || self.currentSymptom == ANXIETY || self.currentSymptom == APPETITE)
     {
         [self showRadioButtonScreen];
     }
     else
     {
-        NSLog(@"Error in showSymptomScreen");
+        [self showSliderScreen];
     }
 }
 
@@ -376,7 +372,7 @@ int FONT_SIZE = 15;
     
     //The loop below iterates through each segment in the control
     //For each label in the subviews of the segment, if it's a UILabel, it sets the number of lines to 0
-    //Somehow, this allows the segmented control to show multiple lines of text
+    //Somehow, this allows the segmented control to show multiple lines of text!!
     //http://stackoverflow.com/questions/19868284/two-lines-of-text-in-a-uisegmentedcontrol
     for (id segment in [segControl subviews])
     {
@@ -389,7 +385,6 @@ int FONT_SIZE = 15;
             }
         }
     }
-    
     
     [self.view addSubview:segControl];
     radioRef = segControl;
@@ -424,7 +419,7 @@ int FONT_SIZE = 15;
 }
 
 /**
- Basic IBAction used to reflect changing slider values for entering test data
+ Basic IBAction used to log changing slider values for entering test data
  */
 -(IBAction)sliderValueChanged:(id)sender
 {
@@ -439,9 +434,9 @@ int FONT_SIZE = 15;
     //first, figure out the frame
     NSNumber* lastVal = [self.mostRecent.content valueForKey:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
     double percent = [lastVal doubleValue] / 10.0;
-    double xPoint = (sliderRef.frame.size.width) * percent;
+    double xPoint = ((sliderRef.frame.size.width) * percent) + sliderRef.frame.origin.x;
     
-    CGRect newFrame = CGRectMake(sliderRef.frame.origin.x + xPoint, sliderRef.frame.origin.y + (.5 * sliderRef.frame.size.height), 3, 25); //width and height are pixel counts from the image. other values calculated to put mark below slider
+    CGRect newFrame = CGRectMake(xPoint, sliderRef.frame.origin.y + (.5 * sliderRef.frame.size.height), 3, 25); //width and height are pixel counts from the image. other values calculated to put mark below slider
     
     UIImageView* bar = [[UIImageView alloc] initWithFrame:newFrame];
     bar.image = [UIImage imageNamed:@"sliderTick.png"];
@@ -459,7 +454,7 @@ int FONT_SIZE = 15;
 {
     NSLog(@"submit pressed");
     
-    self.valueToSave = sliderRef.value;
+    self.valueToSave = sliderRef.value; //preserve the current value
     
     [self showConfirmAlert]; //confirm that the user is ready to save this value
 }
@@ -522,7 +517,7 @@ int FONT_SIZE = 15;
  */
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    BUTTON_VALUE buttonVal = (BUTTON_VALUE)buttonIndex; //for clarity in switch statement
+    BUTTON_VALUE buttonVal = (BUTTON_VALUE)buttonIndex;
     
     switch(buttonVal)
     {
@@ -531,7 +526,7 @@ int FONT_SIZE = 15;
             break;
             
         case CONTINUE:
-            [self updateEntry];
+            [self updateEntry]; //save the slider/button value to the dictionary
             
             //move on
             self.currentSymptom++;
@@ -553,11 +548,11 @@ int FONT_SIZE = 15;
 {
     NSLog(@"save data: %.1f", self.valueToSave);
 
-    if (self.currentSymptom == SHORTNESS_OF_BREATH) //special case--different name in schema
+    if (self.currentSymptom == SHORTNESS_OF_BREATH) //special case--different name in schema due to underscores
     {
         [self.esasDictionary setValue:[NSNumber numberWithDouble:self.valueToSave] forKey:@"shortness_of_breath"];
     }
-    else
+    else //all other values in Catalyze esasEntry class have the same name as the determineSymptomName value
     {
         [self.esasDictionary setValue:[NSNumber numberWithDouble:self.valueToSave] forKey:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
     }
@@ -628,7 +623,7 @@ int FONT_SIZE = 15;
     {
         NSNumber* currentNum = [self.esasDictionary objectForKey:key];
         int temp = [currentNum intValue];
-        if ([key isEqualToString:@"activity"] || [key isEqualToString:@"anxiety"]) //these both have 2 as the highesrt val
+        if ([key isEqualToString:@"activity"] || [key isEqualToString:@"anxiety"]) //these both have 2 as the highest val
         {
             if (temp == TWO)
             {
@@ -639,7 +634,7 @@ int FONT_SIZE = 15;
                 [urgentDict setValue:[NSNumber numberWithInt:ZERO] forKey:key];
             }
         }
-        else if ([key isEqualToString:@"appetite"])
+        else if ([key isEqualToString:@"appetite"]) //this has 3 as the highest val
         {
             if (temp == THREE)
             {
@@ -667,11 +662,12 @@ int FONT_SIZE = 15;
         }
     }
     
-    //by this point, we have added to set urgency for each symptom which crosses the absolute boundary.
+    //by this point, we have set urgency for each symptom which crosses the absolute boundary
+    
     //now we need to do statistical analysis to determine if any of the symptoms are 1-2 SD's above mean
     //note that this analysis does not need to be done for radio screens, or for symptoms already urgent
     
-    //ASSUMPTION: the asynchronous CatalyzeQuery will complete by this point
+    //ASSUMPTION: the asynchronous CatalyzeQuery must have completed by this point
     
     for (NSString* key in self.esasDictionary)
     {
@@ -682,10 +678,9 @@ int FONT_SIZE = 15;
         
         if ([[urgentDict valueForKey:key] intValue] == TWO)
         {
-            continue; //don't bother if already urgent
+            continue; //don't bother if already suoer urgent
+            //note that if it's ONE, we still calculate since it could increase to TWO
         }
-        
-        //if not a radio screen and not already super urgent, calculate the mean
         
         //can't calculate mean if no previous entries
         if (self.last60Entries == nil || ([self.last60Entries count] < 1))
@@ -693,6 +688,7 @@ int FONT_SIZE = 15;
             break;
         }
         
+        //Mean calculation
         int count = 0;
         double total = 0.0;
         double mean;
@@ -701,9 +697,9 @@ int FONT_SIZE = 15;
             count++;
             total += [[entry.content valueForKey:key] doubleValue];
         }
-        mean = (total / count);
+        mean = (total / (double)count);
         
-        //Now we have the mean for the key, let's calculate the standard deviation
+        //Now we have the mean for the current key, let's calculate the standard deviation
         double sumOfSquaredDiffs = 0.0;
         for (CatalyzeEntry* entry in self.last60Entries)
         {
@@ -723,7 +719,6 @@ int FONT_SIZE = 15;
         absoluteOne = (absoluteOne > 10 ? 10 : absoluteOne); //if greater than 10, reset to 10
         absoluteTwo = (absoluteTwo > 10 ? 10 : absoluteTwo);
         
-        //Now check if it's super urgent--greater than absolute two
         if ([[self.esasDictionary valueForKey:key] doubleValue] > absoluteTwo)
         {
             [urgentDict setValue:[NSNumber numberWithInt:TWO] forKey:key];
