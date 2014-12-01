@@ -21,6 +21,9 @@
     [super viewDidLoad];
     
     //[self.view setBackgroundColor:[UIColor clearColor]];
+    
+    //Set up app delegate object for use of shared functions
+    self.appDel = [[UIApplication sharedApplication] delegate];
 
     if (self.doneType == NO_NEED)
     {
@@ -32,12 +35,8 @@
     }
     else
     {
-        //todo
+        //TODO
     }
-    
-    //Set up app delegate object for use of shared functions
-    self.appDel = [[UIApplication sharedApplication] delegate];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,8 +63,8 @@
     }
     
     UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, CGRectGetWidth(self.view.bounds), 500)]; //todo adjust magic nums
-    feedLabel.lineBreakMode = NSLineBreakByCharWrapping;
-    [feedLabel setNumberOfLines:count*2];
+    feedLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    [feedLabel setNumberOfLines:0]; //this should force wrapping
     feedLabel.font = [feedLabel.font fontWithSize:14];
 
     NSString* tempString;
@@ -126,15 +125,5 @@
         [self.appDel.defObj showAlert:LOGOUT_ERROR];
     }];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
