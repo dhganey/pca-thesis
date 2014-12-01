@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/AFHTTPRequestOperationManager.html">
+	<File path="Classes/PCADefinitions.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/AFHTTPRequestOperationManager</TokenIdentifier>
-			<Abstract type="html">AFHTTPRequestOperationManager encapsulates the common patterns of communicating with a web application over HTTP, including request creation, response serialization, network reachability monitoring, and security, as well as request operation management.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/PCADefinitions</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PCADefinitions.h</DeclaredIn>
             
 			
 			<NodeRef refid="3"/>
@@ -13,664 +13,70 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/setBaseURL:</TokenIdentifier>
-			<Abstract type="html">The URL used to monitor reachability, and construct requests from relative paths in methods like requestWithMethod:URLString:parameters:, and the GET / POST / et al. convenience methods.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (readonly, nonatomic, strong) NSURL *baseURL</Declaration>
-			
-			
-			<Anchor>//api/name/baseURL</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/baseURL</TokenIdentifier>
-			<Abstract type="html">The URL used to monitor reachability, and construct requests from relative paths in methods like requestWithMethod:URLString:parameters:, and the GET / POST / et al. convenience methods.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (readonly, nonatomic, strong) NSURL *baseURL</Declaration>
-			
-			
-			<Anchor>//api/name/baseURL</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/baseURL</TokenIdentifier>
-			<Abstract type="html">The URL used to monitor reachability, and construct requests from relative paths in methods like requestWithMethod:URLString:parameters:, and the GET / POST / et al. convenience methods.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (readonly, nonatomic, strong) NSURL *baseURL</Declaration>
-			
-			
-			<Anchor>//api/name/baseURL</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/setRequestSerializer:</TokenIdentifier>
-			<Abstract type="html">Requests created with requestWithMethod:URLString:parameters: &amp;amp; multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock: are constructed with a set of default headers using a parameter serialization specified by this property. By default, this is set to an instance of AFHTTPRequestSerializer, which serializes query string parameters for GET, HEAD, and DELETE requests, or otherwise URL-form-encodes HTTP message bodies.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) AFHTTPRequestSerializer&lt;AFURLRequestSerialization&gt; *requestSerializer</Declaration>
-			
-			
-			<Anchor>//api/name/requestSerializer</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/requestSerializer</TokenIdentifier>
-			<Abstract type="html">Requests created with requestWithMethod:URLString:parameters: &amp;amp; multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock: are constructed with a set of default headers using a parameter serialization specified by this property. By default, this is set to an instance of AFHTTPRequestSerializer, which serializes query string parameters for GET, HEAD, and DELETE requests, or otherwise URL-form-encodes HTTP message bodies.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) AFHTTPRequestSerializer&lt;AFURLRequestSerialization&gt; *requestSerializer</Declaration>
-			
-			
-			<Anchor>//api/name/requestSerializer</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/requestSerializer</TokenIdentifier>
-			<Abstract type="html">Requests created with requestWithMethod:URLString:parameters: &amp;amp; multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock: are constructed with a set of default headers using a parameter serialization specified by this property. By default, this is set to an instance of AFHTTPRequestSerializer, which serializes query string parameters for GET, HEAD, and DELETE requests, or otherwise URL-form-encodes HTTP message bodies.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) AFHTTPRequestSerializer&lt;AFURLRequestSerialization&gt; *requestSerializer</Declaration>
-			
-			
-			<Anchor>//api/name/requestSerializer</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/setResponseSerializer:</TokenIdentifier>
-			<Abstract type="html">Responses sent from the server in data tasks created with dataTaskWithRequest:success:failure: and run using the GET / POST / et al. convenience methods are automatically validated and serialized by the response serializer. By default, this property is set to a JSON serializer, which serializes data from responses with a application/json MIME type, and falls back to the raw data object. The serializer validates the status code to be in the 2XX range, denoting success. If the response serializer generates an error in -responseObjectForResponse:data:error:, the failure callback of the session task or request operation will be executed; otherwise, the success callback will be executed.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) AFHTTPResponseSerializer&lt;AFURLResponseSerialization&gt; *responseSerializer</Declaration>
-			
-			
-			<Anchor>//api/name/responseSerializer</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/responseSerializer</TokenIdentifier>
-			<Abstract type="html">Responses sent from the server in data tasks created with dataTaskWithRequest:success:failure: and run using the GET / POST / et al. convenience methods are automatically validated and serialized by the response serializer. By default, this property is set to a JSON serializer, which serializes data from responses with a application/json MIME type, and falls back to the raw data object. The serializer validates the status code to be in the 2XX range, denoting success. If the response serializer generates an error in -responseObjectForResponse:data:error:, the failure callback of the session task or request operation will be executed; otherwise, the success callback will be executed.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) AFHTTPResponseSerializer&lt;AFURLResponseSerialization&gt; *responseSerializer</Declaration>
-			
-			
-			<Anchor>//api/name/responseSerializer</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/responseSerializer</TokenIdentifier>
-			<Abstract type="html">Responses sent from the server in data tasks created with dataTaskWithRequest:success:failure: and run using the GET / POST / et al. convenience methods are automatically validated and serialized by the response serializer. By default, this property is set to a JSON serializer, which serializes data from responses with a application/json MIME type, and falls back to the raw data object. The serializer validates the status code to be in the 2XX range, denoting success. If the response serializer generates an error in -responseObjectForResponse:data:error:, the failure callback of the session task or request operation will be executed; otherwise, the success callback will be executed.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) AFHTTPResponseSerializer&lt;AFURLResponseSerialization&gt; *responseSerializer</Declaration>
-			
-			
-			<Anchor>//api/name/responseSerializer</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/setOperationQueue:</TokenIdentifier>
-			<Abstract type="html">The operation queue on which request operations are scheduled and run.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) NSOperationQueue *operationQueue</Declaration>
-			
-			
-			<Anchor>//api/name/operationQueue</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/operationQueue</TokenIdentifier>
-			<Abstract type="html">The operation queue on which request operations are scheduled and run.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) NSOperationQueue *operationQueue</Declaration>
-			
-			
-			<Anchor>//api/name/operationQueue</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/operationQueue</TokenIdentifier>
-			<Abstract type="html">The operation queue on which request operations are scheduled and run.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) NSOperationQueue *operationQueue</Declaration>
-			
-			
-			<Anchor>//api/name/operationQueue</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/setShouldUseCredentialStorage:</TokenIdentifier>
-			<Abstract type="html">Whether request operations should consult the credential storage for authenticating the connection. YES by default.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/shouldUseCredentialStorage</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>@property (nonatomic, assign) BOOL shouldUseCredentialStorage</Declaration>
-			
-			
-			<Anchor>//api/name/shouldUseCredentialStorage</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/shouldUseCredentialStorage</TokenIdentifier>
-			<Abstract type="html">Whether request operations should consult the credential storage for authenticating the connection. YES by default.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/shouldUseCredentialStorage</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>@property (nonatomic, assign) BOOL shouldUseCredentialStorage</Declaration>
-			
-			
-			<Anchor>//api/name/shouldUseCredentialStorage</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/shouldUseCredentialStorage</TokenIdentifier>
-			<Abstract type="html">Whether request operations should consult the credential storage for authenticating the connection. YES by default.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/shouldUseCredentialStorage</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>@property (nonatomic, assign) BOOL shouldUseCredentialStorage</Declaration>
-			
-			
-			<Anchor>//api/name/shouldUseCredentialStorage</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/setCredential:</TokenIdentifier>
-			<Abstract type="html">The credential used by request operations for authentication challenges.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/credential</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>@property (nonatomic, strong) NSURLCredential *credential</Declaration>
-			
-			
-			<Anchor>//api/name/credential</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/credential</TokenIdentifier>
-			<Abstract type="html">The credential used by request operations for authentication challenges.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/credential</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>@property (nonatomic, strong) NSURLCredential *credential</Declaration>
-			
-			
-			<Anchor>//api/name/credential</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/credential</TokenIdentifier>
-			<Abstract type="html">The credential used by request operations for authentication challenges.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/credential</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>@property (nonatomic, strong) NSURLCredential *credential</Declaration>
-			
-			
-			<Anchor>//api/name/credential</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/setSecurityPolicy:</TokenIdentifier>
-			<Abstract type="html">The security policy used by created request operations to evaluate server trust for secure connections. AFHTTPRequestOperationManager uses the defaultPolicy unless otherwise specified.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) AFSecurityPolicy *securityPolicy</Declaration>
-			
-			
-			<Anchor>//api/name/securityPolicy</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/securityPolicy</TokenIdentifier>
-			<Abstract type="html">The security policy used by created request operations to evaluate server trust for secure connections. AFHTTPRequestOperationManager uses the defaultPolicy unless otherwise specified.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) AFSecurityPolicy *securityPolicy</Declaration>
-			
-			
-			<Anchor>//api/name/securityPolicy</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/securityPolicy</TokenIdentifier>
-			<Abstract type="html">The security policy used by created request operations to evaluate server trust for secure connections. AFHTTPRequestOperationManager uses the defaultPolicy unless otherwise specified.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) AFSecurityPolicy *securityPolicy</Declaration>
-			
-			
-			<Anchor>//api/name/securityPolicy</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/setReachabilityManager:</TokenIdentifier>
-			<Abstract type="html">The network reachability manager. AFHTTPRequestOperationManager uses the sharedManager by default.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (readwrite, nonatomic, strong) AFNetworkReachabilityManager *reachabilityManager</Declaration>
-			
-			
-			<Anchor>//api/name/reachabilityManager</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/reachabilityManager</TokenIdentifier>
-			<Abstract type="html">The network reachability manager. AFHTTPRequestOperationManager uses the sharedManager by default.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (readwrite, nonatomic, strong) AFNetworkReachabilityManager *reachabilityManager</Declaration>
-			
-			
-			<Anchor>//api/name/reachabilityManager</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/reachabilityManager</TokenIdentifier>
-			<Abstract type="html">The network reachability manager. AFHTTPRequestOperationManager uses the sharedManager by default.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (readwrite, nonatomic, strong) AFNetworkReachabilityManager *reachabilityManager</Declaration>
-			
-			
-			<Anchor>//api/name/reachabilityManager</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/setCompletionQueue:</TokenIdentifier>
-			<Abstract type="html">The dispatch queue for the completionBlock of request operations. If NULL (default), the main queue is used.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) dispatch_queue_t completionQueue</Declaration>
-			
-			
-			<Anchor>//api/name/completionQueue</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/completionQueue</TokenIdentifier>
-			<Abstract type="html">The dispatch queue for the completionBlock of request operations. If NULL (default), the main queue is used.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) dispatch_queue_t completionQueue</Declaration>
-			
-			
-			<Anchor>//api/name/completionQueue</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/completionQueue</TokenIdentifier>
-			<Abstract type="html">The dispatch queue for the completionBlock of request operations. If NULL (default), the main queue is used.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) dispatch_queue_t completionQueue</Declaration>
-			
-			
-			<Anchor>//api/name/completionQueue</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/setCompletionGroup:</TokenIdentifier>
-			<Abstract type="html">The dispatch group for the completionBlock of request operations. If NULL (default), a private dispatch group is used.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) dispatch_group_t completionGroup</Declaration>
-			
-			
-			<Anchor>//api/name/completionGroup</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/completionGroup</TokenIdentifier>
-			<Abstract type="html">The dispatch group for the completionBlock of request operations. If NULL (default), a private dispatch group is used.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) dispatch_group_t completionGroup</Declaration>
-			
-			
-			<Anchor>//api/name/completionGroup</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AFHTTPRequestOperationManager/completionGroup</TokenIdentifier>
-			<Abstract type="html">The dispatch group for the completionBlock of request operations. If NULL (default), a private dispatch group is used.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, strong) dispatch_group_t completionGroup</Declaration>
-			
-			
-			<Anchor>//api/name/completionGroup</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AFHTTPRequestOperationManager/manager</TokenIdentifier>
-			<Abstract type="html">Creates and returns an AFHTTPRequestOperationManager object.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>+ (instancetype)manager</Declaration>
-			
-			
-			<Anchor>//api/name/manager</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/initWithBaseURL:</TokenIdentifier>
-			<Abstract type="html">Initializes an AFHTTPRequestOperationManager object with the specified base URL.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-			<Declaration>- (instancetype)initWithBaseURL:(id)url</Declaration>
+			<TokenIdentifier>//apple_ref/occ/instm/PCADefinitions/showAlert:</TokenIdentifier>
+			<Abstract type="html">Determines the error message and shows a UI alert</Abstract>
+			<DeclaredIn>PCADefinitions.h</DeclaredIn>
+			
+			<Declaration>- (void)showAlert:(id)type</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>url</Name>
-					<Abstract type="html">The base URL for the HTTP client.</Abstract>
+					<Name>type</Name>
+					<Abstract type="html">ERROR_TYPE enum type which determines which alert to show</Abstract>
 				</Parameter>
 			</Parameters>
-			<ReturnValue><Abstract type="html">The newly-initialized HTTP client</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithBaseURL:</Anchor>
+			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
+			<Anchor>//api/name/showAlert:</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/HTTPRequestOperationWithRequest:success:failure:</TokenIdentifier>
-			<Abstract type="html">Creates an AFHTTPRequestOperation, and sets the response serializers to that of the HTTP client.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/PCADefinitions/showAlertWithText:</TokenIdentifier>
+			<Abstract type="html">Shows an alert which simply displays the passed text. Good for debugging</Abstract>
+			<DeclaredIn>PCADefinitions.h</DeclaredIn>
 			
-			<Declaration>- (AFHTTPRequestOperation *)HTTPRequestOperationWithRequest:(id)request success:(id)success failure:(id)failure</Declaration>
+			<Declaration>- (void)showAlertWithText:(id)text</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>request</Name>
-					<Abstract type="html">The request object to be loaded asynchronously during execution of the operation.</Abstract>
-				</Parameter><Parameter>
-					<Name>success</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes successfully. This block has no return value and takes two arguments: the created request operation and the object created from the response data of request.</Abstract>
-				</Parameter><Parameter>
-					<Name>failure</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes two arguments:, the created request operation and the NSError object describing the network or parsing error that occurred.</Abstract>
+					<Name>textMessage</Name>
+					<Abstract type="html">NSString* text to display</Abstract>
 				</Parameter>
 			</Parameters>
-			
-			<Anchor>//api/name/HTTPRequestOperationWithRequest:success:failure:</Anchor>
+			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
+			<Anchor>//api/name/showAlertWithText:</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/GET:parameters:success:failure:</TokenIdentifier>
-			<Abstract type="html">Creates and runs an AFHTTPRequestOperation with a GET request.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/PCADefinitions/determineSymptomName:</TokenIdentifier>
+			<Abstract type="html">Determines the symptom name for a given symptom</Abstract>
+			<DeclaredIn>PCADefinitions.h</DeclaredIn>
 			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/HTTPRequestOperationWithRequest:success:failure:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>- (AFHTTPRequestOperation *)GET:(id)URLString parameters:(id)parameters success:(id)success failure:(id)failure</Declaration>
+			<Declaration>- (NSString *)determineSymptomName:(id)symptom</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>URLString</Name>
-					<Abstract type="html">The URL string used to create the request URL.</Abstract>
-				</Parameter><Parameter>
-					<Name>parameters</Name>
-					<Abstract type="html">The parameters to be encoded according to the client request serializer.</Abstract>
-				</Parameter><Parameter>
-					<Name>success</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes successfully. This block has no return value and takes two arguments: the request operation, and the response object created by the client response serializer.</Abstract>
-				</Parameter><Parameter>
-					<Name>failure</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the request operation and the error describing the network or parsing error that occurred.</Abstract>
+					<Name>symptom</Name>
+					<Abstract type="html">Integer representing desired symptom</Abstract>
 				</Parameter>
 			</Parameters>
-			
-			<Anchor>//api/name/GET:parameters:success:failure:</Anchor>
+			<ReturnValue><Abstract type="html">NSString</Abstract></ReturnValue>
+			<Anchor>//api/name/determineSymptomName:</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/HEAD:parameters:success:failure:</TokenIdentifier>
-			<Abstract type="html">Creates and runs an AFHTTPRequestOperation with a HEAD request.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/PCADefinitions/findMostRecent:</TokenIdentifier>
+			<Abstract type="html">Finds the most recent entry in the query results</Abstract>
+			<DeclaredIn>PCADefinitions.h</DeclaredIn>
 			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/HTTPRequestOperationWithRequest:success:failure:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>- (AFHTTPRequestOperation *)HEAD:(id)URLString parameters:(id)parameters success:(id)success failure:(id)failure</Declaration>
+			<Declaration>- (CatalyzeEntry *)findMostRecent:(id)result</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>URLString</Name>
-					<Abstract type="html">The URL string used to create the request URL.</Abstract>
-				</Parameter><Parameter>
-					<Name>parameters</Name>
-					<Abstract type="html">The parameters to be encoded according to the client request serializer.</Abstract>
-				</Parameter><Parameter>
-					<Name>success</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes successfully. This block has no return value and takes a single arguments: the request operation.</Abstract>
-				</Parameter><Parameter>
-					<Name>failure</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the request operation and the error describing the network or parsing error that occurred.</Abstract>
+					<Name>result</Name>
+					<Abstract type="html">NSArray returned by Catalyze query function</Abstract>
 				</Parameter>
 			</Parameters>
-			
-			<Anchor>//api/name/HEAD:parameters:success:failure:</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/POST:parameters:success:failure:</TokenIdentifier>
-			<Abstract type="html">Creates and runs an AFHTTPRequestOperation with a POST request.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/HTTPRequestOperationWithRequest:success:failure:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>- (AFHTTPRequestOperation *)POST:(id)URLString parameters:(id)parameters success:(id)success failure:(id)failure</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>URLString</Name>
-					<Abstract type="html">The URL string used to create the request URL.</Abstract>
-				</Parameter><Parameter>
-					<Name>parameters</Name>
-					<Abstract type="html">The parameters to be encoded according to the client request serializer.</Abstract>
-				</Parameter><Parameter>
-					<Name>success</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes successfully. This block has no return value and takes two arguments: the request operation, and the response object created by the client response serializer.</Abstract>
-				</Parameter><Parameter>
-					<Name>failure</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the request operation and the error describing the network or parsing error that occurred.</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/POST:parameters:success:failure:</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/POST:parameters:constructingBodyWithBlock:success:failure:</TokenIdentifier>
-			<Abstract type="html">Creates and runs an AFHTTPRequestOperation with a multipart POST request.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/HTTPRequestOperationWithRequest:success:failure:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>- (AFHTTPRequestOperation *)POST:(id)URLString parameters:(id)parameters constructingBodyWithBlock:(id)block success:(id)success failure:(id)failure</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>URLString</Name>
-					<Abstract type="html">The URL string used to create the request URL.</Abstract>
-				</Parameter><Parameter>
-					<Name>parameters</Name>
-					<Abstract type="html">The parameters to be encoded according to the client request serializer.</Abstract>
-				</Parameter><Parameter>
-					<Name>block</Name>
-					<Abstract type="html">A block that takes a single argument and appends data to the HTTP body. The block argument is an object adopting the AFMultipartFormData protocol.</Abstract>
-				</Parameter><Parameter>
-					<Name>success</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes successfully. This block has no return value and takes two arguments: the request operation, and the response object created by the client response serializer.</Abstract>
-				</Parameter><Parameter>
-					<Name>failure</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the request operation and the error describing the network or parsing error that occurred.</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/POST:parameters:constructingBodyWithBlock:success:failure:</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/PUT:parameters:success:failure:</TokenIdentifier>
-			<Abstract type="html">Creates and runs an AFHTTPRequestOperation with a PUT request.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/HTTPRequestOperationWithRequest:success:failure:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>- (AFHTTPRequestOperation *)PUT:(id)URLString parameters:(id)parameters success:(id)success failure:(id)failure</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>URLString</Name>
-					<Abstract type="html">The URL string used to create the request URL.</Abstract>
-				</Parameter><Parameter>
-					<Name>parameters</Name>
-					<Abstract type="html">The parameters to be encoded according to the client request serializer.</Abstract>
-				</Parameter><Parameter>
-					<Name>success</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes successfully. This block has no return value and takes two arguments: the request operation, and the response object created by the client response serializer.</Abstract>
-				</Parameter><Parameter>
-					<Name>failure</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the request operation and the error describing the network or parsing error that occurred.</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/PUT:parameters:success:failure:</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/PATCH:parameters:success:failure:</TokenIdentifier>
-			<Abstract type="html">Creates and runs an AFHTTPRequestOperation with a PATCH request.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/HTTPRequestOperationWithRequest:success:failure:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>- (AFHTTPRequestOperation *)PATCH:(id)URLString parameters:(id)parameters success:(id)success failure:(id)failure</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>URLString</Name>
-					<Abstract type="html">The URL string used to create the request URL.</Abstract>
-				</Parameter><Parameter>
-					<Name>parameters</Name>
-					<Abstract type="html">The parameters to be encoded according to the client request serializer.</Abstract>
-				</Parameter><Parameter>
-					<Name>success</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes successfully. This block has no return value and takes two arguments: the request operation, and the response object created by the client response serializer.</Abstract>
-				</Parameter><Parameter>
-					<Name>failure</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the request operation and the error describing the network or parsing error that occurred.</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/PATCH:parameters:success:failure:</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/DELETE:parameters:success:failure:</TokenIdentifier>
-			<Abstract type="html">Creates and runs an AFHTTPRequestOperation with a DELETE request.</Abstract>
-			<DeclaredIn>AFHTTPRequestOperationManager.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestOperationManager/HTTPRequestOperationWithRequest:success:failure:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>- (AFHTTPRequestOperation *)DELETE:(id)URLString parameters:(id)parameters success:(id)success failure:(id)failure</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>URLString</Name>
-					<Abstract type="html">The URL string used to create the request URL.</Abstract>
-				</Parameter><Parameter>
-					<Name>parameters</Name>
-					<Abstract type="html">The parameters to be encoded according to the client request serializer.</Abstract>
-				</Parameter><Parameter>
-					<Name>success</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes successfully. This block has no return value and takes two arguments: the request operation, and the response object created by the client response serializer.</Abstract>
-				</Parameter><Parameter>
-					<Name>failure</Name>
-					<Abstract type="html">A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the request operation and the error describing the network or parsing error that occurred.</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/DELETE:parameters:success:failure:</Anchor>
+			<ReturnValue><Abstract type="html">CatalyzeEntry* most recent entry</Abstract></ReturnValue>
+			<Anchor>//api/name/findMostRecent:</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		

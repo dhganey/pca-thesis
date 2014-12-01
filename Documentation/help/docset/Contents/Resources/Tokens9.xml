@@ -1,118 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/AFJSONResponseSerializer.html">
+	<File path="Constants/XCTAsyncTestCaseStatus.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/AFJSONResponseSerializer</TokenIdentifier>
-			<Abstract type="html">AFJSONResponseSerializer is a subclass of AFHTTPResponseSerializer that validates and decodes JSON responses.</Abstract>
-			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/c/tdef/XCTAsyncTestCaseStatus</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>XCTestCase+AsyncTesting.h</DeclaredIn>
             
 			
 			<NodeRef refid="9"/>
 		</Token>
 		
 		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFJSONResponseSerializer/setReadingOptions:</TokenIdentifier>
-			<Abstract type="html">Options for reading the response JSON data and creating the Foundation objects. For possible values, see the NSJSONSerialization documentation section &quot;NSJSONReadingOptions&quot;. 0 by default.</Abstract>
-			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) NSJSONReadingOptions readingOptions</Declaration>
-			
-			
-			<Anchor>//api/name/readingOptions</Anchor>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XCTAsyncTestCaseStatusUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>XCTAsyncTestCaseStatusUnknown</Declaration>
+            
+            <DeclaredIn>XCTestCase+AsyncTesting.h</DeclaredIn>
+            
             <NodeRef refid="9"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFJSONResponseSerializer/readingOptions</TokenIdentifier>
-			<Abstract type="html">Options for reading the response JSON data and creating the Foundation objects. For possible values, see the NSJSONSerialization documentation section &quot;NSJSONReadingOptions&quot;. 0 by default.</Abstract>
-			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) NSJSONReadingOptions readingOptions</Declaration>
-			
-			
-			<Anchor>//api/name/readingOptions</Anchor>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XCTAsyncTestCaseStatusWaiting</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>XCTAsyncTestCaseStatusWaiting</Declaration>
+            
+            <DeclaredIn>XCTestCase+AsyncTesting.h</DeclaredIn>
+            
             <NodeRef refid="9"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AFJSONResponseSerializer/readingOptions</TokenIdentifier>
-			<Abstract type="html">Options for reading the response JSON data and creating the Foundation objects. For possible values, see the NSJSONSerialization documentation section &quot;NSJSONReadingOptions&quot;. 0 by default.</Abstract>
-			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) NSJSONReadingOptions readingOptions</Declaration>
-			
-			
-			<Anchor>//api/name/readingOptions</Anchor>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XCTAsyncTestCaseStatusSucceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>XCTAsyncTestCaseStatusSucceeded</Declaration>
+            
+            <DeclaredIn>XCTestCase+AsyncTesting.h</DeclaredIn>
+            
             <NodeRef refid="9"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFJSONResponseSerializer/setRemovesKeysWithNullValues:</TokenIdentifier>
-			<Abstract type="html">Whether to remove keys with NSNull values from response JSON. Defaults to NO.</Abstract>
-			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) BOOL removesKeysWithNullValues</Declaration>
-			
-			
-			<Anchor>//api/name/removesKeysWithNullValues</Anchor>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XCTAsyncTestCaseStatusFailed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>XCTAsyncTestCaseStatusFailed</Declaration>
+            
+            <DeclaredIn>XCTestCase+AsyncTesting.h</DeclaredIn>
+            
             <NodeRef refid="9"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AFJSONResponseSerializer/removesKeysWithNullValues</TokenIdentifier>
-			<Abstract type="html">Whether to remove keys with NSNull values from response JSON. Defaults to NO.</Abstract>
-			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) BOOL removesKeysWithNullValues</Declaration>
-			
-			
-			<Anchor>//api/name/removesKeysWithNullValues</Anchor>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XCTAsyncTestCaseStatusCancelled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>XCTAsyncTestCaseStatusCancelled</Declaration>
+            
+            <DeclaredIn>XCTestCase+AsyncTesting.h</DeclaredIn>
+            
             <NodeRef refid="9"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AFJSONResponseSerializer/removesKeysWithNullValues</TokenIdentifier>
-			<Abstract type="html">Whether to remove keys with NSNull values from response JSON. Defaults to NO.</Abstract>
-			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, assign) BOOL removesKeysWithNullValues</Declaration>
-			
-			
-			<Anchor>//api/name/removesKeysWithNullValues</Anchor>
-            <NodeRef refid="9"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AFJSONResponseSerializer/serializerWithReadingOptions:</TokenIdentifier>
-			<Abstract type="html">Creates and returns a JSON serializer with specified reading and writing options.</Abstract>
-			<DeclaredIn>AFURLResponseSerialization.h</DeclaredIn>
-			
-			<Declaration>+ (instancetype)serializerWithReadingOptions:(id)readingOptions</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>readingOptions</Name>
-					<Abstract type="html">The specified JSON reading options.</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/serializerWithReadingOptions:</Anchor>
-            <NodeRef refid="9"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/AFJSONResponseSerializer/serializer</TokenIdentifier>
-			<Abstract type="html">Creates and returns a serializer with default configuration.</Abstract>
-			<DeclaredIn>AFURLResponseSerialization.m</DeclaredIn>
-			
-			<Declaration>+ (instancetype)serializer</Declaration>
-			
-			
-			<Anchor>//api/name/serializer</Anchor>
-            <NodeRef refid="9"/>
-		</Token>
-		
+        </Token>
         
         
 	</File>
