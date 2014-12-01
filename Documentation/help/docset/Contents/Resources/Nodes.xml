@@ -365,12 +365,6 @@
                 
                 
                 
-                <Node type="section">
-                    <Path>Classes/AFImageResponseSerializer.html</Path>
-                    <Name>Instance Methods</Name>
-                    <Anchor>instance_methods</Anchor>
-                </Node>
-                
             </Subnodes>
             
         </Node>
@@ -403,6 +397,12 @@
                     <Anchor>class_methods</Anchor>
                 </Node>
                 
+                
+                <Node type="section">
+                    <Path>Classes/AFJSONRequestSerializer.html</Path>
+                    <Name>Instance Methods</Name>
+                    <Anchor>instance_methods</Anchor>
+                </Node>
                 
             </Subnodes>
             
@@ -547,6 +547,12 @@
                     <Anchor>class_methods</Anchor>
                 </Node>
                 
+                
+                <Node type="section">
+                    <Path>Classes/AFPropertyListRequestSerializer.html</Path>
+                    <Name>Instance Methods</Name>
+                    <Anchor>instance_methods</Anchor>
+                </Node>
                 
             </Subnodes>
             
@@ -751,6 +757,12 @@
                     <Anchor>class_methods</Anchor>
                 </Node>
                 
+                
+                <Node type="section">
+                    <Path>Classes/AFXMLDocumentResponseSerializer.html</Path>
+                    <Name>Instance Methods</Name>
+                    <Anchor>instance_methods</Anchor>
+                </Node>
                 
             </Subnodes>
             

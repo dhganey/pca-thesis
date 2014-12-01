@@ -66,6 +66,8 @@
 	
 	<option value="//api/name/didReceiveMemoryWarning">&nbsp;&nbsp;&nbsp;&nbsp;- didReceiveMemoryWarning</option>
 	
+	<option value="//api/name/executeQuery">&nbsp;&nbsp;&nbsp;&nbsp;- executeQuery</option>
+	
 	<option value="//api/name/findMostRecent:">&nbsp;&nbsp;&nbsp;&nbsp;- findMostRecent:</option>
 	
 	<option value="//api/name/logoutPressed:">&nbsp;&nbsp;&nbsp;&nbsp;- logoutPressed:</option>
@@ -75,10 +77,6 @@
 	<option value="//api/name/prepareInstructionLabel:">&nbsp;&nbsp;&nbsp;&nbsp;- prepareInstructionLabel:</option>
 	
 	<option value="//api/name/prepareSubmitButton:">&nbsp;&nbsp;&nbsp;&nbsp;- prepareSubmitButton:</option>
-	
-	<option value="//api/name/queryForStatistics">&nbsp;&nbsp;&nbsp;&nbsp;- queryForStatistics</option>
-	
-	<option value="//api/name/queryPreviousDictionary">&nbsp;&nbsp;&nbsp;&nbsp;- queryPreviousDictionary</option>
 	
 	<option value="//api/name/removeSubviews">&nbsp;&nbsp;&nbsp;&nbsp;- removeSubviews</option>
 	
@@ -162,6 +160,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/didReceiveMemoryWarning">didReceiveMemoryWarning</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/executeQuery">executeQuery</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/findMostRecent:">findMostRecent:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logoutPressed:">logoutPressed:</a></span></li>
@@ -171,10 +171,6 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareInstructionLabel:">prepareInstructionLabel:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareSubmitButton:">prepareSubmitButton:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queryForStatistics">queryForStatistics</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queryPreviousDictionary">queryPreviousDictionary</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeSubviews">removeSubviews</a></span></li>
 	
@@ -444,13 +440,7 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/queryPreviousDictionary">&ndash;&nbsp;queryPreviousDictionary</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/queryForStatistics">&ndash;&nbsp;queryForStatistics</a></code>
+		<code><a href="#//api/name/executeQuery">&ndash;&nbsp;executeQuery</a></code>
 	</span>
 	
 	
@@ -918,6 +908,45 @@ Any slider symptom > 2 SD above mean is a 2</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/executeQuery" title="executeQuery"></a>
+	<h3 class="subsubtitle method-title">executeQuery</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Queries the last 60 user entries
+Stores all 60 for use in statistics later
+Finds and stores most recent for use showing previous value
+Begins the symptom UI cycle</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)executeQuery</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/findMostRecent:" title="findMostRecent:"></a>
 	<h3 class="subsubtitle method-title">findMostRecent:</h3>
 	
@@ -1163,83 +1192,6 @@ Any slider symptom > 2 SD above mean is a 2</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/queryForStatistics" title="queryForStatistics"></a>
-	<h3 class="subsubtitle method-title">queryForStatistics</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Queries the last 60 user entries and stores the resulting array as a class variable for use later</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)queryForStatistics</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PCAMainViewController.m</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/queryPreviousDictionary" title="queryPreviousDictionary"></a>
-	<h3 class="subsubtitle method-title">queryPreviousDictionary</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Prepares the previousDictionary member variable using the most recent entry on <a href="../Classes/Catalyze.html">Catalyze</a></p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)queryPreviousDictionary</code></div>
-
-    
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>void</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">PCAMainViewController.m</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/removeSubviews" title="removeSubviews"></a>
 	<h3 class="subsubtitle method-title">removeSubviews</h3>
 	
@@ -1328,7 +1280,7 @@ Any slider symptom > 2 SD above mean is a 2</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Called in <a href="#//api/name/viewDidLoad">viewDidLoad</a>. Returns true if it&rsquo;s time for the application to show user symptoms to enter.</p>
+		<p>Determines if it&rsquo;s time for the application to show user symptoms to enter.</p>
 	</div>		
 	
     
@@ -1341,7 +1293,7 @@ Any slider symptom > 2 SD above mean is a 2</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>BOOL</p>
+		<p>ALL_DONE_TYPE enum showing whether user is done entering symptoms, does not need to enter, can enter, etc.</p>
 	</div>
 	
 	
@@ -1620,7 +1572,7 @@ Any slider symptom > 2 SD above mean is a 2</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Basic IBAction used to reflect changing slider values for entering test data</p>
+		<p>Basic IBAction used to log changing slider values for entering test data</p>
 	</div>		
 	
     
@@ -1656,7 +1608,7 @@ Any slider symptom > 2 SD above mean is a 2</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Starts the symptom cycle</p>
+		<p>Starts the symptom cycle to display UI elements to user</p>
 	</div>		
 	
     
@@ -1865,7 +1817,7 @@ Any slider symptom > 2 SD above mean is a 2</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Called after the view loads. Does basic checks to grab symptom bitmask and begin cycling through symptom screens</p>
+		<p>Called after the view loads. Does basic checks and begins cycling through symptom screens</p>
 	</div>		
 	
     
@@ -1917,7 +1869,7 @@ Any slider symptom > 2 SD above mean is a 2</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 dhganey. All rights reserved. (Last updated: 2014-11-29)</span><br />
+						<p><span class="copyright">&copy; 2014 dhganey. All rights reserved. (Last updated: 2014-12-01)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

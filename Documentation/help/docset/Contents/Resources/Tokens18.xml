@@ -77,6 +77,18 @@
             <NodeRef refid="18"/>
 		</Token>
 		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AFXMLDocumentResponseSerializer/responseObjectForResponse:data:error:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AFURLResponseSerialization.m</DeclaredIn>
+			
+			<Declaration>- (id)responseObjectForResponse:(id)response data:(id)data error:(id)error</Declaration>
+			
+			
+			<Anchor>//api/name/responseObjectForResponse:data:error:</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
         
         
 	</File>

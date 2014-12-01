@@ -662,23 +662,12 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/AFHTTPRequestSerializer/requestBySerializingRequest:withParameters:error:</TokenIdentifier>
-			<Abstract type="html">Returns a request with the specified parameters encoded into a copy of the original request.</Abstract>
+			<Abstract type="html"></Abstract>
 			<DeclaredIn>AFURLRequestSerialization.m</DeclaredIn>
 			
 			<Declaration>- (NSURLRequest *)requestBySerializingRequest:(id)request withParameters:(id)parameters error:(id)error</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>request</Name>
-					<Abstract type="html">The original request.</Abstract>
-				</Parameter><Parameter>
-					<Name>parameters</Name>
-					<Abstract type="html">The parameters to be encoded.</Abstract>
-				</Parameter><Parameter>
-					<Name>error</Name>
-					<Abstract type="html">The error that occurred while attempting to encode the request parameters.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">A serialized request.</Abstract></ReturnValue>
+			
+			
 			<Anchor>//api/name/requestBySerializingRequest:withParameters:error:</Anchor>
             <NodeRef refid="4"/>
 		</Token>
