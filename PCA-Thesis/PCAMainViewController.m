@@ -433,6 +433,10 @@ int FONT_SIZE = 15;
 {
     //first, figure out the frame
     NSNumber* lastVal = [self.mostRecent.content valueForKey:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
+    if (self.currentSymptom == SHORTNESS_OF_BREATH)
+    {
+        lastVal = [self.mostRecent.content valueForKey:@"shortness_of_breath"];
+    }
     double percent = [lastVal doubleValue] / 10.0;
     double xPoint = ((sliderRef.frame.size.width) * percent) + sliderRef.frame.origin.x;
     
