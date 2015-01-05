@@ -9,6 +9,10 @@ Installation
 ------------
 The preferred method of installation is through [cocoapods](http://cocoapods.org/). Simply add ```pod 'catalyze-ios-sdk', '~> 3.0'``` to your Podfile, run ```pod install``` and you will be ready to start developing. Optionally if you do not use cocoapods or have an existing project that has not integrated cocoapods, you can clone this repository to your computer. Simply copy the iOS SDK folder anywhere into your project directory by clicking on the File menu and then "Add Files to 'yourProjectName'...". Navigate to the directory of the iOS SDK and click Add. You're now ready to use the iOS SDK in your application.
 
+Catalyze Documentation
+----------------------
+If you're looking for some more documentation on the Catalyze platform, be sure to check out our [resources page](https://resources.catalyze.io/).
+
 Using the catalyze.io iOS SDK
 =============================
 

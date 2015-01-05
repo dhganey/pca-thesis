@@ -86,6 +86,7 @@
 		278FBAF119A79FE900FC41C4 /* CatalyzeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 278FBAF019A79FE900FC41C4 /* CatalyzeObject.m */; };
 		278FBAF219A7A12700FC41C4 /* CatalyzeObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 278FBAEF19A79FE900FC41C4 /* CatalyzeObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		278FBAF319A7A12E00FC41C4 /* CatalyzeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 278FBAF019A79FE900FC41C4 /* CatalyzeObject.m */; };
+		279207E419B7F2990090AFBF /* CatalyzeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 279207E319B7F2990090AFBF /* CatalyzeStore.m */; };
 		279602D519742F9B009BAD41 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 279602D419742F9B009BAD41 /* AFNetworkActivityLogger.m */; };
 		279602E919743284009BAD41 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 279602D719743284009BAD41 /* AFHTTPRequestOperation.m */; };
 		279602EA19743284009BAD41 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 279602D919743284009BAD41 /* AFHTTPRequestOperationManager.m */; };
@@ -163,6 +164,8 @@
 		278FBAED19A6D68600FC41C4 /* testFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = testFile.txt; path = resources/testFile.txt; sourceTree = "<group>"; };
 		278FBAEF19A79FE900FC41C4 /* CatalyzeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalyzeObject.h; sourceTree = "<group>"; };
 		278FBAF019A79FE900FC41C4 /* CatalyzeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalyzeObject.m; sourceTree = "<group>"; };
+		279207E219B7F2990090AFBF /* CatalyzeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalyzeStore.h; sourceTree = "<group>"; };
+		279207E319B7F2990090AFBF /* CatalyzeStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalyzeStore.m; sourceTree = "<group>"; };
 		279602D319742F9B009BAD41 /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
 		279602D419742F9B009BAD41 /* AFNetworkActivityLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityLogger.m; sourceTree = "<group>"; };
 		279602D619743284009BAD41 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -287,6 +290,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		279207DB19B7F0770090AFBF /* CatalyzeHealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				279207E219B7F2990090AFBF /* CatalyzeStore.h */,
+				279207E319B7F2990090AFBF /* CatalyzeStore.m */,
+			);
+			path = CatalyzeHealthKit;
+			sourceTree = "<group>";
+		};
 		279602D219742F9B009BAD41 /* AFNetworkActivityLogger */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +344,7 @@
 		27B9C24D17CBB9B500B8FA02 /* catalyze-ios-sdk */ = {
 			isa = PBXGroup;
 			children = (
+				279207DB19B7F0770090AFBF /* CatalyzeHealthKit */,
 				27B9C28617CBBAD300B8FA02 /* Libraries */,
 				27B9C27317CBBAC600B8FA02 /* Catalyze.h */,
 				27B9C27417CBBAC600B8FA02 /* Catalyze.m */,
@@ -680,6 +693,7 @@
 				279602EA19743284009BAD41 /* AFHTTPRequestOperationManager.m in Sources */,
 				27CFF38D18DF95FE00004FEE /* Name.m in Sources */,
 				279602E919743284009BAD41 /* AFHTTPRequestOperation.m in Sources */,
+				279207E419B7F2990090AFBF /* CatalyzeStore.m in Sources */,
 				279602F119743284009BAD41 /* AFURLSessionManager.m in Sources */,
 				27CFF38718DF946D00004FEE /* CatalyzeUser.m in Sources */,
 				279602EC19743284009BAD41 /* AFNetworkReachabilityManager.m in Sources */,

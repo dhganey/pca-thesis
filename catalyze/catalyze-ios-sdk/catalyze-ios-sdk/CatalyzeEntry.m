@@ -136,7 +136,7 @@
     [self saveInBackgroundWithSuccess:nil failure:nil];
 }
 
-- (void)saveInBackgroundWithSuccess:(CatalyzeSuccessBlock)success failure:(CatalyzeFailureBlock)failure; {
+- (void)saveInBackgroundWithSuccess:(CatalyzeSuccessBlock)success failure:(CatalyzeFailureBlock)failure {
     [CatalyzeHTTPManager doPut:[self lookupURL:NO] withParams:[self content] success:^(id result) {
         NSDictionary *responseDict = (NSDictionary *)result;
         [self setValuesForKeysWithDictionary:responseDict];
@@ -162,7 +162,7 @@
     [self retrieveInBackgroundWithSuccess:nil failure:nil];
 }
 
-- (void)retrieveInBackgroundWithSuccess:(CatalyzeSuccessBlock)success failure:(CatalyzeFailureBlock)failure; {
+- (void)retrieveInBackgroundWithSuccess:(CatalyzeSuccessBlock)success failure:(CatalyzeFailureBlock)failure {
     NSString *url = [self lookupURL:NO];
     [CatalyzeHTTPManager doGet:url success:^(id result) {
         NSDictionary *responseDict = (NSDictionary *)result;
@@ -189,7 +189,7 @@
     [self deleteInBackgroundWithSuccess:nil failure:nil];
 }
 
-- (void)deleteInBackgroundWithSuccess:(CatalyzeSuccessBlock)success failure:(CatalyzeFailureBlock)failure; {
+- (void)deleteInBackgroundWithSuccess:(CatalyzeSuccessBlock)success failure:(CatalyzeFailureBlock)failure {
     [CatalyzeHTTPManager doDelete:[self lookupURL:NO] success:^(id result) {
         _className = nil;
         _entryId = nil;
