@@ -241,7 +241,6 @@
     CatalyzeEntry* entry = [self.recentEntries objectAtIndex:indexPath.row];
     
     UILabel* cellLabel = (UILabel*)[cell viewWithTag:111];
-    //cellLabel.text = entry.authorId; //TODO -- how to get usernames?
     cellLabel.text = [self.userTranslation valueForKey:entry.authorId];
     
     UILabel* urgentLabel = (UILabel*)[cell viewWithTag:222];

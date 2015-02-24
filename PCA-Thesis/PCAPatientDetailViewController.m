@@ -7,6 +7,7 @@
 //
 
 #import "PCAPatientDetailViewController.h"
+#include "PCAPatientStatsViewController.h"
 
 @interface PCAPatientDetailViewController ()
 
@@ -21,6 +22,8 @@
     self.title = [self.userTranslation valueForKey:self.selectedEntry.authorId];
     
     [self updateInformationArea];
+    
+    [self queryForSymptoms];
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,6 +63,41 @@
     self.informationView.text = labelText;
 }
 
-- (IBAction)statsButtonPressed:(id)sender {
+/**
+ Grabs the previous 60 entries for the selected user
+ */
+-(void)queryForSymptoms
+{
+    CatalyzeQuery* query = [CatalyzeQuery queryWithClassName:@"esasEntry"];
+    [query setPageNumber:1];
+    [query setPageSize:60];
+    
+    [query retrieveInBackgroundForUsersId:self.selectedEntry.authorId success:^(NSArray *result)
+     {
+         if ([result count] > 0)
+         {
+             self.userEntries = [NSMutableArray arrayWithArray:result];
+             NSLog(@"query finished");
+         }
+         else //no recent entries--start cycle automatically as this is a new user
+         {
+             NSLog(@"No entries");
+         }
+     }
+                                  failure:^(NSDictionary *result, int status, NSError *error)
+     {
+         NSLog(@"query failure in query for pain");
+         NSLog(@"%@", error);
+     }];
 }
+
+/**
+ When we segue to the stats view, pass the result of the entries query
+ */
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    PCAPatientStatsViewController* nextVC = segue.destinationViewController;
+    nextVC.userEntries = self.userEntries;
+}
+
 @end

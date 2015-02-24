@@ -1009,7 +1009,10 @@
 					"core-plot/**",
 				);
 				INFOPLIST_FILE = "PCA-Thesis/PCA-Thesis-Info.plist";
-				OTHER_LDFLAGS = "-Objc";
+				OTHER_LDFLAGS = (
+					"-Objc",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -1034,7 +1037,10 @@
 					"core-plot/**",
 				);
 				INFOPLIST_FILE = "PCA-Thesis/PCA-Thesis-Info.plist";
-				OTHER_LDFLAGS = "-Objc";
+				OTHER_LDFLAGS = (
+					"-Objc",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

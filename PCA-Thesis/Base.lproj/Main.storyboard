@@ -353,15 +353,25 @@
                         <viewControllerLayoutGuide type="bottom" id="dkb-ig-icu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fTo-Q4-0vT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0gy-o7-Qx1">
+                                <rect key="frame" x="0.0" y="72" width="568" height="192"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Patient Stats View" id="89T-At-jgm"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="NewGraphingView" destination="0gy-o7-Qx1" id="Rpm-we-jFN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ybj-UY-Olb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1878" y="-1087"/>
+            <point key="canvasLocation" x="2042" y="-1129"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RNX-e1-w8V">

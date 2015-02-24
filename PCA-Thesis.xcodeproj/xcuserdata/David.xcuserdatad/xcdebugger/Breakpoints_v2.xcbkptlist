@@ -35,5 +35,51 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PCA-Thesis/PCAPatientStatsViewController.m"
+            timestampString = "446509570.842542"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__48-[PCAPatientStatsViewController viewWillAppear:]_block_invoke"
+                  moduleName = "PCA-Thesis"
+                  urlString = "file:///Users/David/Google%20Drive/2014-2015/Thesis/Xcode/PCA-Thesis/PCA-Thesis/PCAPatientStatsViewController.m"
+                  timestampString = "446509106.236553"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "1945">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__48-[PCAPatientStatsViewController viewWillAppear:]_block_invoke"
+                  moduleName = "PCA-Thesis"
+                  urlString = "file:///Users/David/Google%20Drive/2014-2015/Thesis/Xcode/PCA-Thesis/PCA-Thesis/PCAPatientStatsViewController.m"
+                  timestampString = "446509106.236861"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "2044">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

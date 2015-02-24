@@ -12,10 +12,13 @@
 
 @interface PCAPatientDetailViewController : UIViewController
 
-@property CatalyzeEntry* selectedEntry;
 
 @property (weak, nonatomic) IBOutlet UITextView *informationView;
 
 @property NSDictionary* userTranslation;
+
+@property CatalyzeEntry* selectedEntry;
+
+@property NSMutableArray* userEntries;
 
 @end
