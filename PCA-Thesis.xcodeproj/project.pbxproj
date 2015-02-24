@@ -37,6 +37,7 @@
 		638611011A2A393F00B47B2E /* sliderTick.png in Resources */ = {isa = PBXBuildFile; fileRef = 638611001A2A393F00B47B2E /* sliderTick.png */; };
 		63AB51351A9D25640061D99F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AB51341A9D25640061D99F /* Accelerate.framework */; };
 		63AB51361A9D258C0061D99F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AB51311A9D24E30061D99F /* libCorePlot-CocoaTouch.a */; };
+		63AB51391A9D26960061D99F /* PCAPatientStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AB51381A9D26960061D99F /* PCAPatientStatsViewController.m */; };
 		63B503BD18FB43C20017F906 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BC18FB43C20017F906 /* Foundation.framework */; };
 		63B503BF18FB43C20017F906 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503BE18FB43C20017F906 /* CoreGraphics.framework */; };
 		63B503C118FB43C20017F906 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B503C018FB43C20017F906 /* UIKit.framework */; };
@@ -188,6 +189,8 @@
 		63AA0C3819CC8BA700C05C97 /* readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.markdown; sourceTree = "<group>"; };
 		63AB512A1A9D24E30061D99F /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		63AB51341A9D25640061D99F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		63AB51371A9D26960061D99F /* PCAPatientStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAPatientStatsViewController.h; sourceTree = "<group>"; };
+		63AB51381A9D26960061D99F /* PCAPatientStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAPatientStatsViewController.m; sourceTree = "<group>"; };
 		63B503B918FB43C20017F906 /* PCA-Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PCA-Thesis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B503BC18FB43C20017F906 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		63B503BE18FB43C20017F906 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -445,6 +448,8 @@
 				63B503CB18FB43C20017F906 /* PCAAppDelegate.h */,
 				63B503CC18FB43C20017F906 /* PCAAppDelegate.m */,
 				63B503CE18FB43C20017F906 /* Main.storyboard */,
+				63AB51371A9D26960061D99F /* PCAPatientStatsViewController.h */,
+				63AB51381A9D26960061D99F /* PCAPatientStatsViewController.m */,
 				63DF0CC019CF7AFD005814BA /* PCAAllDoneViewController.h */,
 				63DF0CC119CF7AFD005814BA /* PCAAllDoneViewController.m */,
 				632E4E60197E1A2A00326376 /* PCAMainViewController.h */,
@@ -830,6 +835,7 @@
 				63C108DB19DA2CB2005E8C45 /* HealthPlan.m in Sources */,
 				63DF0CC219CF7AFD005814BA /* PCAAllDoneViewController.m in Sources */,
 				63C108E119DA2CB2005E8C45 /* AFHTTPSessionManager.m in Sources */,
+				63AB51391A9D26960061D99F /* PCAPatientStatsViewController.m in Sources */,
 				63C108D819DA2CB2005E8C45 /* Email.m in Sources */,
 				632E4E62197E1A2A00326376 /* PCAMainViewController.m in Sources */,
 				63C108EB19DA2CB2005E8C45 /* PhoneNumber.m in Sources */,
@@ -997,7 +1003,13 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PCA-Thesis/PCA-Thesis-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"core-plot/**",
+				);
 				INFOPLIST_FILE = "PCA-Thesis/PCA-Thesis-Info.plist";
+				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -1016,7 +1028,13 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PCA-Thesis/PCA-Thesis-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"core-plot/**",
+				);
 				INFOPLIST_FILE = "PCA-Thesis/PCA-Thesis-Info.plist";
+				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

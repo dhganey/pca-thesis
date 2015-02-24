@@ -60,4 +60,6 @@
     self.informationView.text = labelText;
 }
 
+- (IBAction)statsButtonPressed:(id)sender {
+}
 @end

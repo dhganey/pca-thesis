@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nZl-uN-Pyh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nZl-uN-Pyh">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -329,7 +329,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Patient Name" id="kFw-K2-hK2"/>
+                    <navigationItem key="navigationItem" title="Patient Name" id="kFw-K2-hK2">
+                        <barButtonItem key="rightBarButtonItem" title="Stats" id="cn2-KS-9uU">
+                            <connections>
+                                <segue destination="cb6-71-wXY" kind="push" id="TjX-mn-KK8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="informationView" destination="SRO-W2-H8Z" id="Hpk-rm-JKJ"/>
                     </connections>
@@ -337,6 +343,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIb-nj-O3T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1469" y="-1104"/>
+        </scene>
+        <!--Patient Stats View-->
+        <scene sceneID="Vjy-Dt-ZiB">
+            <objects>
+                <viewController id="cb6-71-wXY" customClass="PCAPatientStatsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bnk-GV-roq"/>
+                        <viewControllerLayoutGuide type="bottom" id="dkb-ig-icu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fTo-Q4-0vT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Patient Stats View" id="89T-At-jgm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ybj-UY-Olb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1878" y="-1087"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RNX-e1-w8V">
