@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 dhganey. All rights reserved.
 //
 
+#pragma once
+
 #import <UIKit/UIKit.h>
 
 #import "PCADefinitions.h"

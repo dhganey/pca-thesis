@@ -8,6 +8,8 @@
 
 #import "PCAPatientStatsViewController.h"
 
+#include "PCAPatientDetailViewController.h"
+
 @interface PCAPatientStatsViewController ()
 
 @property (strong, nonatomic) IBOutlet UIView *NewGraphingView;
@@ -16,9 +18,12 @@
 
 @implementation PCAPatientStatsViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    //Set up app delegate object for use of shared functions
+    self.appDel = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,35 +35,33 @@
 {
     [super viewWillAppear:animated];
     
-    //dispatch_queue_t graphQueue = dispatch_queue_create("graph view create", NULL);
+    self.title = [[self.appDel.defObj determineSymptomName:(int)self.curSymptom] capitalizedString];
+    
+    //change device orientation to landscape:
+    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+
+    [self constructPlot];
+}
+
+-(void) constructPlot
+{
     dispatch_async(dispatch_get_main_queue(), ^{
         //hack to force auto-layout
         CPTGraphHostingView *hostView = [[CPTGraphHostingView alloc] initWithFrame:self.NewGraphingView.frame];
         
         //create graph object and add to hostview
-        //CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:hostView.bounds];
         CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:CGRectMake(0, 0, 100, 100)]; //part of new hack
         hostView.hostedGraph = graph;
         
-        
-        //new stuff for formatting
         hostView.allowPinchScaling = YES;
         
-        graph.paddingBottom = 0; //30.0f;
-        graph.paddingLeft = 0; //30.0f;
-        graph.paddingRight = 0; //-5.0f;
-        graph.paddingTop = 0; //-1.0f;
+        graph.paddingBottom = 0;
+        graph.paddingLeft = 0;
+        graph.paddingRight = 0;
+        graph.paddingTop = 0;
         
-        //[graph applyTheme:[CPTTheme themeNamed:kCPTSlateTheme]];
         [graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
-        
-        //graph title stuff
-        NSString *title = @"User Pain";
-        CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
-        titleStyle.fontName = @"Helvetica Bold";
-        titleStyle.fontSize = 20.0f;
-        graph.titleTextStyle = titleStyle;
-        graph.title = title;
         
         //get default plotspace
         CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
@@ -67,10 +70,18 @@
         float xMin, xMax, yMin, yMax;
         xMin = 0;
         xMax = [self.userEntries count];
-        
         yMin = 0;
-        //yMax = [self maxSleepEntry];
-        yMax = 20 * 1.2; //so title is visible
+        //yMax depends on the symptom
+        if (self.curSymptom == ACTIVITY ||
+            self.curSymptom == ANXIETY ||
+            self.curSymptom == APPETITE)
+        {
+            yMax = 4;
+        }
+        else
+        {
+            yMax = 10;
+        }
         
         //set ranges
         [plotSpace setXRange:[CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xMin) length:CPTDecimalFromFloat(xMax)]];
@@ -79,12 +90,12 @@
         //create the plot
         CPTScatterPlot *plot = [[CPTScatterPlot alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
         
-        plot.dataSource = self; //this uses protocol in .h file
+        plot.dataSource = self; //this uses datasource protocol
         
         //line color stuff
         CPTMutableLineStyle *lineStyle = [[CPTMutableLineStyle alloc] init];
         lineStyle.lineColor = [CPTColor blueColor];
-        lineStyle.lineWidth = 2.0f;
+        lineStyle.lineWidth = 1.5f;
         plot.dataLineStyle = lineStyle;
         
         [graph addPlot:plot toPlotSpace:graph.defaultPlotSpace];
@@ -111,7 +122,12 @@
     }
     else
     {
-        NSNumber* painScore = [temp.content objectForKey:@"pain"];
+        NSString* key = [self.appDel.defObj determineSymptomName:self.curSymptom];
+        if (self.curSymptom == SHORTNESS_OF_BREATH)
+        {
+            key = @"shortness_of_breath";
+        }
+        NSNumber* painScore = [temp.content objectForKey:key];
         NSLog(@"value: %f", painScore);
         return painScore;
     }

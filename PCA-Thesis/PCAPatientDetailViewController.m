@@ -7,7 +7,9 @@
 //
 
 #import "PCAPatientDetailViewController.h"
+
 #include "PCAPatientStatsViewController.h"
+#include "PCADefinitions.h"
 
 @interface PCAPatientDetailViewController ()
 
@@ -24,11 +26,31 @@
     [self updateInformationArea];
     
     [self queryForSymptoms];
+    
+    self.symptomPicker.dataSource = self;
+    self.symptomPicker.delegate = self;
+    
+    //Set up app delegate object for use of shared functions
+    self.appDel = [[UIApplication sharedApplication] delegate];
+    
+    //populate the picker array
+    self.symptomArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 10; i++)
+    {
+        self.symptomArray[i] = [[self.appDel.defObj determineSymptomName:i] capitalizedString];
+    }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    //change device orientation to portrait:
+    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
 }
 
 /**
@@ -98,6 +120,24 @@
 {
     PCAPatientStatsViewController* nextVC = segue.destinationViewController;
     nextVC.userEntries = self.userEntries;
+    nextVC.curSymptom = (SYMPTOM) [self.symptomPicker selectedRowInComponent:0];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+// The number of rows of data
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return self.symptomArray.count;
+}
+
+// The data to return for the row and component (column) that's being passed in
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return self.symptomArray[row];
 }
 
 @end
