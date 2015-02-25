@@ -265,19 +265,23 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wE5-vy-if2">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wE5-vy-if2">
                                             <rect key="frame" x="8" y="13" width="199" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="222" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0n5-Ad-Dg9">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="222" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0n5-Ad-Dg9">
                                             <rect key="frame" x="215" y="13" width="97" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="0n5-Ad-Dg9" firstAttribute="trailing" secondItem="SUY-SM-231" secondAttribute="trailingMargin" id="OLf-ew-eNl"/>
+                                        <constraint firstItem="wE5-vy-if2" firstAttribute="leading" secondItem="SUY-SM-231" secondAttribute="leadingMargin" id="t6n-nu-ihs"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -326,11 +330,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FMA-jj-glg">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FMA-jj-glg">
                                 <rect key="frame" x="0.0" y="347" width="320" height="216"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uqQ-2D-QbS" firstAttribute="top" secondItem="FMA-jj-glg" secondAttribute="bottom" constant="5" id="Jc7-Dr-cSG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FMA-jj-glg" secondAttribute="trailing" constant="-16" id="Sur-lf-QWk"/>
+                            <constraint firstItem="FMA-jj-glg" firstAttribute="leading" secondItem="nfe-wH-hfb" secondAttribute="leadingMargin" constant="-16" id="Ycv-Y9-fv8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Patient Name" id="kFw-K2-hK2">
                         <barButtonItem key="rightBarButtonItem" title="Stats" id="cn2-KS-9uU">
@@ -360,12 +369,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0gy-o7-Qx1">
-                                <rect key="frame" x="0.0" y="72" width="568" height="192"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0gy-o7-Qx1">
+                                <rect key="frame" x="86" y="90" width="397" height="164"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0gy-o7-Qx1" firstAttribute="leading" secondItem="fTo-Q4-0vT" secondAttribute="leadingMargin" id="Oeq-rZ-6N8"/>
+                            <constraint firstItem="dkb-ig-icu" firstAttribute="top" secondItem="0gy-o7-Qx1" secondAttribute="bottom" constant="15" id="lRY-YV-dZF"/>
+                            <constraint firstItem="0gy-o7-Qx1" firstAttribute="top" secondItem="bnk-GV-roq" secondAttribute="bottom" constant="15" id="qzy-F8-xyN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0gy-o7-Qx1" secondAttribute="trailing" id="ygJ-de-9KN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Patient Stats View" id="89T-At-jgm"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>

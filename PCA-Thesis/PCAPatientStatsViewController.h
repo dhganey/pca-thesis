@@ -17,6 +17,8 @@
 
 @interface PCAPatientStatsViewController : UIViewController <CPTPlotDataSource>
 
+@property (strong, nonatomic) IBOutlet UIView *NewGraphingView;
+
 @property NSMutableArray* userEntries;
 
 @property SYMPTOM curSymptom;

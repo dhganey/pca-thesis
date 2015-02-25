@@ -12,8 +12,6 @@
 
 @interface PCAPatientStatsViewController ()
 
-@property (strong, nonatomic) IBOutlet UIView *NewGraphingView;
-
 @end
 
 @implementation PCAPatientStatsViewController
@@ -87,6 +85,30 @@
         [plotSpace setXRange:[CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xMin) length:CPTDecimalFromFloat(xMax)]];
         [plotSpace setYRange:[CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yMin) length:CPTDecimalFromFloat(yMax)]];
         
+        //configure axes
+        CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
+        CPTXYAxis *x = axisSet.xAxis;
+        x.majorIntervalLength = CPTDecimalFromString(@"2");
+        x.minorTicksPerInterval = 1;
+        x.minorTickLength = 5.0f;
+        x.majorTickLength = 7.0f;
+        x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
+        x.labelingPolicy = CPTAxisLabelingPolicyFixedInterval;
+        x.Title = @"Date of Input";
+        x.TitleOffset = 5.0f;
+        //x.LabelOffset = 15.0f;
+        
+        CPTXYAxis *y = axisSet.yAxis;
+        y.majorIntervalLength = CPTDecimalFromString(@"1");
+        y.minorTicksPerInterval = 0;
+        y.minorTickLength = 5.0f;
+        y.majorTickLength = 7.0f;
+        y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
+        y.labelingPolicy = CPTAxisLabelingPolicyFixedInterval;
+        y.Title = @"Number input";
+        y.TitleOffset = 0;
+        //y.LabelOffset = 15.0f;
+        
         //create the plot
         CPTScatterPlot *plot = [[CPTScatterPlot alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
         
@@ -117,18 +139,16 @@
     CatalyzeEntry* temp = [self.userEntries objectAtIndex:idx];
     if (fieldEnum == CPTScatterPlotFieldX)
     {
-        NSLog(@"index :%lu", (unsigned long)idx);
-        return [NSNumber numberWithInt:idx];
+        return [NSNumber numberWithUnsignedInteger:idx];
     }
     else
     {
         NSString* key = [self.appDel.defObj determineSymptomName:self.curSymptom];
-        if (self.curSymptom == SHORTNESS_OF_BREATH)
+        if (self.curSymptom == SHORTNESS_OF_BREATH) //special case since underscores
         {
             key = @"shortness_of_breath";
         }
         NSNumber* painScore = [temp.content objectForKey:key];
-        NSLog(@"value: %f", painScore);
         return painScore;
     }
 }
