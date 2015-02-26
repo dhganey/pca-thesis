@@ -26,6 +26,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+/**
+ When the view appears, rotate the view, update the title, and create the scatterplot
+ */
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -39,6 +42,9 @@
     [self constructPlot];
 }
 
+/**
+ Creates the scatterplot
+ */
 -(void) constructPlot
 {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -125,12 +131,17 @@
     });
 }
 
+/**
+ Datasource delegate method. Determines how many records there are
+ */
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
     return [self.userEntries count];
 }
 
-//also for datasource protocol
+/**
+ Datasource delegate method. Like cellForRowAtIndexPath, fills a unique plot point
+ */
 -(NSNumber*)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)idx
 {
     CatalyzeEntry* temp = [self.userEntries objectAtIndex:idx];

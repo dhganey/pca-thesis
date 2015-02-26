@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PCAAllDoneViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PCAAllDoneViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PCAAllDoneViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAAllDoneViewController/setDoneType:</TokenIdentifier>
+			<Abstract type="html">Represents what type of &quot;done&quot; we have--what information to show to user</Abstract>
+			<DeclaredIn>PCAAllDoneViewController.h</DeclaredIn>
+			
+			<Declaration>@property ALL_DONE_TYPE doneType</Declaration>
+			
+			
+			<Anchor>//api/name/doneType</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAAllDoneViewController/doneType</TokenIdentifier>
+			<Abstract type="html">Represents what type of &quot;done&quot; we have--what information to show to user</Abstract>
+			<DeclaredIn>PCAAllDoneViewController.h</DeclaredIn>
+			
+			<Declaration>@property ALL_DONE_TYPE doneType</Declaration>
+			
+			
+			<Anchor>//api/name/doneType</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PCAAllDoneViewController/doneType</TokenIdentifier>
+			<Abstract type="html">Represents what type of &quot;done&quot; we have--what information to show to user</Abstract>
+			<DeclaredIn>PCAAllDoneViewController.h</DeclaredIn>
+			
+			<Declaration>@property ALL_DONE_TYPE doneType</Declaration>
+			
+			
+			<Anchor>//api/name/doneType</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAAllDoneViewController/setUrgentDictionary:</TokenIdentifier>
+			<Abstract type="html">Represents the symptoms which were urgent to give feedback to the user</Abstract>
+			<DeclaredIn>PCAAllDoneViewController.h</DeclaredIn>
+			
+			<Declaration>@property NSMutableDictionary *urgentDictionary</Declaration>
+			
+			
+			<Anchor>//api/name/urgentDictionary</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAAllDoneViewController/urgentDictionary</TokenIdentifier>
+			<Abstract type="html">Represents the symptoms which were urgent to give feedback to the user</Abstract>
+			<DeclaredIn>PCAAllDoneViewController.h</DeclaredIn>
+			
+			<Declaration>@property NSMutableDictionary *urgentDictionary</Declaration>
+			
+			
+			<Anchor>//api/name/urgentDictionary</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PCAAllDoneViewController/urgentDictionary</TokenIdentifier>
+			<Abstract type="html">Represents the symptoms which were urgent to give feedback to the user</Abstract>
+			<DeclaredIn>PCAAllDoneViewController.h</DeclaredIn>
+			
+			<Declaration>@property NSMutableDictionary *urgentDictionary</Declaration>
+			
+			
+			<Anchor>//api/name/urgentDictionary</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAAllDoneViewController/logoutPressed:</TokenIdentifier>
+			<Abstract type="html">Called when logout button pressed</Abstract>
+			<DeclaredIn>PCAAllDoneViewController.h</DeclaredIn>
+			
+			<Declaration>- (IBAction)logoutPressed:(id)sender</Declaration>
+			
+			
+			<Anchor>//api/name/logoutPressed:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAAllDoneViewController/showUrgentSymptoms</TokenIdentifier>
+			<Abstract type="html">Gives the user feedback on the symtoms which are urgent
+Tells the user their symptom is &quot;a little&quot; high when urgency is 1
+Tells the user their symptom is &quot;very high&quot; when urgency is 2</Abstract>
+			<DeclaredIn>PCAAllDoneViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)showUrgentSymptoms</Declaration>
+			
+			
+			<Anchor>//api/name/showUrgentSymptoms</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAAllDoneViewController/showNoNeed</TokenIdentifier>
+			<Abstract type="html">Tells the user if they do not need to currently enter symptoms
+Used when app skips from login straight to this view controller</Abstract>
+			<DeclaredIn>PCAAllDoneViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)showNoNeed</Declaration>
+			
+			
+			<Anchor>//api/name/showNoNeed</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

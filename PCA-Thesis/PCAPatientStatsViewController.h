@@ -17,10 +17,19 @@
 
 @interface PCAPatientStatsViewController : UIViewController <CPTPlotDataSource>
 
+/**
+ UIView holds the graph, tied to the storyboard
+ */
 @property (strong, nonatomic) IBOutlet UIView *NewGraphingView;
 
+/**
+ Array of user entries, passed from previous VC
+ */
 @property NSMutableArray* userEntries;
 
+/*
+ Enum for symptom selected in previous VC
+ */
 @property SYMPTOM curSymptom;
 
 @end
