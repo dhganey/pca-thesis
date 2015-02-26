@@ -17,7 +17,7 @@
  @param type ERROR_TYPE enum type which determines which alert to show
  @return void
  */
--(void) showAlert: (ERROR_TYPE) type
++(void) showAlert: (ERROR_TYPE) type
 {
     NSString *errorMessage = @"There was a problem. Please try again";
     switch (type)
@@ -63,7 +63,7 @@
  @param textMessage NSString* text to display
  @return void
  */
--(void) showAlertWithText:(NSString*) text
++(void) showAlertWithText:(NSString*) text
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message!"
                                                     message:text
@@ -79,7 +79,7 @@
  @param symptom Integer representing desired symptom
  @return NSString
  */
--(NSString*)determineSymptomName:(int)symptom
++(NSString*)determineSymptomName:(int)symptom
 {
     switch(symptom)
     {
@@ -113,7 +113,7 @@
  @param result NSArray returned by Catalyze query function
  @return CatalyzeEntry* most recent entry
  */
--(CatalyzeEntry*) findMostRecent:(NSArray*) result
++(CatalyzeEntry*) findMostRecent:(NSArray*) result
 {
     CatalyzeEntry* mostRecent = result[0];
     

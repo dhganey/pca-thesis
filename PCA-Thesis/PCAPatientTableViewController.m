@@ -37,9 +37,6 @@
     self.clearsSelectionOnViewWillAppear = YES;
     
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    //Set up app delegate object for use of shared functions
-    self.appDel = [[UIApplication sharedApplication] delegate];
 }
 
 /**
@@ -104,7 +101,7 @@
                 
                 //once we have all the IDs, get the most recent
                 NSArray* immutableArr = sameIDs;
-                CatalyzeEntry* mostRecent = [self.appDel.defObj findMostRecent:immutableArr];
+                CatalyzeEntry* mostRecent = [PCADefinitions findMostRecent:immutableArr];
                 [checkedIDs setObject:mostRecent forKey:mostRecent.authorId];
             }
         }];
@@ -326,7 +323,7 @@
                                           failure:^(NSDictionary *result, int status, NSError *error)
      {
          NSLog(@"Error while logging out");
-         [self.appDel.defObj showAlert:LOGOUT_ERROR];
+         [PCADefinitions showAlert:LOGOUT_ERROR];
      }];
 }
 

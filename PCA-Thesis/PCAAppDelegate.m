@@ -17,9 +17,6 @@
     //Setup Catalyze
     [Catalyze setApiKey:@"ios pca 2f708c6f-0ab6-429b-a056-d01622b1ea69" applicationId:@"5735e7c5-2669-4778-afa4-64cf7e5707a6"];
     
-    //Create our singleton definitions object
-    self.defObj = [[PCADefinitions alloc] init];
-    
     //[Catalyze setLoggingLevel:kLoggingLevelDebug]; //TODO for debug
     
     //change status bar to dark

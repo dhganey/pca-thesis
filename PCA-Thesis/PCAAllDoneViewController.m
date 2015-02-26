@@ -22,9 +22,6 @@
     
     //[self.view setBackgroundColor:[UIColor clearColor]];
     
-    //Set up app delegate object for use of shared functions
-    self.appDel = [[UIApplication sharedApplication] delegate];
-
     if (self.doneType == NO_NEED)
     {
         [self showNoNeed];
@@ -122,7 +119,7 @@
     failure:^(NSDictionary *result, int status, NSError *error)
     {
         NSLog(@"Error while logging out");
-        [self.appDel.defObj showAlert:LOGOUT_ERROR];
+        [PCADefinitions showAlert:LOGOUT_ERROR];
     }];
 }
 

@@ -55,9 +55,6 @@ int FONT_SIZE = 15;
     
     self.doneType = NOT_SET;
     
-    //Set up app delegate object for use of shared functions
-    self.appDel = [[UIApplication sharedApplication] delegate];
-    
     //Query Catalyze for previous values
     //This is an asynchronous query but we don't want to start asking the user
     //for input until it finishes. Therefore, this method starts the input cycle
@@ -71,7 +68,7 @@ int FONT_SIZE = 15;
  
     if (![CatalyzeUser currentUser]) //make sure someone is logged in
     {
-        [self.appDel.defObj showAlert:NO_USER_LOGGED_IN];
+        [PCADefinitions showAlert:NO_USER_LOGGED_IN];
 
     }
 }
@@ -224,7 +221,7 @@ int FONT_SIZE = 15;
     failure:^(NSDictionary *result, int status, NSError *error)
     {
         NSLog(@"Error while logging out");
-        [self.appDel.defObj showAlert:LOGOUT_ERROR];
+        [PCADefinitions showAlert:LOGOUT_ERROR];
     }];
 }
 
@@ -255,7 +252,7 @@ int FONT_SIZE = 15;
 {
     [self removeSubviews];
     
-    NSString* symptomName = [self.appDel.defObj determineSymptomName:self.currentSymptom]; //determine which symptom we're on
+    NSString* symptomName = [PCADefinitions determineSymptomName:self.currentSymptom]; //determine which symptom we're on
     
     self.title = [symptomName capitalizedString]; //change the VC title
 
@@ -291,7 +288,7 @@ int FONT_SIZE = 15;
     {
         NSLog(@"error in prepareInstructionLabel");
     }
-    instructionString = [instructionString stringByAppendingString:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
+    instructionString = [instructionString stringByAppendingString:[PCADefinitions determineSymptomName:self.currentSymptom]];
     instructionString = [instructionString stringByAppendingString:@".\n\n"];
     if (inputType == SLIDER)
     {
@@ -432,7 +429,7 @@ int FONT_SIZE = 15;
 -(void) showPreviousValueSliderPosition
 {
     //first, figure out the frame
-    NSNumber* lastVal = [self.mostRecent.content valueForKey:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
+    NSNumber* lastVal = [self.mostRecent.content valueForKey:[PCADefinitions determineSymptomName:self.currentSymptom]];
     if (self.currentSymptom == SHORTNESS_OF_BREATH)
     {
         lastVal = [self.mostRecent.content valueForKey:@"shortness_of_breath"];
@@ -474,7 +471,7 @@ int FONT_SIZE = 15;
     
     if ([radioRef selectedSegmentIndex] == UISegmentedControlNoSegment) //if nothing selected
     {
-        [self.appDel.defObj showAlert:NOTHING_SELECTED];
+        [PCADefinitions showAlert:NOTHING_SELECTED];
     }
     else
     {
@@ -558,7 +555,7 @@ int FONT_SIZE = 15;
     }
     else //all other values in Catalyze esasEntry class have the same name as the determineSymptomName value
     {
-        [self.esasDictionary setValue:[NSNumber numberWithDouble:self.valueToSave] forKey:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
+        [self.esasDictionary setValue:[NSNumber numberWithDouble:self.valueToSave] forKey:[PCADefinitions determineSymptomName:self.currentSymptom]];
     }
     NSLog(@"%@", self.esasDictionary);
 }

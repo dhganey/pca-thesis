@@ -29,11 +29,6 @@
  */
 @property double valueToSave;
 
-/**
- AppDelegate object used to reference defObj for static functions
- */
-@property PCAAppDelegate* appDel;
-
 //@property CatalyzeEntry* esasEntry;
 
 /**

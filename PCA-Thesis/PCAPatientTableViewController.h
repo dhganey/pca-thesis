@@ -14,11 +14,6 @@
 
 @property NSArray* recentEntries;
 
-/**
- AppDelegate object used to reference defObj for static functions
- */
-@property PCAAppDelegate* appDel;
-
 @property CatalyzeEntry* selectedEntry;
 
 @property NSDictionary* userTranslation;

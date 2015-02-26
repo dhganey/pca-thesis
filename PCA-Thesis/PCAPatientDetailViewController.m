@@ -29,15 +29,12 @@
     
     self.symptomPicker.dataSource = self;
     self.symptomPicker.delegate = self;
-    
-    //Set up app delegate object for use of shared functions
-    self.appDel = [[UIApplication sharedApplication] delegate];
-    
+
     //populate the picker array
     self.symptomArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 10; i++)
     {
-        self.symptomArray[i] = [[self.appDel.defObj determineSymptomName:i] capitalizedString];
+        self.symptomArray[i] = [[PCADefinitions determineSymptomName:i] capitalizedString];
     }
 }
 

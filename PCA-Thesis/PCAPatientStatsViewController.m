@@ -19,9 +19,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //Set up app delegate object for use of shared functions
-    self.appDel = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,7 +30,7 @@
 {
     [super viewWillAppear:animated];
     
-    self.title = [[self.appDel.defObj determineSymptomName:(int)self.curSymptom] capitalizedString];
+    self.title = [[PCADefinitions determineSymptomName:(int)self.curSymptom] capitalizedString];
     
     //change device orientation to landscape:
     NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
@@ -143,7 +140,7 @@
     }
     else
     {
-        NSString* key = [self.appDel.defObj determineSymptomName:self.curSymptom];
+        NSString* key = [PCADefinitions determineSymptomName:self.curSymptom];
         if (self.curSymptom == SHORTNESS_OF_BREATH) //special case since underscores
         {
             key = @"shortness_of_breath";

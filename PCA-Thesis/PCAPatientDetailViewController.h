@@ -26,9 +26,4 @@
 
 @property NSMutableArray* symptomArray;
 
-/**
- AppDelegate object used to reference defObj for static functions
- */
-@property PCAAppDelegate* appDel;
-
 @end
