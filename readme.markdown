@@ -1,5 +1,8 @@
 PAL -- Palliative Care Application
 ==================================
-For more information, please visit:
 
-http://dhganey.github.io/pca-thesis
+This repository contains the source code and documentation for my Barrett Honors undergraduate thesis project. The project is an iOS application which allows patients and physicians to communicate regarding patient symptoms. More information can be found in the official writeup:
+
+WRITEUP LINK
+
+HOSTED DOCUMENTATION LINK
