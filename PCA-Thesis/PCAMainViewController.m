@@ -295,7 +295,7 @@ int FONT_SIZE = 15;
     instructionString = [instructionString stringByAppendingString:@".\n\n"];
     if (inputType == SLIDER)
     {
-        instructionString = [instructionString stringByAppendingString:@"The mark on the slider shows your last entered value."];
+        instructionString = [instructionString stringByAppendingString:@"The red mark on the slider shows your last entered value."];
     }
     
     //Now create the actual label
