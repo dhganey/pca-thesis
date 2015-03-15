@@ -297,6 +297,14 @@ int FONT_SIZE = 15;
     {
         instructionString = [instructionString stringByAppendingString:@"The red mark on the slider shows your last entered value."];
     }
+    else if (inputType == RADIO)
+    {
+        instructionString = [instructionString stringByAppendingString:@"Your last entered value is pre-selected."];
+    }
+    else
+    {
+        NSLog(@"error in prepareInstructionLabel");
+    }
     
     //Now create the actual label
     UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(X_OFFSET, INSTRUCTION_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
@@ -385,6 +393,9 @@ int FONT_SIZE = 15;
             }
         }
     }
+    
+    NSNumber* lastVal = [self.mostRecent.content valueForKey:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
+    segControl.selectedSegmentIndex = [lastVal integerValue];
     
     [self.view addSubview:segControl];
     radioRef = segControl;
