@@ -299,7 +299,7 @@ int FONT_SIZE = 15;
  Prepares the UI elements which instruct the user on what to do on a radio screen
  @return void
  */
--(void) prepareInstructionLabelRadio:(UISegmentedControl*) segControl
+-(void) prepareInstructionLabelRadio
 {
     //First, create the string
     NSString* instructionString = @"Please ";
@@ -313,6 +313,12 @@ int FONT_SIZE = 15;
     instructions.lineBreakMode = NSLineBreakByWordWrapping;
     [instructions setNumberOfLines:0]; //this should cause it to auto wrap
     instructions.font = [instructions.font fontWithSize:FONT_SIZE];
+    
+    NSString* prevString = @"\nYour previously entered value was: ";
+    NSNumber* lastVal = [self.mostRecent.content valueForKey:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
+    prevString = [prevString stringByAppendingString:[radioRef titleForSegmentAtIndex:[lastVal intValue]]];
+    instructionString = [instructionString stringByAppendingString:prevString];
+    
     
     [instructions setText:instructionString];
     [instructions sizeToFit];
@@ -375,10 +381,9 @@ int FONT_SIZE = 15;
         NSLog(@"error in showRadioButtonScreen");
     }
     
-    [self prepareInstructionLabelRadio:segControl];
-    
     segControl = [[UISegmentedControl alloc] initWithItems:buttonTexts];
-    segControl.frame = CGRectMake(X_OFFSET, INPUT_Y_OFFSET, CGRectGetWidth(self.view.bounds)-2*X_OFFSET, HEIGHT);
+    segControl.frame = CGRectMake(X_OFFSET, INPUT_Y_OFFSET + 50, CGRectGetWidth(self.view.bounds)-2*X_OFFSET, HEIGHT);
+    //TODO adjust height values
     
     //The loop below iterates through each segment in the control
     //For each label in the subviews of the segment, if it's a UILabel, it sets the number of lines to 0
@@ -398,6 +403,7 @@ int FONT_SIZE = 15;
     
     [self.view addSubview:segControl];
     radioRef = segControl;
+    [self prepareInstructionLabelRadio];
     
     [self prepareSubmitButton:RADIO];
 }
