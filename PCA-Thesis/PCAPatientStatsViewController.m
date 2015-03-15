@@ -133,6 +133,7 @@
 
 /**
  Datasource delegate method. Determines how many records there are
+ @param plot CPTPlot
  */
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
@@ -141,6 +142,9 @@
 
 /**
  Datasource delegate method. Like cellForRowAtIndexPath, fills a unique plot point
+ @param plot CPT plot
+ @param fieldEnum tells whether we're on X or Y axis
+ @param idx which index we're at
  */
 -(NSNumber*)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)idx
 {
