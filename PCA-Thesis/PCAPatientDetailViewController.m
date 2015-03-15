@@ -51,7 +51,8 @@
 }
 
 /**
- Updates the information text area with the user's urgent symptoms and the values entered
+ Updates the information text area with the user's urgent symptoms and the values entered.
+ Also adds instructions for the picker
  @return void
  */
 -(void) updateInformationArea
@@ -78,6 +79,9 @@
     {
         labelText = @"This user has no urgent symptoms";
     }
+    
+    NSString* pickerInstructions = @"\n\n\nChoose a symptom from the list below and press \"Stats\" to view a graph of this patient's entries over time.";
+    labelText = [labelText stringByAppendingString:pickerInstructions];
     
     self.informationView.text = labelText;
 }
