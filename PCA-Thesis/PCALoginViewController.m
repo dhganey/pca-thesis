@@ -80,12 +80,12 @@
         }
         failure:^(NSDictionary *result, int status, NSError *error) //callback if login fails
         {
-            [self.appDel.defObj showAlert:LOGIN_ERROR];
+            [PCADefinitions showAlert:LOGIN_ERROR];
         }];
     }
     else //if user input is invalid
     {
-        [self.appDel.defObj showAlert:INVALID_INPUT];
+        [PCADefinitions showAlert:INVALID_INPUT];
     }
 }
 

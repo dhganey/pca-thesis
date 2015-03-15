@@ -135,18 +135,18 @@
         {
             if (status==400)
             {
-                [self.appDel.defObj showAlert:USERNAME_TAKEN];
+                [PCADefinitions showAlert:USERNAME_TAKEN];
             }
             else
             {
-                [self.appDel.defObj showAlert:SIGNUP_ERROR];
+                [PCADefinitions showAlert:SIGNUP_ERROR];
             }
         }];
 
     }
     else //input not valid
     {
-        [self.appDel.defObj showAlert:INVALID_INPUT];
+        [PCADefinitions showAlert:INVALID_INPUT];
     }
 }
 
