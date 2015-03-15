@@ -310,6 +310,29 @@ int FONT_SIZE = 15;
 }
 
 /**
+ Prepares UI elements to label low/high ends of the analog slider
+ */
+-(void) prepareLowHighLabels
+{
+    NSString* LOW = @"Low";
+    NSString* HIGH = @"High";
+    
+    CGFloat lowX = sliderRef.frame.origin.x;
+    CGFloat lowY = sliderRef.frame.origin.y;
+    CGFloat highX = self.view.frame.size.width - lowX - 35;
+    CGFloat highY = lowY;
+    
+    UILabel* lowLabel = [[UILabel alloc] initWithFrame:CGRectMake(lowX, lowY, 100, 100)];
+    UILabel* highLabel = [[UILabel alloc] initWithFrame:CGRectMake(highX, highY, 100, 100)];
+    
+    [lowLabel setText:LOW];
+    [highLabel setText:HIGH];
+    
+    [self.view addSubview:lowLabel];
+    [self.view addSubview:highLabel];
+}
+
+/**
  Prepares the submit button for the symptom screen. Changes the selector based on whether the user is inputting data on a slider or on "radio" buttons
  @param type INPUT_TYPE enum to determine whether to set selector as slider pressed or radio pressed
  @return void
@@ -414,6 +437,9 @@ int FONT_SIZE = 15;
     
     //show the user their last entered score
     [self showPreviousValueSliderPosition];
+    
+    //instruct the user on low/high ends
+    [self prepareLowHighLabels];
 
     [self prepareSubmitButton:SLIDER];
 }
