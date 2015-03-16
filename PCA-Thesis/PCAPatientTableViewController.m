@@ -130,11 +130,12 @@
 -(void) filterRecentValuesToProvider
 {
     NSMutableArray* newArray = [[NSMutableArray alloc] init];
+    NSString* usersId = [[CatalyzeUser currentUser] usersId];
     
     for (CatalyzeEntry* entry in self.recentEntries)
     {
         NSString* validDoctor = [entry.content valueForKey:@"doctor"];
-        if ([validDoctor isEqualToString:[[CatalyzeUser currentUser] usersId]])
+        if ([validDoctor isEqualToString:usersId])
         {
             [newArray addObject:entry];
         }
