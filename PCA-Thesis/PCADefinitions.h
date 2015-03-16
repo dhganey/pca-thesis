@@ -12,6 +12,9 @@
 
 @interface PCADefinitions : NSObject
 
+/**
+Enumerated type for symptom names
+*/
 typedef enum
 {
     PAIN = 0,
@@ -27,12 +30,19 @@ typedef enum
     MAX_SYMPTOMS = OTHER+1 //for for loops
 } SYMPTOM;
 
+/**
+Enumerated type to distinguish between screens which use sliders and those which use segmented "radio" controls
+*/
 typedef enum
 {
     SLIDER = 0,
     RADIO
 } INPUT_TYPE;
 
+/**
+Enumerated type to distinguish types of errors.
+Provides clarity in code by offloading UIAlertView functions and error message strings to PCADefinitions
+*/
 typedef enum
 {
     INVALID_INPUT = 0,
@@ -45,12 +55,19 @@ typedef enum
     QUERY_EMPTY
 } ERROR_TYPE;
 
+/**
+Enumerated type for popup selection buttons
+*/
 typedef enum
 {
     CANCEL = 0,
     CONTINUE
 } BUTTON_VALUE;
 
+/**
+Enumerated type for "doneness"
+Users can complete entering symptoms in multiple ways, this distinguishes those routes
+*/
 typedef enum
 {
     DONE_ENTERING = 0,
@@ -59,6 +76,9 @@ typedef enum
     NOT_SET
 } ALL_DONE_TYPE;
 
+/**
+Enumerated type for day of the week. There's probably an NS type for this...
+*/
 typedef enum
 {
     SUNDAY = 1,
