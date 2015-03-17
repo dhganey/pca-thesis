@@ -271,38 +271,54 @@ int FONT_SIZE = 15;
 }
 
 /**
- Prepares the UI elements which instruct the user on what to do. Changes the text depending on whether the input screen uses "radio" buttons or a slider
- @param inputType INPUT_TYPE enum to determine whether to show a slider screen or a radio button screen
+ Prepares the UI elements which instruct the user on what to do on an analog screen
  @return void
  */
--(void) prepareInstructionLabel:(INPUT_TYPE) inputType
+-(void) prepareInstructionLabelAnalog
 {
     //First, create the string
     NSString* instructionString = @"Please ";
-    if (inputType == SLIDER)
-    {
-        instructionString = [instructionString stringByAppendingString:@"drag the slider to enter your "];
-    }
-    else if (inputType == RADIO)
-    {
-        instructionString = [instructionString stringByAppendingString:@"click the button which reflects your "];
-    }
-    else
-    {
-        NSLog(@"error in prepareInstructionLabel");
-    }
+    instructionString = [instructionString stringByAppendingString:@"drag the slider to enter your "];
     instructionString = [instructionString stringByAppendingString:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
     instructionString = [instructionString stringByAppendingString:@".\n\n"];
-    if (inputType == SLIDER)
-    {
-        instructionString = [instructionString stringByAppendingString:@"The mark on the slider shows your last entered value."];
-    }
+
+    instructionString = [instructionString stringByAppendingString:@"The red mark on the slider shows your last entered value."];
+    //Now create the actual label
+    UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(X_OFFSET, INSTRUCTION_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
+    instructions.lineBreakMode = NSLineBreakByWordWrapping;
+    [instructions setNumberOfLines:0]; //this should cause it to auto wrap
+    instructions.font = [instructions.font fontWithSize:FONT_SIZE];
+    
+    [instructions setText:instructionString];
+    [instructions sizeToFit];
+    [self.view addSubview:instructions];
+}
+
+
+/**
+ Prepares the UI elements which instruct the user on what to do on a radio screen
+ @return void
+ */
+-(void) prepareInstructionLabelRadio
+{
+    //First, create the string
+    NSString* instructionString = @"Please ";
+    instructionString = [instructionString stringByAppendingString:@"click the button which reflects your "];
+    instructionString = [instructionString stringByAppendingString:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
+    instructionString = [instructionString stringByAppendingString:@".\n\n"];
+    //TODO: tell user previous value
     
     //Now create the actual label
     UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(X_OFFSET, INSTRUCTION_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
     instructions.lineBreakMode = NSLineBreakByWordWrapping;
     [instructions setNumberOfLines:0]; //this should cause it to auto wrap
     instructions.font = [instructions.font fontWithSize:FONT_SIZE];
+    
+    NSString* prevString = @"\nYour previously entered value was: ";
+    NSNumber* lastVal = [self.mostRecent.content valueForKey:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
+    prevString = [prevString stringByAppendingString:[radioRef titleForSegmentAtIndex:[lastVal intValue]]];
+    instructionString = [instructionString stringByAppendingString:prevString];
+    
     
     [instructions setText:instructionString];
     [instructions sizeToFit];
@@ -344,8 +360,6 @@ int FONT_SIZE = 15;
  */
 -(void) showRadioButtonScreen
 {
-    [self prepareInstructionLabel:RADIO];
-    
     NSArray* buttonTexts;
     UISegmentedControl* segControl;
     
@@ -368,7 +382,8 @@ int FONT_SIZE = 15;
     }
     
     segControl = [[UISegmentedControl alloc] initWithItems:buttonTexts];
-    segControl.frame = CGRectMake(X_OFFSET, INPUT_Y_OFFSET, CGRectGetWidth(self.view.bounds)-2*X_OFFSET, HEIGHT);
+    segControl.frame = CGRectMake(X_OFFSET, INPUT_Y_OFFSET + 50, CGRectGetWidth(self.view.bounds)-2*X_OFFSET, HEIGHT);
+    //TODO adjust height values
     
     //The loop below iterates through each segment in the control
     //For each label in the subviews of the segment, if it's a UILabel, it sets the number of lines to 0
@@ -388,6 +403,7 @@ int FONT_SIZE = 15;
     
     [self.view addSubview:segControl];
     radioRef = segControl;
+    [self prepareInstructionLabelRadio];
     
     [self prepareSubmitButton:RADIO];
 }
@@ -398,7 +414,7 @@ int FONT_SIZE = 15;
  */
 -(void)showSliderScreen
 {
-    [self prepareInstructionLabel:SLIDER];
+    [self prepareInstructionLabelAnalog];
     
     //prepare the slider
     UISlider *inputSlider = [[UISlider alloc] initWithFrame:CGRectMake(X_OFFSET, INPUT_Y_OFFSET, CGRectGetWidth(self.view.bounds)-2*X_OFFSET, HEIGHT)];
