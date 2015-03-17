@@ -57,7 +57,7 @@
         
         hostView.allowPinchScaling = YES;
         
-        graph.paddingBottom = 40;
+        graph.paddingBottom = 70;
         graph.paddingLeft = 25;
         graph.paddingRight = 0;
         graph.paddingTop = 10;
@@ -106,22 +106,22 @@
         x.majorIntervalLength = CPTDecimalFromString(@"2");
         x.majorTickLength = 7.0f;
         x.minorTickLineStyle = nil;
-        //x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
-        x.labelingPolicy = CPTAxisLabelingPolicyFixedInterval;
-        x.labelTextStyle = textStyle;
         x.Title = @"Date of Input";
-        x.TitleOffset = 20.0f;
+        x.TitleOffset = 50.0f;
+        x.labelingPolicy = CPTAxisLabelingPolicyNone; //do the labels manually
+        x.labelRotation = M_PI/4;
+        [x setAxisLabels:[NSSet setWithArray:[self getDatesArray]]];
+        x.labelTextStyle = textStyle;
         x.LabelOffset = 0.0f;
         
         CPTXYAxis *y = axisSet.yAxis;
         y.majorIntervalLength = CPTDecimalFromString(@"1");
         y.majorTickLength = 7.0f;
         y.minorTickLineStyle = nil;
-        //y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
-        y.labelingPolicy = CPTAxisLabelingPolicyFixedInterval;
-        y.labelTextStyle = textStyle;
         y.Title = @"Number input";
         y.TitleOffset = 20.0f;
+        y.labelingPolicy = CPTAxisLabelingPolicyFixedInterval;
+        y.labelTextStyle = textStyle;
         y.LabelOffset = 0.0f;
         
         //create the plot
@@ -141,6 +141,33 @@
         [self.view addSubview:hostView];
         [self.view setNeedsDisplay];
     });
+}
+
+/**
+ Creates an array of the entry dates
+ */
+-(NSArray*) getDatesArray
+{
+    NSMutableArray* tempArr = [[NSMutableArray alloc] init];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yy-MM-dd"];
+    
+    CPTMutableTextStyle* textStyle = [CPTMutableTextStyle textStyle];
+    textStyle.fontSize = 12.0f;
+    textStyle.color = [CPTColor colorWithCGColor:[[UIColor blackColor] CGColor]];
+    
+    for (int i = 0; i < self.userEntries.count; i++)
+    {
+        CatalyzeEntry* entry = [self.userEntries objectAtIndex:i];
+        CPTAxisLabel* label = [[CPTAxisLabel alloc] initWithText:[formatter stringFromDate:entry.createdAt] textStyle:textStyle];
+        [label setTickLocation:CPTDecimalFromInt(i)];
+        [label setRotation:M_PI/4];
+        [label setOffset:0.1];
+        [tempArr addObject:label];
+    }
+        
+    return [NSArray arrayWithArray:tempArr];
 }
 
 /**
