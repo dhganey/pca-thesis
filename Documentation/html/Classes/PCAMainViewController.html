@@ -72,7 +72,11 @@
 	
 	<option value="//api/name/prepareForSegue:sender:">&nbsp;&nbsp;&nbsp;&nbsp;- prepareForSegue:sender:</option>
 	
-	<option value="//api/name/prepareInstructionLabel:">&nbsp;&nbsp;&nbsp;&nbsp;- prepareInstructionLabel:</option>
+	<option value="//api/name/prepareInstructionLabelAnalog">&nbsp;&nbsp;&nbsp;&nbsp;- prepareInstructionLabelAnalog</option>
+	
+	<option value="//api/name/prepareInstructionLabelRadio">&nbsp;&nbsp;&nbsp;&nbsp;- prepareInstructionLabelRadio</option>
+	
+	<option value="//api/name/prepareLowHighLabels">&nbsp;&nbsp;&nbsp;&nbsp;- prepareLowHighLabels</option>
 	
 	<option value="//api/name/prepareSubmitButton:">&nbsp;&nbsp;&nbsp;&nbsp;- prepareSubmitButton:</option>
 	
@@ -164,7 +168,11 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareForSegue:sender:">prepareForSegue:sender:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareInstructionLabel:">prepareInstructionLabel:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareInstructionLabelAnalog">prepareInstructionLabelAnalog</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareInstructionLabelRadio">prepareInstructionLabelRadio</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareLowHighLabels">prepareLowHighLabels</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareSubmitButton:">prepareSubmitButton:</a></span></li>
 	
@@ -346,7 +354,19 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/prepareInstructionLabel:">&ndash;&nbsp;prepareInstructionLabel:</a></code>
+		<code><a href="#//api/name/prepareInstructionLabelAnalog">&ndash;&nbsp;prepareInstructionLabelAnalog</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/prepareInstructionLabelRadio">&ndash;&nbsp;prepareInstructionLabelRadio</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/prepareLowHighLabels">&ndash;&nbsp;prepareLowHighLabels</a></code>
 	</span>
 	
 	
@@ -1044,30 +1064,20 @@ Begins the symptom UI cycle</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/prepareInstructionLabel:" title="prepareInstructionLabel:"></a>
-	<h3 class="subsubtitle method-title">prepareInstructionLabel:</h3>
+	<a name="//api/name/prepareInstructionLabelAnalog" title="prepareInstructionLabelAnalog"></a>
+	<h3 class="subsubtitle method-title">prepareInstructionLabelAnalog</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Prepares the UI elements which instruct the user on what to do. Changes the text depending on whether the input screen uses &ldquo;radio&rdquo; buttons or a slider</p>
+		<p>Prepares the UI elements which instruct the user on what to do on an analog screen</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)prepareInstructionLabel:(id)<em>inputType</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)prepareInstructionLabelAnalog</code></div>
 
     
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>inputType</em></dt>
-			<dd><p>INPUT_TYPE enum to determine whether to show a slider screen or a radio button screen</p></dd>
-		</dl>
-		
-	</div>
 	
 	
 	
@@ -1075,6 +1085,83 @@ Begins the symptom UI cycle</p>
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
 		<p>void</p>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/prepareInstructionLabelRadio" title="prepareInstructionLabelRadio"></a>
+	<h3 class="subsubtitle method-title">prepareInstructionLabelRadio</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Prepares the UI elements which instruct the user on what to do on a radio screen</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)prepareInstructionLabelRadio</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">PCAMainViewController.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/prepareLowHighLabels" title="prepareLowHighLabels"></a>
+	<h3 class="subsubtitle method-title">prepareLowHighLabels</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Prepares UI elements to label low/high ends of the analog slider</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)prepareLowHighLabels</code></div>
+
+    
+	
+	
 	
 	
 	
@@ -1823,7 +1910,7 @@ Begins the symptom UI cycle</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 dhganey. All rights reserved. (Last updated: 2015-02-25)</span><br />
+						<p><span class="copyright">&copy; 2015 dhganey. All rights reserved. (Last updated: 2015-03-17)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

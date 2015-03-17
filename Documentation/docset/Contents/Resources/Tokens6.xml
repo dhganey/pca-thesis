@@ -109,12 +109,29 @@
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAPatientStatsViewController/getDatesArray</TokenIdentifier>
+			<Abstract type="html">Creates an array of the entry dates</Abstract>
+			<DeclaredIn>PCAPatientStatsViewController.m</DeclaredIn>
+			
+			<Declaration>- (NSArray *)getDatesArray</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSArray of CPTAxisLabels</Abstract></ReturnValue>
+			<Anchor>//api/name/getDatesArray</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/PCAPatientStatsViewController/numberOfRecordsForPlot:</TokenIdentifier>
 			<Abstract type="html">Datasource delegate method. Determines how many records there are</Abstract>
 			<DeclaredIn>PCAPatientStatsViewController.m</DeclaredIn>
 			
 			<Declaration>- (NSUInteger)numberOfRecordsForPlot:(id)plot</Declaration>
-			
+			<Parameters>
+				<Parameter>
+					<Name>plot</Name>
+					<Abstract type="html">CPTPlot</Abstract>
+				</Parameter>
+			</Parameters>
 			
 			<Anchor>//api/name/numberOfRecordsForPlot:</Anchor>
             <NodeRef refid="6"/>
@@ -126,7 +143,18 @@
 			<DeclaredIn>PCAPatientStatsViewController.m</DeclaredIn>
 			
 			<Declaration>- (NSNumber *)numberForPlot:(id)plot field:(id)fieldEnum recordIndex:(id)idx</Declaration>
-			
+			<Parameters>
+				<Parameter>
+					<Name>plot</Name>
+					<Abstract type="html">CPT plot</Abstract>
+				</Parameter><Parameter>
+					<Name>fieldEnum</Name>
+					<Abstract type="html">tells whether we&apos;re on X or Y axis</Abstract>
+				</Parameter><Parameter>
+					<Name>idx</Name>
+					<Abstract type="html">which index we&apos;re at</Abstract>
+				</Parameter>
+			</Parameters>
 			
 			<Anchor>//api/name/numberForPlot:field:recordIndex:</Anchor>
             <NodeRef refid="6"/>

@@ -14,7 +14,8 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/PCAPatientDetailViewController/updateInformationArea</TokenIdentifier>
-			<Abstract type="html">Updates the information text area with the user&apos;s urgent symptoms and the values entered</Abstract>
+			<Abstract type="html">Updates the information text area with the user&apos;s urgent symptoms and the values entered.
+Also adds instructions for the picker</Abstract>
 			<DeclaredIn>PCAPatientDetailViewController.m</DeclaredIn>
 			
 			<Declaration>- (void)updateInformationArea</Declaration>

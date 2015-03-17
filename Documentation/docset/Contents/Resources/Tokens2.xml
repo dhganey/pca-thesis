@@ -14,17 +14,12 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/PCADefinitions/showAlert:</TokenIdentifier>
-			<Abstract type="html">Determines the error message and shows a UI alert</Abstract>
+			<Abstract type="html">Enumerated type for day of the week. There&apos;s probably an NS type for this...</Abstract>
 			<DeclaredIn>PCADefinitions.h</DeclaredIn>
 			
 			<Declaration>+ (void)showAlert:(id)type</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>type</Name>
-					<Abstract type="html">ERROR_TYPE enum type which determines which alert to show</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
+			
+			
 			<Anchor>//api/name/showAlert:</Anchor>
             <NodeRef refid="2"/>
 		</Token>

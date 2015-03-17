@@ -155,6 +155,24 @@
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCALoginViewController/forgotPasswordPressed:</TokenIdentifier>
+			<Abstract type="html">Called when &quot;change password&quot; pressed. Creates a Catalyze HTTP request and sends it to change the password
+User receives an email with a web form to change the password (handled by Catalyze)</Abstract>
+			<DeclaredIn>PCALoginViewController.h</DeclaredIn>
+			
+			<Declaration>- (IBAction)forgotPasswordPressed:(id)sender</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>sender</Name>
+					<Abstract type="html">id of button</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">IBAction</Abstract></ReturnValue>
+			<Anchor>//api/name/forgotPasswordPressed:</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/PCALoginViewController/viewWillAppear:</TokenIdentifier>
 			<Abstract type="html">Called before view appears. Used to empty the password field</Abstract>
 			<DeclaredIn>PCALoginViewController.m</DeclaredIn>

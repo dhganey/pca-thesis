@@ -302,7 +302,7 @@ int FONT_SIZE = 15;
     //First, create the string
     NSString* instructionString = @"Please ";
     instructionString = [instructionString stringByAppendingString:@"click the button which reflects your "];
-    instructionString = [instructionString stringByAppendingString:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
+    instructionString = [instructionString stringByAppendingString:[PCADefinitions determineSymptomName:self.currentSymptom]];
     instructionString = [instructionString stringByAppendingString:@".\n\n"];
     //TODO: tell user previous value
     
@@ -313,7 +313,7 @@ int FONT_SIZE = 15;
     instructions.font = [instructions.font fontWithSize:FONT_SIZE];
     
     NSString* prevString = @"\nYour previously entered value was: ";
-    NSNumber* lastVal = [self.mostRecent.content valueForKey:[self.appDel.defObj determineSymptomName:self.currentSymptom]];
+    NSNumber* lastVal = [self.mostRecent.content valueForKey:[PCADefinitions determineSymptomName:self.currentSymptom]];
     prevString = [prevString stringByAppendingString:[radioRef titleForSegmentAtIndex:[lastVal intValue]]];
     instructionString = [instructionString stringByAppendingString:prevString];
     

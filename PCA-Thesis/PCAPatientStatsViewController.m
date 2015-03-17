@@ -145,6 +145,7 @@
 
 /**
  Creates an array of the entry dates
+ @return NSArray of CPTAxisLabels
  */
 -(NSArray*) getDatesArray
 {

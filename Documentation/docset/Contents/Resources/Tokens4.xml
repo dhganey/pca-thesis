@@ -379,19 +379,38 @@
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/PCAMainViewController/prepareInstructionLabel:</TokenIdentifier>
-			<Abstract type="html">Prepares the UI elements which instruct the user on what to do. Changes the text depending on whether the input screen uses &quot;radio&quot; buttons or a slider</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAMainViewController/prepareInstructionLabelAnalog</TokenIdentifier>
+			<Abstract type="html">Prepares the UI elements which instruct the user on what to do on an analog screen</Abstract>
 			<DeclaredIn>PCAMainViewController.m</DeclaredIn>
 			
-			<Declaration>- (void)prepareInstructionLabel:(id)inputType</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>inputType</Name>
-					<Abstract type="html">INPUT_TYPE enum to determine whether to show a slider screen or a radio button screen</Abstract>
-				</Parameter>
-			</Parameters>
+			<Declaration>- (void)prepareInstructionLabelAnalog</Declaration>
+			
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/prepareInstructionLabel:</Anchor>
+			<Anchor>//api/name/prepareInstructionLabelAnalog</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAMainViewController/prepareInstructionLabelRadio</TokenIdentifier>
+			<Abstract type="html">Prepares the UI elements which instruct the user on what to do on a radio screen</Abstract>
+			<DeclaredIn>PCAMainViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)prepareInstructionLabelRadio</Declaration>
+			
+			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
+			<Anchor>//api/name/prepareInstructionLabelRadio</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAMainViewController/prepareLowHighLabels</TokenIdentifier>
+			<Abstract type="html">Prepares UI elements to label low/high ends of the analog slider</Abstract>
+			<DeclaredIn>PCAMainViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)prepareLowHighLabels</Declaration>
+			
+			
+			<Anchor>//api/name/prepareLowHighLabels</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
