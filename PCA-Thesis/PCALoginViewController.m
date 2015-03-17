@@ -151,4 +151,9 @@
 {
     [self performSegueWithIdentifier:@"signupSegue" sender:self];
 }
+
+- (IBAction)changePasswordPressed:(id)sender
+{
+    [self performSegueWithIdentifier:@"changePasswordSegue" sender:self];
+}
 @end

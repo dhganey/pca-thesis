@@ -30,6 +30,7 @@
 		63166E09197C722B006D78D2 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166E06197C722B006D78D2 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		632E4E62197E1A2A00326376 /* PCAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 632E4E61197E1A2A00326376 /* PCAMainViewController.m */; };
 		63438E5B19AA7AA500C25DC5 /* PCADefinitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 63438E5A19AA7AA500C25DC5 /* PCADefinitions.m */; };
+		634518D31AB7A58000C8E5CC /* PCAChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634518D21AB7A58000C8E5CC /* PCAChangePasswordViewController.m */; };
 		6351120E19F4BE5C00486293 /* PCACatalyzeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351120D19F4BE5C00486293 /* PCACatalyzeTests.m */; };
 		6351121419F4C0F200486293 /* PCASymptomEnterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351121319F4C0F200486293 /* PCASymptomEnterTests.m */; };
 		6351122519F4C27C00486293 /* AsyncXCTestingKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351121919F4C27C00486293 /* AsyncXCTestingKit.m */; };
@@ -159,6 +160,8 @@
 		632E4E61197E1A2A00326376 /* PCAMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAMainViewController.m; sourceTree = "<group>"; };
 		63438E5919AA7AA500C25DC5 /* PCADefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCADefinitions.h; sourceTree = "<group>"; };
 		63438E5A19AA7AA500C25DC5 /* PCADefinitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCADefinitions.m; sourceTree = "<group>"; };
+		634518D11AB7A58000C8E5CC /* PCAChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAChangePasswordViewController.h; sourceTree = "<group>"; };
+		634518D21AB7A58000C8E5CC /* PCAChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAChangePasswordViewController.m; sourceTree = "<group>"; };
 		6351120D19F4BE5C00486293 /* PCACatalyzeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCACatalyzeTests.m; sourceTree = "<group>"; };
 		6351121319F4C0F200486293 /* PCASymptomEnterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCASymptomEnterTests.m; sourceTree = "<group>"; };
 		6351121719F4C27C00486293 /* AsyncXCTestingKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AsyncXCTestingKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -419,6 +422,8 @@
 				63DF0CC119CF7AFD005814BA /* PCAAllDoneViewController.m */,
 				632E4E60197E1A2A00326376 /* PCAMainViewController.h */,
 				632E4E61197E1A2A00326376 /* PCAMainViewController.m */,
+				634518D11AB7A58000C8E5CC /* PCAChangePasswordViewController.h */,
+				634518D21AB7A58000C8E5CC /* PCAChangePasswordViewController.m */,
 				63DE728A19AE3742001AA9B9 /* PCAPatientTableViewController.h */,
 				63DE728B19AE3742001AA9B9 /* PCAPatientTableViewController.m */,
 				63E9125F19D5D3E400465856 /* PCAPatientDetailViewController.h */,
@@ -781,6 +786,7 @@
 				63C108DD19DA2CB2005E8C45 /* Language.m in Sources */,
 				63166E07197C722B006D78D2 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				63166E08197C722B006D78D2 /* TPKeyboardAvoidingTableView.m in Sources */,
+				634518D31AB7A58000C8E5CC /* PCAChangePasswordViewController.m in Sources */,
 				63C108D119DA2CB2005E8C45 /* CatalyzeEntry.m in Sources */,
 				63C108EC19DA2CB2005E8C45 /* SocialId.m in Sources */,
 				63C108D619DA2CB2005E8C45 /* CatalyzeReference.m in Sources */,
