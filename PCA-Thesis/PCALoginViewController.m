@@ -152,6 +152,12 @@
     [self performSegueWithIdentifier:@"signupSegue" sender:self];
 }
 
+/**
+ Called when "change password" pressed. Creates a Catalyze HTTP request and sends it to change the password
+ User receives an email with a web form to change the password (handled by Catalyze)
+ @param sender id of button
+ @return IBAction
+ */
 - (IBAction)forgotPasswordPressed:(id)sender
 {
     if (self.usernameField.text.length > 0)
