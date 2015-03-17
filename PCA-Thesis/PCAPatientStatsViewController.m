@@ -151,7 +151,7 @@
     NSMutableArray* tempArr = [[NSMutableArray alloc] init];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yy-MM-dd"];
+    [formatter setDateFormat:@"MM/dd/yy"];
     
     CPTMutableTextStyle* textStyle = [CPTMutableTextStyle textStyle];
     textStyle.fontSize = 12.0f;
