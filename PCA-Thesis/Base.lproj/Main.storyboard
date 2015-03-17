@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nZl-uN-Pyh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D87p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nZl-uN-Pyh">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -376,10 +376,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0gy-o7-Qx1" firstAttribute="leading" secondItem="fTo-Q4-0vT" secondAttribute="leadingMargin" id="Oeq-rZ-6N8"/>
-                            <constraint firstItem="dkb-ig-icu" firstAttribute="top" secondItem="0gy-o7-Qx1" secondAttribute="bottom" constant="15" id="lRY-YV-dZF"/>
-                            <constraint firstItem="0gy-o7-Qx1" firstAttribute="top" secondItem="bnk-GV-roq" secondAttribute="bottom" constant="15" id="qzy-F8-xyN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0gy-o7-Qx1" secondAttribute="trailing" id="ygJ-de-9KN"/>
+                            <constraint firstItem="0gy-o7-Qx1" firstAttribute="leading" secondItem="fTo-Q4-0vT" secondAttribute="leadingMargin" id="0TJ-Iw-BJl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0gy-o7-Qx1" secondAttribute="trailing" id="Ee5-hO-D3b"/>
+                            <constraint firstItem="dkb-ig-icu" firstAttribute="top" secondItem="0gy-o7-Qx1" secondAttribute="bottom" id="lRY-YV-dZF"/>
+                            <constraint firstItem="0gy-o7-Qx1" firstAttribute="top" secondItem="bnk-GV-roq" secondAttribute="bottom" id="qzy-F8-xyN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Patient Stats View" id="89T-At-jgm"/>

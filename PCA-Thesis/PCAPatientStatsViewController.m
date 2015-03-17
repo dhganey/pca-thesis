@@ -57,10 +57,17 @@
         
         hostView.allowPinchScaling = YES;
         
-        graph.paddingBottom = 0;
-        graph.paddingLeft = 0;
+        graph.paddingBottom = 40;
+        graph.paddingLeft = 25;
         graph.paddingRight = 0;
-        graph.paddingTop = 0;
+        graph.paddingTop = 10;
+        
+        graph.plotAreaFrame.paddingBottom = 0;
+        graph.plotAreaFrame.paddingLeft = 0;
+        graph.plotAreaFrame.paddingRight = 0;
+        graph.plotAreaFrame.paddingTop = 0;
+        
+        graph.plotAreaFrame.masksToBorder = NO;
         
         [graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
         
@@ -90,27 +97,32 @@
         
         //configure axes
         CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
+        
+        CPTMutableTextStyle* textStyle = [CPTMutableTextStyle textStyle];
+        textStyle.fontSize = 12.0f;
+        textStyle.color = [CPTColor colorWithCGColor:[[UIColor blackColor] CGColor]];
+        
         CPTXYAxis *x = axisSet.xAxis;
         x.majorIntervalLength = CPTDecimalFromString(@"2");
-        x.minorTicksPerInterval = 1;
-        x.minorTickLength = 5.0f;
         x.majorTickLength = 7.0f;
-        x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
+        x.minorTickLineStyle = nil;
+        //x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
         x.labelingPolicy = CPTAxisLabelingPolicyFixedInterval;
+        x.labelTextStyle = textStyle;
         x.Title = @"Date of Input";
-        x.TitleOffset = 5.0f;
-        //x.LabelOffset = 15.0f;
+        x.TitleOffset = 20.0f;
+        x.LabelOffset = 0.0f;
         
         CPTXYAxis *y = axisSet.yAxis;
         y.majorIntervalLength = CPTDecimalFromString(@"1");
-        y.minorTicksPerInterval = 0;
-        y.minorTickLength = 5.0f;
         y.majorTickLength = 7.0f;
-        y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
+        y.minorTickLineStyle = nil;
+        //y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
         y.labelingPolicy = CPTAxisLabelingPolicyFixedInterval;
+        y.labelTextStyle = textStyle;
         y.Title = @"Number input";
-        y.TitleOffset = 0;
-        //y.LabelOffset = 15.0f;
+        y.TitleOffset = 20.0f;
+        y.LabelOffset = 0.0f;
         
         //create the plot
         CPTScatterPlot *plot = [[CPTScatterPlot alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
