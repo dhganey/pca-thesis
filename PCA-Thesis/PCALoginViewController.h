@@ -29,4 +29,6 @@
 
 - (IBAction)loginPressed:(id)sender;
 - (IBAction)signupPressed:(id)sender;
+- (IBAction)changePasswordPressed:(id)sender;
+- (IBAction)forgotPasswordPressed:(id)sender;
 @end

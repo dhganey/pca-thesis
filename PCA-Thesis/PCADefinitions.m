@@ -31,6 +31,10 @@
         case SIGNUP_ERROR:
             errorMessage = @"There was a problem signing up. Please try again";
             break;
+        case PASSWORD_CHANGE_ERROR:
+            errorMessage = @"There was a problem changing your password. Please ensure all fields are correct \
+            and try again";
+            break;
         case USERNAME_TAKEN:
             errorMessage = @"Sorry, that username is already taken. Please try another";
             break;

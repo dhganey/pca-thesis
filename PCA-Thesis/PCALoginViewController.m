@@ -151,4 +151,23 @@
 {
     [self performSegueWithIdentifier:@"signupSegue" sender:self];
 }
+
+- (IBAction)forgotPasswordPressed:(id)sender
+{
+    if (self.usernameField.text.length > 0)
+    {
+        NSString* requestString = [NSString stringWithFormat:@"/%@/reset/user/%@", [Catalyze applicationId], self.usernameField.text];
+        [CatalyzeHTTPManager doGet:requestString success:^(id result)
+         {
+             [[[UIAlertView alloc] initWithTitle:@"Success" message:@"Please check your email to complete the reset process." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+         } failure:^(NSDictionary *result, int status, NSError *error)
+         {
+             NSLog(@"password reset failed %@", result);
+         }];
+    }
+    else
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter a username" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    }
+}
 @end
