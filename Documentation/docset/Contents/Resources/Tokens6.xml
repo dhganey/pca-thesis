@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PCAPatientStatsViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PCAPatientStatsViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PCAPatientStatsViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAPatientStatsViewController/setNewGraphingView:</TokenIdentifier>
+			<Abstract type="html">UIView holds the graph, tied to the storyboard</Abstract>
+			<DeclaredIn>PCAPatientStatsViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) IBOutlet UIView *NewGraphingView</Declaration>
+			
+			
+			<Anchor>//api/name/NewGraphingView</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAPatientStatsViewController/NewGraphingView</TokenIdentifier>
+			<Abstract type="html">UIView holds the graph, tied to the storyboard</Abstract>
+			<DeclaredIn>PCAPatientStatsViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) IBOutlet UIView *NewGraphingView</Declaration>
+			
+			
+			<Anchor>//api/name/NewGraphingView</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PCAPatientStatsViewController/NewGraphingView</TokenIdentifier>
+			<Abstract type="html">UIView holds the graph, tied to the storyboard</Abstract>
+			<DeclaredIn>PCAPatientStatsViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) IBOutlet UIView *NewGraphingView</Declaration>
+			
+			
+			<Anchor>//api/name/NewGraphingView</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAPatientStatsViewController/setUserEntries:</TokenIdentifier>
+			<Abstract type="html">Array of user entries, passed from previous VC</Abstract>
+			<DeclaredIn>PCAPatientStatsViewController.h</DeclaredIn>
+			
+			<Declaration>@property NSMutableArray *userEntries</Declaration>
+			
+			
+			<Anchor>//api/name/userEntries</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAPatientStatsViewController/userEntries</TokenIdentifier>
+			<Abstract type="html">Array of user entries, passed from previous VC</Abstract>
+			<DeclaredIn>PCAPatientStatsViewController.h</DeclaredIn>
+			
+			<Declaration>@property NSMutableArray *userEntries</Declaration>
+			
+			
+			<Anchor>//api/name/userEntries</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PCAPatientStatsViewController/userEntries</TokenIdentifier>
+			<Abstract type="html">Array of user entries, passed from previous VC</Abstract>
+			<DeclaredIn>PCAPatientStatsViewController.h</DeclaredIn>
+			
+			<Declaration>@property NSMutableArray *userEntries</Declaration>
+			
+			
+			<Anchor>//api/name/userEntries</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAPatientStatsViewController/viewWillAppear:</TokenIdentifier>
+			<Abstract type="html">When the view appears, rotate the view, update the title, and create the scatterplot</Abstract>
+			<DeclaredIn>PCAPatientStatsViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)viewWillAppear:(id)animated</Declaration>
+			
+			
+			<Anchor>//api/name/viewWillAppear:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAPatientStatsViewController/constructPlot</TokenIdentifier>
+			<Abstract type="html">Creates the scatterplot</Abstract>
+			<DeclaredIn>PCAPatientStatsViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)constructPlot</Declaration>
+			
+			
+			<Anchor>//api/name/constructPlot</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAPatientStatsViewController/numberOfRecordsForPlot:</TokenIdentifier>
+			<Abstract type="html">Datasource delegate method. Determines how many records there are</Abstract>
+			<DeclaredIn>PCAPatientStatsViewController.m</DeclaredIn>
+			
+			<Declaration>- (NSUInteger)numberOfRecordsForPlot:(id)plot</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfRecordsForPlot:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAPatientStatsViewController/numberForPlot:field:recordIndex:</TokenIdentifier>
+			<Abstract type="html">Datasource delegate method. Like cellForRowAtIndexPath, fills a unique plot point</Abstract>
+			<DeclaredIn>PCAPatientStatsViewController.m</DeclaredIn>
+			
+			<Declaration>- (NSNumber *)numberForPlot:(id)plot field:(id)fieldEnum recordIndex:(id)idx</Declaration>
+			
+			
+			<Anchor>//api/name/numberForPlot:field:recordIndex:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

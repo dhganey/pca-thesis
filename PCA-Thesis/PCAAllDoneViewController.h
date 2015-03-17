@@ -24,11 +24,6 @@
 @property NSMutableDictionary* urgentDictionary;
 
 /**
- AppDelegate object used to reference defObj for static functions
- */
-@property PCAAppDelegate* appDel;
-
-/**
  Called when logout button pressed
  */
 - (IBAction)logoutPressed:(id)sender;

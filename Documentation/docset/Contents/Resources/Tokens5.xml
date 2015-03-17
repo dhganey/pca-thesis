@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PCAPatientDetailViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PCAPatientDetailViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PCAPatientDetailViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="5"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAPatientDetailViewController/updateInformationArea</TokenIdentifier>
+			<Abstract type="html">Updates the information text area with the user&apos;s urgent symptoms and the values entered</Abstract>
+			<DeclaredIn>PCAPatientDetailViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)updateInformationArea</Declaration>
+			
+			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
+			<Anchor>//api/name/updateInformationArea</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAPatientDetailViewController/queryForSymptoms</TokenIdentifier>
+			<Abstract type="html">Grabs the previous 60 entries for the selected user</Abstract>
+			<DeclaredIn>PCAPatientDetailViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)queryForSymptoms</Declaration>
+			
+			
+			<Anchor>//api/name/queryForSymptoms</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PCAPatientDetailViewController/prepareForSegue:sender:</TokenIdentifier>
+			<Abstract type="html">When we segue to the stats view, pass the result of the entries query</Abstract>
+			<DeclaredIn>PCAPatientDetailViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)prepareForSegue:(id)segue sender:(id)sender</Declaration>
+			
+			
+			<Anchor>//api/name/prepareForSegue:sender:</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

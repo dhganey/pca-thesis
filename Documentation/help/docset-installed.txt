@@ -1,4 +1,0 @@
-Documentation set was installed to Xcode!
-
-Path: /Users/David/Library/Developer/Shared/Documentation/DocSets/edu.asu.dhganey.PCA-Thesis.docset
-Time: 2014-12-01 19:42:30 +0000

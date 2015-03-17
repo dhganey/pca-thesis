@@ -277,19 +277,23 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wE5-vy-if2">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wE5-vy-if2">
                                             <rect key="frame" x="8" y="13" width="199" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="222" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0n5-Ad-Dg9">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="222" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0n5-Ad-Dg9">
                                             <rect key="frame" x="215" y="13" width="97" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="0n5-Ad-Dg9" firstAttribute="trailing" secondItem="SUY-SM-231" secondAttribute="trailingMargin" id="OLf-ew-eNl"/>
+                                        <constraint firstItem="wE5-vy-if2" firstAttribute="leading" secondItem="SUY-SM-231" secondAttribute="leadingMargin" id="t6n-nu-ihs"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -331,24 +335,76 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRO-W2-H8Z">
-                                <rect key="frame" x="16" y="72" width="288" height="436"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRO-W2-H8Z">
+                                <rect key="frame" x="16" y="72" width="288" height="206"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FMA-jj-glg">
+                                <rect key="frame" x="0.0" y="347" width="320" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uqQ-2D-QbS" firstAttribute="top" secondItem="FMA-jj-glg" secondAttribute="bottom" constant="5" id="Jc7-Dr-cSG"/>
+                            <constraint firstItem="SRO-W2-H8Z" firstAttribute="trailing" secondItem="nfe-wH-hfb" secondAttribute="trailingMargin" id="LjS-OM-BVz"/>
+                            <constraint firstItem="SRO-W2-H8Z" firstAttribute="leading" secondItem="nfe-wH-hfb" secondAttribute="leadingMargin" id="QrR-SG-WAN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FMA-jj-glg" secondAttribute="trailing" constant="-16" id="Sur-lf-QWk"/>
+                            <constraint firstItem="FMA-jj-glg" firstAttribute="leading" secondItem="nfe-wH-hfb" secondAttribute="leadingMargin" constant="-16" id="Ycv-Y9-fv8"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Patient Name" id="kFw-K2-hK2"/>
+                    <navigationItem key="navigationItem" title="Patient Name" id="kFw-K2-hK2">
+                        <barButtonItem key="rightBarButtonItem" title="Stats" id="cn2-KS-9uU">
+                            <connections>
+                                <segue destination="cb6-71-wXY" kind="push" id="TjX-mn-KK8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="informationView" destination="SRO-W2-H8Z" id="Hpk-rm-JKJ"/>
+                        <outlet property="symptomPicker" destination="FMA-jj-glg" id="lgf-Ae-9Hr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIb-nj-O3T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1469" y="-1104"/>
+            <point key="canvasLocation" x="1469" y="-1099"/>
+        </scene>
+        <!--Patient Stats View-->
+        <scene sceneID="Vjy-Dt-ZiB">
+            <objects>
+                <viewController id="cb6-71-wXY" customClass="PCAPatientStatsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bnk-GV-roq"/>
+                        <viewControllerLayoutGuide type="bottom" id="dkb-ig-icu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fTo-Q4-0vT">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0gy-o7-Qx1">
+                                <rect key="frame" x="86" y="90" width="397" height="164"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0gy-o7-Qx1" firstAttribute="leading" secondItem="fTo-Q4-0vT" secondAttribute="leadingMargin" id="0TJ-Iw-BJl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0gy-o7-Qx1" secondAttribute="trailing" id="Ee5-hO-D3b"/>
+                            <constraint firstItem="dkb-ig-icu" firstAttribute="top" secondItem="0gy-o7-Qx1" secondAttribute="bottom" id="lRY-YV-dZF"/>
+                            <constraint firstItem="0gy-o7-Qx1" firstAttribute="top" secondItem="bnk-GV-roq" secondAttribute="bottom" id="qzy-F8-xyN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Patient Stats View" id="89T-At-jgm"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="NewGraphingView" destination="0gy-o7-Qx1" id="Rpm-we-jFN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ybj-UY-Olb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2042" y="-1129"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RNX-e1-w8V">

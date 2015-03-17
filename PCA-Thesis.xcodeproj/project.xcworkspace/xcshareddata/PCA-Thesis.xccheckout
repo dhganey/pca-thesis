@@ -18,6 +18,8 @@
 		<string>https://github.com/catalyzeio/catalyze-ios-sdk.git</string>
 		<key>76E96B9A9B43D9E2850DCCE751CBB3CAFE5C89D8</key>
 		<string>https://github.com/michaeltyson/TPKeyboardAvoiding.git</string>
+		<key>8B3D884E5CB77CFCF2CE65E14C999AAC1DC843A5</key>
+		<string>https://github.com/core-plot/core-plot.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>PCA-Thesis.xcodeproj</string>
@@ -31,6 +33,8 @@
 		<string>../..catalyze/catalyze-ios-sdk</string>
 		<key>76E96B9A9B43D9E2850DCCE751CBB3CAFE5C89D8</key>
 		<string>../..TPKeyboardAvoiding/TPKeyboardAvoiding</string>
+		<key>8B3D884E5CB77CFCF2CE65E14C999AAC1DC843A5</key>
+		<string>../../core-plot</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/dhganey/pca-thesis.git</string>
@@ -47,6 +51,14 @@
 			<string>4BD79C162FD3171164E9F654D1F4940E11635A44</string>
 			<key>IDESourceControlWCCName</key>
 			<string>catalyze-ios-sdk</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8B3D884E5CB77CFCF2CE65E14C999AAC1DC843A5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>core-plot</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
