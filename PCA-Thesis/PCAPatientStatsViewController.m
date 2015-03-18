@@ -163,7 +163,7 @@
         CatalyzeEntry* entry = [self.userEntries objectAtIndex:i];
         CPTAxisLabel* label = [[CPTAxisLabel alloc] initWithText:[formatter stringFromDate:entry.createdAt] textStyle:textStyle];
         [label setTickLocation:CPTDecimalFromInt(i)];
-        [label setRotation:M_PI/4];
+        [label setRotation:M_PI_4];
         [label setOffset:0.1];
         [tempArr addObject:label];
     }
