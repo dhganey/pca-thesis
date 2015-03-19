@@ -7,11 +7,6 @@
 //
 
 #import "PCASignupViewController.h"
-#import "PCAAppDelegate.h"
-
-#import "Catalyze.h"
-
-#import "PCADefinitions.h"
 
 @interface PCASignupViewController ()
 
@@ -36,8 +31,6 @@
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     tapGesture.cancelsTouchesInView = NO;
-    
-    self.appDel = [[UIApplication sharedApplication] delegate]; //get the singleton app delegate
 }
 
 -(void) dealloc
@@ -133,7 +126,7 @@
         }
         failure:^(NSDictionary *result, int status, NSError *error) //callback if signup fails
         {
-            if (status==400)
+            if (status==BAD_REQUEST)
             {
                 [PCADefinitions showAlert:USERNAME_TAKEN];
             }
@@ -182,8 +175,6 @@
     ok = ok && ([self.zipField.text length] > 0);
     
     ok = ok && [self.passwordField.text isEqualToString:self.passwordField2.text]; //ensure passwords are the same
-    
-    //TODO: check email addr, phone number length
     
     return ok;
 }

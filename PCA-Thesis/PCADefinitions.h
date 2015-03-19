@@ -10,6 +10,8 @@
 
 #import "Catalyze.h"
 
+#define STD_DEV_CUTOFF = 2
+
 @interface PCADefinitions : NSObject
 
 /**
@@ -90,6 +92,17 @@ typedef enum
     FRIDAY,
     SATURDAY
 } DAYS_OF_WEEK;
+
+/**
+ Enumerated type for HTTP status codes
+ */
+typedef enum
+{
+    BAD_REQUEST = 400,
+    FORBIDDEN = 403,
+    NOT_FOUND = 404,
+    BAD_GATEWAY = 502
+} HTTP_STATUS;
 
 +(void) showAlert: (ERROR_TYPE) type;
 +(void) showAlertWithText: (NSString*) text;

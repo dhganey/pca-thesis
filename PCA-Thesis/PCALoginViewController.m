@@ -7,11 +7,6 @@
 //
 
 #import "PCALoginViewController.h"
-#import "PCAAppDelegate.h"
-
-#import "Catalyze.h"
-#import "PCADefinitions.h"
-#import "PCAPatientTableViewController.h"
 
 @interface PCALoginViewController ()
 
@@ -29,8 +24,6 @@
     {
         [self performSegueWithIdentifier:@"doneLoggingSegue" sender:self];
     }
-    
-    self.appDel = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning

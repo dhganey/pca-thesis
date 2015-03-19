@@ -8,14 +8,6 @@
 
 #import "PCAMainViewController.h"
 
-#import "Catalyze.h"
-
-#import "PCADefinitions.h"
-#import "PCAAppDelegate.h"
-#import "PCAAllDoneViewController.h"
-
-#define STD_DEV_CUTOFF = 2
-
 @interface PCAMainViewController ()
 
 @end
@@ -164,9 +156,9 @@ int FONT_SIZE = 15;
                 }
                 break;
             default:
-                //if we get here, we have a problem--previous entry was made not on tuesday, thursday, saturday
-                //this will happen frequently during testing
-                //TODO handle this here
+                //if we get here, we have a problem -- previous entry did not follow expected pattern
+                //e.g. was not on one of the expected days
+                //allow the user to enter symptoms
                 return NOT_DONE;
                 
         }
@@ -189,7 +181,7 @@ int FONT_SIZE = 15;
     
     if (self.doneType == NOT_SET)
     {
-        nextVC.doneType = DONE_ENTERING; //TODO default
+        nextVC.doneType = DONE_ENTERING;
         nextVC.urgentDictionary = self.urgentDictionary;
     }
     else
@@ -304,7 +296,6 @@ int FONT_SIZE = 15;
     instructionString = [instructionString stringByAppendingString:@"click the button which reflects your "];
     instructionString = [instructionString stringByAppendingString:[PCADefinitions determineSymptomName:self.currentSymptom]];
     instructionString = [instructionString stringByAppendingString:@".\n\n"];
-    //TODO: tell user previous value
     
     //Now create the actual label
     UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(X_OFFSET, INSTRUCTION_Y_OFFSET, CGRectGetWidth(self.view.bounds), HEIGHT)];
@@ -404,7 +395,6 @@ int FONT_SIZE = 15;
     
     segControl = [[UISegmentedControl alloc] initWithItems:buttonTexts];
     segControl.frame = CGRectMake(X_OFFSET, INPUT_Y_OFFSET + 50, CGRectGetWidth(self.view.bounds)-2*X_OFFSET, HEIGHT);
-    //TODO adjust height values
     
     //The loop below iterates through each segment in the control
     //For each label in the subviews of the segment, if it's a UILabel, it sets the number of lines to 0
@@ -614,12 +604,10 @@ int FONT_SIZE = 15;
     
     //then, add the doctors who are permitted to view this entry
     //this is easier for the doctor's view than for doctors to query all users
-    //TODO: update this to pull an array from the users. right now, they all have
-    //one providerId as an extra, make it an array later
     NSString* doctor = [[CatalyzeUser currentUser] extraForKey:@"providerId"];
     
     CatalyzeEntry* newEsasEntry = [CatalyzeEntry entryWithClassName:@"esasEntry" dictionary:self.esasDictionary];
-    [newEsasEntry.content setValue:doctor forKey:@"doctor"]; //TODO update to use array
+    [newEsasEntry.content setValue:doctor forKey:@"doctor"];
     
     [newEsasEntry createInBackgroundWithSuccess:^(id result)
     {
@@ -646,7 +634,7 @@ int FONT_SIZE = 15;
  Each entry in the dictionary is either 0 (not urgent), 1 (slightly), or 2 (very)
  These are determined in two ways:
  Any slider symptom above 9 is automatically a 1, if it's 10 it's automatically a 2
- Any radio symptom at highest level is a 1, but TODO check and see if this should be 2 instead
+ Any radio symptom at highest level is a 1
  Any slider symtom > 1 SD above mean is a 1
  Any slider symptom > 2 SD above mean is a 2
  @return void

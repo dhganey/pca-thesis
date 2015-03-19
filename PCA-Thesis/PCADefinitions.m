@@ -8,8 +8,6 @@
 
 #import "PCADefinitions.h"
 
-#import "Catalyze.h"
-
 @implementation PCADefinitions
 
 /**

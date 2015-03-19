@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "PCAAppDelegate.h"
+#import "PCADefinitions.h"
 #import "TPKeyboardAvoidingScrollView.h"
+#import "Catalyze.h"
 
 @interface PCASignupViewController : UIViewController
 
@@ -57,11 +58,6 @@
  UITextField for the user's zip code
  */
 @property (weak, nonatomic) IBOutlet UITextField *zipField;
-
-/**
- AppDelegate reference to use defObj
- */
-@property PCAAppDelegate* appDel;
 
 /**
  UISegmentedControl for the user's gender

@@ -6,14 +6,13 @@
 //  Copyright (c) 2015 dhganey. All rights reserved.
 //
 
-#pragma once
-
 #import <UIKit/UIKit.h>
+
 #import "Catalyze.h"
 #import "CorePlot-CocoaTouch.h"
-
-#include "PCADefinitions.h"
-#include "PCAAppDelegate.h"
+#import "PCADefinitions.h"
+#import "PCAAppDelegate.h"
+#import "PCAPatientDetailViewController.h"
 
 @interface PCAPatientStatsViewController : UIViewController <CPTPlotDataSource>
 

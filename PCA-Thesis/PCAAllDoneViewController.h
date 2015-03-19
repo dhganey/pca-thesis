@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "PCADefinitions.h"
-#import "PCAAppDelegate.h"
+#import "Catalyze.h"
 
 @interface PCAAllDoneViewController : UIViewController
 

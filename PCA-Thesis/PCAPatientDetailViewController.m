@@ -8,9 +8,6 @@
 
 #import "PCAPatientDetailViewController.h"
 
-#include "PCAPatientStatsViewController.h"
-#include "PCADefinitions.h"
-
 @interface PCAPatientDetailViewController ()
 
 @end

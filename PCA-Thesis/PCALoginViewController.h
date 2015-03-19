@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "PCAAppDelegate.h"
+#import "Catalyze.h"
+#import "PCADefinitions.h"
+#import "PCAPatientTableViewController.h"
 
 @interface PCALoginViewController : UIViewController
 
@@ -22,13 +24,7 @@
  */
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 
-/**
- AppDelegate reference for defObj
- */
-@property PCAAppDelegate* appDel;
-
 - (IBAction)loginPressed:(id)sender;
 - (IBAction)signupPressed:(id)sender;
-- (IBAction)changePasswordPressed:(id)sender;
 - (IBAction)forgotPasswordPressed:(id)sender;
 @end

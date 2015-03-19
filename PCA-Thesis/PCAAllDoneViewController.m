@@ -7,8 +7,6 @@
 //
 
 #import "PCAAllDoneViewController.h"
-#import "Catalyze.h"
-#import "PCADefinitions.h"
 
 @interface PCAAllDoneViewController ()
 
@@ -32,7 +30,7 @@
     }
     else
     {
-        //TODO
+        NSLog(@"Done type behavior not implemented");
     }
 }
 
@@ -59,7 +57,7 @@
         }
     }
     
-    UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, CGRectGetWidth(self.view.bounds), 500)]; //todo adjust magic nums
+    UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, CGRectGetWidth(self.view.bounds), 500)];
     feedLabel.lineBreakMode = NSLineBreakByWordWrapping;
     [feedLabel setNumberOfLines:0]; //this should force wrapping
     feedLabel.font = [feedLabel.font fontWithSize:14];
@@ -96,8 +94,7 @@
  */
 -(void) showNoNeed
 {
-    UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, CGRectGetWidth(self.view.bounds), 500)]; //todo adjust magic nums
-    
+    UILabel *feedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, CGRectGetWidth(self.view.bounds), 500)];    
     [feedLabel setText:@"No need to enter symptoms right now! Please enter symptoms once on Tuesdays, Thursdays, and Saturdays"];
     feedLabel.numberOfLines = 0;
     [feedLabel sizeToFit];

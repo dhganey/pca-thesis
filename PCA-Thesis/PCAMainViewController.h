@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 #import "Catalyze.h"
+#import "PCADefinitions.h"
+#import "PCAAllDoneViewController.h"
 
-#import "PCAAppDelegate.h"
 
 @interface PCAMainViewController : UIViewController <UIAlertViewDelegate>
 

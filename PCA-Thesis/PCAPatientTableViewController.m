@@ -8,10 +8,6 @@
 
 #import "PCAPatientTableViewController.h"
 
-#import "PCADefinitions.h"
-#import "Catalyze.h"
-#import "PCAPatientDetailViewController.h"
-
 @interface PCAPatientTableViewController ()
 
 @end
@@ -35,6 +31,8 @@
     [super viewDidLoad];
     
     self.clearsSelectionOnViewWillAppear = YES;
+    
+    self.secondTry = false;
     
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -116,7 +114,12 @@
     }
     failure:^(NSDictionary *result, int status, NSError *error)
      {
-         //TODO handle this failure case
+         NSLog(@"Error -- query failed");
+         if (!self.secondTry)
+         {
+             self.secondTry = true;
+             [self executeQuery]; //give it another go
+         }
      }];
 }
 
